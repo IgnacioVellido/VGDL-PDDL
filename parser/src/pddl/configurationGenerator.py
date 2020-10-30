@@ -24,12 +24,12 @@ config = dict(
         # ...
     ),
     cellVariable = "?c",
-    avatarVariable = "?a",
+    avatarVariable = "",
     orientationCorrespondence = dict(
-        UP = "(oriented-up ?o)",
-        DOWN = "(oriented-down ?o)",
-        LEFT = "(oriented-left ?o)",
-        RIGHT = "(oriented-right ?o)"
+        UP = "(oriented-up ?object)",
+        DOWN = "(oriented-down ?object)",
+        LEFT = "(oriented-left ?object)",
+        RIGHT = "(oriented-right ?object)"
     ),
     connections = dict(
         UP = "(connected-up ?c1 ?c2)",
@@ -45,7 +45,7 @@ config = dict(
     goals = dict(
 
     ),
-    additionPredicates = dict(
+    additionalPredicates = list(
         # 1 = "(turn-avatar)",
         # 2 = "(turn-sprites)",
         # 3 = "(turn-interactions)",
@@ -87,6 +87,40 @@ def getConfig(domainGenerator, listener):
     # Add avatar variable
     config["avatarVariable"] = "?%s" % listener.avatar.name
 
-    # print(listener.avatar.name)
+
+    # Add additional predicates
+    config["additionalPredicates"].extend([
+        "(turn-avatar)",
+        "(turn-sprites)",
+        "(turn-interactions)"
+    ])
+
+    # Add actions correspondences
+    for action in domainGenerator.actions:
+        # if "PDDL_AVATAR" in action.name:
+        if "AVATAR_ACTION_" in action.name:
+            name = action.name.replace("AVATAR_ACTION_", "")
+
+            if "USE" in name:
+                correspondence = "ACTION_USE"
+            elif "NIL" in name:
+                correspondence = "ACTION_NIL"
+            elif "UP" in name:
+                correspondence = "ACTION_UP"
+            elif "DOWN" in name:
+                correspondence = "ACTION_DOWN"
+            elif "LEFT" in name:
+                correspondence = "ACTION_LEFT"
+            elif "RIGHT" in name:
+                correspondence = "ACTION_RIGHT"
+
+            config["actionsCorrespondence"][action.name] = correspondence
+
+        else:
+            config["actionsCorrespondence"][action.name] = None
+            
+
+
+    # print(domainGenerator.actions[0].name)
 
     return config

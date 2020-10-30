@@ -117,7 +117,7 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     def move_up(self):
-        name = "AVATAR_MOVE_UP"
+        name = "AVATAR_ACTION_MOVE_UP"
         parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
@@ -134,7 +134,7 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     def move_down(self):
-        name = "AVATAR_MOVE_DOWN"
+        name = "AVATAR_ACTION_MOVE_DOWN"
         parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
@@ -150,7 +150,7 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     def move_left(self):
-        name = "AVATAR_MOVE_LEFT"
+        name = "AVATAR_ACTION_MOVE_LEFT"
         parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
@@ -166,7 +166,7 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     def move_right(self):
-        name = "AVATAR_MOVE_RIGHT"
+        name = "AVATAR_ACTION_MOVE_RIGHT"
         parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
@@ -183,7 +183,7 @@ class AvatarActions:
 
     # This method should only be called if the avatar can turn
     def turn_up(self):
-        name = "AVATAR_TURN_UP"
+        name = "AVATAR_ACTION_TURN_UP"
         parameters = [["a", self.avatar.stype]]
 
         # If not (can-change-orientation ?a), the avatar cannot use this action
@@ -214,7 +214,7 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     def turn_down(self):
-        name = "AVATAR_TURN_DOWN"
+        name = "AVATAR_ACTION_TURN_DOWN"
         parameters = [["a", self.avatar.stype]]
 
         # If not (can-change-orientation ?a), the avatar cannot use this action
@@ -245,7 +245,7 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     def turn_left(self):
-        name = "AVATAR_TURN_LEFT"
+        name = "AVATAR_ACTION_TURN_LEFT"
         parameters = [["a", self.avatar.stype]]
 
         # If not (can-change-orientation ?a), the avatar cannot use this action
@@ -275,7 +275,7 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     def turn_right(self):
-        name = "AVATAR_TURN_RIGHT"
+        name = "AVATAR_ACTION_TURN_RIGHT"
         parameters = [["a", self.avatar.stype]]
 
         # If not (can-change-orientation ?a), the avatar cannot use this action
@@ -313,7 +313,7 @@ class AvatarActions:
         if self.partner == None:
             raise TypeError('Argument "partner" is not defined')
 
-        name = "AVATAR_USE_UP"
+        name = "AVATAR_ACTION_USE_UP"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_up", "cell"]]
         preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-up ?a)", "(connected-up ?c_actual ?c_up)"]
 
@@ -334,7 +334,7 @@ class AvatarActions:
         if self.partner == None:
             raise TypeError('Argument "partner" is not defined')
 
-        name = "AVATAR_USE_DOWN"
+        name = "AVATAR_ACTION_USE_DOWN"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_down", "cell"]]
         preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-down ?a)", "(connected-down ?c_actual ?c_down)"]
 
@@ -353,7 +353,7 @@ class AvatarActions:
         if self.partner == None:
             raise TypeError('Argument "partner" is not defined')
 
-        name = "AVATAR_USE_LEFT"
+        name = "AVATAR_ACTION_USE_LEFT"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_left", "cell"]]
         preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-left ?a)", "(connected-left ?c_actual ?c_left)"]
 
@@ -372,7 +372,7 @@ class AvatarActions:
         if self.partner == None:
             raise TypeError('Argument "partner" is not defined')
 
-        name = "AVATAR_USE_RIGHT"
+        name = "AVATAR_ACTION_USE_RIGHT"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_right", "cell"]]
         preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-right ?a)", "(connected-right ?c_actual ?c_right)"]
 
@@ -385,7 +385,7 @@ class AvatarActions:
     # Probably will not work
     def nil(self):
         """ Avatar doesn't do anything """
-        name = "AVATAR_NIL"
+        name = "AVATAR_ACTION_NIL"
         parameters = [["a", self.avatar.stype]]
         preconditions = ["(turn-avatar)"]
         effects = ["(not (turn-avatar))", "(turn-sprites)"]
