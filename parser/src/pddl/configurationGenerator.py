@@ -157,9 +157,4 @@ def getConfig(domainGenerator, listener):
             orientation = orientation.split("=")[1]
             config["orientation"][sprite.name] = orientation       
 
-    # Add avatar orientation
-
-
-    # print(domainGenerator.spritesPDDL[2].predicates)
-
     return config
