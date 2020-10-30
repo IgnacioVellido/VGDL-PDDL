@@ -8,7 +8,7 @@
 ###############################################################################
 
 import sys
-import os.path
+import os
 import argparse
 
 # For FileStream and other utilities
@@ -137,10 +137,11 @@ def check_VGDL(lines: str) -> bool:
 # -----------------------------------------------------------------------------
 
 
-def write_output(path: str, text: str):
-    """ Writes domain in file """
+def write_output(filename: str, text: str):
+    """ Writes output in file """
     try:
-        with open(path, "wb") as file:
+        os.makedirs(os.path.dirname(filename), exist_ok=True)
+        with open(filename, "wb") as file:
             file.write(text.encode("utf-8"))
     except Exception as e:
         print("Cannot open file " + path)
@@ -348,17 +349,18 @@ def main(argv):
 
         # Get configuration text
         config = getConfig(
-                    writer,
+                    domainGenerator,
                     listener
                 )
 
         # Write YAML file in folder
-        with open("../configuration/configuration.yaml", 'w') as configfile:
-            yaml.dump(config, configfile)
+        configPath = "../configuration/configuration.yaml"
+        os.makedirs(os.path.dirname(configPath), exist_ok=True)
+        with open(configPath, 'w') as configfile:
+            yaml.dump(config, configfile, default_flow_style=False)
         
         print("Configuration file produced without errors.")
             
-
 
 ###############################################################################
 # -----------------------------------------------------------------------------

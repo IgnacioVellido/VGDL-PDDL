@@ -19,7 +19,7 @@ config = dict(
         # turn-keym y demás también ?
     ),
     variableTypes = dict(
-        "?c" = "Cell",
+        # ?c = "Cell",
         # ?boulder = "boulder"
         # ...
     ),
@@ -30,7 +30,7 @@ config = dict(
         DOWN = "(oriented-down ?o)",
         LEFT = "(oriented-left ?o)",
         RIGHT = "(oriented-right ?o)"
-    )
+    ),
     connections = dict(
         UP = "(connected-up ?c1 ?c2)",
         DOWN = "(connected-down ?c1 ?c2)",
@@ -41,14 +41,14 @@ config = dict(
         # AVATAR_TURN_UP : ACTION_UP
         # AVATAR_MOVE_UP : ACTION_UP
         # ...
-    )
+    ),
     goals = dict(
 
     ),
     additionPredicates = dict(
-        1 = "(turn-avatar)",
-        2 = "(turn-sprites)",
-        3 = "(turn-interactions)",
+        # 1 = "(turn-avatar)",
+        # 2 = "(turn-sprites)",
+        # 3 = "(turn-interactions)",
         # ...
         # (can-move-up ?a)
     )
@@ -57,8 +57,36 @@ config = dict(
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
-def getConfig(domainGenerator):
+def getConfig(domainGenerator, listener):
     """ Produce configuration YAML 
         - domainGenerator: Contains info about predicates/types ...
         - listener: Contains info about hierarchy/names ...
     """
+
+    predicates = domainGenerator.predicates
+    # print(predicates)
+
+    # Objects that appears in the level
+    objects = listener.long_types
+
+    # Add dict for each object
+    for o in objects:
+        # ----------------------------------------------------------------------
+        # gameElementsCorrespondence -------------------------------------------
+        config["gameElementsCorrespondence"][o] = list()
+
+        # Include predicates
+        config["gameElementsCorrespondence"][o].append("(at ?c ?%s)" % o)
+        config["gameElementsCorrespondence"][o].append("(last-at ?c ?%s)" % o)
+
+        # ----------------------------------------------------------------------
+        # variableTypes --------------------------------------------------------
+        variableType = "?%s" % o
+        config["variableTypes"][variableType] = o
+
+    # Add avatar variable
+    config["avatarVariable"] = "?%s" % listener.avatar.name
+
+    # print(listener.avatar.name)
+
+    return config

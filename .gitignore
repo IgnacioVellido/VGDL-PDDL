@@ -1,3 +1,8 @@
+# Outputs
+configuration/*
+domains/*
+.vscode/*
+
 # Compiled class file
 *.class
 
