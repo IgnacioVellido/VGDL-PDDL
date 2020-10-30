@@ -6,6 +6,8 @@
 # Generates the configuration YAML file
 ###############################################################################
 
+import re
+
 config = dict(
     domainFile = "domain.pddl",
     problemFile = "problem.pddl",
@@ -78,6 +80,7 @@ def getConfig(domainGenerator, listener):
         # Include predicates
         config["gameElementsCorrespondence"][o].append("(at ?c ?%s)" % o)
         config["gameElementsCorrespondence"][o].append("(last-at ?c ?%s)" % o)
+        # config["gameElementsCorrespondence"][o].append("(object-dead ?%s)" % o)
 
         # ----------------------------------------------------------------------
         # variableTypes --------------------------------------------------------
@@ -85,11 +88,20 @@ def getConfig(domainGenerator, listener):
         config["variableTypes"][variableType] = o
 
     # Add avatar variable
-    config["avatarVariable"] = "?%s" % listener.avatar.name
+    avatar_name = listener.avatar.name
+    config["avatarVariable"] = "?%s" % avatar_name
+    
+    # Avatar predicates
+    for predicate in domainGenerator.avatarPDDL.predicates:
+        match = re.search("([\w-])+ ?", predicate) # Only has one occurrence
+        config["gameElementsCorrespondence"][avatar_name].append(
+            "(%s?%s)" % (match.group(), avatar_name)
+        )
 
 
     # Add additional predicates
     config["additionalPredicates"].extend([
+        # (object-dead ?object),
         "(turn-avatar)",
         "(turn-sprites)",
         "(turn-interactions)"
@@ -120,7 +132,6 @@ def getConfig(domainGenerator, listener):
             config["actionsCorrespondence"][action.name] = None
             
 
-
-    # print(domainGenerator.actions[0].name)
+    # print(domainGenerator.avatarPDDL.predicates)
 
     return config
