@@ -1,3 +1,8 @@
+# For this repo: Generate PDDL domain and configuration file
+config:
+	python3 ./src/main.py -l pddl -c -gi $(gi) -go ../domains/domain.pddl
+
+
 # Compile ANTLR grammar
 compile-grammar:
 	antlr4 -Dlanguage=Python3 Vgdl.g4

@@ -190,6 +190,10 @@ def main(argv):
     argparser.add_argument(
         "-vh", "--verboseHelp", action="store_true", help="Show additional information"
     )
+    # For this repo: Generate configuration file
+    argparser.add_argument(
+        "-c", "--configuration", action="store_true", help="Generate configuration file"
+    )
 
     args = argparser.parse_args()
 
@@ -334,6 +338,26 @@ def main(argv):
             print("Problem defined without errors.")
         except Exception as e:
             print("Error writing problem: " + str(e))
+
+
+    # --------------------------------------------------------------------------
+    # Generate configuration file
+    if args.configuration:
+        import yaml
+        from pddl.configurationGenerator import getConfig
+
+        # Get configuration text
+        config = getConfig(
+                    writer,
+                    listener
+                )
+
+        # Write YAML file in folder
+        with open("../configuration/configuration.yaml", 'w') as configfile:
+            yaml.dump(config, configfile)
+        
+        print("Configuration file produced without errors.")
+            
 
 
 ###############################################################################
