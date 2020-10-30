@@ -49,7 +49,7 @@ class DomainGeneratorPDDL:
         self.long_types = []  # The sprites part of a LevelMapping
         self.stypes = set()  # All types in the game (bigger than long_types)
         self.transformTo = []  # Objects that can be created
-        # ADD LATER THE SPAWNPOINTS TOO
+        # ADD LATER THE SPAWNPOINTS TOO - AND PRODUCERS
 
         self.search_partner()
         self.avatarPDDL = AvatarPDDL(self.avatar, self.hierarchy, self.partner)

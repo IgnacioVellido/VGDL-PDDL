@@ -59,6 +59,7 @@ config = dict(
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
+# Listener should not be needed
 def getConfig(domainGenerator, listener):
     """ Produce configuration YAML 
         - domainGenerator: Contains info about predicates/types ...
@@ -75,12 +76,13 @@ def getConfig(domainGenerator, listener):
     for o in objects:
         # ----------------------------------------------------------------------
         # gameElementsCorrespondence -------------------------------------------
-        config["gameElementsCorrespondence"][o] = list()
 
         # Include predicates
-        config["gameElementsCorrespondence"][o].append("(at ?c ?%s)" % o)
-        config["gameElementsCorrespondence"][o].append("(last-at ?c ?%s)" % o)
-        # config["gameElementsCorrespondence"][o].append("(object-dead ?%s)" % o)
+        config["gameElementsCorrespondence"][o] = [
+            # "(object-dead ?%s)" % o,
+            "(at ?c ?%s)" % o,
+            "(last-at ?c ?%s)" % o,
+        ]
 
         # ----------------------------------------------------------------------
         # variableTypes --------------------------------------------------------
@@ -132,6 +134,40 @@ def getConfig(domainGenerator, listener):
             config["actionsCorrespondence"][action.name] = None
             
 
-    # print(domainGenerator.avatarPDDL.predicates)
+    # Dict sprite - int, indicating the number of times a sprite object should
+    # dead in the PDDL problem
+    # Los que tienen produce y el avatar con use, o sea, todos los partner ?
+    config["addDeadObjects"] = {}
+    if domainGenerator.partner:
+        config["addDeadObjects"][domainGenerator.partner.name] = 1
+
+    # Add objects that can be transformed
+    for obj in listener.transformTo:
+        config["addDeadObjects"][obj] = 5
+
+    # TODO: Add objects that can be produced (spawnpoints...)
+
+    # Add sprites specific predicates
+    for sprite in domainGenerator.spritesPDDL:
+        name = sprite.sprite.name
+        for pred in sprite.predicates:
+            # Check if has parameters
+            if "?" in pred: # Add it to specific predicates
+
+                # If we haven't found this object yet, include it in the rest of sections
+                if name not in config["gameElementsCorrespondence"]:
+                    config["gameElementsCorrespondence"][name] = [
+                        # "(object-dead ?%s)" % name,
+                        "(at ?c ?%s)" % name,
+                        "(last-at ?c ?%s)" % name,
+                    ]
+                    config["variableTypes"]["?%s" % name] = name
+
+                config["gameElementsCorrespondence"][name].append(pred)
+
+            else:   # Include it directly to additional
+                config["additionalPredicates"].append(pred)
+
+    # print(domainGenerator.spritesPDDL[2].predicates)
 
     return config
