@@ -49,6 +49,13 @@ from pddl.problemWriterPDDL import ProblemWriterPDDL
 
 
 # -----------------------------------------------------------------------------
+# Configuration file
+# -----------------------------------------------------------------------------
+
+import yaml
+from pddl.configurationGenerator import getConfig
+
+# -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 
 # Receiving argument '-help' or '-h', prints Help
@@ -344,9 +351,6 @@ def main(argv):
     # --------------------------------------------------------------------------
     # Generate configuration file
     if args.configuration:
-        import yaml
-        from pddl.configurationGenerator import getConfig
-
         # Get configuration text
         config = getConfig(
                     domainGenerator,
