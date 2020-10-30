@@ -8,25 +8,14 @@
 
 import re
 
+# These are some, more are defined later
 config = dict(
     domainFile = "domain.pddl",
     problemFile = "problem.pddl",
     domainName = "VGDLGame",
-    gameElementsCorrespondence = dict(
-        # avatar :
-        # - (at ?avatar ?c)
-        # - (last-at ?avatar ?c)
-        # - (can-move-up ?avatar)
-
-        # turn-keym y demás también ?
-    ),
-    variableTypes = dict(
-        # ?c = "Cell",
-        # ?boulder = "boulder"
-        # ...
-    ),
+    gameElementsCorrespondence = {},
+    variableTypes = {},
     cellVariable = "?c",
-    avatarVariable = "",
     orientationCorrespondence = dict(
         UP = "(oriented-up ?object)",
         DOWN = "(oriented-down ?object)",
@@ -39,21 +28,9 @@ config = dict(
         LEFT = "(connected-left ?c1 ?c2)",
         RIGHT = "(connected-right ?c1 ?c2)",
     ),
-    actionsCorrespondence = dict(
-        # AVATAR_TURN_UP : ACTION_UP
-        # AVATAR_MOVE_UP : ACTION_UP
-        # ...
-    ),
-    goals = dict(
-
-    ),
-    additionalPredicates = list(
-        # 1 = "(turn-avatar)",
-        # 2 = "(turn-sprites)",
-        # 3 = "(turn-interactions)",
-        # ...
-        # (can-move-up ?a)
-    )
+    actionsCorrespondence = {},
+    goals = {},
+    additionalPredicates = []
 )
 
 # ------------------------------------------------------------------------------
@@ -143,7 +120,7 @@ def getConfig(domainGenerator, listener):
 
     # Add objects that can be transformed
     for obj in listener.transformTo:
-        config["addDeadObjects"][obj] = 5
+        config["addDeadObjects"][obj] = 10
 
     # TODO: Add objects that can be produced (spawnpoints...)
 
@@ -167,6 +144,21 @@ def getConfig(domainGenerator, listener):
 
             else:   # Include it directly to additional
                 config["additionalPredicates"].append(pred)
+
+
+    # Add objects orientation
+    config["orientation"] = {}
+    for sp in domainGenerator.spritesPDDL:
+        sprite = sp.sprite        
+        orientation = [x for x in sprite.parameters if "orientation" in x]
+
+        if len(orientation) > 0:
+            orientation = orientation[0]
+            orientation = orientation.split("=")[1]
+            config["orientation"][sprite.name] = orientation       
+
+    # Add avatar orientation
+
 
     # print(domainGenerator.spritesPDDL[2].predicates)
 

@@ -1,5 +1,5 @@
 # Outputs
-configuration/*
+config/*
 domains/*
 .vscode/*
 
