@@ -29,7 +29,7 @@ config = dict(
         RIGHT = "(connected-right ?c1 ?c2)",
     ),
     actionsCorrespondence = {},
-    goals = {},
+    goals = [],
     additionalPredicates = []
 )
 
