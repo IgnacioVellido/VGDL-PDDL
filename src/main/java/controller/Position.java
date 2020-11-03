@@ -23,7 +23,8 @@
 package controller;
 
 /**
- * Positions of cells and agent's orientation.
+ * Positions of cells and objects orientation. NONE is only used with objects
+ * that have no default orientation.
  *
  * @author Vladislav Nikolov Vasilev
  */
@@ -31,5 +32,6 @@ public enum Position {
     UP,
     DOWN,
     LEFT,
-    RIGHT
+    RIGHT,
+    NONE
 }
