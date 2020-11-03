@@ -8,7 +8,10 @@
 
 import re
 
-# These are some, more are defined later
+# ------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+
+# Basic structure of the configuration file
 config = dict(
     domainFile = "domains/domain.pddl",
     problemFile = "problem.pddl",
@@ -16,6 +19,8 @@ config = dict(
     gameElementsCorrespondence = {},
     variableTypes = {},
     cellVariable = "?c",
+    avatarVariable = "",
+    orientation = {},
     orientationCorrespondence = dict(
         UP = "(oriented-up ?object)",
         DOWN = "(oriented-down ?object)",
@@ -29,66 +34,126 @@ config = dict(
         RIGHT = "(connected-right ?c1 ?c2)",
     ),
     actionsCorrespondence = {},
-    goals = [],
-    additionalPredicates = []
+    additionalPredicates = [
+        "(turn-avatar)",
+        "(turn-sprites)",
+        "(turn-interactions)"
+        # ... More added according to the predicates
+    ],
+    addDeadObjects = {},
+    goals = []
 )
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 
 # Listener should not be needed
-def getConfig(domainGenerator, listener):
-    """ Produce configuration YAML 
+def get_config(domainGenerator, listener):
+    """ Return configuration YAML 
         - domainGenerator: Contains info about predicates/types ...
         - listener: Contains info about hierarchy/names ...
     """
-
     predicates = domainGenerator.predicates
-    # print(predicates)
+    avatar_name = listener.avatar.name
+    avatar_predicates = domainGenerator.avatarPDDL.predicates
+    spritesPDDL = domainGenerator.spritesPDDL
+    actions = domainGenerator.actions
 
-    # Objects that appears in the level
+    partner = domainGenerator.partner
+    transformTo = listener.transformTo
+
+    # Objects that appear in the level
     objects = listener.long_types
 
-    # Add dict for each object
-    for o in objects:
-        # ----------------------------------------------------------------------
-        # gameElementsCorrespondence -------------------------------------------
+    config_add_gameElementsCorrespondence(objects, spritesPDDL, avatar_predicates, avatar_name)
+    config_add_variableTypes(objects)
+    config_add_avatarVariable(avatar_name)
+    config_add_orientation(spritesPDDL)
+    config_add_actionsCorrespondence(actions)
+    config_add_additionalPredicates()
+    config_add_addDeadObjects(partner, transformTo)
+    config_add_goals()
+  
+    return config
 
-        # Include predicates
+# ------------------------------------------------------------------------------
+# Functions producing the multiple sections of the config file
+# ------------------------------------------------------------------------------
+
+# Also adds some variableTypes for not yet found objects and turn-order related 
+# predicates in additionalPredicates
+def config_add_gameElementsCorrespondence(objects, spritesPDDL, avatar_predicates, avatar_name):
+
+    for o in objects: # Include predicates for each object
         config["gameElementsCorrespondence"][o] = [
             # "(object-dead ?%s)" % o,
             "(at ?c ?%s)" % o,
             "(last-at ?c ?%s)" % o,
         ]
 
-        # ----------------------------------------------------------------------
-        # variableTypes --------------------------------------------------------
-        variableType = "?%s" % o
-        config["variableTypes"][variableType] = o
-
-    # Add avatar variable
-    avatar_name = listener.avatar.name
-    config["avatarVariable"] = "?%s" % avatar_name
-    
     # Avatar predicates
-    for predicate in domainGenerator.avatarPDDL.predicates:
+    for predicate in avatar_predicates:
         match = re.search("([\w-])+ ?", predicate) # Only has one occurrence
         config["gameElementsCorrespondence"][avatar_name].append(
             "(%s?%s)" % (match.group(), avatar_name)
         )
 
+    # Add sprites specific predicates
+    for sprite in spritesPDDL:
+        name = sprite.sprite.name
+        for pred in sprite.predicates:
+            # Check if the predicate has parameters
+            if "?" in pred: # Add it to specific predicates
 
-    # Add additional predicates
-    config["additionalPredicates"].extend([
-        # (object-dead ?object),
-        "(turn-avatar)",
-        "(turn-sprites)",
-        "(turn-interactions)"
-    ])
+                # If we haven't found this object yet, include it in the rest of sections
+                if name not in config["gameElementsCorrespondence"]:
+                    config["gameElementsCorrespondence"][name] = [
+                        # "(object-dead ?%s)" % name,
+                        "(at ?c ?%s)" % name,
+                        "(last-at ?c ?%s)" % name,
+                    ]
+                    config["variableTypes"]["?%s" % name] = name
 
-    # Add actions correspondences
-    for action in domainGenerator.actions:
-        # if "PDDL_AVATAR" in action.name:
+                match = re.search("([\w-])+ ?", pred) # Only has one occurrence
+                config["gameElementsCorrespondence"][name].append(
+                    "(%s?%s)" % (match.group(), name)
+                )
+
+            else:   # If no parameters include it directly to additional
+                config["additionalPredicates"].append(pred)
+
+# ------------------------------------------------------------------------------
+
+def config_add_variableTypes(objects):
+    # Adds dict for each object
+    for o in objects:
+        variableType = "?%s" % o
+        config["variableTypes"][variableType] = o
+
+# ------------------------------------------------------------------------------
+
+def config_add_avatarVariable(avatar_name):
+    # Add avatar variable
+    config["avatarVariable"] = "?%s" % avatar_name
+
+# ------------------------------------------------------------------------------
+
+def config_add_orientation(spritesPDDL):
+    # Adds objects orientation
+    for sp in spritesPDDL:
+        sprite = sp.sprite        
+        orientation = [x for x in sprite.parameters if "orientation" in x]
+
+        if len(orientation) > 0:
+            orientation = orientation[0]
+            orientation = orientation.split("=")[1]
+            config["orientation"][sprite.name] = orientation
+
+# ------------------------------------------------------------------------------
+
+def config_add_actionsCorrespondence(actions):
+    # Adds avatar actions correspondences
+    for action in actions:
         if "AVATAR_ACTION_" in action.name:
             name = action.name.replace("AVATAR_ACTION_", "")
 
@@ -104,61 +169,33 @@ def getConfig(domainGenerator, listener):
                 correspondence = "ACTION_LEFT"
             elif "RIGHT" in name:
                 correspondence = "ACTION_RIGHT"
+            else:
+                correspondence = None
 
             config["actionsCorrespondence"][action.name] = correspondence
+        # In case we need to declare all actions
+        # else:
+        #     config["actionsCorrespondence"][action.name] = None
 
-        else:
-            config["actionsCorrespondence"][action.name] = None
-            
+# ------------------------------------------------------------------------------
 
-    # Dict sprite - int, indicating the number of times a sprite object should
-    # dead in the PDDL problem
-    # Los que tienen produce y el avatar con use, o sea, todos los partner ?
-    config["addDeadObjects"] = {}
-    if domainGenerator.partner:
-        config["addDeadObjects"][domainGenerator.partner.name] = 1
+def config_add_additionalPredicates():
+    pass
 
-    # Add objects that can be transformed
-    for obj in listener.transformTo:
+# ------------------------------------------------------------------------------
+
+def config_add_addDeadObjects(partner, transformTo):
+    # Objects the avatar can produce
+    if partner:
+        config["addDeadObjects"][partner.name] = 5
+
+    # Objects that can be transformed
+    for obj in transformTo:
         config["addDeadObjects"][obj] = 10
 
     # TODO: Add objects that can be produced (spawnpoints...)
 
-    # Add sprites specific predicates
-    for sprite in domainGenerator.spritesPDDL:
-        name = sprite.sprite.name
-        for pred in sprite.predicates:
-            # Check if has parameters
-            if "?" in pred: # Add it to specific predicates
+# ------------------------------------------------------------------------------
 
-                # If we haven't found this object yet, include it in the rest of sections
-                if name not in config["gameElementsCorrespondence"]:
-                    config["gameElementsCorrespondence"][name] = [
-                        # "(object-dead ?%s)" % name,
-                        "(at ?c ?%s)" % name,
-                        "(last-at ?c ?%s)" % name,
-                    ]
-                    config["variableTypes"]["?%s" % name] = name
-
-                match = re.search("([\w-])+ ?", pred) # Only has one occurrence
-
-                config["gameElementsCorrespondence"][name].append(
-                    "(%s?%s)" % (match.group(), name)
-                )
-
-            else:   # Include it directly to additional
-                config["additionalPredicates"].append(pred)
-
-
-    # Add objects orientation
-    config["orientation"] = {}
-    for sp in domainGenerator.spritesPDDL:
-        sprite = sp.sprite        
-        orientation = [x for x in sprite.parameters if "orientation" in x]
-
-        if len(orientation) > 0:
-            orientation = orientation[0]
-            orientation = orientation.split("=")[1]
-            config["orientation"][sprite.name] = orientation       
-
-    return config
+def config_add_goals():
+    pass
