@@ -53,7 +53,7 @@ from pddl.problemWriterPDDL import ProblemWriterPDDL
 # -----------------------------------------------------------------------------
 
 import yaml
-from pddl.configurationGenerator import getConfig
+from pddl.configurationGenerator import *
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -352,7 +352,7 @@ def main(argv):
     # Generate configuration file
     if args.configuration:
         # Get configuration text
-        config = getConfig(
+        config = get_config(
                     domainGenerator,
                     listener
                 )
