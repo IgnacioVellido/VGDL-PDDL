@@ -140,7 +140,11 @@ def getConfig(domainGenerator, listener):
                     ]
                     config["variableTypes"]["?%s" % name] = name
 
-                config["gameElementsCorrespondence"][name].append(pred)
+                match = re.search("([\w-])+ ?", pred) # Only has one occurrence
+
+                config["gameElementsCorrespondence"][name].append(
+                    "(%s?%s)" % (match.group(), name)
+                )
 
             else:   # Include it directly to additional
                 config["additionalPredicates"].append(pred)
