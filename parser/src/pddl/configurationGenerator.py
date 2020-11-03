@@ -28,10 +28,10 @@ config = dict(
         RIGHT = "(oriented-right ?object)"
     ),
     connections = dict(
-        UP = "(connected-up ?c1 ?c2)",
-        DOWN = "(connected-down ?c1 ?c2)",
-        LEFT = "(connected-left ?c1 ?c2)",
-        RIGHT = "(connected-right ?c1 ?c2)",
+        UP = "(connected-up ?c ?u)",
+        DOWN = "(connected-down ?c ?d)",
+        LEFT = "(connected-left ?c ?l)",
+        RIGHT = "(connected-right ?c ?r)",
     ),
     actionsCorrespondence = {},
     additionalPredicates = [

@@ -279,7 +279,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_ADDHEALTHPOINTS"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -297,7 +297,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_ADDHEALTHPOINTSTOMAX"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -310,7 +310,7 @@ class InteractionActions:
 
     def align(self):
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_ALIGN"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -325,7 +325,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_ATTRACTGAZE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -343,7 +343,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEDIRECTION"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -362,24 +362,24 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_UP"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["c_up", "cell"], ["c_last", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["u", "cell"], ["c_last", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
             "(oriented-up ?y)",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
             "(last-at ?c_last ?x)",
 
-            "(connected-up ?c_actual ?c_up)"
+            "(connected-up ?c ?u)"
         ]
         effects = [
-            "(at ?c_up ?x)",
-            "(not (at ?c_actual ?x))",
+            "(at ?u ?x)",
+            "(not (at ?c ?x))",
             "(not (at ?c_last ?x))",
-            "(last-at ?c_actual ?x)"
+            "(last-at ?c ?x)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -392,24 +392,24 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_DOWN"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["c_down", "cell"], ["c_last", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["d", "cell"], ["c_last", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
             "(oriented-down ?y)",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
             "(last-at ?c_last ?x)",
 
-            "(connected-down ?c_actual ?c_down)"
+            "(connected-down ?c ?d)"
         ]
         effects = [
-            "(at ?c_down ?x)",
-            "(not (at ?c_actual ?x))",
+            "(at ?d ?x)",
+            "(not (at ?c ?x))",
             "(not (at ?c_last ?x))",
-            "(last-at ?c_actual ?x)"
+            "(last-at ?c ?x)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -422,24 +422,24 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_LEFT"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["c_left", "cell"], ["c_last", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["l", "cell"], ["c_last", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
             "(oriented-left ?y)",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
             "(last-at ?c_last ?x)",
 
-            "(connected-left ?c_actual ?c_left)"
+            "(connected-left ?c ?l)"
         ]
         effects = [
-            "(at ?c_left ?x)",
-            "(not (at ?c_actual ?x))",
+            "(at ?l ?x)",
+            "(not (at ?c ?x))",
             "(not (at ?c_last ?x))",
-            "(last-at ?c_actual ?x)"
+            "(last-at ?c ?x)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -452,24 +452,24 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_RIGHT"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["c_right", "cell"], ["c_last", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["r", "cell"], ["c_last", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
             "(oriented-right ?y)",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
             "(last-at ?c_last ?x)",
 
-            "(connected-right ?c_actual ?c_right)"
+            "(connected-right ?c ?r)"
         ]
         effects = [
-            "(at ?c_right ?x)",
-            "(not (at ?c_actual ?x))",
+            "(at ?r ?x)",
+            "(not (at ?c ?x))",
             "(not (at ?c_last ?x))",
-            "(last-at ?c_actual ?x)"
+            "(last-at ?c ?x)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -483,7 +483,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_CHANGERESOURCE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -499,13 +499,13 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_CLONESPRITE"
         )
-        # parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["z", self.sprite.name]]
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["z", self.sprite.name], ["c_last", "cell"]]
+        # parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["z", self.sprite.name]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["z", self.sprite.name], ["c_last", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
             # If we remove this predicate it would be sent to a random cell ?
             # But we should be carefull with stepBack or undoAll
             "(at ?c_last x)",
@@ -515,8 +515,8 @@ class InteractionActions:
         effects = [
             "(not (object-dead ?z))",
             # This can generate infinite loops
-            # "(at ?c_actual ?z)",
-            # "(last-at ?c_actual ?z)"
+            # "(at ?c ?z)",
+            # "(last-at ?c ?z)"
             "(at ?c_last ?z)",
             "(last-at ?c_last ?z)"
         ]
@@ -532,12 +532,12 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_COLLECTRESOURCE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
         effects = [
             "(object-dead ?x)",
@@ -555,7 +555,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_INCREASESPEEDTOALL"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -573,7 +573,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_FLIPDIRECTION"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -591,7 +591,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_INCREASESPEEDTOALL"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -604,7 +604,7 @@ class InteractionActions:
 
     def killAll(self):
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLALL"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -617,17 +617,17 @@ class InteractionActions:
 
     def killBoth(self):
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLBOTH"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
         effects = [
-            "(not (at ?c_actual ?x))",
-            "(not (at ?c_actual ?y))",
+            "(not (at ?c ?x))",
+            "(not (at ?c ?y))",
             "(object-dead ?x)",
             "(object-dead ?y)"
         ]
@@ -640,7 +640,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFALIVE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -658,19 +658,19 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_KILLIFFROMABOVE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["c_last", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["c_last", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
 
             "(last-at ?c_last ?y)",
-            "(connected-up ?c_actual ?c_last)"
+            "(connected-up ?c ?c_last)"
         ]
         effects = [
-            "(not (at ?c_actual ?x))",
+            "(not (at ?c ?x))",
             "(object-dead ?x)",
         ]
 
@@ -698,12 +698,12 @@ class InteractionActions:
             + "_KILLIFOTHERHASMORE"
         )
         
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
 
         effects = [
@@ -739,12 +739,12 @@ class InteractionActions:
             + "_KILLIFOTHERHASLESS"
         )
         
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
 
         effects = [
@@ -768,7 +768,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFFAST"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -786,7 +786,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_KILLIFOTHERHASLESS"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -819,12 +819,12 @@ class InteractionActions:
             + "_KILLIFOTHERHASMORE"
         )
         
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
 
         effects = [
@@ -848,7 +848,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFSLOW"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -864,16 +864,16 @@ class InteractionActions:
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLSPRITE"
         )
         # partner.stype or partner.name ?
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]] 
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]] 
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
         effects = [
-            "(not (at ?c_actual ?x))",
+            "(not (at ?c ?x))",
             "(object-dead ?x)"
         ]
 
@@ -885,7 +885,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_PULLWITHIT"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -900,7 +900,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_REMOVESCORE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -918,7 +918,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_REVERSEDIRECTION"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -936,7 +936,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_SETSPEEDTOALL"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -951,7 +951,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_SPAWNBEHING"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -969,7 +969,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_SPAWNIFHASLESS"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -987,7 +987,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_SPAWNIFHASMORE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1000,17 +1000,17 @@ class InteractionActions:
 
     def stepBack(self):
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_STEPBACK"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"], ["c_last", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["c_last", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
 
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
             "(last-at ?c_last ?x)"
         ]
         effects = [
-            "(not (at ?c_actual ?x))",
+            "(not (at ?c ?x))",
             "(at ?c_last ?x)"
         ]
 
@@ -1025,7 +1025,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_SUBSCTRACTHEALTHPOINTS"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1043,7 +1043,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_TELEPORTTOEXIT"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1061,7 +1061,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_TRANSFORMIFCOUNT"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1085,23 +1085,23 @@ class InteractionActions:
             ["x", self.sprite.name],
             ["y", self.partner.stype],
             ["z", resulting_sprite],
-            ["c_actual", "cell"]
+            ["c", "cell"]
         ]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)",
+            "(at ?c ?x)",
+            "(at ?c ?y)",
             "(object-dead ?z)"
         ]
 
         effects = [
-            "(not (at ?c_actual ?x))",
-            # "(not (at ?c_actual ?y))",
+            "(not (at ?c ?x))",
+            # "(not (at ?c ?y))",
             "(object-dead ?x)",
             # "(object-dead ?y)",
-            "(at ?c_actual ?z)",
-            "(last-at ?c_actual ?z)",
+            "(at ?c ?z)",
+            "(last-at ?c ?z)",
             "(not (object-dead ?z))",
             """(when
                         (oriented-up ?y)
@@ -1133,7 +1133,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_TRANSFORMTORANDOMCHILD"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1151,7 +1151,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_TRANSFORMTOSINGLETON"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1167,12 +1167,12 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TURNAROUND"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
         effects = [
             "(when (oriented-up ?x) (and (not-oriented-up ?x) (oriented-down ?x))",
@@ -1188,12 +1188,12 @@ class InteractionActions:
     def undoAll(self):
         """ This action always fail to force another movement"""
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_UNDOALL"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?x ?y))",
-            "(at ?c_actual ?x)",
-            "(at ?c_actual ?y)"
+            "(at ?c ?x)",
+            "(at ?c ?y)"
         ]
         effects = ["(not (turn-interactions))"]
 
@@ -1208,7 +1208,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_UPDATESPAWNTYPE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1223,7 +1223,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WALLBOUNCE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1236,7 +1236,7 @@ class InteractionActions:
 
     def wallStop(self):
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WALLSTOP"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -1251,7 +1251,7 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WRAPAROUND"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",

@@ -15,7 +15,7 @@ from pddl.typesPDDL import *
 
 class AvatarPDDL:
     """ Class that encapsulate the generation of PDDL domain structures 
-    for the avatar 
+    for the avatar
     
     Atributes:
         avatar           - SpriteVGDL
@@ -118,15 +118,15 @@ class AvatarActions:
 
     def move_up(self):
         name = "AVATAR_ACTION_MOVE_UP"
-        parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
+        parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["u", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(can-move-up ?a)", "(oriented-up ?a)", 
-                         "(at ?c_actual ?a)", "(last-at ?c_last ?a)",
-                         "(connected-up ?c_actual ?c_next)"]
+                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(connected-up ?c ?u)"]
 
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c_actual ?a)",
-                    "(not (at ?c_actual ?a))", "(at ?c_next ?a)", 
+        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+                    "(not (at ?c ?a))", "(at ?u ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -135,14 +135,14 @@ class AvatarActions:
 
     def move_down(self):
         name = "AVATAR_ACTION_MOVE_DOWN"
-        parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
+        parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["d", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(can-move-down ?a)", "(oriented-down ?a)", 
-                         "(at ?c_actual ?a)", "(last-at ?c_last ?a)",
-                         "(connected-down ?c_actual ?c_next)"]
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c_actual ?a)",
-                    "(not (at ?c_actual ?a))", "(at ?c_next ?a)", 
+                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(connected-down ?c ?d)"]
+        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+                    "(not (at ?c ?a))", "(at ?d ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -151,14 +151,14 @@ class AvatarActions:
 
     def move_left(self):
         name = "AVATAR_ACTION_MOVE_LEFT"
-        parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
+        parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["l", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(can-move-left ?a)", "(oriented-left ?a)", 
-                         "(at ?c_actual ?a)", "(last-at ?c_last ?a)",
-                         "(connected-left ?c_actual ?c_next)"]
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c_actual ?a)",
-                    "(not (at ?c_actual ?a))", "(at ?c_next ?a)", 
+                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(connected-left ?c ?l)"]
+        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+                    "(not (at ?c ?a))", "(at ?l ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -167,14 +167,14 @@ class AvatarActions:
 
     def move_right(self):
         name = "AVATAR_ACTION_MOVE_RIGHT"
-        parameters = [["a", self.avatar.stype], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
+        parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["r", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(can-move-right ?a)", "(oriented-right ?a)", 
-                         "(at ?c_actual ?a)", "(last-at ?c_last ?a)",
-                         "(connected-right ?c_actual ?c_next)"]
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c_actual ?a)",
-                    "(not (at ?c_actual ?a))", "(at ?c_next ?a)", 
+                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(connected-right ?c ?r)"]
+        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+                    "(not (at ?c ?a))", "(at ?r ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -314,10 +314,10 @@ class AvatarActions:
             raise TypeError('Argument "partner" is not defined')
 
         name = "AVATAR_ACTION_USE_UP"
-        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_up", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-up ?a)", "(connected-up ?c_actual ?c_up)"]
+        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["u", "cell"]]
+        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-up ?a)", "(connected-up ?c ?u)"]
 
-        effects = ["(at ?c_up ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?u ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -335,10 +335,10 @@ class AvatarActions:
             raise TypeError('Argument "partner" is not defined')
 
         name = "AVATAR_ACTION_USE_DOWN"
-        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_down", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-down ?a)", "(connected-down ?c_actual ?c_down)"]
+        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["d", "cell"]]
+        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-down ?a)", "(connected-down ?c ?d)"]
 
-        effects = ["(at ?c_down ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?d ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -354,10 +354,10 @@ class AvatarActions:
             raise TypeError('Argument "partner" is not defined')
 
         name = "AVATAR_ACTION_USE_LEFT"
-        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_left", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-left ?a)", "(connected-left ?c_actual ?c_left)"]
+        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["l", "cell"]]
+        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-left ?a)", "(connected-left ?c ?l)"]
 
-        effects = ["(at ?c_left ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?l ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -373,10 +373,10 @@ class AvatarActions:
             raise TypeError('Argument "partner" is not defined')
 
         name = "AVATAR_ACTION_USE_RIGHT"
-        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c_actual", "cell"], ["c_right", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c_actual ?a)", "(oriented-right ?a)", "(connected-right ?c_actual ?c_right)"]
+        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["r", "cell"]]
+        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-right ?a)", "(connected-right ?c ?r)"]
 
-        effects = ["(at ?c_right ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?r ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
 

@@ -158,12 +158,12 @@ class SpriteActions:
     def move_up(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_UP"
-        parameters = [["x", self.sprite.name], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-up ?x)", "(at ?c_actual ?x)", "(last-at ?c_last ?x)", "(connected-up ?c_actual ?c_next)"]
+        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["u", "cell"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-up ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-up ?c ?u)"]
         effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c_actual ?x)",
-                    "(not (at ?c_actual ?x))",
-                    "(at ?c_next ?x)",
+                    "(last-at ?c ?x)",
+                    "(not (at ?c ?x))",
+                    "(at ?u ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -171,12 +171,12 @@ class SpriteActions:
     def move_down(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_DOWN"
-        parameters = [["x", self.sprite.name], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-down ?x)", "(at ?c_actual ?x)", "(last-at ?c_last ?x)", "(connected-down ?c_actual ?c_next)"]
+        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["d", "cell"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-down ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-down ?c ?d)"]
         effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c_actual ?x)",
-                    "(not (at ?c_actual ?x))",
-                    "(at ?c_next ?x)",
+                    "(last-at ?c ?x)",
+                    "(not (at ?c ?x))",
+                    "(at ?d ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -184,12 +184,12 @@ class SpriteActions:
     def move_left(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_LEFT"
-        parameters = [["x", self.sprite.name], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-left ?x)", "(at ?c_actual ?x)", "(last-at ?c_last ?x)", "(connected-left ?c_actual ?c_next)"]
+        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["l", "cell"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-left ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-left ?c ?l)"]
         effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c_actual ?x)",
-                    "(not (at ?c_actual ?x))",
-                    "(at ?c_next ?x)",
+                    "(last-at ?c ?x)",
+                    "(not (at ?c ?x))",
+                    "(at ?l ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -197,12 +197,12 @@ class SpriteActions:
     def move_right(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_RIGHT"
-        parameters = [["x", self.sprite.name], ["c_actual", "cell"], ["c_last", "cell"], ["c_next", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-right ?x)", "(at ?c_actual ?x)", "(last-at ?c_last ?x)", "(connected-right ?c_actual ?c_next)"]
+        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["r", "cell"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-right ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-right ?c ?r)"]
         effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c_actual ?x)",
-                    "(not (at ?c_actual ?x))",
-                    "(at ?c_next ?x)",
+                    "(last-at ?c ?x)",
+                    "(not (at ?c ?x))",
+                    "(at ?r ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -249,16 +249,16 @@ class SpriteActions:
         )
 
         name = self.sprite.name.upper() + "_SPAWN"
-        parameters = [["x", self.sprite.name], ["y", spawned_object], ["c_actual", "cell"]]
+        parameters = [["x", self.sprite.name], ["y", spawned_object], ["c", "cell"]]
         preconditions = [
             "(turn-" + self.sprite.name + "-spawn)",
-            "(at ?c_actual ?x)",
+            "(at ?c ?x)",
             "(object-dead ?y)"
         ]
         effects = [
             "(not (object-dead ?y))",
-            "(at ?c_actual ?y)",
-            "(last-at ?c_actual ?y)"
+            "(at ?c ?y)",
+            "(last-at ?c ?y)"
             ""
         ]
 
@@ -283,9 +283,9 @@ class SpriteActions:
     def disappear(self):
         """ Eliminates the sprite """
         name = self.sprite.name.upper() + "_DISAPPEAR"
-        parameters = [["x", self.sprite.name], ["c_actual", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-disappear)", "(at ?c_actual ?x)"]
-        effects = ["(not (at ?c_actual ?x)", "(object-dead ?x)", "(" + self.sprite.name + "-disappeared ?x)"]
+        parameters = [["x", self.sprite.name], ["c", "cell"]]
+        preconditions = ["(turn-" + self.sprite.name + "-disappear)", "(at ?c ?x)"]
+        effects = ["(not (at ?c ?x)", "(object-dead ?x)", "(" + self.sprite.name + "-disappeared ?x)"]
 
         return Action(name, parameters, preconditions, effects)
 
