@@ -609,9 +609,19 @@ public class PlanningAgent extends AbstractPlayer {
         // Add connections to predicates
         this.connectionSet.stream().forEach(connection -> this.PDDLGameStatePredicates.add(connection));
 
-
         // Add additional predicates
         this.gameInformation.additionalPredicates.stream().forEach(predicate -> this.PDDLGameStatePredicates.add(predicate));
+
+        // Save objects and predicates associated with dead objects
+        for (String object : this.gameInformation.addDeadObjects.keySet()) {
+            int numDeadObjects = this.gameInformation.addDeadObjects.get(object);
+
+            for (int i = 1; i <= numDeadObjects; i++) {
+                String deadObjectInstance = object + i;
+                this.PDDLGameStateObjects.get(object).add(deadObjectInstance);
+                this.PDDLGameStatePredicates.add(String.format("(object-dead %s)", deadObjectInstance));
+            }
+        }
 
         // Add saved goals
         this.reachedSavedGoalPredicates.stream().forEach(goal -> this.PDDLGameStatePredicates.add(goal));
