@@ -361,7 +361,7 @@ def main(argv):
         configPath = "../config/configuration.yaml"
         os.makedirs(os.path.dirname(configPath), exist_ok=True)
         with open(configPath, 'w') as configfile:
-            yaml.dump(config, configfile, default_flow_style=False)
+            yaml.dump(config, configfile, default_flow_style=False, sort_keys=False)
         
         print("Configuration file produced without errors.")
             
