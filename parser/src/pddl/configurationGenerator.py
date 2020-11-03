@@ -10,7 +10,7 @@ import re
 
 # These are some, more are defined later
 config = dict(
-    domainFile = "domain.pddl",
+    domainFile = "domains/domain.pddl",
     problemFile = "problem.pddl",
     domainName = "VGDLGame",
     gameElementsCorrespondence = {},
