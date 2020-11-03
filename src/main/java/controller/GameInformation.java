@@ -46,6 +46,7 @@ public class GameInformation {
     public Map<Position, String> connections;
     public Map<String, Types.ACTIONS> actionsCorrespondence;
     public LinkedList<PDDLSingleGoal> goals;
+    public List<String> additionalPredicates;
 
     public GameInformation() {
     }

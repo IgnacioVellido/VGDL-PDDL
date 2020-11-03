@@ -609,6 +609,10 @@ public class PlanningAgent extends AbstractPlayer {
         // Add connections to predicates
         this.connectionSet.stream().forEach(connection -> this.PDDLGameStatePredicates.add(connection));
 
+
+        // Add additional predicates
+        this.gameInformation.additionalPredicates.stream().forEach(predicate -> this.PDDLGameStatePredicates.add(predicate));
+
         // Add saved goals
         this.reachedSavedGoalPredicates.stream().forEach(goal -> this.PDDLGameStatePredicates.add(goal));
     }
