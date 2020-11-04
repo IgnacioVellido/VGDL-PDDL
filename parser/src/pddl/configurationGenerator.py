@@ -62,11 +62,7 @@ def get_config(domainGenerator, listener):
     partner = domainGenerator.partner
     transformTo = listener.transformTo
 
-    # Objects that appear in the level
-    objects = listener.long_types
-
-    config_add_gameElementsCorrespondence(objects, spritesPDDL, avatar_predicates, avatar_name)
-    config_add_variableTypes(objects)
+    config_add_gameElementsCorrespondence_variableTypes(spritesPDDL, avatar_predicates, avatar_name)
     config_add_avatarVariable(avatar_name)
     config_add_orientation(spritesPDDL)
     config_add_actionsCorrespondence(actions)
@@ -80,17 +76,8 @@ def get_config(domainGenerator, listener):
 # Functions producing the multiple sections of the config file
 # ------------------------------------------------------------------------------
 
-# Also adds some variableTypes for not yet found objects and turn-order related 
-# predicates in additionalPredicates
-def config_add_gameElementsCorrespondence(objects, spritesPDDL, avatar_predicates, avatar_name):
-
-    for o in objects: # Include predicates for each object
-        config["gameElementsCorrespondence"][o] = [
-            # "(object-dead ?%s)" % o,
-            "(at ?c ?%s)" % o,
-            "(last-at ?c ?%s)" % o,
-        ]
-
+# Also adds some turn-order related predicates in additionalPredicates
+def config_add_gameElementsCorrespondence_variableTypes(spritesPDDL, avatar_predicates, avatar_name):
     # Avatar predicates
     for predicate in avatar_predicates:
         match = re.search("([\w-])+ ?", predicate) # Only has one occurrence
@@ -101,19 +88,20 @@ def config_add_gameElementsCorrespondence(objects, spritesPDDL, avatar_predicate
     # Add sprites specific predicates
     for sprite in spritesPDDL:
         name = sprite.sprite.name
+
+        # Add variableType
+        variableType = "?%s" % name
+        config["variableTypes"][variableType] = name
+
+        config["gameElementsCorrespondence"][name] = [
+            # "(object-dead ?%s)" % o,
+            "(at ?c ?%s)" % name,
+            "(last-at ?c ?%s)" % name,
+        ]
+
         for pred in sprite.predicates:
             # Check if the predicate has parameters
             if "?" in pred: # Add it to specific predicates
-
-                # If we haven't found this object yet, include it in the rest of sections
-                if name not in config["gameElementsCorrespondence"]:
-                    config["gameElementsCorrespondence"][name] = [
-                        # "(object-dead ?%s)" % name,
-                        "(at ?c ?%s)" % name,
-                        "(last-at ?c ?%s)" % name,
-                    ]
-                    config["variableTypes"]["?%s" % name] = name
-
                 match = re.search("([\w-])+ ?", pred) # Only has one occurrence
                 config["gameElementsCorrespondence"][name].append(
                     "(%s?%s)" % (match.group(), name)
@@ -121,14 +109,6 @@ def config_add_gameElementsCorrespondence(objects, spritesPDDL, avatar_predicate
 
             else:   # If no parameters include it directly to additional
                 config["additionalPredicates"].append(pred)
-
-# ------------------------------------------------------------------------------
-
-def config_add_variableTypes(objects):
-    # Adds dict for each object
-    for o in objects:
-        variableType = "?%s" % o
-        config["variableTypes"][variableType] = o
 
 # ------------------------------------------------------------------------------
 
@@ -148,6 +128,8 @@ def config_add_orientation(spritesPDDL):
             orientation = orientation[0]
             orientation = orientation.split("=")[1]
             config["orientation"][sprite.name] = orientation
+
+    # Check if avatar needs orientation
 
 # ------------------------------------------------------------------------------
 
