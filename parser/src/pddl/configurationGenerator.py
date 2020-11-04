@@ -64,7 +64,7 @@ def get_config(domainGenerator, listener):
 
     config_add_gameElementsCorrespondence_variableTypes(spritesPDDL, avatar_predicates, avatar_name)
     config_add_avatarVariable(avatar_name)
-    config_add_orientation(spritesPDDL)
+    config_add_orientation(spritesPDDL, actions, avatar_name)
     config_add_actionsCorrespondence(actions)
     config_add_additionalPredicates()
     config_add_addDeadObjects(partner, transformTo)
@@ -118,7 +118,7 @@ def config_add_avatarVariable(avatar_name):
 
 # ------------------------------------------------------------------------------
 
-def config_add_orientation(spritesPDDL):
+def config_add_orientation(spritesPDDL, actions, avatar_name):
     # Adds objects orientation
     for sp in spritesPDDL:
         sprite = sp.sprite        
@@ -130,6 +130,7 @@ def config_add_orientation(spritesPDDL):
             config["orientation"][sprite.name] = orientation
 
     # Check if avatar needs orientation
+    config["orientation"][avatar_name] = "FIND" if any("ACTION_TURN" in act.name for act in actions) else "NONE"
 
 # ------------------------------------------------------------------------------
 
