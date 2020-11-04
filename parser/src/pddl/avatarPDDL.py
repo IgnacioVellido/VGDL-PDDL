@@ -121,7 +121,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["u", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(or (oriented-up ?a) (oriented-none ?a)",
+        preconditions = ["(turn-avatar)", "(or (oriented-up ?a) (oriented-none ?a))",
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-up ?c ?u)"]
 
@@ -138,7 +138,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["d", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(or (oriented-down ?a) (oriented-none ?a)",
+        preconditions = ["(turn-avatar)", "(or (oriented-down ?a) (oriented-none ?a))",
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-down ?c ?d)"]
         effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
@@ -154,7 +154,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["l", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(or (oriented-left ?a) (oriented-none ?a)", 
+        preconditions = ["(turn-avatar)", "(or (oriented-left ?a) (oriented-none ?a))", 
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-left ?c ?l)"]
         effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
@@ -170,7 +170,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["r", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(or (oriented-right ?a) (oriented-none ?a)", 
+        preconditions = ["(turn-avatar)", "(or (oriented-right ?a) (oriented-none ?a))", 
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-right ?c ?r)"]
         effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
