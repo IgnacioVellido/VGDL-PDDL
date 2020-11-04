@@ -79,24 +79,24 @@ class AvatarActions:
 
         # Dict with the functions needed for each avatar
         avatar_action_list = {
-            # Can't move but can use object
+            # Can't move but can turn and use object over itself
             "AimedAvatar" : [self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.use_up, self.use_down, self.use_left, self.use_right, self.nil],
 
             # This avatar should have ammo !!!!!!!!!!
-            # Always same orientation, can move horizontally and use object  
-            "FlakAvatar"  : [self.move_left, self.move_right, self.use_up, self.use_down, self.use_left, self.use_right, self.nil],
+            # Always same orientation, can move horizontally and use object
+            "FlakAvatar"  : [self.move_left, self.move_right, self.use_center, self.nil],
 
             # Always same orientation, can only move left or right
             "HorizontalAvatar": [self.move_left, self.move_right, self.nil],
 
             # Always same orientation, can move in any direction
-            # This avatar don't have orientation, so it can move freely
-            "MovingAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.nil],
+            # This avatar doesn't have orientation, so it can move freely
+            "MovingAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.nil],
 
-            # Can move and aim in any direction, can't use object
+            # Can move and turn in any direction
             "OrientedAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.nil],
 
-            # Can move and aim in any direction, can use object
+            # Can move and turn in any direction, can use object in the 4 directions
             "ShootAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.use_up, self.use_down, self.use_left, self.use_right, self.nil],
 
             # Always same orientation, can only move up or down
@@ -121,7 +121,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["u", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(can-move-up ?a)", "(oriented-up ?a)", 
+        preconditions = ["(turn-avatar)", "(or (oriented-up ?a) (oriented-none ?a))",
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-up ?c ?u)"]
 
@@ -138,7 +138,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["d", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(can-move-down ?a)", "(oriented-down ?a)", 
+        preconditions = ["(turn-avatar)", "(or (oriented-down ?a) (oriented-none ?a))",
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-down ?c ?d)"]
         effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
@@ -154,7 +154,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["l", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(can-move-left ?a)", "(oriented-left ?a)", 
+        preconditions = ["(turn-avatar)", "(or (oriented-left ?a) (oriented-none ?a))", 
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-left ?c ?l)"]
         effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
@@ -170,7 +170,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["c", "cell"], ["c_last", "cell"], ["r", "cell"]]
 
         # can-move indicates that te avatar has the ability to move in that direction
-        preconditions = ["(turn-avatar)", "(can-move-right ?a)", "(oriented-right ?a)", 
+        preconditions = ["(turn-avatar)", "(or (oriented-right ?a) (oriented-none ?a))", 
                          "(at ?c ?a)", "(last-at ?c_last ?a)",
                          "(connected-right ?c ?r)"]
         effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
@@ -305,6 +305,23 @@ class AvatarActions:
     # -------------------------------------------------------------------------
 
     # can-use is a predicate that should not be active in case there is no ammo
+    def use_center(self):
+        """ Generates the partner object in the same tile as the avatar
+
+        partner:     Sprite that is generated
+        """
+        if self.partner == None:
+            raise TypeError('Argument "partner" is not defined')
+
+        name = "AVATAR_ACTION_USE_CENTER"
+        parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"]]
+        preconditions = ["(turn-avatar)", "(at ?c ?a)"]
+
+        effects = ["(at ?c ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+
+        return Action(name, parameters, preconditions, effects)
+
+    # can-use is a predicate that should not be active in case there is no ammo
     def use_up(self):
         """ Generates the partner object in front of the avatar (UP)
 
@@ -315,15 +332,13 @@ class AvatarActions:
 
         name = "AVATAR_ACTION_USE_UP"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["u", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-up ?a)", "(connected-up ?c ?u)"]
+        preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-up ?a)", "(connected-up ?c ?u)"]
 
         effects = ["(at ?u ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
         return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
-
-    # MAYBE SOME AVATAR DON'T HAVE ORIENTATION BUT CAN USE - CAREFULL
 
     # can-use is a predicate that should not be active in case there is no ammo
     def use_down(self):
@@ -336,7 +351,7 @@ class AvatarActions:
 
         name = "AVATAR_ACTION_USE_DOWN"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["d", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-down ?a)", "(connected-down ?c ?d)"]
+        preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-down ?a)", "(connected-down ?c ?d)"]
 
         effects = ["(at ?d ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
@@ -355,7 +370,7 @@ class AvatarActions:
 
         name = "AVATAR_ACTION_USE_LEFT"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["l", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-left ?a)", "(connected-left ?c ?l)"]
+        preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-left ?a)", "(connected-left ?c ?l)"]
 
         effects = ["(at ?l ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
@@ -374,7 +389,7 @@ class AvatarActions:
 
         name = "AVATAR_ACTION_USE_RIGHT"
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["r", "cell"]]
-        preconditions = ["(turn-avatar)", "(can-use ?a ?p)", "(at ?c ?a)", "(oriented-right ?a)", "(connected-right ?c ?r)"]
+        preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-right ?a)", "(connected-right ?c ?r)"]
 
         effects = ["(at ?r ?p)", "(not (turn-avatar))", "(turn-sprites)"]
 
@@ -423,44 +438,27 @@ class AvatarPredicates:
         # Dict with the predicates needed for each avatar
         avatar_predicates_list = {
             # Can't move but can use object
-            "AimedAvatar" : ["(can-use ?a - AimedAvatar ?p - " + partner_name + ")"],
-            #                  "(can-change-orientation ?a - AimedAvatar)"],
+            "AimedAvatar" : [],
 
             # This avatar should have ammo !!!!!!!!!!
             # Always same orientation, can move horizontally and use object  
-            "FlakAvatar"  : ["(can-move-left ?a - FlakAvatar)",
-                            "(can-move-right ?a - FlakAvatar)",
-                            "(can-use ?a - FlakAvatar ?p - " + partner_name + ")"],
+            "FlakAvatar"  : [],
 
             # Always same orientation, can only move left or right
-            "HorizontalAvatar": ["(can-move-left ?a - HorizontalAvatar)",
-                                "(can-move-right ?a - HorizontalAvatar)"],
+            "HorizontalAvatar": [],
 
             # Always same orientation, can move in any direction
             # This avatar don't have orientation, so it can move freely
-            "MovingAvatar" : ["(can-move-up ?a - MovingAvatar)",
-                            "(can-move-down ?a - MovingAvatar)",
-                            "(can-move-left ?a - MovingAvatar)",
-                            "(can-move-right ?a - MovingAvatar)"],
+            "MovingAvatar" : [],
 
             # Can move and aim in any direction, can't use object
-            "OrientedAvatar" : ["(can-move-up ?a - OrientedAvatar)",
-                            "(can-move-down ?a - OrientedAvatar)",
-                            "(can-move-left ?a - OrientedAvatar)",
-                            "(can-move-right ?a - OrientedAvatar)"],
-                            # "(can-change-orientation ?a - OrientedAvatar)"],
+            "OrientedAvatar" : [],
 
             # Can move and aim in any direction, can use object
-            "ShootAvatar" : ["(can-move-up ?a - ShootAvatar)",
-                            "(can-move-down ?a - ShootAvatar)",
-                            "(can-move-left ?a - ShootAvatar)",
-                            "(can-move-right ?a - ShootAvatar)",
-                            # "(can-change-orientation ?a - ShootAvatar)"
-                            "(can-use ?a - ShootAvatar ?p - " + partner_name + ")"],
+            "ShootAvatar" : [],
 
             # Always same orientation, can only move up or down
-            "VerticalAvatar" : ["(can-move-up ?a - VerticalAvatar)",
-                            "(can-move-down ?a - VerticalAvatar)"]
+            "VerticalAvatar" : []
         }
 
         self.predicates.extend(avatar_predicates_list.get(self.avatar.stype, []))
@@ -493,33 +491,27 @@ class AvatarLevelPredicates:
         # Dict with the predicates needed for each avatar
         avatar_levelPredicates_list = {
             # Can't move but can use object
-            "AimedAvatar" : ["(can-use ?a partner)", "(can-change-orientation ?a)"],
+            "AimedAvatar" : [],
 
             # This avatar should have ammo !!!!!!!!!!
             # Always same orientation, can move horizontally and use object  
-            "FlakAvatar"  : ["(can-move-left ?a)", "(can-move-right ?a)",
-                                "(can-use ?a partner)"],
+            "FlakAvatar"  : [],
 
             # Always same orientation, can only move left or right
-            "HorizontalAvatar": ["(can-move-left ?a)", "(can-move-right ?a)"],
+            "HorizontalAvatar": [],
 
             # Always same orientation, can move in any direction
             # This avatar don't have orientation, so it can move freely
-            "MovingAvatar" : ["(can-move-up ?a)", "(can-move-down ?a)",
-                                "(can-move-left ?a)", "(can-move-right ?a)"],
+            "MovingAvatar" : [],
 
             # Can move and aim in any direction, can't use object
-            "OrientedAvatar" : ["(can-move-up ?a)", "(can-move-down ?a)",
-                                "(can-move-left ?a)", "(can-move-right ?a)",
-                                "(can-change-orientation ?a)"],
+            "OrientedAvatar" : [],
 
             # Can move and aim in any direction, can use object
-            "ShootAvatar" : ["(can-move-up ?a)", "(can-move-down ?a)",
-                            "(can-move-left ?a)", "(can-move-right ?a)",
-                            "(can-change-orientation ?a)", "(can-use ?a partner)"],
+            "ShootAvatar" : [],
 
             # Always same orientation, can only move up or down
-            "VerticalAvatar" : ["(can-move-up ?a)", "(can-move-down ?a )"]
+            "VerticalAvatar" : []
         }
 
         self.level_predicates.extend(avatar_levelPredicates_list.get(self.avatar.stype, []))

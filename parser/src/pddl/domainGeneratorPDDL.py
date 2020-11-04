@@ -254,9 +254,10 @@ class DomainGeneratorPDDL:
         """ Depends of the avatar - Probably more needed to undo operations """
         self.predicates.extend(
             ["(oriented-up ?o - Object)",
-                "(oriented-down ?o - Object)",
-                "(oriented-left ?o - Object)",
-                "(oriented-right ?o - Object)"]
+             "(oriented-down ?o - Object)",
+             "(oriented-left ?o - Object)",
+             "(oriented-right ?o - Object)",
+             "(oriented-none ?o - Object)"]
         )
 
         avatar = self.avatarPDDL.predicates
