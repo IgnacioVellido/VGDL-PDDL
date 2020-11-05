@@ -23,13 +23,15 @@
 package controller;
 
 /**
- * Positions of cells and agent's orientation.
+ * Enumerate that tells what kind of orientation has an object.
  *
  * @author Vladislav Nikolov Vasilev
  */
-public enum Position {
+public enum OrientationType {
     UP,
     DOWN,
     LEFT,
-    RIGHT
+    RIGHT,
+    NONE,
+    FIND
 }

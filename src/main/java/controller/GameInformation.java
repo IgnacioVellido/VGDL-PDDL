@@ -27,6 +27,7 @@ import ontology.Types;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.List;
 
 /**
  * Class that contains the game's information. It is loaded from a YAML configuration
@@ -42,10 +43,13 @@ public class GameInformation {
     public String avatarVariable;
     public Map<String, ArrayList<String>> gameElementsCorrespondence;
     public Map<String, String> variablesTypes;
-    public Map<Position, String> orientationCorrespondence;
-    public Map<Position, String> connections;
+    public Map<OrientationType, String> orientationCorrespondence;
+    public Map<Connection, String> connections;
     public Map<String, Types.ACTIONS> actionsCorrespondence;
     public LinkedList<PDDLSingleGoal> goals;
+    public List<String> additionalPredicates;
+    public Map<String, Integer> addDeadObjects;
+    public Map<String, OrientationType> orientation;
 
     public GameInformation() {
     }
