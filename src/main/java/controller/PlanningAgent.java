@@ -570,16 +570,16 @@ public class PlanningAgent extends AbstractPlayer {
                                         // to the player's orientation
                                         if (this.gameInformation.orientationCorrespondence != null) {
                                             Vector2d avatarOrientation = stateObservation.getAvatarOrientation();
-                                            Position orientation = null;
+                                            OrientationType orientation = null;
 
                                             if (avatarOrientation.x == 1.0) {
-                                                orientation = Position.RIGHT;
+                                                orientation = OrientationType.RIGHT;
                                             } else if (avatarOrientation.x == -1.0) {
-                                                orientation = Position.LEFT;
+                                                orientation = OrientationType.LEFT;
                                             } else if (avatarOrientation.y == 1.0) {
-                                                orientation = Position.DOWN;
+                                                orientation = OrientationType.DOWN;
                                             } else if (avatarOrientation.y == -1.0) {
-                                                orientation = Position.UP;
+                                                orientation = OrientationType.UP;
                                             }
 
                                             this.PDDLGameStatePredicates.add(this.gameInformation.orientationCorrespondence
@@ -802,7 +802,7 @@ public class PlanningAgent extends AbstractPlayer {
                 String currentCell = String.format("%s_%d_%d", this.gameInformation.cellVariable, x, y).replace("?", "");
 
                 if (y - 1 >= 0) {
-                    String connection = this.gameInformation.connections.get(Position.UP);
+                    String connection = this.gameInformation.connections.get(Connection.UP);
                     connection = connection.replace("?c", currentCell);
                     connection = connection.replace("?u", String
                             .format("%s_%d_%d", this.gameInformation.cellVariable, x, y - 1)
@@ -812,7 +812,7 @@ public class PlanningAgent extends AbstractPlayer {
                 }
 
                 if (y + 1 < Y_MAX) {
-                    String connection = this.gameInformation.connections.get(Position.DOWN);
+                    String connection = this.gameInformation.connections.get(Connection.DOWN);
                     connection = connection.replace("?c", currentCell);
                     connection = connection.replace("?d", String
                             .format("%s_%d_%d", this.gameInformation.cellVariable, x, y + 1)
@@ -822,7 +822,7 @@ public class PlanningAgent extends AbstractPlayer {
                 }
 
                 if (x - 1 >= 0) {
-                    String connection = this.gameInformation.connections.get(Position.LEFT);
+                    String connection = this.gameInformation.connections.get(Connection.LEFT);
                     connection = connection.replace("?c", currentCell);
                     connection = connection.replace("?l", String
                             .format("%s_%d_%d", this.gameInformation.cellVariable, x - 1, y)
@@ -832,7 +832,7 @@ public class PlanningAgent extends AbstractPlayer {
                 }
 
                 if (x + 1 < X_MAX) {
-                    String connection = this.gameInformation.connections.get(Position.RIGHT);
+                    String connection = this.gameInformation.connections.get(Connection.RIGHT);
                     connection = connection.replace("?c", currentCell);
                     connection = connection.replace("?r", String
                             .format("%s_%d_%d", this.gameInformation.cellVariable, x + 1, y)

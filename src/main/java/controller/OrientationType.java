@@ -23,15 +23,15 @@
 package controller;
 
 /**
- * Positions of cells and objects orientation. NONE is only used with objects
- * that have no default orientation.
+ * Enumerate that tells what kind of orientation has an object.
  *
  * @author Vladislav Nikolov Vasilev
  */
-public enum Position {
+public enum OrientationType {
     UP,
     DOWN,
     LEFT,
     RIGHT,
-    NONE
+    NONE,
+    FIND
 }
