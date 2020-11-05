@@ -62,7 +62,7 @@ def get_config(domainGenerator, listener):
     partner = domainGenerator.partner
     transformTo = listener.transformTo
 
-    config_add_gameElementsCorrespondence_variableTypes(spritesPDDL, avatar_predicates, avatar_name)
+    config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_predicates, avatar_name)
     config_add_avatarVariable(avatar_name)
     config_add_orientation(spritesPDDL, actions, avatar_name)
     config_add_actionsCorrespondence(actions)
@@ -77,7 +77,7 @@ def get_config(domainGenerator, listener):
 # ------------------------------------------------------------------------------
 
 # Also adds some turn-order related predicates in additionalPredicates
-def config_add_gameElementsCorrespondence_variableTypes(spritesPDDL, avatar_predicates, avatar_name):
+def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_predicates, avatar_name):
     # Avatar predicates
     for predicate in avatar_predicates:
         match = re.search("([\w-])+ ?", predicate) # Only has one occurrence
@@ -91,7 +91,7 @@ def config_add_gameElementsCorrespondence_variableTypes(spritesPDDL, avatar_pred
 
         # Add variableType
         variableType = "?%s" % name
-        config["variableTypes"][variableType] = name
+        config["variablesTypes"][variableType] = name
 
         config["gameElementsCorrespondence"][name] = [
             # "(object-dead ?%s)" % o,
@@ -109,6 +109,9 @@ def config_add_gameElementsCorrespondence_variableTypes(spritesPDDL, avatar_pred
 
             else:   # If no parameters include it directly to additional
                 config["additionalPredicates"].append(pred)
+
+    # Add cell to variablesTypes
+    config["variablesTypes"]["?c"] = "cell"
 
 # ------------------------------------------------------------------------------
 
