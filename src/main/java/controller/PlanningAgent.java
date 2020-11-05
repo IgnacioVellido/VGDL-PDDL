@@ -551,6 +551,38 @@ public class PlanningAgent extends AbstractPlayer {
                 for (String cellObservation : gameMap[x][y]) {
                     // If the observation is in the domain, instantiate its predicates
                     if (this.gameInformation.gameElementsCorrespondence.containsKey(cellObservation)) {
+                        // Add object's orientation, if any
+                        if (this.gameInformation.orientation.containsKey(cellObservation)) {
+                            OrientationType objectOrientation = this.gameInformation.orientation.get(cellObservation);
+
+                            if (objectOrientation != OrientationType.NONE && objectOrientation != OrientationType.FIND) {
+                                this.PDDLGameStatePredicates.add(
+                                    this.gameInformation.orientationCorrespondence.get(objectOrientation)
+                                        .replace("?object",
+                                            String.format("%s_%d_%d", cellObservation, x, y)));
+                                
+                            } else if (objectOrientation == OrientationType.FIND) {
+                                // objectOrientation will only be FIND when the object is an avatar
+                                Vector2d avatarOrientation = stateObservation.getAvatarOrientation();
+                                OrientationType orientation = null;
+
+                                if (avatarOrientation.x == 1.0) {
+                                    orientation = OrientationType.RIGHT;
+                                } else if (avatarOrientation.x == -1.0) {
+                                    orientation = OrientationType.LEFT;
+                                } else if (avatarOrientation.y == 1.0) {
+                                    orientation = OrientationType.DOWN;
+                                } else if (avatarOrientation.y == -1.0) {
+                                    orientation = OrientationType.UP;
+                                }
+
+                                this.PDDLGameStatePredicates.add(this.gameInformation.orientationCorrespondence
+                                      .get(orientation)
+                                      .replace("?object", cellObservation));
+                                
+                            }
+                        }
+
                         List<String> predicateList = this.gameInformation.gameElementsCorrespondence.get(cellObservation);
 
                         // Instantiate each predicate
@@ -565,35 +597,18 @@ public class PlanningAgent extends AbstractPlayer {
 
                                     if (variable.equals(this.gameInformation.avatarVariable)) {
                                         variableInstance = variable.replace("?", "");
-
-                                        // If orientations are being used, add predicate associated
-                                        // to the player's orientation
-                                        if (this.gameInformation.orientationCorrespondence != null) {
-                                            Vector2d avatarOrientation = stateObservation.getAvatarOrientation();
-                                            OrientationType orientation = null;
-
-                                            if (avatarOrientation.x == 1.0) {
-                                                orientation = OrientationType.RIGHT;
-                                            } else if (avatarOrientation.x == -1.0) {
-                                                orientation = OrientationType.LEFT;
-                                            } else if (avatarOrientation.y == 1.0) {
-                                                orientation = OrientationType.DOWN;
-                                            } else if (avatarOrientation.y == -1.0) {
-                                                orientation = OrientationType.UP;
-                                            }
-
-                                            this.PDDLGameStatePredicates.add(this.gameInformation.orientationCorrespondence
-                                                    .get(orientation)
-                                                    .replace(variable, variableInstance));
-                                        }
                                     } else {
                                         variableInstance = String.format("%s_%d_%d", variable, x, y).replace("?", "");
                                     }
 
                                     // Add instantiated variables to the predicate
-                                    predicateInstance = predicateInstance.replace(variable, variableInstance);
+                                    predicateInstance = predicateInstance.replaceAll(
+                                        "\\?\\b" + variable.replace("?","") + "\\b",
+                                        variableInstance);
 
                                     // Save instantiated variable
+                                    System.out.println(variable + " " + variableInstance);
+                                    System.out.println(predicateInstance);
                                     this.PDDLGameStateObjects.get(variable).add(variableInstance);
                                 }
                             }
@@ -618,7 +633,7 @@ public class PlanningAgent extends AbstractPlayer {
 
             for (int i = 1; i <= numDeadObjects; i++) {
                 String deadObjectInstance = object + i;
-                this.PDDLGameStateObjects.get(object).add(deadObjectInstance);
+                this.PDDLGameStateObjects.get("?" + object).add(deadObjectInstance);
                 this.PDDLGameStatePredicates.add(String.format("(object-dead %s)", deadObjectInstance));
             }
         }

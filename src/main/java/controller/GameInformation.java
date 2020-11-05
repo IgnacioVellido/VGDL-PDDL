@@ -49,6 +49,7 @@ public class GameInformation {
     public LinkedList<PDDLSingleGoal> goals;
     public List<String> additionalPredicates;
     public Map<String, Integer> addDeadObjects;
+    public Map<String, OrientationType> orientation;
 
     public GameInformation() {
     }
