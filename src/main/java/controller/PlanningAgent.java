@@ -64,6 +64,9 @@ public class PlanningAgent extends AbstractPlayer {
     protected static boolean saveInformation;
     protected static boolean localHost;
 
+    // Contains the avatar's previous position
+    protected Vector2d avatarPreviousPosition;
+
     // Agenda that contains preempted, current and reached goals
     protected Agenda agenda;
 
@@ -138,6 +141,9 @@ public class PlanningAgent extends AbstractPlayer {
         // Set plan variable and turn
         this.mustPlan = true;
         this.turn = -1;
+
+        // Get the avatar's previous position
+        this.updateAvatarPreviousPosition(stateObservation);
 
         // If the agent must save the information, create directories and initialize logger
         if (PlanningAgent.saveInformation) {
@@ -375,6 +381,9 @@ public class PlanningAgent extends AbstractPlayer {
 
         PlanningAgent.executionTime += elapsedCpuTimer.elapsedMillis();
 
+        // Update avatar's position
+        this.updateAvatarPreviousPosition(stateObservation);
+
         return action;
     }
 
@@ -590,13 +599,18 @@ public class PlanningAgent extends AbstractPlayer {
                             String predicateInstance = predicate;
 
                             // Iterate over all the variables associated to the game element and
-                            // instantiate those who appear in the predicate
+                            // instantiate those that appear in the predicate
                             for (String variable : this.gameElementVars.get(cellObservation)) {
                                 if (predicate.contains(variable)) {
                                     String variableInstance;
 
                                     if (variable.equals(this.gameInformation.avatarVariable)) {
                                         variableInstance = variable.replace("?", "");
+                                    } else if (variable.equals("?c") && cellObservation.contains("avatar")
+                                            && predicate.contains("last-at")) {
+                                        variableInstance = String.format("c_%d_%d",
+                                                (int) this.avatarPreviousPosition.x,
+                                                (int) this.avatarPreviousPosition.y);
                                     } else {
                                         variableInstance = String.format("%s_%d_%d", variable, x, y).replace("?", "");
                                     }
@@ -607,8 +621,6 @@ public class PlanningAgent extends AbstractPlayer {
                                         variableInstance);
 
                                     // Save instantiated variable
-                                    System.out.println(variable + " " + variableInstance);
-                                    System.out.println(predicateInstance);
                                     this.PDDLGameStateObjects.get(variable).add(variableInstance);
                                 }
                             }
@@ -859,6 +871,17 @@ public class PlanningAgent extends AbstractPlayer {
         }
 
         return connections;
+    }
+
+    /**
+     * Method used to update the avatar's previous position. Both X and Y
+     * coordinates are transformed so they represent a block instead of a pixel.
+     */
+    private void updateAvatarPreviousPosition(StateObservation stateObservation) {
+        this.avatarPreviousPosition = stateObservation.getAvatarPosition();
+
+        this.avatarPreviousPosition.x /= stateObservation.getBlockSize();
+        this.avatarPreviousPosition.y /= stateObservation.getBlockSize();
     }
 
     /**
