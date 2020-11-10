@@ -564,31 +564,36 @@ public class PlanningAgent extends AbstractPlayer {
                         if (this.gameInformation.orientation.containsKey(cellObservation)) {
                             OrientationType objectOrientation = this.gameInformation.orientation.get(cellObservation);
 
-                            if (objectOrientation != OrientationType.NONE && objectOrientation != OrientationType.FIND) {
-                                this.PDDLGameStatePredicates.add(
-                                    this.gameInformation.orientationCorrespondence.get(objectOrientation)
-                                        .replace("?object",
-                                            String.format("%s_%d_%d", cellObservation, x, y)));
-                                
-                            } else if (objectOrientation == OrientationType.FIND) {
-                                // objectOrientation will only be FIND when the object is an avatar
-                                Vector2d avatarOrientation = stateObservation.getAvatarOrientation();
-                                OrientationType orientation = null;
+                            switch (objectOrientation) {
+                                case NONE:
+                                    // objectOrientation can only be NONE if the object is an avatar
+                                    this.PDDLGameStatePredicates.add("(orientation-none avatar)");
+                                    break;
+                                case FIND:
+                                    // objectOrientation can only be FIND when the object is an avatar
+                                    Vector2d avatarOrientation = stateObservation.getAvatarOrientation();
+                                    OrientationType orientation = null;
 
-                                if (avatarOrientation.x == 1.0) {
-                                    orientation = OrientationType.RIGHT;
-                                } else if (avatarOrientation.x == -1.0) {
-                                    orientation = OrientationType.LEFT;
-                                } else if (avatarOrientation.y == 1.0) {
-                                    orientation = OrientationType.DOWN;
-                                } else if (avatarOrientation.y == -1.0) {
-                                    orientation = OrientationType.UP;
-                                }
+                                    if (avatarOrientation.x == 1.0) {
+                                        orientation = OrientationType.RIGHT;
+                                    } else if (avatarOrientation.x == -1.0) {
+                                        orientation = OrientationType.LEFT;
+                                    } else if (avatarOrientation.y == 1.0) {
+                                        orientation = OrientationType.DOWN;
+                                    } else if (avatarOrientation.y == -1.0) {
+                                        orientation = OrientationType.UP;
+                                    }
 
-                                this.PDDLGameStatePredicates.add(this.gameInformation.orientationCorrespondence
-                                      .get(orientation)
-                                      .replace("?object", cellObservation));
-                                
+                                    this.PDDLGameStatePredicates.add(this.gameInformation.orientationCorrespondence
+                                            .get(orientation)
+                                            .replace("?object", cellObservation));
+                                    break;
+                                default:
+                                    this.PDDLGameStatePredicates.add(
+                                            this.gameInformation.orientationCorrespondence.get(objectOrientation)
+                                                    .replace("?object",
+                                                            String.format("%s_%d_%d", cellObservation, x, y)));
+                                    break;
                             }
                         }
 
