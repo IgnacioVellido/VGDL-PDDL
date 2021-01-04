@@ -1,0 +1,86 @@
+domainFile: domains/zelda.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  floor:
+  - (at ?c ?floor)
+  - (last-at ?c ?floor)
+  goal:
+  - (at ?c ?goal)
+  - (last-at ?c ?goal)
+  key:
+  - (at ?c ?key)
+  - (last-at ?c ?key)
+  sword:
+  - (at ?c ?sword)
+  - (last-at ?c ?sword)
+  - (sword-disappeared ?sword)
+  movable:
+  - (at ?c ?movable)
+  - (last-at ?c ?movable)
+  avatar:
+  - (at ?c ?avatar)
+  - (last-at ?c ?avatar)
+  nokey:
+  - (at ?c ?nokey)
+  - (last-at ?c ?nokey)
+  withkey:
+  - (at ?c ?withkey)
+  - (last-at ?c ?withkey)
+  enemy:
+  - (at ?c ?enemy)
+  - (last-at ?c ?enemy)
+  monsterQuick:
+  - (at ?c ?monsterQuick)
+  - (last-at ?c ?monsterQuick)
+  monsterNormal:
+  - (at ?c ?monsterNormal)
+  - (last-at ?c ?monsterNormal)
+  monsterSlow:
+  - (at ?c ?monsterSlow)
+  - (last-at ?c ?monsterSlow)
+  wall:
+  - (at ?c ?wall)
+  - (last-at ?c ?wall)
+variablesTypes:
+  ?floor: floor
+  ?goal: goal
+  ?key: key
+  ?sword: sword
+  ?movable: movable
+  ?avatar: avatar
+  ?nokey: nokey
+  ?withkey: withkey
+  ?enemy: enemy
+  ?monsterQuick: monsterQuick
+  ?monsterNormal: monsterNormal
+  ?monsterSlow: monsterSlow
+  ?wall: wall
+  ?c: cell
+cellVariable: ?c
+avatarVariable: ?withkey
+orientation:
+  withkey: NONE
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence: {}
+additionalPredicates:
+- (turn-avatar)
+- (turn-sprites)
+- (turn-interactions)
+- (turn-sword-disappear)
+- (finished-turn-sword-disappear)
+addDeadObjects:
+  withkey: 10
+goals: 
+- goalPredicate: (turn-avatar)
+  priority: 1
+  saveGoal: no

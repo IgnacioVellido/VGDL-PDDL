@@ -1,6 +1,6 @@
 # Outputs
-config/*
-domains/*
+#config/*
+#domains/*
 .vscode/*
 
 # Compiled class file
