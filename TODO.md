@@ -1,18 +1,22 @@
 TO DO:
 VGDL descriptions
 - Objetos con los que no superponerse ahora tiene stepback
+- Retocar Zelda VGDL ✅
+- A lo mejor interesa retocar todos los VGDL para que haya un formato concreto (sin floor, wall siempre es muro, stepback para las colisiones...)
+```
 - Retocar los existentes para adaptarlos a la arquitectura
   - Quitar objetos innecesarios
   - Quitar jerarquía innecesaria
 (La arquitectura debe leer de la carpeta Simplified, pero GVGAI debería poder seguir usando la suya)
+```
 
 Domains
-- Quitar los action NIL en los que no haya enemigos ni objetos
 - Añadir tipo num
 - Quitar tipo cell
+- Quitar last-at
+- Quitar los action NIL en los que no haya enemigos ni objetos
 - Quitar acciones que implican objetos reactivos (npcs)
 - Alterar orden sprite -> interactions por interactions -> sprite
-- Quitar last-cell
 - (at ?cell) -> (at ?x ?y - num)
 - Cada stepback se añade como (is-...), no puede colisionar en action moves
 - Predicados (next ) y (previous)
@@ -23,9 +27,9 @@ Domains
 
 Config
 - Que no se incluyan:
-  - turn-sprites
-  - turn-interactions
-  - got-resource
+  - turn-sprites ✅
+  - turn-interactions ✅
+  - got-resource (Parece que es cosa de la arquitectura de Vladis)
 
 
 Problems

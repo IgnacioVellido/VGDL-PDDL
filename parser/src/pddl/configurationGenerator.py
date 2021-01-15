@@ -36,8 +36,6 @@ config = dict(
     actionsCorrespondence = {},
     additionalPredicates = [
         "(turn-avatar)",
-        "(turn-sprites)",
-        "(turn-interactions)"
         # ... More added according to the predicates
     ],
     addDeadObjects = {},
