@@ -253,7 +253,8 @@ class DomainGeneratorPDDL:
     def assign_predicates(self):
         """ Depends of the avatar - Probably more needed to undo operations """
         self.predicates.extend(
-            ["(oriented-up ?o - Object)",
+            ["; Orientation"
+             "(oriented-up ?o - Object)",
              "(oriented-down ?o - Object)",
              "(oriented-left ?o - Object)",
              "(oriented-right ?o - Object)",
@@ -269,20 +270,21 @@ class DomainGeneratorPDDL:
 
         # PDDL specific
         self.predicates.extend(
-            ["; To maintain order",
+            ["; Game turn order",
             "(turn-avatar)",
             "(turn-sprites)",
             "(turn-interactions)",
 
-            "; For tile connections",
-            "(connected-up ?c1 ?c2 - cell)",
-            "(connected-down ?c1 ?c2 - cell)",
-            "(connected-right ?c1 ?c2 - cell)",
-            "(connected-left ?c1 ?c2 - cell)",
+            "; Numerics",
+            "(next ?x ?y - num)",
+            "(previous ?x ?y - num)",
 
-            "(at ?c - cell ?o - Object)",
+            "; Position"
+            "(at ?x ?y - num ?o - Object)",
+		    "(object-dead ?o - Object)",
+            "(is-wall ?x ?y - num)"
+            ]
 
-            "(object-dead ?o - Object)"]
         )
 
     # -------------------------------------------------------------------------
