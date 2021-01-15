@@ -324,17 +324,15 @@ class DomainGeneratorPDDL:
             [], # Parameters
             ["(turn-interactions)", 
             """(not 
-				(exists (?x - Object ?y - Object ?c - cell) 
+				(exists (?o1 ?o2 - Object ?x ?y - num) 
 					(and
-						(not (= ?x ?y))
-						(at ?c ?x)
-						(at ?c ?y)
+						(not (= ?o1 ?o2))
+						(at ?x ?y ?o1)
+						(at ?x ?y ?o2)
 					)
 				)
 			)"""], # Preconditions
-            ["; Restart turn",
-            "(turn-avatar)",
-            "(not (turn-sprites))",
+            ["(turn-sprites)",
 			"(not (turn-interactions))"], # Effects
         )
         self.actions.append(end_turn_interactions)
@@ -352,19 +350,19 @@ class DomainGeneratorPDDL:
         turn_predicates = [p for p in spPredicates if "(turn-" in p]
         turn_predicates.append("(not (turn-sprites))")
 
-        # Get the sprites predicates (finished-turn-...)
-        finished_predicates = [p for p in spPredicates if "(finished-turn-" in p]
-
-        # Negate them and append last predicate
-        negated_finished_predicates = ["(not " +  p + ")" for p in finished_predicates]
-        negated_finished_predicates.append("(turn-interactions)")
-
         self.actions.append(Action(
             "TURN-SPRITES",
             [],
             ["(turn-sprites)"],
             turn_predicates
         ))
+
+        # Get the sprites predicates (finished-turn-...)
+        finished_predicates = [p for p in spPredicates if "(finished-turn-" in p]
+
+        # Negate them and append last predicate
+        negated_finished_predicates = ["(not " +  p + ")" for p in finished_predicates]
+        negated_finished_predicates.append("(turn-avatar)")
 
         self.actions.append(Action(
             "END-TURN-SPRITES",

@@ -127,7 +127,7 @@ class AvatarActions:
 
         effects = [
                     "(not (at ?c ?a))", "(at ?u ?a)", 
-                    "(not (turn-avatar))", "(turn-sprites)"]
+                    "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -143,7 +143,7 @@ class AvatarActions:
                          "(connected-down ?c ?d)"]
         effects = [
                     "(not (at ?c ?a))", "(at ?d ?a)", 
-                    "(not (turn-avatar))", "(turn-sprites)"]
+                    "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -159,7 +159,7 @@ class AvatarActions:
                          "(connected-left ?c ?l)"]
         effects = [
                     "(not (at ?c ?a))", "(at ?l ?a)", 
-                    "(not (turn-avatar))", "(turn-sprites)"]
+                    "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -175,7 +175,7 @@ class AvatarActions:
                          "(connected-right ?c ?r)"]
         effects = [
                     "(not (at ?c ?a))", "(at ?r ?a)", 
-                    "(not (turn-avatar))", "(turn-sprites)"]
+                    "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -207,7 +207,7 @@ class AvatarActions:
                         (not (oriented-right ?a))
                     )"""
 
-        effects = [effect_down, effect_right, effect_left, "(oriented-up ?a)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = [effect_down, effect_right, effect_left, "(oriented-up ?a)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -238,7 +238,7 @@ class AvatarActions:
                         (not (oriented-right ?a))
                     )"""
 
-        effects = [effect_left, effect_right, effect_up, "(oriented-down ?a)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = [effect_left, effect_right, effect_up, "(oriented-down ?a)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -268,7 +268,7 @@ class AvatarActions:
                         (not (oriented-right ?a))
                     )"""
 
-        effects = [effect_down, effect_right, effect_up, "(oriented-left ?a)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = [effect_down, effect_right, effect_up, "(oriented-left ?a)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -298,7 +298,7 @@ class AvatarActions:
                         (not (oriented-left ?a))
                     )"""
 
-        effects = [effect_down, effect_left, effect_up, "(oriented-right ?a)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = [effect_down, effect_left, effect_up, "(oriented-right ?a)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -317,7 +317,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"]]
         preconditions = ["(turn-avatar)", "(at ?c ?a)"]
 
-        effects = ["(at ?c ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?c ?p)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -334,7 +334,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["u", "cell"]]
         preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-up ?a)", "(connected-up ?c ?u)"]
 
-        effects = ["(at ?u ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?u ?p)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -353,7 +353,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["d", "cell"]]
         preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-down ?a)", "(connected-down ?c ?d)"]
 
-        effects = ["(at ?d ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?d ?p)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -372,7 +372,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["l", "cell"]]
         preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-left ?a)", "(connected-left ?c ?l)"]
 
-        effects = ["(at ?l ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?l ?p)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -391,7 +391,7 @@ class AvatarActions:
         parameters = [["a", self.avatar.stype], ["p", self.partner.name], ["c", "cell"], ["r", "cell"]]
         preconditions = ["(turn-avatar)", "(at ?c ?a)", "(oriented-right ?a)", "(connected-right ?c ?r)"]
 
-        effects = ["(at ?r ?p)", "(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(at ?r ?p)", "(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -403,7 +403,7 @@ class AvatarActions:
         name = "AVATAR_ACTION_NIL"
         parameters = [["a", self.avatar.stype]]
         preconditions = ["(turn-avatar)"]
-        effects = ["(not (turn-avatar))", "(turn-sprites)"]
+        effects = ["(not (turn-avatar))", "(turn-interactions)"]
 
         return Action(name, parameters, preconditions, effects)
 
