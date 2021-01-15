@@ -94,7 +94,6 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
         config["gameElementsCorrespondence"][name] = [
             # "(object-dead ?%s)" % o,
             "(at ?c ?%s)" % name,
-            "(last-at ?c ?%s)" % name,
         ]
 
         for pred in sprite.predicates:

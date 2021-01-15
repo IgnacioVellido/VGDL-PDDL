@@ -281,7 +281,6 @@ class DomainGeneratorPDDL:
             "(connected-left ?c1 ?c2 - cell)",
 
             "(at ?c - cell ?o - Object)",
-            "(last-at ?c - cell ?o - Object)",
 
             "(object-dead ?o - Object)"]
         )

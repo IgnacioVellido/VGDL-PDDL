@@ -159,9 +159,8 @@ class SpriteActions:
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_UP"
         parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["u", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-up ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-up ?c ?u)"]
-        effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c ?x)",
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-up ?x)", "(at ?c ?x)", "(connected-up ?c ?u)"]
+        effects = [                   
                     "(not (at ?c ?x))",
                     "(at ?u ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
@@ -172,9 +171,8 @@ class SpriteActions:
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_DOWN"
         parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["d", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-down ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-down ?c ?d)"]
-        effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c ?x)",
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-down ?x)", "(at ?c ?x)", "(connected-down ?c ?d)"]
+        effects = [                   
                     "(not (at ?c ?x))",
                     "(at ?d ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
@@ -185,9 +183,9 @@ class SpriteActions:
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_LEFT"
         parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["l", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-left ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-left ?c ?l)"]
-        effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c ?x)",
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-left ?x)", "(at ?c ?x)", "(connected-left ?c ?l)"]
+        effects = [
+                   
                     "(not (at ?c ?x))",
                     "(at ?l ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
@@ -198,9 +196,8 @@ class SpriteActions:
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_RIGHT"
         parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["r", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-right ?x)", "(at ?c ?x)", "(last-at ?c_last ?x)", "(connected-right ?c ?r)"]
-        effects = ["(not (last-at ?c_last ?x))",
-                    "(last-at ?c ?x)",
+        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-right ?x)", "(at ?c ?x)", "(connected-right ?c ?r)"]
+        effects = [                   
                     "(not (at ?c ?x))",
                     "(at ?r ?x)",
                     "(" + self.sprite.name + "-moved ?x)"]
@@ -257,8 +254,7 @@ class SpriteActions:
         ]
         effects = [
             "(not (object-dead ?y))",
-            "(at ?c ?y)",
-            "(last-at ?c ?y)"
+            "(at ?c ?y)"           
             ""
         ]
 

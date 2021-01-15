@@ -14,11 +14,11 @@ Domains
 - Añadir tipo num
 - Quitar tipo cell
 - Quitar last-at
+- Quitar step-back. Cada stepback se añade como (is-...), no puede colisionar en action moves
 - Quitar los action NIL en los que no haya enemigos ni objetos
 - Quitar acciones que implican objetos reactivos (npcs)
 - Alterar orden sprite -> interactions por interactions -> sprite
 - (at ?cell) -> (at ?x ?y - num)
-- Cada stepback se añade como (is-...), no puede colisionar en action moves
 - Predicados (next ) y (previous)
 - Reducir efectos innecesarios en acciones (turn-sprites en avatar_action por ej)
 - Añadir a ACTION_ new_x o new_y

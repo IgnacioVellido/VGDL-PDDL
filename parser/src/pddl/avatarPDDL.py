@@ -122,10 +122,10 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-up ?a) (oriented-none ?a))",
-                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(at ?c ?a)",
                          "(connected-up ?c ?u)"]
 
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+        effects = [
                     "(not (at ?c ?a))", "(at ?u ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 
@@ -139,9 +139,9 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-down ?a) (oriented-none ?a))",
-                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(at ?c ?a)",
                          "(connected-down ?c ?d)"]
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+        effects = [
                     "(not (at ?c ?a))", "(at ?d ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 
@@ -155,9 +155,9 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-left ?a) (oriented-none ?a))", 
-                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(at ?c ?a)",
                          "(connected-left ?c ?l)"]
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+        effects = [
                     "(not (at ?c ?a))", "(at ?l ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 
@@ -171,9 +171,9 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-right ?a) (oriented-none ?a))", 
-                         "(at ?c ?a)", "(last-at ?c_last ?a)",
+                         "(at ?c ?a)",
                          "(connected-right ?c ?r)"]
-        effects = ["(not (last-at ?c_last ?a))", "(last-at ?c ?a)",
+        effects = [
                     "(not (at ?c ?a))", "(at ?r ?a)", 
                     "(not (turn-avatar))", "(turn-sprites)"]
 

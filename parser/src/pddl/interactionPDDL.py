@@ -371,15 +371,13 @@ class InteractionActions:
 
             "(at ?c ?x)",
             "(at ?c ?y)",
-            "(last-at ?c_last ?x)",
+           
 
             "(connected-up ?c ?u)"
         ]
         effects = [
             "(at ?u ?x)",
-            "(not (at ?c ?x))",
-            "(not (at ?c_last ?x))",
-            "(last-at ?c ?x)"
+            "(not (at ?c ?x))",           
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -401,15 +399,13 @@ class InteractionActions:
 
             "(at ?c ?x)",
             "(at ?c ?y)",
-            "(last-at ?c_last ?x)",
+           
 
             "(connected-down ?c ?d)"
         ]
         effects = [
             "(at ?d ?x)",
             "(not (at ?c ?x))",
-            "(not (at ?c_last ?x))",
-            "(last-at ?c ?x)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -431,15 +427,15 @@ class InteractionActions:
 
             "(at ?c ?x)",
             "(at ?c ?y)",
-            "(last-at ?c_last ?x)",
+           
 
             "(connected-left ?c ?l)"
         ]
         effects = [
             "(at ?l ?x)",
             "(not (at ?c ?x))",
-            "(not (at ?c_last ?x))",
-            "(last-at ?c ?x)"
+            
+           
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -461,15 +457,15 @@ class InteractionActions:
 
             "(at ?c ?x)",
             "(at ?c ?y)",
-            "(last-at ?c_last ?x)",
+           
 
             "(connected-right ?c ?r)"
         ]
         effects = [
             "(at ?r ?x)",
             "(not (at ?c ?x))",
-            "(not (at ?c_last ?x))",
-            "(last-at ?c ?x)"
+            
+           
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -508,17 +504,13 @@ class InteractionActions:
             "(at ?c ?y)",
             # If we remove this predicate it would be sent to a random cell ?
             # But we should be carefull with stepBack or undoAll
-            "(at ?c_last x)",
 
             "(object-dead ?z)"
         ]
         effects = [
             "(not (object-dead ?z))",
             # This can generate infinite loops
-            # "(at ?c ?z)",
-            # "(last-at ?c ?z)"
-            "(at ?c_last ?z)",
-            "(last-at ?c_last ?z)"
+            # "(at ?c ?z)",            
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -664,10 +656,7 @@ class InteractionActions:
             "(not (= ?x ?y))",
 
             "(at ?c ?x)",
-            "(at ?c ?y)",
-
-            "(last-at ?c_last ?y)",
-            "(connected-up ?c ?c_last)"
+            "(at ?c ?y)",        
         ]
         effects = [
             "(not (at ?c ?x))",
@@ -1006,12 +995,10 @@ class InteractionActions:
             "(not (= ?x ?y))",
 
             "(at ?c ?x)",
-            "(at ?c ?y)",
-            "(last-at ?c_last ?x)"
+            "(at ?c ?y)"           
         ]
         effects = [
-            "(not (at ?c ?x))",
-            "(at ?c_last ?x)"
+            "(not (at ?c ?x))"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -1101,7 +1088,7 @@ class InteractionActions:
             "(object-dead ?x)",
             # "(object-dead ?y)",
             "(at ?c ?z)",
-            "(last-at ?c ?z)",
+           
             "(not (object-dead ?z))",
             """(when
                         (oriented-up ?y)
