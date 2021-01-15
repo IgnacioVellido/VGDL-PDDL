@@ -1,4 +1,4 @@
-domainFile: domains/zelda.pddl
+domainFile: domains/cell-based/zelda.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:

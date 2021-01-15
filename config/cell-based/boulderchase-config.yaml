@@ -1,4 +1,4 @@
-domainFile: domains/boulderchase.pddl
+domainFile: domains/cell-based/boulderchase.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:

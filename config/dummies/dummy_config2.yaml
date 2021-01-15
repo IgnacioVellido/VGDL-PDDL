@@ -1,0 +1,43 @@
+# Cambios:
+# cellVariable -> numVariable
+# connections
+
+domainFile: domains/dummy_baseline2.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+
+# Hace falta incluir los objetos del juego específico ?
+# - Leer objetos left-most objects en descripción VGDL
+# - Añadir objetos devueltos por GVGAI
+gameElementsCorrespondence:
+  avatar:
+  - (at ?n1 ?n2 ?avatar)
+variablesTypes:
+  ?avatar: avatar
+  ?n0: num
+  ?n1: num
+numVariable: ?n
+avatarVariable: ?avatar
+
+# Esto habrá que modificarlo según el juego
+orientation:
+  avatar: NONE
+
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+connections:
+  NEXT: (next ?n1 ?n2)
+  PREVIOUS: (previous ?n1 ?n2)
+actionsCorrespondence:
+  DO_NOTHING: ACTION_NIL
+additionalPredicates: {}
+addDeadObjects: {}
+
+# Objetivo cualquiera ?
+goals:
+- goalPredicate: (next n0 n1)
+  priority: 1
+  saveGoal: no

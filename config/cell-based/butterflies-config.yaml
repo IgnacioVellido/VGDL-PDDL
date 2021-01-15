@@ -1,52 +1,31 @@
-domainFile: domains/ice-and-fire.pddl
+domainFile: domains/cell-based/butterflies.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:
   floor:
   - (at ?c ?floor)
   - (last-at ?c ?floor)
-  exit:
-  - (at ?c ?exit)
-  - (last-at ?c ?exit)
+  cocoon:
+  - (at ?c ?cocoon)
+  - (last-at ?c ?cocoon)
+  animal:
+  - (at ?c ?animal)
+  - (last-at ?c ?animal)
   avatar:
   - (at ?c ?avatar)
   - (last-at ?c ?avatar)
-  trap:
-  - (at ?c ?trap)
-  - (last-at ?c ?trap)
-  ice:
-  - (at ?c ?ice)
-  - (last-at ?c ?ice)
-  fire:
-  - (at ?c ?fire)
-  - (last-at ?c ?fire)
-  feetwear:
-  - (at ?c ?feetwear)
-  - (last-at ?c ?feetwear)
-  - (got-resource-feetwear ?feetwear)
-  iceshoes:
-  - (at ?c ?iceshoes)
-  - (last-at ?c ?iceshoes)
-  fireboots:
-  - (at ?c ?fireboots)
-  - (last-at ?c ?fireboots)
-  chip:
-  - (at ?c ?chip)
-  - (last-at ?c ?chip)
+  butterfly:
+  - (at ?c ?butterfly)
+  - (last-at ?c ?butterfly)
   wall:
   - (at ?c ?wall)
   - (last-at ?c ?wall)
 variablesTypes:
   ?floor: floor
-  ?exit: exit
+  ?cocoon: cocoon
+  ?animal: animal
   ?avatar: avatar
-  ?trap: trap
-  ?ice: ice
-  ?fire: fire
-  ?feetwear: feetwear
-  ?iceshoes: iceshoes
-  ?fireboots: fireboots
-  ?chip: chip
+  ?butterfly: butterfly
   ?wall: wall
   ?c: cell
 cellVariable: ?c

@@ -1,0 +1,58 @@
+domainFile: domains/handmade/BoulderdashDomain.pddl
+problemFile: problem.pddl
+domainName: BoulderDash
+cellVariable: ?c
+avatarVariable: ?a
+gameElementsCorrespondence:
+  wall:
+  - (at ?w ?c)
+  exitdoor:
+  - (at ?e ?c)
+  diamond:
+  - (at ?g ?c)
+  boulder:
+  - (at ?b ?c)
+  avatar:
+  - (at ?a ?c)
+  crab:
+  - (at ?s ?c)
+  butterfly:
+  - (at ?bat ?c)
+variablesTypes:
+  ?c: Cell
+  ?a: Player
+  ?w: Wall
+  ?e: Exit
+  ?s: Scorpion
+  ?bat: Bat
+  ?g: Gem
+  ?b: Boulder
+orientationCorrespondence:
+  UP: (oriented-up ?a)
+  DOWN: (oriented-down ?a)
+  LEFT: (oriented-left ?a)
+  RIGHT: (oriented-right ?a)
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence:
+  TURN-UP: ACTION_UP
+  TURN-DOWN: ACTION_DOWN
+  TURN-LEFT: ACTION_LEFT
+  TURN-RIGHT: ACTION_RIGHT
+  MOVE-UP: ACTION_UP
+  MOVE-DOWN: ACTION_DOWN
+  MOVE-LEFT: ACTION_LEFT
+  MOVE-RIGHT: ACTION_RIGHT
+  DIG-UP: ACTION_USE
+  DIG-DOWN: ACTION_USE
+  DIG-LEFT: ACTION_USE
+  DIG-RIGHT: ACTION_USE
+appendPredicatesList:
+  - (= (collected) 0)
+goals:
+- goalPredicate: (exited-level)
+  priority: 1
+  saveGoal: no

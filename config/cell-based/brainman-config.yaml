@@ -1,4 +1,4 @@
-domainFile: domains/brainman.pddl
+domainFile: domains/cell-based/brainman.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:

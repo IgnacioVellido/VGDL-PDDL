@@ -1,0 +1,61 @@
+domainFile: domains/dummy_boulder_cell.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+
+gameElementsCorrespondence:
+  wall:
+  - (at ?c ?wall)
+  sword:
+  - (at ?c ?sword)
+  dirt:
+  - (at ?c ?dirt)
+  exitdoor:
+  - (at ?c ?exitdoor)
+  diamond:
+  - (at ?c ?diamond)
+  boulder:
+  - (at ?c ?boulder)
+  avatar:
+  - (at ?c ?avatar)  
+  crab:
+  - (at ?c ?crab)
+  butterfly:
+  - (at ?c ?butterfly)
+variablesTypes:
+  ?wall: wall
+  ?sword: sword
+  ?dirt: dirt
+  ?exitdoor: exitdoor
+  ?diamond: diamond
+  ?boulder: boulder
+  ?avatar: avatar
+  ?crab: crab
+  ?butterfly: butterfly
+  ?c: cell
+cellVariable: ?c
+avatarVariable: ?avatar
+
+# Esto habrá que modificarlo según el juego
+orientation:
+  avatar: NONE
+
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence:
+  DO_NOTHING: ACTION_NIL
+additionalPredicates: {}
+addDeadObjects: {}
+
+# Objetivo cualquiera ?
+goals:
+- goalPredicate: (connected-up n0 n1)
+  priority: 1
+  saveGoal: no
