@@ -1,3 +1,12 @@
+EN LA CARPETA VGDL ESTÁN
+- GVGAI.TXT: Versión a usar en gvgai
+- ??. txt: Versión para el parser
+Si alguna vez se quisiera genera los problemas habría que tener en cuenta que no está floor
+
+Boulderchase es boulderdash pero los enemigos persigue, quitarlo
+Iceandfire sin chip
+En butterflies para el dominio es solo búsqueda de caminos, pero como está la arquitectura de Vladis se generan nuevos enemigos
+
 TO DO:
 VGDL descriptions
 - Objetos con los que no superponerse ahora tiene stepback
@@ -15,8 +24,9 @@ Domains
 - Quitar tipo cell ✅
 - Quitar last-at ✅
 - Quitar step-back. Cada stepback se añade como (is-...), no puede colisionar en action moves
+  - Lo mismo con killsprite
 - Quitar los action NIL en los que no haya enemigos ni objetos
-- Quitar acciones que implican objetos reactivos (npcs)
+- Quitar acciones que implican solo objetos reactivos (npcs)
 - Alterar orden sprite -> interactions por interactions -> sprite ✅
 - (at ?cell) -> (at ?x ?y - num) ✅
 - Predicados (next ) y (previous) ✅
@@ -24,18 +34,22 @@ Domains
 - Añadir a ACTION_ new_x o new_y ✅
 - Cambiar ?x representando objeto por ?o, en interacciones por ?o1 y ?o2. Dejar ?x e ?y para coordenadas ✅
 - ¿¿ Quitar interacciones innecesarias (ver cuáles) ??
-- Quitar objeto wall
+- Quitar objeto wall ?? 
+  - O quitar todo objeto con stepback
+  - O leerlo y añadirlo al movimiento
 
 Config
 - Que no se incluyan:
   - turn-sprites ✅
   - turn-interactions ✅
   - got-resource (Parece que es cosa de la arquitectura de Vladis)
+- El límite viene incluído en VGDL
 
 
 Problems
 - Incluir oriented (ahora mismo no sale)
 - Quitar los floor y background
+- Toda casilla que no tenga nada encima no incluirla como floor ni background
 - Quitar los cell
 - Quitar los wall, sustituir por (is-wall)
 - Quitar objetos extra (diamantes, misiles) y solo añadir 1

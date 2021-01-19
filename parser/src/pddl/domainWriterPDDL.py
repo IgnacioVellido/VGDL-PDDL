@@ -92,7 +92,9 @@ class DomainWriterPDDL:
                 for i in range(1, len(t)):
                     text_content += t[i] + " "
 
-                text_content += "- " + type_class
+                # If object has class
+                if type_class:
+                    text_content += "- " + type_class
 
         return start_text + text_content + end_text
 

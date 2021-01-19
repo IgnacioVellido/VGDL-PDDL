@@ -166,8 +166,8 @@ class DomainGeneratorPDDL:
         stypes = []
         names = []
 
-        # Num object
-        self.types.append(["Immovable", "num"])
+        # Numerics
+        self.types.append(["", "num"])
 
         for sprite in self.sprites:
             names.append(sprite.name)

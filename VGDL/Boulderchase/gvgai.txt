@@ -1,11 +1,12 @@
 BasicGame
 	SpriteSet
-		wall > Immovable
-		sword > Flicker limit=1
-		dirt > Immovable
-		exitdoor > Door
-		diamond > Resource limit=10
-		boulder > Missile orientation=DOWN
+		background > Immovable img=oryx/backBlack hidden=True
+		wall > Immovable autotiling=true img=oryx/dirtWall
+		sword > Flicker color=LIGHTGRAY limit=1 singleton=True img=oryx/pickaxe
+		dirt > Immovable color=BROWN img=oryx/backLBrown
+		exitdoor > Door color=GREEN img=oryx/door2
+		diamond > Resource color=YELLOW limit=10 shrinkfactor=0.75 img=oryx/diamond3
+		boulder > Missile orientation=DOWN color=GRAY speed=0.2 img=oryx/mineral1
 		moving >
 			avatar  > ShootAvatar   stype=sword frameRate=8 img=oryx/spelunky
 			enemy > Chaser stype=avatar speed=0.1
