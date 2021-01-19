@@ -191,6 +191,12 @@ class DomainWriterPDDL:
   """
 
         text = "\n"
+        
+        for a in actions:
+            if a:
+                print(a.name)
+            else:
+                print("NONE")
 
         for a in actions:
             preconditions = a.get_preconditions()

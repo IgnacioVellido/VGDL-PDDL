@@ -135,7 +135,10 @@ class SpriteActions:
     def get_actions(self, action_list):
         """ Stores in self.actions the actions defined """
         for function in action_list:
-            self.actions.append(function())
+            act = function()
+            # If case Action is not returned
+            if act:
+                self.actions.append(function())
         
 
     # -------------------------------------------------------------------------
