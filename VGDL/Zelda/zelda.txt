@@ -10,13 +10,13 @@ BasicGame
         monsterQuick > RandomNPC cooldown=2 cons=6 img=oryx/bat1
         monsterNormal > RandomNPC cooldown=4 cons=8 img=oryx/spider2
         monsterSlow > RandomNPC cooldown=8 cons=12 img=oryx/scorpion1
-      wall > Immovable autotiling=true img=oryx/wall3
+    wall > Immovable autotiling=true img=oryx/wall3
       	
 
   LevelMapping
     g > floor goal
     + > floor key        
-    A > floor nokey
+    A > floor avatar
     1 > floor monsterQuick
     2 > floor monsterNormal
     3 > floor monsterSlow
@@ -26,12 +26,10 @@ BasicGame
 
   InteractionSet
     movable wall  > stepBack
-    nokey goal    > stepBack
-    goal withkey  > killSprite scoreChange=1
+    goal avatar   > killIfOtherHasMore resource=key limit=1
     enemy sword > killSprite scoreChange=2
     enemy enemy > stepBack
     avatar enemy > killSprite scoreChange=-1
-    nokey key     > transformTo stype=withkey scoreChange=1 killSecond=True
 
   TerminationSet
     SpriteCounter stype=goal   win=True
