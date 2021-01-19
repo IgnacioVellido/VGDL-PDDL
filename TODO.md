@@ -44,6 +44,8 @@ Problems
   - (at nx ny )
   - (is-... nx ny)
 
+- Una vez terminado: Quitar comentarios # DONE
+
 ---
 
 ?? Si uno de los objetos implicados es reactivo, quitarlo? (siempre que no sea kill.., para los clone por ejemplo)
