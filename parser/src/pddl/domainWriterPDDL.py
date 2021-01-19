@@ -25,10 +25,12 @@ class DomainWriterPDDL:
     ):
         self.text_domain = self.get_domain_definition()
         self.text_domain += self.get_types(types)
-        self.text_domain += self.get_constants(constants)
+
+        if constants:
+            self.text_domain += self.get_constants(constants)
+
         self.text_domain += self.get_predicates(predicates)
         # self.text_domain += self.get_functions(functions)
-        # self.text_domain += self.get_tasks(tasks)
         self.text_domain += self.get_actions(actions)
         self.text_domain += self.get_end_domain()
 
@@ -194,7 +196,7 @@ class DomainWriterPDDL:
             preconditions = a.get_preconditions()
             effects = a.get_effects()
 
-            # If it don't begins with a forall
+            # If it doesn't begin with a forall
             # if len(a.effects) > 0 and not "forall" in a.effects[0]:
                 # text_effects = "and " + effects
             # else:

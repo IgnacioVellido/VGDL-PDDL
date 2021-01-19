@@ -166,8 +166,8 @@ class DomainGeneratorPDDL:
         stypes = []
         names = []
 
-        # CELL OBJECT
-        self.types.append(["Immovable", "cell"])
+        # Num object
+        self.types.append(["Immovable", "num"])
 
         for sprite in self.sprites:
             names.append(sprite.name)
@@ -251,14 +251,32 @@ class DomainGeneratorPDDL:
     # -------------------------------------------------------------------------
 
     def assign_predicates(self):
-        """ Depends of the avatar - Probably more needed to undo operations """
+        """ Depends of the avatar - Probably more needed to undo operations """        
+        # PDDL specific
         self.predicates.extend(
-            ["; Orientation"
-             "(oriented-up ?o - Object)",
-             "(oriented-down ?o - Object)",
-             "(oriented-left ?o - Object)",
-             "(oriented-right ?o - Object)",
-             "(oriented-none ?o - Object)"]
+            [  "; Orientation"
+               "(oriented-up ?o - Object)",
+               "(oriented-down ?o - Object)",
+               "(oriented-left ?o - Object)",
+               "(oriented-right ?o - Object)",
+               "(oriented-none ?o - Object)",
+
+               "; Game turn order",
+               "(turn-avatar)",
+               "(turn-sprites)",
+               "(turn-interactions)",
+
+               "; Numerics",
+               "(next ?x ?y - num)",
+               "(previous ?x ?y - num)",
+
+               "; Position"
+               "(at ?x ?y - num ?o - Object)",
+               "(object-dead ?o - Object)",
+               "(is-wall ?x ?y - num)",
+
+               "; Game specific"
+            ]
         )
 
         avatar = self.avatarPDDL.predicates
@@ -267,25 +285,6 @@ class DomainGeneratorPDDL:
         for spPDDL in self.spritesPDDL:
             sprite = spPDDL.predicates
             self.predicates.extend(sprite)
-
-        # PDDL specific
-        self.predicates.extend(
-            ["; Game turn order",
-            "(turn-avatar)",
-            "(turn-sprites)",
-            "(turn-interactions)",
-
-            "; Numerics",
-            "(next ?x ?y - num)",
-            "(previous ?x ?y - num)",
-
-            "; Position"
-            "(at ?x ?y - num ?o - Object)",
-		    "(object-dead ?o - Object)",
-            "(is-wall ?x ?y - num)"
-            ]
-
-        )
 
     # -------------------------------------------------------------------------
 
@@ -315,7 +314,6 @@ class DomainGeneratorPDDL:
             self.actions.extend(
                 InteractionActions(interaction, sprite, partner, self.hierarchy).actions
             )
-
 
 
         # PDDL specific actions
