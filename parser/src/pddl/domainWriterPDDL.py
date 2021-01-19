@@ -61,10 +61,7 @@ class DomainWriterPDDL:
 
     # Returns a string with closing the final brackets in the domain
     def get_end_domain(self):
-        text = """
-)
-"""
-        return text
+        return """)"""
 
     # -------------------------------------------------------------------------
 
@@ -192,12 +189,6 @@ class DomainWriterPDDL:
 
         text = "\n"
         
-        for a in actions:
-            if a:
-                print(a.name)
-            else:
-                print("NONE")
-
         for a in actions:
             preconditions = a.get_preconditions()
             effects = a.get_effects()

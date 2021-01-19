@@ -254,7 +254,7 @@ class DomainGeneratorPDDL:
         """ Depends of the avatar - Probably more needed to undo operations """        
         # PDDL specific
         self.predicates.extend(
-            [  "; Orientation"
+            [  "; Orientation",
                "(oriented-up ?o - Object)",
                "(oriented-down ?o - Object)",
                "(oriented-left ?o - Object)",
@@ -270,7 +270,7 @@ class DomainGeneratorPDDL:
                "(next ?x ?y - num)",
                "(previous ?x ?y - num)",
 
-               "; Position"
+               "; Position",
                "(at ?x ?y - num ?o - Object)",
                "(object-dead ?o - Object)",
                "(is-wall ?x ?y - num)",
@@ -321,15 +321,14 @@ class DomainGeneratorPDDL:
             "END-TURN-INTERACTIONS", # Name
             [], # Parameters
             ["(turn-interactions)", 
-            """(not 
-				(exists (?o1 ?o2 - Object ?x ?y - num) 
-					(and
-						(not (= ?o1 ?o2))
-						(at ?x ?y ?o1)
-						(at ?x ?y ?o2)
-					)
-				)
-			)"""], # Preconditions
+            """(not (exists (?o1 ?o2 - Object ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )"""], # Preconditions
             ["(turn-sprites)",
 			"(not (turn-interactions))"], # Effects
         )
