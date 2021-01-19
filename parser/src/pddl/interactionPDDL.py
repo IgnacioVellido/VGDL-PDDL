@@ -279,7 +279,7 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_ADDHEALTHPOINTS"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
         preconditions = [
             "(= (coordinate_x ?x) (coordinate_x ?y))",
             "(= (coordinate_y ?x) (coordinate_y ?y))",
@@ -291,69 +291,74 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def addHealthPointsToMax(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_ADDHEALTHPOINTSTOMAX"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_ADDHEALTHPOINTSTOMAX"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def align(self):
-        name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_ALIGN"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_ALIGN"
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def attractGaze(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_ATTRACTGAZE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_ATTRACTGAZE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def bounceDirection(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_BOUNCEDIRECTION"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_BOUNCEDIRECTION"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
+    # DONE
     def bounceForward_up(self):
         """ Move in the same direction of partner """
         name = (
@@ -362,26 +367,23 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_UP"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["u", "cell"], ["c_last", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-
-            "(oriented-up ?y)",
-
-            "(at ?c ?x)",
-            "(at ?c ?y)",
-           
-
-            "(connected-up ?c ?u)"
+            "(not (= ?o1 ?o2))",
+            "(or (oriented-up ?o2) (oriented-none ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)",
+            "(previous ?y ?new_y)"
         ]
         effects = [
-            "(at ?u ?x)",
-            "(not (at ?c ?x))",           
+            "(at ?x ?new_y ?o1)",
+            "(not (at ?x ?y ?o1))",           
         ]
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def bounceForward_down(self):
         """ Move in the same direction of partner """
         name = (
@@ -390,26 +392,23 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_DOWN"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["d", "cell"], ["c_last", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-
-            "(oriented-down ?y)",
-
-            "(at ?c ?x)",
-            "(at ?c ?y)",
-           
-
-            "(connected-down ?c ?d)"
+            "(not (= ?o1 ?o2))",
+            "(or (oriented-down ?o2) (oriented-none ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)",
+            "(next ?y ?new_y)"
         ]
         effects = [
-            "(at ?d ?x)",
-            "(not (at ?c ?x))",
+            "(at ?x ?new_y ?o1)",
+            "(not (at ?x ?y ?o1))",
         ]
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def bounceForward_left(self):
         """ Move in the same direction of partner """
         name = (
@@ -418,28 +417,23 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_LEFT"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["l", "cell"], ["c_last", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-
-            "(oriented-left ?y)",
-
-            "(at ?c ?x)",
-            "(at ?c ?y)",
-           
-
-            "(connected-left ?c ?l)"
+            "(not (= ?o1 ?o2))",
+            "(or (oriented-left ?o2) (oriented-none ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)",
+            "(previous ?x ?new_x)"
         ]
         effects = [
-            "(at ?l ?x)",
-            "(not (at ?c ?x))",
-            
-           
+            "(at ?new_x ?y ?o1)",
+            "(not (at ?x ?y ?o1))"
         ]
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def bounceForward_right(self):
         """ Move in the same direction of partner """
         name = (
@@ -448,24 +442,18 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_BOUNCEFORWARD_RIGHT"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["r", "cell"], ["c_last", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-
-            "(oriented-right ?y)",
-
-            "(at ?c ?x)",
-            "(at ?c ?y)",
-           
-
-            "(connected-right ?c ?r)"
+            "(not (= ?o1 ?o2))",
+            "(or (oriented-right ?o2) (oriented-none ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)",
+            "(next ?x ?new_x)"
         ]
         effects = [
-            "(at ?r ?x)",
-            "(not (at ?c ?x))",
-            
-           
+            "(at ?new_x ?y ?o1)",
+            "(not (at ?x ?y ?o1))"   
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -473,50 +461,53 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def changeResource(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_CHANGERESOURCE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_CHANGERESOURCE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     # Clone sprite (partner dies by another interaction, carefull)
     def cloneSprite(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_CLONESPRITE"
-        )
-        # parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["z", self.sprite.name]]
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["z", self.sprite.name], ["c_last", "cell"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)",
-            # If we remove this predicate it would be sent to a random cell ?
-            # But we should be carefull with stepBack or undoAll
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_CLONESPRITE"
+        # )
+        # # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["z", self.sprite.name]]
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["z", self.sprite.name]]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)",
+        #     # If we remove this predicate it would be sent to a random cell ?
+        #     # But we should be carefull with stepBack or undoAll
 
-            "(object-dead ?z)"
-        ]
-        effects = [
-            "(not (object-dead ?z))",
-            # This can generate infinite loops
-            # "(at ?c ?z)",            
-        ]
+        #     "(object-dead ?z)"
+        # ]
+        # effects = [
+        #     "(not (object-dead ?z))",
+        #     # This can generate infinite loops
+        #     # "(at ?c ?z)",            
+        # ]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
+    # DONE
     def collectResource(self):
         name = (
             self.sprite.name.upper()
@@ -524,16 +515,16 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_COLLECTRESOURCE"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)"
+            "(not (= ?o1 ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)"
         ]
         effects = [
-            "(object-dead ?x)",
-            "(got-resource-" + self.sprite.name + " ?x)"
+            "(object-dead ?o1)",
+            "(got-resource-" + self.sprite.name + " ?o1)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -541,87 +532,91 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def decreaseSpeedToAll(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_INCREASESPEEDTOALL"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_INCREASESPEEDTOALL"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def flipDirection(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_FLIPDIRECTION"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_FLIPDIRECTION"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def increaseSpeedToAll(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_INCREASESPEEDTOALL"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_INCREASESPEEDTOALL"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def killAll(self):
-        name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLALL"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLALL"
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
+    # DONE
     def killBoth(self):
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLBOTH"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-
-            "(at ?c ?x)",
-            "(at ?c ?y)"
+            "(not (= ?o1 ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)"
         ]
         effects = [
-            "(not (at ?c ?x))",
-            "(not (at ?c ?y))",
-            "(object-dead ?x)",
-            "(object-dead ?y)"
+            "(not (at ?x ?y ?o1))",
+            "(not (at ?x ?y ?o2))",
+            "(object-dead ?o1)",
+            "(object-dead ?o2)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -629,41 +624,43 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def killIfAlive(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFALIVE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFALIVE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def killIfFromAbove(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_KILLIFFROMABOVE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["c_last", "cell"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?x ?y))",
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_KILLIFFROMABOVE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
 
-            "(at ?c ?x)",
-            "(at ?c ?y)",        
-        ]
-        effects = [
-            "(not (at ?c ?x))",
-            "(object-dead ?x)",
-        ]
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)",        
+        # ]
+        # effects = [
+        #     "(not (at ?x ?y ?o1))",
+        #     "(object-dead ?o1)",
+        # ]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
@@ -671,118 +668,122 @@ class InteractionActions:
 
     # ASSUMING SPRITE IS AN AVATAR, THE ACTION IS THE SAME AS KILLIFOTHERHASMORE
     def killIfHasMore(self):
-        # Get resource name
-        parameters = [p for p in self.interaction.parameters if "resource=" in p]
-        resource = parameters[0].replace("resource=",'')
+        pass
+        # # Get resource name
+        # parameters = [p for p in self.interaction.parameters if "resource=" in p]
+        # resource = parameters[0].replace("resource=",'')
 
-        # Get number needed
-        parameters = [p for p in self.interaction.parameters if "limit=" in p]
-        number = parameters[0].replace("limit=",'')
-        number = int(number)
+        # # Get number needed
+        # parameters = [p for p in self.interaction.parameters if "limit=" in p]
+        # number = parameters[0].replace("limit=",'')
+        # number = int(number)
 
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_KILLIFOTHERHASMORE"
-        )
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_KILLIFOTHERHASMORE"
+        # )
         
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)"
-        ]
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)"
+        # ]
 
-        effects = [
-            "(object-dead ?x)"
-        ]
+        # effects = [
+        #     "(object-dead ?o1)"
+        # ]
 
 
-        # Add number-sprites to parameters
-        for i in range(number):
-            parameters.append(["r" + str(i), resource])
+        # # Add number-sprites to parameters
+        # for i in range(number):
+        #     parameters.append(["r" + str(i), resource])
 
-        # Add number-preconditions
-        for i in range(number):
-            preconditions.append("(got-resource-" + resource + " ?r" + str(i) + ")")
+        # # Add number-preconditions
+        # for i in range(number):
+        #     preconditions.append("(got-resource-" + resource + " ?r" + str(i) + ")")
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     # Kill sprite if sprite has less
     def killIfHasLess(self):
-        # Get resource name
-        parameters = [p for p in self.interaction.parameters if "resource=" in p]
-        resource = parameters[0].replace("resource=",'')
+        pass
+        # # Get resource name
+        # parameters = [p for p in self.interaction.parameters if "resource=" in p]
+        # resource = parameters[0].replace("resource=",'')
 
-        # Get number needed
-        parameters = [p for p in self.interaction.parameters if "limit=" in p]
-        number = parameters[0].replace("limit=",'')
-        number = int(number)
+        # # Get number needed
+        # parameters = [p for p in self.interaction.parameters if "limit=" in p]
+        # number = parameters[0].replace("limit=",'')
+        # number = int(number)
 
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper()
-            + "_KILLIFOTHERHASLESS"
-        )
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper()
+        #     + "_KILLIFOTHERHASLESS"
+        # )
         
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)"
-        ]
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)"
+        # ]
 
-        effects = [
-            "(object-dead ?x)"
-        ]
+        # effects = [
+        #     "(object-dead ?o1)"
+        # ]
 
 
-        # Add number-sprites to parameters
-        for i in range(number):
-            parameters.append(["r" + str(i), resource])
+        # # Add number-sprites to parameters
+        # for i in range(number):
+        #     parameters.append(["r" + str(i), resource])
 
-        # Add number-preconditions
-        for i in range(number):
-            preconditions.append("(got-resource-" + resource + " ?r" + str(i) + ")")
+        # # Add number-preconditions
+        # for i in range(number):
+        #     preconditions.append("(got-resource-" + resource + " ?r" + str(i) + ")")
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def killIfFast(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFFAST"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFFAST"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def killIfOtherHasLess(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_KILLIFOTHERHASLESS"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_KILLIFOTHERHASLESS"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
@@ -808,16 +809,16 @@ class InteractionActions:
             + "_KILLIFOTHERHASMORE"
         )
         
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)"
+            "(not (= ?o1 ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)"
         ]
 
         effects = [
-            "(object-dead ?x)"
+            "(object-dead ?o1)"
         ]
 
 
@@ -834,17 +835,18 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def killIfSlow(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFSLOW"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLIFSLOW"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
@@ -853,17 +855,17 @@ class InteractionActions:
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLSPRITE"
         )
         # partner.stype or partner.name ?
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]] 
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]] 
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
+            "(not (= ?o1 ?o2))",
 
-            "(at ?c ?x)",
-            "(at ?c ?y)"
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)"
         ]
         effects = [
-            "(not (at ?c ?x))",
-            "(object-dead ?x)"
+            "(not (at ?x ?y ?o1))",
+            "(object-dead ?o1)"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -871,281 +873,295 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def pullWithIt(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_PULLWITHIT"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_PULLWITHIT"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def removeScore(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_REMOVESCORE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_REMOVESCORE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def reverseDirection(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_REVERSEDIRECTION"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_REVERSEDIRECTION"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def setSpeedToAll(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_SETSPEEDTOALL"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_SETSPEEDTOALL"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def spawnBehind(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_SPAWNBEHING"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_SPAWNBEHING"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def spawnIfHasLess(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_SPAWNIFHASLESS"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_SPAWNIFHASLESS"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def spawnIfHasMore(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_SPAWNIFHASMORE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_SPAWNIFHASMORE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def stepBack(self):
-        name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_STEPBACK"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"], ["c_last", "cell"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?x ?y))",
+        pass
+        # name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_STEPBACK"
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
 
-            "(at ?c ?x)",
-            "(at ?c ?y)"           
-        ]
-        effects = [
-            "(not (at ?c ?x))"
-        ]
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)"           
+        # ]
+        # effects = [
+        #     "(not (at ?x ?y ?o1))"
+        # ]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def subsctractHealthPoints(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_SUBSCTRACTHEALTHPOINTS"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_SUBSCTRACTHEALTHPOINTS"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def teleportToExit(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_TELEPORTTOEXIT"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_TELEPORTTOEXIT"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def transformIfCount(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_TRANSFORMIFCOUNT"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_TRANSFORMIFCOUNT"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     # Maintain orientation of the partner object
     def transformTo(self):
-        # Find object to tranform
-        parameters = [p for p in self.interaction.parameters if "stype=" in p]
-        resulting_sprite = parameters[0].replace("stype=",'')
+        pass
+        # # Find object to tranform
+        # parameters = [p for p in self.interaction.parameters if "stype=" in p]
+        # resulting_sprite = parameters[0].replace("stype=",'')
 
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TRANSFORMTO"
-        )
-        parameters = [
-            ["x", self.sprite.name],
-            ["y", self.partner.stype],
-            ["z", resulting_sprite],
-            ["c", "cell"]
-        ]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)",
-            "(object-dead ?z)"
-        ]
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TRANSFORMTO"
+        # )
+        # parameters = [
+        #     ["x", self.sprite.name],
+        #     ["y", self.partner.stype],
+        #     ["z", resulting_sprite],
+        #     ["x", "num"], ["y", "num"]
+        # ]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)",
+        #     "(object-dead ?z)"
+        # ]
 
-        effects = [
-            "(not (at ?c ?x))",
-            # "(not (at ?c ?y))",
-            "(object-dead ?x)",
-            # "(object-dead ?y)",
-            "(at ?c ?z)",
+        # effects = [
+        #     "(not (at ?x ?y ?o1))",
+        #     # "(not (at ?x ?y ?o2))",
+        #     "(object-dead ?o1)",
+        #     # "(object-dead ?o2)",
+        #     "(at ?c ?z)",
            
-            "(not (object-dead ?z))",
-            """(when
-                        (oriented-up ?y)
-                        (oriented-up ?z)
-                    )
-                    (when
-                        (oriented-down ?y)
-                        (oriented-down ?z)
-                    )
-                    (when
-                        (oriented-left ?y)
-                        (oriented-left ?z)
-                    )
-                    (when
-                        (oriented-right ?y)
-                        (oriented-right ?z)
-                    )
-            """
-        ]
+        #     "(not (object-dead ?z))",
+        #     """(when
+        #                 (oriented-up ?y)
+        #                 (oriented-up ?z)
+        #             )
+        #             (when
+        #                 (oriented-down ?y)
+        #                 (oriented-down ?z)
+        #             )
+        #             (when
+        #                 (oriented-left ?y)
+        #                 (oriented-left ?z)
+        #             )
+        #             (when
+        #                 (oriented-right ?y)
+        #                 (oriented-right ?z)
+        #             )
+        #     """
+        # ]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def transformToRandomChild(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_TRANSFORMTORANDOMCHILD"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_TRANSFORMTORANDOMCHILD"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def transformToSingleton(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_TRANSFORMTOSINGLETON"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_TRANSFORMTOSINGLETON"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
@@ -1154,18 +1170,18 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TURNAROUND"
         )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
         preconditions = [
             "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)"
+            "(not (= ?o1 ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)"
         ]
         effects = [
-            "(when (oriented-up ?x) (and (not-oriented-up ?x) (oriented-down ?x))",
-            "(when (oriented-down ?x) (and (not-oriented-down ?x) (oriented-up ?x))",
-            "(when (oriented-left ?x) (and (not-oriented-left ?x) (oriented-right ?x))",
-            "(when (oriented-right ?x) (and (not-oriented-right ?x) (oriented-left ?x))"
+            "(when (oriented-up ?o1)    (and (not-oriented-up ?o1)    (oriented-down ?o1))",
+            "(when (oriented-down ?o1)  (and (not-oriented-down ?o1)  (oriented-up ?o1))",
+            "(when (oriented-left ?o1)  (and (not-oriented-left ?o1)  (oriented-right ?o1))",
+            "(when (oriented-right ?o1) (and (not-oriented-right ?o1) (oriented-left ?o1))"
         ]
 
         return Action(name, parameters, preconditions, effects)
@@ -1173,77 +1189,82 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def undoAll(self):
-        """ This action always fail to force another movement"""
-        name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_UNDOALL"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?x ?y))",
-            "(at ?c ?x)",
-            "(at ?c ?y)"
-        ]
-        effects = ["(not (turn-interactions))"]
+        pass
+        # """ This action always fail to force another movement"""
+        # name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_UNDOALL"
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)"
+        # ]
+        # effects = ["(not (turn-interactions))"]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def updateSpawnType(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_UPDATESPAWNTYPE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_UPDATESPAWNTYPE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
         return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def wallBounce(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WALLBOUNCE"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WALLBOUNCE"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def wallStop(self):
-        name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WALLSTOP"
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WALLSTOP"
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def wrapAround(self):
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WRAPAROUND"
-        )
-        parameters = [["x", self.sprite.name], ["y", self.partner.name], ["c", "cell"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_WRAPAROUND"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
