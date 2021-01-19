@@ -143,66 +143,76 @@ class SpriteActions:
 	
     def move_stop(self):
         """ To finish MOVE sprite turn """
-        name = "STOP_" + self.sprite.name.upper() + "_MOVE"
-        parameters = []
-        preconditions = ["(turn-" + self.sprite.name + "-move)", 
-            "(forall (?x - " + self.sprite.name + ") (or (object-dead ?x) (" + self.sprite.name + "-moved ?x)))"]
+        pass
+    
+        # name = "STOP_" + self.sprite.name.upper() + "_MOVE"
+        # parameters = []
+        # preconditions = ["(turn-" + self.sprite.name + "-move)", 
+        #     "(forall (?o - " + self.sprite.name + ") (or (object-dead ?o) (" + self.sprite.name + "-moved ?o)))"]
 
-        # Para FD habría que cambiar esto y quitar el forall
-        effects = ["(forall (?x - " + self.sprite.name + ") (not (" + self.sprite.name + "-moved ?x)))",
-			        "(not (turn-" + self.sprite.name + "-move))",
-			        "(finished-turn-" + self.sprite.name + "-move)"]
+        # # Para FD habría que cambiar esto y quitar el forall
+        # effects = ["(forall (?o - " + self.sprite.name + ") (not (" + self.sprite.name + "-moved ?o)))",
+		# 	        "(not (turn-" + self.sprite.name + "-move))",
+		# 	        "(finished-turn-" + self.sprite.name + "-move)"]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     def move_up(self):
         """ Move the sprite one position """
-        name = self.sprite.name.upper() + "_MOVE_UP"
-        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["u", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-up ?x)", "(at ?c ?x)", "(connected-up ?c ?u)"]
-        effects = [                   
-                    "(not (at ?c ?x))",
-                    "(at ?u ?x)",
-                    "(" + self.sprite.name + "-moved ?x)"]
+        pass
 
-        return Action(name, parameters, preconditions, effects)
+        # name = self.sprite.name.upper() + "_MOVE_UP"
+        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["u", "num"]]
+        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-up ?o)", "(at ?c ?o)", "(connected-up ?c ?u)"]
+        # effects = [                   
+        #             "(not (at ?c ?o))",
+        #             "(at ?u ?o)",
+        #             "(" + self.sprite.name + "-moved ?o)"]
+
+        # return Action(name, parameters, preconditions, effects)
 
     def move_down(self):
         """ Move the sprite one position """
-        name = self.sprite.name.upper() + "_MOVE_DOWN"
-        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["d", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-down ?x)", "(at ?c ?x)", "(connected-down ?c ?d)"]
-        effects = [                   
-                    "(not (at ?c ?x))",
-                    "(at ?d ?x)",
-                    "(" + self.sprite.name + "-moved ?x)"]
+        pass
 
-        return Action(name, parameters, preconditions, effects)
+        # name = self.sprite.name.upper() + "_MOVE_DOWN"
+        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["d", "num"]]
+        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-down ?o)", "(at ?c ?o)", "(connected-down ?c ?d)"]
+        # effects = [                   
+        #             "(not (at ?c ?o))",
+        #             "(at ?d ?o)",
+        #             "(" + self.sprite.name + "-moved ?o)"]
+
+        # return Action(name, parameters, preconditions, effects)
 
     def move_left(self):
         """ Move the sprite one position """
-        name = self.sprite.name.upper() + "_MOVE_LEFT"
-        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["l", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-left ?x)", "(at ?c ?x)", "(connected-left ?c ?l)"]
-        effects = [
-                   
-                    "(not (at ?c ?x))",
-                    "(at ?l ?x)",
-                    "(" + self.sprite.name + "-moved ?x)"]
+        pass
 
-        return Action(name, parameters, preconditions, effects)
+        # name = self.sprite.name.upper() + "_MOVE_LEFT"
+        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["l", "num"]]
+        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-left ?o)", "(at ?c ?o)", "(connected-left ?c ?l)"]
+        # effects = [
+                   
+        #             "(not (at ?c ?o))",
+        #             "(at ?l ?o)",
+        #             "(" + self.sprite.name + "-moved ?o)"]
+
+        # return Action(name, parameters, preconditions, effects)
 
     def move_right(self):
         """ Move the sprite one position """
-        name = self.sprite.name.upper() + "_MOVE_RIGHT"
-        parameters = [["x", self.sprite.name], ["c", "cell"], ["c_last", "cell"], ["r", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-right ?x)", "(at ?c ?x)", "(connected-right ?c ?r)"]
-        effects = [                   
-                    "(not (at ?c ?x))",
-                    "(at ?r ?x)",
-                    "(" + self.sprite.name + "-moved ?x)"]
+        pass
 
-        return Action(name, parameters, preconditions, effects)
+        # name = self.sprite.name.upper() + "_MOVE_RIGHT"
+        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["r", "num"]]
+        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-right ?o)", "(at ?c ?o)", "(connected-right ?c ?r)"]
+        # effects = [                   
+        #             "(not (at ?c ?o))",
+        #             "(at ?r ?o)",
+        #             "(" + self.sprite.name + "-moved ?o)"]
+
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
@@ -212,76 +222,78 @@ class SpriteActions:
         # If no other sprite in that position...
         pass
 
-        name = self.sprite.name.upper() + "_EXPAND"
-        parameters = [["s", self.sprite.stype]]
-        preconditions = []
-        effects = []
+        # name = self.sprite.name.upper() + "_EXPAND"
+        # parameters = [["s", self.sprite.stype]]
+        # preconditions = []
+        # effects = []
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
     def spawn_stop(self):
         """ To finish SPAWN sprite turn """
-        name = "STOP_" + self.sprite.name.upper() + "_SPAWN"
-        parameters = []
-        preconditions = ["(turn-" + self.sprite.name + "-spawn)", 
-            "(forall (?x - " + self.sprite.name + ") (or (object-dead ?x) (" + self.sprite.name + "-spawned ?x)))"]
+        pass
+        # name = "STOP_" + self.sprite.name.upper() + "_SPAWN"
+        # parameters = []
+        # preconditions = ["(turn-" + self.sprite.name + "-spawn)", 
+        #     "(forall (?o - " + self.sprite.name + ") (or (object-dead ?o) (" + self.sprite.name + "-spawned ?o)))"]
 
-        # Para FD habría que cambiar esto y quitar el forall
-        effects = ["(forall (?x - " + self.sprite.name + ") (not (" + self.sprite.name + "-spawned ?x)))",
-			        "(not (turn-" + self.sprite.name + "-spawn))",
-			        "(finished-turn-" + self.sprite.name + "-spawn)"]
+        # # Para FD habría que cambiar esto y quitar el forall
+        # effects = ["(forall (?o - " + self.sprite.name + ") (not (" + self.sprite.name + "-spawned ?o)))",
+		# 	        "(not (turn-" + self.sprite.name + "-spawn))",
+		# 	        "(finished-turn-" + self.sprite.name + "-spawn)"]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # WHAT ABOUT ORIENTATION ?
     # NOW IT IS PRODUCTION RATIO OF 1, BUT DIFFERS FROM GAME
     def spawn(self):
         """ Generate an sprite in the same cell """
+        pass
         # Find object to spawn
         # If no type is defined, get the parents name
-        spawned_object = (
-            self.partner.father if self.partner.stype is None else self.partner.stype
-        )
+        # spawned_object = (
+        #     self.partner.father if self.partner.stype is None else self.partner.stype
+        # )
 
-        name = self.sprite.name.upper() + "_SPAWN"
-        parameters = [["x", self.sprite.name], ["y", spawned_object], ["c", "cell"]]
-        preconditions = [
-            "(turn-" + self.sprite.name + "-spawn)",
-            "(at ?c ?x)",
-            "(object-dead ?y)"
-        ]
-        effects = [
-            "(not (object-dead ?y))",
-            "(at ?c ?y)"           
-            ""
-        ]
+        # name = self.sprite.name.upper() + "_SPAWN"
+        # parameters = [["x", self.sprite.name], ["y", spawned_object], ["c", "num"]]
+        # preconditions = [
+        #     "(turn-" + self.sprite.name + "-spawn)",
+        #     "(at ?c ?o)",
+        #     "(object-dead ?y)"
+        # ]
+        # effects = [
+        #     "(not (object-dead ?y))",
+        #     "(at ?c ?y)"           
+        #     ""
+        # ]
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
+    # DONE
     def disappear_stop(self):
         """ To finish DISAPPEAR sprite turn """
         name = "STOP_" + self.sprite.name.upper() + "_DISSAPEAR"
         parameters = []
         preconditions = ["(turn-" + self.sprite.name + "-disappear)", 
-            "(forall (?x - " + self.sprite.name + ") (or (object-dead ?x) (" + self.sprite.name + "-disappeared ?x)))"]
-
-        # Para FD habría que cambiar esto y quitar el forall
-        effects = ["(forall (?x - " + self.sprite.name + ") (not (" + self.sprite.name + "-disappeared ?x)))",
-			        "(not (turn-" + self.sprite.name + "-disappear))",
-			        "(finished-turn-" + self.sprite.name + "-disappear)"]
+            "(forall (?o - " + self.sprite.name + ") (object-dead ?o))"]
+        
+        effects = ["(not (turn-" + self.sprite.name + "-disappear))",
+			       "(finished-turn-" + self.sprite.name + "-disappear)"]
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def disappear(self):
         """ Eliminates the sprite """
         name = self.sprite.name.upper() + "_DISAPPEAR"
-        parameters = [["x", self.sprite.name], ["c", "cell"]]
-        preconditions = ["(turn-" + self.sprite.name + "-disappear)", "(at ?c ?x)"]
-        effects = ["(not (at ?c ?x))", "(object-dead ?x)", "(" + self.sprite.name + "-disappeared ?x)"]
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"]]
+        preconditions = ["(turn-" + self.sprite.name + "-disappear)", "(at ?x ?y ?o)"]
+        effects = ["(not (at ?c ?o))", "(object-dead ?o)"]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -293,12 +305,12 @@ class SpriteActions:
         partner type """
         pass
 
-        name = self.sprite.name.upper() + "_CHASE"
-        parameters = [["s", self.sprite.stype], ["p", partner.name]]
-        preconditions = []
-        effects = []
+        # name = self.sprite.name.upper() + "_CHASE"
+        # parameters = [["s", self.sprite.stype], ["p", partner.name]]
+        # preconditions = []
+        # effects = []
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
@@ -308,12 +320,12 @@ class SpriteActions:
         partner type """
         pass
 
-        name = self.sprite.name.upper() + "_FLEE"
-        parameters = [["s", self.sprite.stype], ["p", partner.name]]
-        preconditions = []
-        effects = []
+        # name = self.sprite.name.upper() + "_FLEE"
+        # parameters = [["s", self.sprite.stype], ["p", partner.name]]
+        # preconditions = []
+        # effects = []
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
 ###############################################################################
 # -----------------------------------------------------------------------------
@@ -337,7 +349,7 @@ class SpritePredicates:
             # Not clear what it does
             # Missile that produces sprite at a specific ratio
             "Bomber": [
-                "(" + self.sprite.name + "-spawned ?x - " + self.sprite.stype + ")",
+                "(" + self.sprite.name + "-spawned ?o - " + self.sprite.stype + ")",
                 "(turn-" + self.sprite.name + "-spawn)",
                 "(finished-turn-" + self.sprite.name + "-spawn)"
             ],
@@ -347,7 +359,7 @@ class SpritePredicates:
 
             # Missile that randomly changes direction
             "ErraticMissile": [
-                "(" + self.sprite.name + "-moved ?x - " + self.sprite.stype + ")",
+                "(" + self.sprite.name + "-moved ?o - " + self.sprite.stype + ")",
                 "(turn-" + self.sprite.name + "-move)",
                 "(finished-turn-" + self.sprite.name + "-move)",
             ],
@@ -357,7 +369,6 @@ class SpritePredicates:
 
             # Sprite that dissapear after a moment
             "Flicker": [
-                "(" + self.sprite.name + "-disappeared ?x - " + self.sprite.stype + ")",
                 "(turn-" + self.sprite.name + "-disappear)",
                 "(finished-turn-" + self.sprite.name + "-disappear)",
             ],
@@ -367,8 +378,8 @@ class SpritePredicates:
 
             # sprite that moves constantly in one direction
             "Missile": [
-                "(" + self.sprite.name + "-moved ?x - " + self.sprite.stype + ")",
-                # "(" + self.sprite.name + "-dead ?x - " + self.sprite.stype + ")",
+                "(" + self.sprite.name + "-moved ?o - " + self.sprite.stype + ")",
+                # "(" + self.sprite.name + "-dead ?o - " + self.sprite.stype + ")",
                 "(turn-" + self.sprite.name + "-move)",
                 "(finished-turn-" + self.sprite.name + "-move)",
             ],
@@ -376,7 +387,6 @@ class SpritePredicates:
             # Maybe not needed here
             # Oriented sprite that dissapear after a moment
             "OrientedFlicker": [
-                "(" + self.sprite.name + "-disappeared ?x - " + self.sprite.stype + ")",
                 "(turn-" + self.sprite.name + "-disappear)",
                 "(finished-turn-" + self.sprite.name + "-disappear)",
             ],                
@@ -399,11 +409,11 @@ class SpritePredicates:
             "RandomNPC": [],
 
             # Keep track of this object
-            "Resource": ["(got-resource-" + self.sprite.name + " ?x - " + self.sprite.name + ")"],
+            "Resource": ["(got-resource-" + self.sprite.name + " ?o - " + self.sprite.name + ")"],
 
             # Produces sprites following a specific ratio
             "SpawnPoint": [
-                "(" + self.sprite.name + "-spawned ?x - " + self.sprite.stype + ")",
+                "(" + self.sprite.name + "-spawned ?o - " + self.sprite.stype + ")",
                 "(turn-" + self.sprite.name + "-spawn)",
                 "(finished-turn-" + self.sprite.name + "-spawn)"
             ],
@@ -413,8 +423,7 @@ class SpritePredicates:
 
             # Missile that if when it collides it change to a random direction
             "Walker": [
-                "(" + self.sprite.name + "-moved ?x - " + self.sprite.stype + ")",
-                # "(" + self.sprite.name + "-dead ?x - " + self.sprite.stype + ")",
+                "(" + self.sprite.name + "-moved ?o - " + self.sprite.stype + ")",
                 "(turn-" + self.sprite.name + "-move)",
                 "(finished-turn-" + self.sprite.name + "-move)",
             ],
