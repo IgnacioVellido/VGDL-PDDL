@@ -80,7 +80,7 @@ class AvatarActions:
         # Dict with the functions needed for each avatar
         avatar_action_list = {
             # Can't move but can turn and use object over itself
-            "AimedAvatar" : [self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.use_up, self.use_down, self.use_left, self.use_right] # self.nil],
+            "AimedAvatar" : [self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.use_up, self.use_down, self.use_left, self.use_right], # self.nil],
 
             # NOT SUPPORTED
             # This avatar should have ammo !!!!!!!!!!
@@ -88,17 +88,17 @@ class AvatarActions:
             # "FlakAvatar"  : [self.move_left, self.move_right, self.use_center] # self.nil],
 
             # Always same orientation, can only move left or right
-            "HorizontalAvatar": [self.move_left, self.move_right] # self.nil],
+            "HorizontalAvatar": [self.move_left, self.move_right], # self.nil],
 
             # Always same orientation, can move in any direction
             # This avatar doesn't have orientation, so it can move freely
-            "MovingAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right] # self.nil],
+            "MovingAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right], # self.nil],
 
             # Can move and turn in any direction
-            "OrientedAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.turn_up, self.turn_down, self.turn_left, self.turn_right] # self.nil],
+            "OrientedAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.turn_up, self.turn_down, self.turn_left, self.turn_right], # self.nil],
 
             # Can move and turn in any direction, can use object in the 4 directions
-            "ShootAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.use_up, self.use_down, self.use_left, self.use_right] # self.nil],
+            "ShootAvatar" : [self.move_up, self.move_down, self.move_left, self.move_right, self.turn_up, self.turn_down, self.turn_left, self.turn_right, self.use_up, self.use_down, self.use_left, self.use_right], # self.nil],
 
             # Always same orientation, can only move up or down
             "VerticalAvatar" : [self.move_up, self.move_down]
