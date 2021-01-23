@@ -8,9 +8,9 @@
 
 from vgdl.typesVGDL import *
 from pddl.typesPDDL import *
-from pddl.avatarPDDL import *
-from pddl.spritePDDL import *
-from pddl.interactionPDDL import *
+from pddl.avatarPDDL import AvatarPDDL
+from pddl.spritePDDL import SpritePDDL
+from pddl.interactionPDDL import InteractionPDDL
 
 ###############################################################################
 # -----------------------------------------------------------------------------
