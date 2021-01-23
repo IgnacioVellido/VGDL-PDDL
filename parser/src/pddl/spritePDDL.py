@@ -146,76 +146,81 @@ class SpriteActions:
 	
     def move_stop(self):
         """ To finish MOVE sprite turn """
-        pass
-    
-        # name = "STOP_" + self.sprite.name.upper() + "_MOVE"
-        # parameters = []
-        # preconditions = ["(turn-" + self.sprite.name + "-move)", 
-        #     "(forall (?o - " + self.sprite.name + ") (or (object-dead ?o) (" + self.sprite.name + "-moved ?o)))"]
+        name = "STOP_" + self.sprite.name.upper() + "_MOVE"
+        parameters = []
+        preconditions = ["(turn-" + self.sprite.name + "-move)", 
+            "(forall (?o - " + self.sprite.name + ") (or (object-dead ?o) (" + self.sprite.name + "-moved ?o)))"]
 
-        # # Para FD habría que cambiar esto y quitar el forall
-        # effects = ["(forall (?o - " + self.sprite.name + ") (not (" + self.sprite.name + "-moved ?o)))",
-		# 	        "(not (turn-" + self.sprite.name + "-move))",
-		# 	        "(finished-turn-" + self.sprite.name + "-move)"]
+        # Para FD habría que cambiar esto y quitar el forall
+        effects = ["(forall (?o - " + self.sprite.name + ") (not (" + self.sprite.name + "-moved ?o)))",
+			        "(not (turn-" + self.sprite.name + "-move))",
+			        "(finished-turn-" + self.sprite.name + "-move)"]
 
-        # return Action(name, parameters, preconditions, effects)
+        return Action(name, parameters, preconditions, effects)
 
     def move_up(self):
         """ Move the sprite one position """
-        pass
+        name = self.sprite.name.upper() + "_MOVE_UP"
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)",
+                         "(not (" + self.sprite.name + "-moved ?o))",
+                         "(oriented-up ?o)", 
+                         "(at ?x ?y ?o)", 
+                         "(previous ?x ?new_x)"]
+        effects = [                   
+                    "(not (at ?x ?y ?o))",
+                    "(at ?new_x ?y ?o)",
+                    "(" + self.sprite.name + "-moved ?o)"]
 
-        # name = self.sprite.name.upper() + "_MOVE_UP"
-        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["u", "num"]]
-        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-up ?o)", "(at ?c ?o)", "(connected-up ?c ?u)"]
-        # effects = [                   
-        #             "(not (at ?c ?o))",
-        #             "(at ?u ?o)",
-        #             "(" + self.sprite.name + "-moved ?o)"]
-
-        # return Action(name, parameters, preconditions, effects)
+        return Action(name, parameters, preconditions, effects)
 
     def move_down(self):
         """ Move the sprite one position """
-        pass
+        name = self.sprite.name.upper() + "_MOVE_DOWN"
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)",
+                         "(not (" + self.sprite.name + "-moved ?o))",
+                         "(oriented-down ?o)", 
+                         "(at ?x ?y ?o)", 
+                         "(next ?x ?new_x)"]
+        effects = [                   
+                    "(not (at ?x ?y ?o))",
+                    "(at ?new_x ?y ?o)",
+                    "(" + self.sprite.name + "-moved ?o)"]
 
-        # name = self.sprite.name.upper() + "_MOVE_DOWN"
-        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["d", "num"]]
-        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-down ?o)", "(at ?c ?o)", "(connected-down ?c ?d)"]
-        # effects = [                   
-        #             "(not (at ?c ?o))",
-        #             "(at ?d ?o)",
-        #             "(" + self.sprite.name + "-moved ?o)"]
-
-        # return Action(name, parameters, preconditions, effects)
+        return Action(name, parameters, preconditions, effects)
 
     def move_left(self):
         """ Move the sprite one position """
-        pass
+        name = self.sprite.name.upper() + "_MOVE_LEFT"
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)",
+                         "(not (" + self.sprite.name + "-moved ?o))",
+                         "(oriented-left ?o)", 
+                         "(at ?x ?y ?o)", 
+                         "(previous ?y ?new_y)"]
+        effects = [                   
+                    "(not (at ?x ?y ?o))",
+                    "(at ?x ?new_yy ?o)",
+                    "(" + self.sprite.name + "-moved ?o)"]
 
-        # name = self.sprite.name.upper() + "_MOVE_LEFT"
-        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["l", "num"]]
-        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-left ?o)", "(at ?c ?o)", "(connected-left ?c ?l)"]
-        # effects = [
-                   
-        #             "(not (at ?c ?o))",
-        #             "(at ?l ?o)",
-        #             "(" + self.sprite.name + "-moved ?o)"]
-
-        # return Action(name, parameters, preconditions, effects)
+        return Action(name, parameters, preconditions, effects)
 
     def move_right(self):
         """ Move the sprite one position """
-        pass
+        name = self.sprite.name.upper() + "_MOVE_RIGHT"
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
+        preconditions = ["(turn-" + self.sprite.name + "-move)",
+                         "(not (" + self.sprite.name + "-moved ?o))",
+                         "(oriented-right ?o)", 
+                         "(at ?x ?y ?o)", 
+                         "(next ?y ?new_y)"]
+        effects = [                   
+                    "(not (at ?x ?y ?o))",
+                    "(at ?x ?new_yy ?o)",
+                    "(" + self.sprite.name + "-moved ?o)"]
 
-        # name = self.sprite.name.upper() + "_MOVE_RIGHT"
-        # parameters = [["x", self.sprite.name], ["c", "num"], ["c_last", "num"], ["r", "num"]]
-        # preconditions = ["(turn-" + self.sprite.name + "-move)", "(oriented-right ?o)", "(at ?c ?o)", "(connected-right ?c ?r)"]
-        # effects = [                   
-        #             "(not (at ?c ?o))",
-        #             "(at ?r ?o)",
-        #             "(" + self.sprite.name + "-moved ?o)"]
-
-        # return Action(name, parameters, preconditions, effects)
+        return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
