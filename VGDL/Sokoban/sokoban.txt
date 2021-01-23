@@ -1,7 +1,7 @@
 BasicGame
     SpriteSet
         hole   > Immovable
-        avatar > MovingAvatar
+        avatar > OrientedAvatar
         box    > Passive
         wall > Immovable
     LevelMapping

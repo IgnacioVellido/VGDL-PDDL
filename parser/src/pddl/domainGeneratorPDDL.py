@@ -284,7 +284,6 @@ class DomainGeneratorPDDL:
                "; Position",
                "(at ?x ?y - num ?o - Object)",
                "(object-dead ?o - Object)",
-               "(is-wall ?x ?y - num)",
 
                "; Game specific"
             ]
@@ -371,6 +370,7 @@ class DomainGeneratorPDDL:
         # Negate them and append last predicate
         negated_finished_predicates = ["(not " +  p + ")" for p in finished_predicates]
         negated_finished_predicates.append("(turn-avatar)")
+        finished_predicates.append("(not (turn-interactions))")
 
         self.actions.append(Action(
             "END-TURN-SPRITES",

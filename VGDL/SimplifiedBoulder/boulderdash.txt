@@ -23,7 +23,7 @@ BasicGame
 		boulder sword > killSprite
 
 		diamond avatar > collectResource
-		moving wall > stepBack
+		moving wall boulder > stepBack
 
 		avatar butterfly crab > killSprite
 

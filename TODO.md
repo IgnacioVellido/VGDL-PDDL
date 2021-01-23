@@ -6,6 +6,7 @@ Si alguna vez se quisiera genera los problemas habría que tener en cuenta que n
 Boulderchase es boulderdash pero los enemigos persigue, quitarlo
 Iceandfire sin chip
 En butterflies para el dominio es solo búsqueda de caminos, pero como está la arquitectura de Vladis se generan nuevos enemigos
+__PROBLEMA__ En sokoban no tiene orientación pero es necesaria, con ella no resuelve
 
 TO DO:
 VGDL descriptions
@@ -34,7 +35,7 @@ Domains
 - ¿¿ Quitar interacciones innecesarias (ver cuáles) ??
 - Quitar objeto wall ?? 
   - O quitar todo objeto con stepback/killsprite
-  - O leerlo y añadirlo al movimiento
+  - O leerlo y añadirlo al movimiento ✅
     - __NOTA__: Todo objeto con stepback con el avatar debe tener predicado (is- nx ny). Si no tiene ninguna utilidad más no incluírlo
       - idem. con killsprite
 

@@ -306,7 +306,7 @@ class SpriteActions:
         name = self.sprite.name.upper() + "_DISAPPEAR"
         parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"]]
         preconditions = ["(turn-" + self.sprite.name + "-disappear)", "(at ?x ?y ?o)"]
-        effects = ["(not (at ?c ?o))", "(object-dead ?o)"]
+        effects = ["(not (at ?x ?y ?o))", "(object-dead ?o)"]
 
         return Action(name, parameters, preconditions, effects)
 

@@ -53,7 +53,7 @@ class AvatarPDDL:
     # -------------------------------------------------------------------------
 
     def get_predicates(self):
-        self.predicates = AvatarPredicates(self.avatar, self.partner).predicates
+        self.predicates = AvatarPredicates(self.avatar, self.stepbacks, self.partner).predicates
 
 ###############################################################################
 # -----------------------------------------------------------------------------
@@ -178,7 +178,7 @@ class AvatarActions:
 
         # Add stepback objects
         for o in self.stepbacks:
-            preconditions.append("(not (is-" + o + " ?x ?new_y))")
+            preconditions.append("(not (is-" + o + " ?new_x ?y))")
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
@@ -200,8 +200,8 @@ class AvatarActions:
 
         # Add stepback objects
         for o in self.stepbacks:
-            preconditions.append("(not (is-" + o + " ?x ?new_y))")
-            
+            preconditions.append("(not (is-" + o + " ?new_x ?y))")
+
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)"]
@@ -441,8 +441,9 @@ class AvatarActions:
 class AvatarPredicates:
     """ Returns different predicates depending of the avatar """
 
-    def __init__(self, avatar: "Sprite", partner: "Sprite" = None):
+    def __init__(self, avatar: "Sprite", stepbacks: list, partner: "Sprite" = None):
         self.avatar = avatar
+        self.stepbacks = stepbacks
         self.partner = partner
 
         self.predicates = []
@@ -486,6 +487,10 @@ class AvatarPredicates:
             # Always same orientation, can only move up or down
             "VerticalAvatar" : []
         }
+
+        # Add stepback objects
+        for o in self.stepbacks:
+            self.predicates.append("(is-" + o + " ?x ?y - num)")
 
         self.predicates.extend(avatar_predicates_list.get(self.avatar.stype, []))
 
