@@ -35,6 +35,8 @@ Domains
 - Quitar objeto wall ?? 
   - O quitar todo objeto con stepback/killsprite
   - O leerlo y añadirlo al movimiento
+    - __NOTA__: Todo objeto con stepback con el avatar debe tener predicado (is- nx ny). Si no tiene ninguna utilidad más no incluírlo
+      - idem. con killsprite
 
 Config
 - Que no se incluyan:

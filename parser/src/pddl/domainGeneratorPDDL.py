@@ -45,6 +45,7 @@ class DomainGeneratorPDDL:
 
         # For the level parser
         self.partner = None
+        self.stepbacks = [] # List of objects involved with the avatar in a stepback interaction
         self.short_types = []  # The char part of a LevelMapping
         self.long_types = []  # The sprites part of a LevelMapping
         self.stypes = set()  # All types in the game (bigger than long_types)
@@ -52,7 +53,8 @@ class DomainGeneratorPDDL:
         # ADD LATER THE SPAWNPOINTS TOO - AND PRODUCERS
 
         self.search_partner()
-        self.avatarPDDL = AvatarPDDL(self.avatar, self.hierarchy, self.partner)
+        self.find_stepbacks()
+        self.avatarPDDL = AvatarPDDL(self.avatar, self.hierarchy, self.stepbacks, self.partner)
 
         # Assign spritesPDDL
         self.spritesPDDL = []
@@ -81,6 +83,15 @@ class DomainGeneratorPDDL:
             for sprite in self.sprites:
                 if sprite.name is not None and partner_name in sprite.name:
                     self.partner = sprite
+
+    def find_stepbacks(self):
+        """ Finds objects involved with the avatar in a stepBack/killSprite interaction """
+        for i in self.interactions:
+            # Check if interaction if stepback type
+            if i.type == "stepBack" or i.type == "killSprite":
+                # Find if avatar is involved           
+                if i.sprite_name in self.hierarchy[self.avatar.name] or i.sprite_name == self.avatar.name:
+                    self.stepbacks.append(i.partner_name)
 
     # -------------------------------------------------------------------------
     # Auxiliary
@@ -312,7 +323,7 @@ class DomainGeneratorPDDL:
             sprite = self.find_sprite_by_name(interaction.sprite_name)
             partner = self.find_sprite_by_name(interaction.partner_name)
             self.actions.extend(
-                InteractionActions(interaction, sprite, partner, self.hierarchy).actions
+                InteractionPDDL(interaction, sprite, partner, self.hierarchy, self.avatar.name).actions
             )
 
 

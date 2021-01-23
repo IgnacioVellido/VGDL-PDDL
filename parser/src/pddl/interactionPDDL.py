@@ -30,6 +30,7 @@ class InteractionPDDL:
         sprite: "Sprite",
         partner: "Sprite",
         hierarchy: dict,
+        avatar: str
     ):
         self.interaction = interaction
         self.sprite = sprite
@@ -42,7 +43,10 @@ class InteractionPDDL:
         self.predicates = []
         self.level_predicates = []
 
-        self.get_actions()
+        # Don't produce killSprites for the avatar
+        if not (interaction.type == "killSprite" and sprite.name in hierarchy[avatar] or sprite.name == avatar):
+            self.get_actions()
+
         self.get_predicates()
         self.get_level_predicates()
 

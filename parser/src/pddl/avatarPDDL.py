@@ -23,9 +23,10 @@ class AvatarPDDL:
         hierarchy        - Dict<String,String>
     """
 
-    def __init__(self, avatar: "Sprite", hierarchy: dict, partner: "Sprite" = None):
+    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, partner: "Sprite" = None):
         self.avatar = avatar
         self.hierarchy = hierarchy
+        self.stepbacks = stepbacks
         self.partner = partner
 
         self.tasks = []     # Empty
@@ -42,7 +43,7 @@ class AvatarPDDL:
     # -------------------------------------------------------------------------
 
     def get_actions(self):
-        self.actions = AvatarActions(self.avatar, self.hierarchy, self.partner).actions
+        self.actions = AvatarActions(self.avatar, self.hierarchy, self.stepbacks, self.partner).actions
 
     # -------------------------------------------------------------------------
 
@@ -70,9 +71,10 @@ class AvatarActions:
         actions - List<ActionPDDL>
     """
 
-    def __init__(self, avatar: "Sprite", hierarchy: dict, partner: "Sprite"):
+    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, partner: "Sprite"):
         self.avatar = avatar
         self.hierarchy = hierarchy
+        self.stepbacks = stepbacks
         self.partner = partner
 
         self.actions = []
@@ -127,8 +129,12 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-up ?a) (oriented-none ?a))",
-                         "(at ?x ?y ?a)", "(not (is-wall ?x ?new_y))",
+                         "(at ?x ?y ?a)",
                          "(previous ?y ?new_y)"]
+
+        # Add stepback objects
+        for o in self.stepbacks:
+            preconditions.append("(not (is-" + o + " ?x ?new_y))")
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
@@ -145,8 +151,13 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-down ?a) (oriented-none ?a))",
-                         "(at ?x ?y ?a)", "(not (is-wall ?x ?new_y))",
+                         "(at ?x ?y ?a)",
                          "(next ?y ?new_y)"]
+
+        # Add stepback objects
+        for o in self.stepbacks:
+            preconditions.append("(not (is-" + o + " ?x ?new_y))")
+
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)"]
@@ -162,8 +173,13 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-left ?a) (oriented-none ?a))", 
-                         "(at ?x ?y ?a)", "(not (is-wall ?new_x ?y))",
+                         "(at ?x ?y ?a)",
                          "(previous ?x ?new_x)"]
+
+        # Add stepback objects
+        for o in self.stepbacks:
+            preconditions.append("(not (is-" + o + " ?x ?new_y))")
+
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)"]
@@ -179,8 +195,13 @@ class AvatarActions:
 
         # can-move indicates that te avatar has the ability to move in that direction
         preconditions = ["(turn-avatar)", "(or (oriented-right ?a) (oriented-none ?a))", 
-                         "(at ?x ?y ?a)", "(not (is-wall ?new_x ?y))",
+                         "(at ?x ?y ?a)",
                          "(next ?x ?new_x)"]
+
+        # Add stepback objects
+        for o in self.stepbacks:
+            preconditions.append("(not (is-" + o + " ?x ?new_y))")
+            
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)"]
