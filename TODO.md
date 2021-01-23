@@ -11,13 +11,11 @@ TO DO:
 VGDL descriptions
 - Objetos con los que no superponerse ahora tiene stepback
 - Retocar Zelda VGDL ✅
-- A lo mejor interesa retocar todos los VGDL para que haya un formato concreto (sin floor, wall siempre es muro, stepback para las colisiones...)
-```
-- Retocar los existentes para adaptarlos a la arquitectura
-  - Quitar objetos innecesarios
-  - Quitar jerarquía innecesaria
-(La arquitectura debe leer de la carpeta Simplified, pero GVGAI debería poder seguir usando la suya)
-```
+- A lo mejor interesa retocar todos los VGDL para que haya un formato concreto (sin floor, wall siempre es muro, stepback para las colisiones...) ✅
+  - Retocar los existentes para adaptarlos a la arquitectura
+    - Quitar objetos innecesarios
+    - Quitar jerarquía innecesaria
+  - La arquitectura debe leer la versión simplificada, pero GVGAI debería poder seguir usando la suya
 
 Domains
 - Añadir tipo num ✅
@@ -35,7 +33,7 @@ Domains
 - Cambiar ?x representando objeto por ?o, en interacciones por ?o1 y ?o2. Dejar ?x e ?y para coordenadas ✅
 - ¿¿ Quitar interacciones innecesarias (ver cuáles) ??
 - Quitar objeto wall ?? 
-  - O quitar todo objeto con stepback
+  - O quitar todo objeto con stepback/killsprite
   - O leerlo y añadirlo al movimiento
 
 Config

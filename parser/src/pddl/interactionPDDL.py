@@ -276,20 +276,21 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     def addHealthPoints(self):
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_ADDHEALTHPOINTS"
-        )
-        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
-        preconditions = [
-            "(= (coordinate_x ?x) (coordinate_x ?y))",
-            "(= (coordinate_y ?x) (coordinate_y ?y))",
-        ]
-        effects = []  # UNFINISHED
+        pass
+        # name = (
+        #     self.sprite.name.upper()
+        #     + "_"
+        #     + self.partner.name.upper()
+        #     + "_ADDHEALTHPOINTS"
+        # )
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(= (coordinate_x ?x) (coordinate_x ?y))",
+        #     "(= (coordinate_y ?x) (coordinate_y ?y))",
+        # ]
+        # effects = []  # UNFINISHED
 
-        return Action(name, parameters, preconditions, effects)
+        # return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
