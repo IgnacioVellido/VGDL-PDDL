@@ -143,7 +143,8 @@ class SpriteActions:
 
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
-	
+
+    # DONE
     def move_stop(self):
         """ To finish MOVE sprite turn """
         name = "STOP_" + self.sprite.name.upper() + "_MOVE"
@@ -158,6 +159,7 @@ class SpriteActions:
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def move_up(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_UP"
@@ -174,6 +176,7 @@ class SpriteActions:
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def move_down(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_DOWN"
@@ -190,6 +193,7 @@ class SpriteActions:
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def move_left(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_LEFT"
@@ -206,6 +210,7 @@ class SpriteActions:
 
         return Action(name, parameters, preconditions, effects)
 
+    # DONE
     def move_right(self):
         """ Move the sprite one position """
         name = self.sprite.name.upper() + "_MOVE_RIGHT"

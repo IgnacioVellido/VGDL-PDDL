@@ -1076,58 +1076,58 @@ class InteractionActions:
 
     # -------------------------------------------------------------------------
 
+    # DONE
     # Maintain orientation of the partner object
     def transformTo(self):
-        pass
-        # # Find object to tranform
-        # parameters = [p for p in self.interaction.parameters if "stype=" in p]
-        # resulting_sprite = parameters[0].replace("stype=",'')
+        # Find object to tranform
+        parameters = [p for p in self.interaction.parameters if "stype=" in p]
+        resulting_sprite = parameters[0].replace("stype=",'')
 
-        # name = (
-        #     self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TRANSFORMTO"
-        # )
-        # parameters = [
-        #     ["x", self.sprite.name],
-        #     ["y", self.partner.stype],
-        #     ["z", resulting_sprite],
-        #     ["x", "num"], ["y", "num"]
-        # ]
-        # preconditions = [
-        #     "(turn-interactions)",
-        #     "(not (= ?o1 ?o2))",
-        #     "(at ?x ?y ?o1)",
-        #     "(at ?x ?y ?o2)",
-        #     "(object-dead ?z)"
-        # ]
+        name = (
+            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TRANSFORMTO"
+        )
+        parameters = [
+            ["x", self.sprite.name],
+            ["y", self.partner.stype],
+            ["z", resulting_sprite],
+            ["x", "num"], ["y", "num"]
+        ]
+        preconditions = [
+            "(turn-interactions)",
+            "(not (= ?o1 ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)",
+            "(object-dead ?z)"
+        ]
 
-        # effects = [
-        #     "(not (at ?x ?y ?o1))",
-        #     # "(not (at ?x ?y ?o2))",
-        #     "(object-dead ?o1)",
-        #     # "(object-dead ?o2)",
-        #     "(at ?c ?z)",
-           
-        #     "(not (object-dead ?z))",
-        #     """(when
-        #                 (oriented-up ?y)
-        #                 (oriented-up ?z)
-        #             )
-        #             (when
-        #                 (oriented-down ?y)
-        #                 (oriented-down ?z)
-        #             )
-        #             (when
-        #                 (oriented-left ?y)
-        #                 (oriented-left ?z)
-        #             )
-        #             (when
-        #                 (oriented-right ?y)
-        #                 (oriented-right ?z)
-        #             )
-        #     """
-        # ]
+        effects = [
+            "(not (at ?x ?y ?o1))",
+            # "(not (at ?x ?y ?o2))",
+            "(object-dead ?o1)",
+            # "(object-dead ?o2)",
+            "(at ?x ?y ?z)",           
+            "(not (object-dead ?z))",
 
-        # return Action(name, parameters, preconditions, effects)
+            """(when
+                        (oriented-up ?y)
+                        (oriented-up ?z)
+                    )
+                    (when
+                        (oriented-down ?y)
+                        (oriented-down ?z)
+                    )
+                    (when
+                        (oriented-left ?y)
+                        (oriented-left ?z)
+                    )
+                    (when
+                        (oriented-right ?y)
+                        (oriented-right ?z)
+                    )
+            """
+        ]
+
+        return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
