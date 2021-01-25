@@ -140,10 +140,6 @@ class AvatarActions:
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
 					(when
-                        (oriented-none ?a )
-                        (not (oriented-none ?a))
-                    )
-					(when
                         (oriented-down ?a )
                         (not (oriented-down ?a))
                     )
@@ -181,10 +177,6 @@ class AvatarActions:
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
 					(when
-                        (oriented-none ?a )
-                        (not (oriented-none ?a))
-                    )
-					(when
                         (oriented-up ?a )
                         (not (oriented-up ?a))
                     )					
@@ -219,10 +211,6 @@ class AvatarActions:
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
-					(when
-                        (oriented-none ?a )
-                        (not (oriented-none ?a))
-                    )
                     (when
                         (oriented-up ?a )
                         (not (oriented-up ?a))
@@ -258,10 +246,6 @@ class AvatarActions:
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
-					(when
-                        (oriented-none ?a )
-                        (not (oriented-none ?a))
-                    )
                     (when
                         (oriented-up ?a )
                         (not (oriented-up ?a))

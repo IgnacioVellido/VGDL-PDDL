@@ -19,7 +19,7 @@ VGDL descriptions
   - La arquitectura debe leer la versión simplificada, pero GVGAI debería poder seguir usando la suya
 
 Domains
-- El (not exists) de end_turn_interaction debe ser por cada par de objetos con interacciones
+- El (not exists) de end_turn_interaction debe ser por cada par de objetos con interacciones ✅
 - Añadir orientation a moves ✅
 - Añadir tipo num ✅
 - Quitar tipo cell ✅

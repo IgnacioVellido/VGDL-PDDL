@@ -379,7 +379,8 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            "(or (oriented-up ?o2) (oriented-none ?o2))",
+            # "(or (oriented-up ?o2) (oriented-none ?o2))",
+            "(oriented-up ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(previous ?y ?new_y)"
@@ -404,7 +405,8 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            "(or (oriented-down ?o2) (oriented-none ?o2))",
+            # "(or (oriented-down ?o2) (oriented-none ?o2))",
+            "(oriented-down ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(next ?y ?new_y)"
@@ -429,7 +431,8 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            "(or (oriented-left ?o2) (oriented-none ?o2))",
+            # "(or (oriented-left ?o2) (oriented-none ?o2))",
+            "(oriented-left ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(previous ?x ?new_x)"
@@ -454,7 +457,8 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            "(or (oriented-right ?o2) (oriented-none ?o2))",
+            # "(or (oriented-right ?o2) (oriented-none ?o2))",
+            "(oriented-right ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(next ?x ?new_x)"
