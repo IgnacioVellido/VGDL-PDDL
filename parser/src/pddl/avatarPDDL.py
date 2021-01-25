@@ -138,7 +138,26 @@ class AvatarActions:
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
-                    "(not (turn-avatar))", "(turn-interactions)"]
+                    "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
+					(when
+                        (oriented-none ?a )
+                        (not (oriented-none ?a))
+                    )
+					(when
+                        (oriented-down ?a )
+                        (not (oriented-down ?a))
+                    )
+					
+                    (when
+                        (oriented-right ?a )
+                        (not (oriented-right ?a))
+                    )
+					
+                    (when
+                        (oriented-left ?a )
+                        (not (oriented-left ?a))
+                    )
+					(oriented-up ?a)"""]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -160,13 +179,30 @@ class AvatarActions:
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
-                    "(not (turn-avatar))", "(turn-interactions)"]
+                    "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
+					(when
+                        (oriented-none ?a )
+                        (not (oriented-none ?a))
+                    )
+					(when
+                        (oriented-up ?a )
+                        (not (oriented-up ?a))
+                    )					
+                    (when
+                        (oriented-right ?a )
+                        (not (oriented-right ?a))
+                    )					
+                    (when
+                        (oriented-left ?a )
+                        (not (oriented-left ?a))
+                    )
+					(oriented-down ?a)"""]
 
         return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
-    # DONE - Needed stepback objects
+    # DONE
     def move_left(self):
         name = "AVATAR_ACTION_MOVE_LEFT"
         parameters = [["a", self.avatar.stype], ["x", "num"], ["y", "num"], ["new_x", "num"]]
@@ -182,13 +218,30 @@ class AvatarActions:
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
-                    "(not (turn-avatar))", "(turn-interactions)"]
+                    "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
+					(when
+                        (oriented-none ?a )
+                        (not (oriented-none ?a))
+                    )
+                    (when
+                        (oriented-up ?a )
+                        (not (oriented-up ?a))
+                    )
+					(when
+                        (oriented-down ?a )
+                        (not (oriented-down ?a))
+                    )					
+                    (when
+                        (oriented-right ?a )
+                        (not (oriented-right ?a))
+                    )					
+					(oriented-left ?a)"""]
 
         return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
-    # DONE - Needed stepback objects
+    # DONE
     def move_right(self):
         name = "AVATAR_ACTION_MOVE_RIGHT"
         parameters = [["a", self.avatar.stype], ["x", "num"], ["y", "num"], ["new_x", "num"]]
@@ -204,7 +257,24 @@ class AvatarActions:
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
-                    "(not (turn-avatar))", "(turn-interactions)"]
+                    "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
+					(when
+                        (oriented-none ?a )
+                        (not (oriented-none ?a))
+                    )
+                    (when
+                        (oriented-up ?a )
+                        (not (oriented-up ?a))
+                    )					
+					(when
+                        (oriented-down ?a )
+                        (not (oriented-down ?a))
+                    )					
+                    (when
+                        (oriented-left ?a )
+                        (not (oriented-left ?a))
+                    )
+					(oriented-right ?a)"""]
 
         return Action(name, parameters, preconditions, effects)
 

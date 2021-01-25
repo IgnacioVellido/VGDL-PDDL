@@ -327,18 +327,28 @@ class DomainGeneratorPDDL:
 
 
         # PDDL specific actions
-        end_turn_interactions = Action(
-            "END-TURN-INTERACTIONS", # Name
-            [], # Parameters
-            ["(turn-interactions)", 
-            """(not (exists (?o1 ?o2 - Object ?x ?y - num) 
+
+        # Check objects involved in interactions
+        pairs = set()
+        for i in self.interactions:
+            if i.type != "stepBack" and (i.sprite_name and i.partner_name) != "wall":
+                pairs.add((i.sprite_name, i.partner_name))
+
+        end_turn_preconditions = ["(turn-interactions)"]
+        for p in pairs:
+            end_turn_preconditions.append("(not (exists (?o1 - " + p[0] + " ?o2 - " + p[1] + """ ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
                                     (at ?x ?y ?o2)
                                 )
                             )
-                        )"""], # Preconditions
+                        )""")
+
+        end_turn_interactions = Action(
+            "END-TURN-INTERACTIONS", # Name
+            [], # Parameters
+            end_turn_preconditions, # Preconditions
             ["(turn-sprites)",
 			"(not (turn-interactions))"], # Effects
         )
