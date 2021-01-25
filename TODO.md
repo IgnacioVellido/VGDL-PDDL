@@ -1,6 +1,26 @@
 Resultados
 M = Madagascar
 - Sokoban
+  - 0
+    - M:
+    - FF:
+    - FD:
+  - 1
+    - M: 
+    - FF: 
+    - FD:
+  - 2
+    - M: 
+    - FF: 
+    - FD:
+  - 3
+    - M: 
+    - FF: 
+    - FD:
+  - 4
+    - M:
+    - FF:
+    - FD:
 - Butterflies
   - 0
     - M: No
@@ -13,19 +33,79 @@ M = Madagascar
   - 2
     - M: 
     - FF: 
-    - FD: 26.3114s
+    - FD: 77.3373s (A*)
   - 3
     - M: 
     - FF: 
-    - FD: 26.3114s
+    - FD: 26.8458s (A*)
   - 4
     - M:
     - FF:
-    - FD: 26.3114s
+    - FD: 1.12755s (A+)
 - Boulderdash
+  - 0
+    - M:
+    - FF:
+    - FD:
+  - 1
+    - M: 
+    - FF: 
+    - FD:
+  - 2
+    - M: 
+    - FF: 
+    - FD:
+  - 3
+    - M: 
+    - FF: 
+    - FD:
+  - 4
+    - M:
+    - FF:
+    - FD:
 - Zelda
+  - 0
+    - M:
+    - FF:
+    - FD:
+  - 1
+    - M: 
+    - FF: 
+    - FD:
+  - 2
+    - M: 
+    - FF: 
+    - FD:
+  - 3
+    - M: 
+    - FF: 
+    - FD:
+  - 4
+    - M:
+    - FF:
+    - FD:
 - Ice-and-fire
-
+- 0
+    - M:
+    - FF:
+    - FD:
+  - 1
+    - M: 
+    - FF: 
+    - FD:
+  - 2
+    - M: 
+    - FF: 
+    - FD:
+  - 3
+    - M: 
+    - FF: 
+    - FD:
+  - 4
+    - M:
+    - FF:
+    - FD:
+    - 
 EN LA CARPETA VGDL ESTÁN
 - GVGAI.TXT: Versión a usar en gvgai
 - ??. txt: Versión para el parser
