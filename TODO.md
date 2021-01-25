@@ -1,3 +1,31 @@
+Resultados
+M = Madagascar
+- Sokoban
+- Butterflies
+  - 0
+    - M: No
+    - FF: No
+    - FD: 26.3114s (LAMA) 1.36175s (A*)
+  - 1
+    - M: 
+    - FF: 
+    - FD: 116.763s (A*)
+  - 2
+    - M: 
+    - FF: 
+    - FD: 26.3114s
+  - 3
+    - M: 
+    - FF: 
+    - FD: 26.3114s
+  - 4
+    - M:
+    - FF:
+    - FD: 26.3114s
+- Boulderdash
+- Zelda
+- Ice-and-fire
+
 EN LA CARPETA VGDL ESTÁN
 - GVGAI.TXT: Versión a usar en gvgai
 - ??. txt: Versión para el parser

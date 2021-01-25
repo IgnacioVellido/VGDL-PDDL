@@ -331,7 +331,8 @@ class DomainGeneratorPDDL:
         # Check objects involved in interactions
         pairs = set()
         for i in self.interactions:
-            if i.type != "stepBack" and (i.sprite_name and i.partner_name) != "wall":
+            if i.type != "stepBack" and (i.sprite_name and i.partner_name) != "wall" and not\
+                (i.sprite_name == self.avatar.name and (i.type == "killIfHasLess" or i.type == "killSprite")):
                 pairs.add((i.sprite_name, i.partner_name))
 
         end_turn_preconditions = ["(turn-interactions)"]
