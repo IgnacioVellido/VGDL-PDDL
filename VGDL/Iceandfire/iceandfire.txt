@@ -6,9 +6,8 @@ BasicGame
         ice > Immovable
         fire > Immovable
 
-        feetwear > Resource limit=1
-            iceshoes > 
-            fireboots > 
+        iceshoes > Resource limit=1
+        fireboots > Resource limit=1
             
         wall > Immovable
 
@@ -18,7 +17,8 @@ BasicGame
         exit avatar > killSprite
         avatar trap > killSprite
 
-        feetwear avatar > collectResource
+        iceshoes avatar > collectResource
+        fireboots avatar > collectResource
         avatar ice > killIfHasLess resource=iceshoes limit=0
         avatar fire > killIfHasLess resource=fireboots limit=0
 

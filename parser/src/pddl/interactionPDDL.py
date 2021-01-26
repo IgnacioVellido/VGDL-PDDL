@@ -773,8 +773,8 @@ class InteractionActions:
         ]
 
         if number == 0:
-            parameters.append(["r0", resource])
-            preconditions.append("(not (got-resource-" + resource + " ?r0" + "))")
+            # parameters.append(["r", resource])
+            preconditions.append("(got-resource-" + resource + " n0" + ")")
 
         # # Add number-sprites to parameters
         # for i in range(number):

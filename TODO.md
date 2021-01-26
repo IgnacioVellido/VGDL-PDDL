@@ -1,8 +1,10 @@
 Resultados
+(Si no pone nada en FD es A*)
+
 M = Madagascar
 - Sokoban
   - 0
-    - M:
+    - M: 111.04 (1 sola caja)
     - FF:
     - FD:
   - 1
@@ -67,23 +69,23 @@ M = Madagascar
   - 0
     - M:
     - FF:
-    - FD:
+    - FD: 0.0276586s
   - 1
     - M: 
     - FF: 
-    - FD:
+    - FD: 0.0815101s
   - 2
     - M: 
     - FF: 
-    - FD:
+    - FD: 0.0617192s
   - 3
     - M: 
     - FF: 
-    - FD:
+    - FD: 0.0354332s
   - 4
-    - M:
+    - M: 9.15
     - FF:
-    - FD:
+    - FD: 0.0234705s
 - Ice-and-fire
 - 0
     - M:
@@ -92,7 +94,7 @@ M = Madagascar
   - 1
     - M: 
     - FF: 
-    - FD:
+    - FD: 0.0188988s
   - 2
     - M: 
     - FF: 
