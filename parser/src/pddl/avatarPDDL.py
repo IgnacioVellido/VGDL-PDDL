@@ -23,10 +23,12 @@ class AvatarPDDL:
         hierarchy        - Dict<String,String>
     """
 
-    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, partner: "Sprite" = None):
+    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, 
+                    killIfHasLess: list, partner: "Sprite" = None):
         self.avatar = avatar
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
+        self.killIfHasLess = killIfHasLess
         self.partner = partner
 
         self.tasks = []     # Empty
@@ -43,7 +45,8 @@ class AvatarPDDL:
     # -------------------------------------------------------------------------
 
     def get_actions(self):
-        self.actions = AvatarActions(self.avatar, self.hierarchy, self.stepbacks, self.partner).actions
+        self.actions = AvatarActions(self.avatar, self.hierarchy, self.stepbacks, 
+                                        self.killIfHasLess, self.partner).actions
 
     # -------------------------------------------------------------------------
 
@@ -53,7 +56,8 @@ class AvatarPDDL:
     # -------------------------------------------------------------------------
 
     def get_predicates(self):
-        self.predicates = AvatarPredicates(self.avatar, self.stepbacks, self.partner).predicates
+        self.predicates = AvatarPredicates(self.avatar, self.stepbacks, 
+                                            self.killIfHasLess, self.partner).predicates
 
 ###############################################################################
 # -----------------------------------------------------------------------------
@@ -71,10 +75,12 @@ class AvatarActions:
         actions - List<ActionPDDL>
     """
 
-    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, partner: "Sprite"):
+    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, 
+                    killIfHasLess: list, partner: "Sprite"):
         self.avatar = avatar
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
+        self.killIfHasLess = killIfHasLess
         self.partner = partner
 
         self.actions = []
@@ -135,6 +141,18 @@ class AvatarActions:
         # Add stepback objects
         for o in self.stepbacks:
             preconditions.append("(not (is-" + o + " ?x ?new_y))")
+        
+        # Add killIfHasLess
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        for o in self.killIfHasLess:
+            preconditions.append("""(or
+                            (and 
+                                (is-""" + o[0] + """ ?x ?new_y)
+                                (not (got-resource-""" + o[1] + """ n0))
+                            )
+                            (not (is-""" + o[0] + """ ?x ?new_y))
+                        )""")
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
@@ -173,6 +191,18 @@ class AvatarActions:
         for o in self.stepbacks:
             preconditions.append("(not (is-" + o + " ?x ?new_y))")
 
+        # Add killIfHasLess
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        for o in self.killIfHasLess:
+            preconditions.append("""(or
+                            (and 
+                                (is-""" + o[0] + """ ?x ?new_y)
+                                (not (got-resource-""" + o[1] + """ n0))
+                            )
+                            (not (is-""" + o[0] + """ ?x ?new_y))
+                        )""")
+
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
@@ -208,6 +238,19 @@ class AvatarActions:
         for o in self.stepbacks:
             preconditions.append("(not (is-" + o + " ?new_x ?y))")
 
+
+        # Add killIfHasLess
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        for o in self.killIfHasLess:
+            preconditions.append("""(or
+                            (and 
+                                (is-""" + o[0] + """ ?new_x ?y)
+                                (not (got-resource-""" + o[1] + """ n0))
+                            )
+                            (not (is-""" + o[0] + """ ?new_x ?y))
+                        )""")
+
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
@@ -242,6 +285,18 @@ class AvatarActions:
         # Add stepback objects
         for o in self.stepbacks:
             preconditions.append("(not (is-" + o + " ?new_x ?y))")
+
+        # Add killIfHasLess
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        for o in self.killIfHasLess:
+            preconditions.append("""(or
+                            (and 
+                                (is-""" + o[0] + """ ?new_x ?y)
+                                (not (got-resource-""" + o[1] + """ n0))
+                            )
+                            (not (is-""" + o[0] + """ ?new_x ?y))
+                        )""")
 
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
@@ -495,9 +550,11 @@ class AvatarActions:
 class AvatarPredicates:
     """ Returns different predicates depending of the avatar """
 
-    def __init__(self, avatar: "Sprite", stepbacks: list, partner: "Sprite" = None):
+    def __init__(self, avatar: "Sprite", stepbacks: list, killIfHasLess: list, 
+                    partner: "Sprite" = None):
         self.avatar = avatar
         self.stepbacks = stepbacks
+        self.killIfHasLess = killIfHasLess
         self.partner = partner
 
         self.predicates = []
@@ -545,6 +602,8 @@ class AvatarPredicates:
         # Add stepback objects
         for o in self.stepbacks:
             self.predicates.append("(is-" + o + " ?x ?y - num)")
+        for o in self.killIfHasLess:
+            self.predicates.append("(is-" + o[0] + " ?x ?y - num)")
 
         self.predicates.extend(avatar_predicates_list.get(self.avatar.stype, []))
 

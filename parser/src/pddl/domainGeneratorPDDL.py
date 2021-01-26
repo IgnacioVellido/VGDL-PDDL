@@ -46,6 +46,7 @@ class DomainGeneratorPDDL:
         # For the level parser
         self.partner = None
         self.stepbacks = [] # List of objects involved with the avatar in a stepback interaction
+        self.killIfHasLess = [] # List of objects involved with the avatar in a killIfHasLess interaction
         self.short_types = []  # The char part of a LevelMapping
         self.long_types = []  # The sprites part of a LevelMapping
         self.stypes = set()  # All types in the game (bigger than long_types)
@@ -54,7 +55,9 @@ class DomainGeneratorPDDL:
 
         self.search_partner()
         self.find_stepbacks()
-        self.avatarPDDL = AvatarPDDL(self.avatar, self.hierarchy, self.stepbacks, self.partner)
+        self.find_killIfHasLess()
+        self.avatarPDDL = AvatarPDDL(self.avatar, self.hierarchy, self.stepbacks, 
+                                        self.killIfHasLess, self.partner)
 
         # Assign spritesPDDL
         self.spritesPDDL = []
@@ -92,6 +95,17 @@ class DomainGeneratorPDDL:
                 # Find if avatar is involved           
                 if i.sprite_name in self.hierarchy[self.avatar.name] or i.sprite_name == self.avatar.name:
                     self.stepbacks.append(i.partner_name)
+
+    def find_killIfHasLess(self):
+        """ Finds objects involved with the avatar in a killIfHasLess interaction """
+        for i in self.interactions:
+            # Check if interaction if stepback type
+            if i.type == "killIfHasLess":
+                # Find if avatar is involved           
+                if i.sprite_name in self.hierarchy[self.avatar.name] or i.sprite_name == self.avatar.name:
+                    parameters = [p for p in i.parameters if "resource=" in p]
+                    resource = parameters[0].replace("resource=",'')
+                    self.killIfHasLess.append([i.partner_name, resource])
 
     # -------------------------------------------------------------------------
     # Auxiliary
@@ -329,11 +343,8 @@ class DomainGeneratorPDDL:
             if new_actions:
                 self.actions.extend(new_actions)
 
-                # Save objects involved
-                # if i.type != "stepBack" and (i.sprite_name and i.partner_name) != "wall" and not\
-                # (i.sprite_name == self.avatar.name and (i.type == "killIfHasLess" or i.type == "killSprite")):
-                if interaction.type != "killIfHasLess":
-                    pairs.add((interaction.sprite_name, interaction.partner_name))
+                # Save objects involved                
+                pairs.add((interaction.sprite_name, interaction.partner_name))
 
 
         # PDDL specific actions

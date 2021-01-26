@@ -90,23 +90,23 @@ M = Madagascar
 - 0
     - M:
     - FF:
-    - FD:  0.0162105s
+    - FD:  0.0273426s
   - 1
     - M: 
     - FF: 
-    - FD: 0.0188988s
+    - FD: 0.0274877s
   - 2
     - M: 
     - FF: 
-    - FD: 0.0137435s
+    - FD: 0.0299897s
   - 3
     - M: 
     - FF: 
-    - FD: 0.0131548s
+    - FD: 0.0302521s
   - 4
     - M:
     - FF:
-    - FD: 0.0188015s
+    - FD: 0.0364139s
   
 EN LA CARPETA VGDL ESTÁN
 - GVGAI.TXT: Versión a usar en gvgai
