@@ -88,24 +88,24 @@ M = Madagascar
     - FD: 0.0234705s
 - Ice-and-fire
 - 0
-    - M:
-    - FF:
-    - FD:  0.0273426s
+    - M: 136.00
+    - FF: Sin memoria
+    - FD: 0.0273426s
   - 1
-    - M: 
-    - FF: 
+    - M: 152.00
+    - FF: Sin memoria
     - FD: 0.0274877s
   - 2
-    - M: 
-    - FF: 
+    - M: 396.73
+    - FF: Sin memoria
     - FD: 0.0299897s
   - 3
-    - M: 
-    - FF: 
+    - M: 550.14
+    - FF: Sin memoria
     - FD: 0.0302521s
   - 4
-    - M:
-    - FF:
+    - M: Timeout
+    - FF: Sin memoria
     - FD: 0.0364139s
   
 EN LA CARPETA VGDL ESTÁN
