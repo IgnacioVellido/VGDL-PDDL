@@ -422,7 +422,10 @@ class SpritePredicates:
             "RandomNPC": [],
 
             # Keep track of this object
-            "Resource": ["(got-resource-" + self.sprite.name + " ?o - " + self.sprite.name + ")"],
+            # Resource as object
+            # "Resource": ["(got-resource-" + self.sprite.name + " ?o - " + self.sprite.name + ")"],
+            # Resource as number
+            "Resource": ["(got-resource-" + self.sprite.name + " ?n - num)"],
 
             # Produces sprites following a specific ratio
             "SpawnPoint": [

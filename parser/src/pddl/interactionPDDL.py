@@ -42,9 +42,9 @@ class InteractionPDDL:
         self.actions = []
         self.predicates = []
         self.level_predicates = []
-
+                
         # Don't produce killSprites for the avatar
-        if not (interaction.type == "killSprite" and sprite.name in hierarchy[avatar] or sprite.name == avatar):
+        if not (interaction.type == "killSprite" and (sprite.name in hierarchy[avatar] or sprite.name == avatar)):
             self.get_actions()
 
         self.get_predicates()
@@ -527,17 +527,37 @@ class InteractionActions:
             + self.partner.name.upper()
             + "_COLLECTRESOURCE"
         )
-        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # Resource as object
+        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        # preconditions = [
+        #     "(turn-interactions)",
+        #     "(not (= ?o1 ?o2))",
+        #     "(at ?x ?y ?o1)",
+        #     "(at ?x ?y ?o2)"
+        # ]
+        # effects = [
+        #     "(object-dead ?o1)",
+        #     # "(got-resource-" + self.sprite.name + " ?o1)"
+
+        # ]
+
+        # Resource as number
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["r", "num"], ["r_next", "num"]]
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
             "(at ?x ?y ?o1)",
-            "(at ?x ?y ?o2)"
+            "(at ?x ?y ?o2)",
+            "(got-resource-diamond ?r)",
+            "(next ?r ?r_next)"
         ]
         effects = [
+            "(not (at ?x ?y ?o1))",
             "(object-dead ?o1)",
-            "(got-resource-" + self.sprite.name + " ?o1)"
-        ]
+            "(not (got-resource-" + self.sprite.name + " ?r))",
+            "(got-resource-" + self.sprite.name + " ?r_next)"
+
+        ]        
 
         return Action(name, parameters, preconditions, effects)
 
@@ -723,34 +743,38 @@ class InteractionActions:
     # -------------------------------------------------------------------------
 
     # Kill sprite if sprite has less
+    # Only works if limit=0
     def killIfHasLess(self):
-        pass
-        # # Get resource name
-        # parameters = [p for p in self.interaction.parameters if "resource=" in p]
-        # resource = parameters[0].replace("resource=",'')
+        # Get resource name
+        parameters = [p for p in self.interaction.parameters if "resource=" in p]
+        resource = parameters[0].replace("resource=",'')
 
-        # # Get number needed
-        # parameters = [p for p in self.interaction.parameters if "limit=" in p]
-        # number = parameters[0].replace("limit=",'')
-        # number = int(number)
+        # Get number needed
+        parameters = [p for p in self.interaction.parameters if "limit=" in p]
+        number = parameters[0].replace("limit=",'')
+        number = int(number)
 
-        # name = (
-        #     self.sprite.name.upper() + "_" + self.partner.name.upper()
-        #     + "_KILLIFOTHERHASLESS"
-        # )
+        name = (
+            self.sprite.name.upper() + "_" + self.partner.name.upper()
+            + "_KILLIFHASLESS"
+        )
         
-        # parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
-        # preconditions = [
-        #     "(turn-interactions)",
-        #     "(not (= ?o1 ?o2))",
-        #     "(at ?x ?y ?o1)",
-        #     "(at ?x ?y ?o2)"
-        # ]
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+        preconditions = [
+            "(turn-interactions)",
+            "(not (= ?o1 ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)"
+        ]
 
-        # effects = [
-        #     "(object-dead ?o1)"
-        # ]
+        effects = [
+            "(object-dead ?o1)",
+            "(not (at ?x ?y ?o1))"
+        ]
 
+        if number == 0:
+            parameters.append(["r0", resource])
+            preconditions.append("(not (got-resource-" + resource + " ?r0" + "))")
 
         # # Add number-sprites to parameters
         # for i in range(number):
@@ -760,7 +784,7 @@ class InteractionActions:
         # for i in range(number):
         #     preconditions.append("(got-resource-" + resource + " ?r" + str(i) + ")")
 
-        # return Action(name, parameters, preconditions, effects)
+        return Action(name, parameters, preconditions, effects)
 
     # -------------------------------------------------------------------------
 
@@ -833,14 +857,16 @@ class InteractionActions:
             "(object-dead ?o1)"
         ]
 
+        # Get-resource <number>
+        preconditions.append("(got-resource-" + resource + " n" + str(number) + ")")
 
-        # Add number-sprites to parameters
-        for i in range(number):
-            parameters.append(["r" + str(i), resource])
+        # # Add number-sprites to parameters
+        # for i in range(number):
+        #     parameters.append(["r" + str(i), resource])
 
-        # Add number-preconditions
-        for i in range(number):
-            preconditions.append("(got-resource-" + resource + " ?r" + str(i) + ")")
+        # # Add number-preconditions
+        # for i in range(number):
+        #     preconditions.append("(got-resource-" + resource + " ?r" + str(i) + ")")
 
         return Action(name, parameters, preconditions, effects)
 

@@ -155,6 +155,7 @@ Config
   - turn-interactions ✅
   - got-resource (Parece que es cosa de la arquitectura de Vladis)
 - El límite viene incluído en VGDL
+- Si se deja resource como números, incluir (got-resource-... n0)
 
 
 Problems

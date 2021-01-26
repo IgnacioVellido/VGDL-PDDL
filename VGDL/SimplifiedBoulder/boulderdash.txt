@@ -27,7 +27,7 @@ BasicGame
 
 		avatar butterfly crab > killSprite
 
-		exitdoor avatar > killIfOtherHasMore resource=diamond limit=9
+		exitdoor avatar > killIfOtherHasMore resource=diamond limit=4
 
 	TerminationSet
 		SpriteCounter stype=avatar limit=0 win=False
