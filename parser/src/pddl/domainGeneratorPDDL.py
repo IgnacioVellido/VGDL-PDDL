@@ -318,23 +318,24 @@ class DomainGeneratorPDDL:
                 self.actions.extend(actions)
 
         # And one for each interaction
+        pairs = set()
         for interaction in self.interactions:
             sprite = self.find_sprite_by_name(interaction.sprite_name)
             partner = self.find_sprite_by_name(interaction.partner_name)
-            self.actions.extend(
-                InteractionPDDL(interaction, sprite, partner, self.hierarchy, self.avatar.name).actions
-            )
+
+            new_actions = InteractionPDDL(interaction, sprite, partner, 
+                                          self.hierarchy, self.avatar.name).actions
+
+            if new_actions:
+                self.actions.extend(new_actions)
+
+                # Save objects involved
+                pairs.add((interaction.sprite_name, interaction.partner_name))
 
 
         # PDDL specific actions
 
         # Check objects involved in interactions
-        pairs = set()
-        for i in self.interactions:
-            if i.type != "stepBack" and (i.sprite_name and i.partner_name) != "wall" and not\
-                (i.sprite_name == self.avatar.name and (i.type == "killIfHasLess" or i.type == "killSprite")):
-                pairs.add((i.sprite_name, i.partner_name))
-
         end_turn_preconditions = ["(turn-interactions)"]
         for p in pairs:
             end_turn_preconditions.append("(not (exists (?o1 - " + p[0] + " ?o2 - " + p[1] + """ ?x ?y - num) 
