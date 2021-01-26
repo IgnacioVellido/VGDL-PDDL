@@ -330,7 +330,10 @@ class DomainGeneratorPDDL:
                 self.actions.extend(new_actions)
 
                 # Save objects involved
-                pairs.add((interaction.sprite_name, interaction.partner_name))
+                # if i.type != "stepBack" and (i.sprite_name and i.partner_name) != "wall" and not\
+                # (i.sprite_name == self.avatar.name and (i.type == "killIfHasLess" or i.type == "killSprite")):
+                if interaction.type != "killIfHasLess":
+                    pairs.add((interaction.sprite_name, interaction.partner_name))
 
 
         # PDDL specific actions

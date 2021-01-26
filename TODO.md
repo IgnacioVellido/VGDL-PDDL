@@ -4,23 +4,23 @@ Resultados
 M = Madagascar
 - Sokoban
   - 0
-    - M: 111.04 (1 sola caja)
+    - M:
     - FF:
     - FD:
   - 1
-    - M: 
+    - M: 111.04 (1 sola caja)
     - FF: 
     - FD:
   - 2
-    - M: 
+    - M: 26.05 (1 sola)
     - FF: 
     - FD:
   - 3
-    - M: 
+    - M: 0.11 (todas)
     - FF: 
     - FD:
   - 4
-    - M:
+    - M: 0.17 (todas)
     - FF:
     - FD:
 - Butterflies
@@ -90,7 +90,7 @@ M = Madagascar
 - 0
     - M:
     - FF:
-    - FD:
+    - FD:  0.0162105s
   - 1
     - M: 
     - FF: 
@@ -98,16 +98,16 @@ M = Madagascar
   - 2
     - M: 
     - FF: 
-    - FD:
+    - FD: 0.0137435s
   - 3
     - M: 
     - FF: 
-    - FD:
+    - FD: 0.0131548s
   - 4
     - M:
     - FF:
-    - FD:
-    - 
+    - FD: 0.0188015s
+  
 EN LA CARPETA VGDL ESTÁN
 - GVGAI.TXT: Versión a usar en gvgai
 - ??. txt: Versión para el parser
