@@ -548,7 +548,7 @@ class InteractionActions:
             "(not (= ?o1 ?o2))",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
-            "(got-resource-diamond ?r)",
+            "(got-resource-" + self.sprite.name + " ?r)",
             "(next ?r ?r_next)"
         ]
         effects = [
@@ -854,7 +854,8 @@ class InteractionActions:
         ]
 
         effects = [
-            "(object-dead ?o1)"
+            "(object-dead ?o1)",
+            "(not (at ?x ?y ?o1))",
         ]
 
         # Get-resource <number>

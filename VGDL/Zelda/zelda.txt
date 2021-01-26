@@ -26,6 +26,7 @@ BasicGame
     goal avatar   > killIfOtherHasMore resource=key limit=1
     enemy sword > killSprite
     avatar enemy > killSprite
+    key avatar > collectResource
 
   TerminationSet
     SpriteCounter stype=goal   win=True
