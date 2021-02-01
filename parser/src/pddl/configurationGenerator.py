@@ -18,7 +18,7 @@ config = dict(
     domainName = "VGDLGame",
     gameElementsCorrespondence = {},
     variablesTypes = {},
-    cellVariable = "?c",
+    # numVariable = "?n",
     avatarVariable = "",
     orientation = {},
     orientationCorrespondence = dict(
@@ -76,6 +76,8 @@ def get_config(domainGenerator, listener):
 
 # Also adds some turn-order related predicates in additionalPredicates
 def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_predicates, avatar_name):
+    config["gameElementsCorrespondence"][avatar_name] = []
+
     # Avatar predicates
     for predicate in avatar_predicates:
         match = re.search("([\w-])+ ?", predicate) # Only has one occurrence
@@ -87,28 +89,29 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
     for sprite in spritesPDDL:
         name = sprite.sprite.name
 
-        # Add variableType
-        variableType = "?%s" % name
-        config["variablesTypes"][variableType] = name
+        if name != "wall":
+            # Add variableType
+            variableType = "?%s" % name
+            config["variablesTypes"][variableType] = name
 
-        config["gameElementsCorrespondence"][name] = [
-            # "(object-dead ?%s)" % o,
-            "(at ?c ?%s)" % name,
-        ]
+            config["gameElementsCorrespondence"][name] = [
+                # "(object-dead ?%s)" % o,
+                "(at ?x ?y ?%s)" % name,
+            ]
 
-        for pred in sprite.predicates:
-            # Check if the predicate has parameters
-            if "?" in pred: # Add it to specific predicates
-                match = re.search("([\w-])+ ?", pred) # Only has one occurrence
-                config["gameElementsCorrespondence"][name].append(
-                    "(%s?%s)" % (match.group(), name)
-                )
+            for pred in sprite.predicates:
+                # Check if the predicate has parameters
+                if "?" in pred: # Add it to specific predicates
+                    match = re.search("([\w-])+ ?", pred) # Only has one occurrence
+                    config["gameElementsCorrespondence"][name].append(
+                        "(%s?%s)" % (match.group(), name)
+                    )
 
-            else:   # If no parameters include it directly to additional
-                config["additionalPredicates"].append(pred)
+                # else:   # If no parameters include it directly to additional
+                    # config["additionalPredicates"].append(pred)
 
     # Add cell to variablesTypes
-    config["variablesTypes"]["?c"] = "cell"
+    # config["variablesTypes"]["?c"] = "cell"
 
 # ------------------------------------------------------------------------------
 
@@ -170,11 +173,11 @@ def config_add_additionalPredicates():
 def config_add_addDeadObjects(partner, transformTo):
     # Objects the avatar can produce
     if partner:
-        config["addDeadObjects"][partner.name] = 5
+        config["addDeadObjects"][partner.name] = 1
 
     # Objects that can be transformed
     for obj in transformTo:
-        config["addDeadObjects"][obj] = 10
+        config["addDeadObjects"][obj] = 1
 
     # TODO: Add objects that can be produced (spawnpoints...)
 

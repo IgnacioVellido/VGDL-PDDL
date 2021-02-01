@@ -116,7 +116,8 @@ Si alguna vez se quisiera genera los problemas habría que tener en cuenta que n
 Boulderchase es boulderdash pero los enemigos persigue, quitarlo
 Iceandfire sin chip
 En butterflies para el dominio es solo búsqueda de caminos, pero como está la arquitectura de Vladis se generan nuevos enemigos
-__PROBLEMA__ En sokoban no tiene orientación pero es necesaria, con ella no resuelve
+
+En boulderdash las rocas tienen is-boulder (para los movimientos) y at (para la interacción con sword)
 
 TO DO:
 VGDL descriptions
@@ -158,6 +159,11 @@ Config
   - got-resource (Parece que es cosa de la arquitectura de Vladis)
 - El límite viene incluído en VGDL
 - Si se deja resource como números, incluir (got-resource-... n0)
+
+<!-- - cellVariable -> numVariable (El prefijo) -->
+- cellVariable fuera
+- connections fuera
+- 
 
 
 Problems
