@@ -119,6 +119,8 @@ En butterflies para el dominio es solo búsqueda de caminos, pero como está la 
 
 En boulderdash las rocas tienen is-boulder (para los movimientos) y at (para la interacción con sword)
 
+Añadidos nuevos juegos hasta crossfire
+
 TO DO:
 VGDL descriptions
 - Objetos con los que no superponerse ahora tiene stepback
