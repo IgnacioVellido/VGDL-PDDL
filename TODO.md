@@ -153,6 +153,7 @@ Domains
   - O leerlo y añadirlo al movimiento ✅
     - __NOTA__: Todo objeto con stepback con el avatar debe tener predicado (is- nx ny). Si no tiene ninguna utilidad más no incluírlo
       - idem. con killsprite
+- Una vez terminado: Quitar comentarios # DONE
 
 Config
 - Que no se incluyan:
@@ -180,8 +181,6 @@ Problems
   - En boulderdash hace falta (got-resource n0), mirar si añadirlo a todos los juegos
   - (at nx ny )
   - (is-... nx ny)
-
-- Una vez terminado: Quitar comentarios # DONE
 
 ---
 

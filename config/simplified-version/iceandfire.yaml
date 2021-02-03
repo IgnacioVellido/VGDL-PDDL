@@ -1,0 +1,52 @@
+domainFile: domains/domain.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  avatar:
+  - (at ?x ?y ?avatar)
+  exit:
+  - (at ?x ?y ?exit)
+  trap:
+  - (at ?x ?y ?trap)
+  ice:
+  - (at ?x ?y ?ice)
+  fire:
+  - (at ?x ?y ?fire)
+  iceshoes:
+  - (at ?x ?y ?iceshoes)
+  - (got-resource-iceshoes n0)
+  fireboots:
+  - (at ?x ?y ?fireboots)
+  - (got-resource-fireboots n0)
+variablesTypes:
+  ?exit: exit
+  ?avatar: avatar
+  ?trap: trap
+  ?ice: ice
+  ?fire: fire
+  ?iceshoes: iceshoes
+  ?fireboots: fireboots
+  ?x: num
+  ?y: num
+avatarVariable: ?avatar
+orientation:
+  avatar: NONE
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence:
+  AVATAR_ACTION_MOVE_UP: ACTION_UP
+  AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
+  AVATAR_ACTION_MOVE_LEFT: ACTION_LEFT
+  AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
+additionalPredicates:
+- (turn-avatar)
+addDeadObjects: {}
+goals: []

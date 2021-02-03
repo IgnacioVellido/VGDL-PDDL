@@ -1,0 +1,63 @@
+domainFile: domains/domain.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  avatar:
+  - (at ?x ?y ?avatar)
+  goal:
+  - (at ?x ?y ?goal)
+  key:
+  - (at ?x ?y ?key)
+  - (got-resource-key n0)
+  sword:
+  - (at ?x ?y ?sword)
+  enemy:
+  - (at ?x ?y ?enemy)
+  monsterQuick:
+  - (at ?x ?y ?monsterQuick)
+  monsterNormal:
+  - (at ?x ?y ?monsterNormal)
+  monsterSlow:
+  - (at ?x ?y ?monsterSlow)
+variablesTypes:
+  ?goal: goal
+  ?key: key
+  ?sword: sword
+  ?avatar: avatar
+  ?enemy: enemy
+  ?monsterQuick: monsterQuick
+  ?monsterNormal: monsterNormal
+  ?monsterSlow: monsterSlow
+  ?x: num
+  ?y: num
+avatarVariable: ?avatar
+orientation:
+  avatar: FIND
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence:
+  AVATAR_ACTION_MOVE_UP: ACTION_UP
+  AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
+  AVATAR_ACTION_MOVE_LEFT: ACTION_LEFT
+  AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
+  AVATAR_ACTION_TURN_UP: ACTION_UP
+  AVATAR_ACTION_TURN_DOWN: ACTION_DOWN
+  AVATAR_ACTION_TURN_LEFT: ACTION_LEFT
+  AVATAR_ACTION_TURN_RIGHT: ACTION_RIGHT
+  AVATAR_ACTION_USE_UP: ACTION_USE
+  AVATAR_ACTION_USE_DOWN: ACTION_USE
+  AVATAR_ACTION_USE_LEFT: ACTION_USE
+  AVATAR_ACTION_USE_RIGHT: ACTION_USE
+additionalPredicates:
+- (turn-avatar)
+addDeadObjects:
+  sword: 1
+goals: []

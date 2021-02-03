@@ -95,13 +95,18 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
             config["variablesTypes"][variableType] = name
 
             config["gameElementsCorrespondence"][name] = [
-                # "(object-dead ?%s)" % o,
                 "(at ?x ?y ?%s)" % name,
             ]
 
             for pred in sprite.predicates:
+                # Check if resource predicate
+                if "got-resource" in pred:
+                    match = re.search("([\w-])+ ?", pred) # Only has one occurrence
+                    config["gameElementsCorrespondence"][name].append(
+                        "(%s%s)" % (match.group(), "n0")
+                    )
                 # Check if the predicate has parameters
-                if "?" in pred: # Add it to specific predicates
+                elif "?" in pred: # Add it to specific predicates
                     match = re.search("([\w-])+ ?", pred) # Only has one occurrence
                     config["gameElementsCorrespondence"][name].append(
                         "(%s?%s)" % (match.group(), name)
@@ -110,8 +115,9 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
                 # else:   # If no parameters include it directly to additional
                     # config["additionalPredicates"].append(pred)
 
-    # Add cell to variablesTypes
-    # config["variablesTypes"]["?c"] = "cell"
+    # Add nums to variablesTypes
+    config["variablesTypes"]["?x"] = "num"
+    config["variablesTypes"]["?y"] = "num"
 
 # ------------------------------------------------------------------------------
 
