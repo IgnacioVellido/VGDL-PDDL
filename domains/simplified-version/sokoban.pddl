@@ -17,7 +17,7 @@
 		avatar - MovingAvatar
 		box - Passive
 		wall - Immovable
-		Passive Immovable MovingAvatar - Object
+		Immovable MovingAvatar Passive - Object
 	)
 
 	; Predicates ----------------------------------------------------------------

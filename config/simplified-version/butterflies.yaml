@@ -10,6 +10,8 @@ gameElementsCorrespondence:
   - (at ?x ?y ?animal)
   butterfly:
   - (at ?x ?y ?butterfly)
+  wall:
+  - (is-wall ?x ?y)
 variablesTypes:
   ?cocoon: cocoon
   ?animal: animal

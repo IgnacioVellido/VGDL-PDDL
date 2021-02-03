@@ -23,7 +23,7 @@
 		enemy - RandomNPC
 		crab - enemy
 		butterfly - enemy
-		Flicker Resource Immovable RandomNPC Door movingStype ShootAvatar - Object
+		Door Immovable RandomNPC Flicker Resource movingStype ShootAvatar - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -442,14 +442,6 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - boulder ?o2 - sword ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
 						(not (exists (?o1 - exitdoor ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
@@ -459,6 +451,14 @@
                             )
                         )
 						(not (exists (?o1 - diamond ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - boulder ?o2 - sword ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

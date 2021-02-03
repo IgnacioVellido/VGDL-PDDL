@@ -60,7 +60,15 @@ def get_config(domainGenerator, listener):
     partner = domainGenerator.partner
     transformTo = listener.transformTo
 
-    config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_predicates, avatar_name)
+    # Objects with predicate is-...
+    isSomething = ["wall"]
+    isSomething.extend([a[0] for a in domainGenerator.killIfHasLess])
+    isSomething.extend(domainGenerator.stepbacks)
+    
+    config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, 
+                                                        avatar_predicates, 
+                                                        avatar_name,
+                                                        isSomething)
     config_add_avatarVariable(avatar_name)
     config_add_orientation(spritesPDDL, actions, avatar_name)
     config_add_actionsCorrespondence(actions)
@@ -75,7 +83,7 @@ def get_config(domainGenerator, listener):
 # ------------------------------------------------------------------------------
 
 # Also adds some turn-order related predicates in additionalPredicates
-def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_predicates, avatar_name):
+def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_predicates, avatar_name, isSomething):
     config["gameElementsCorrespondence"][avatar_name] = []
 
     # Avatar predicates
@@ -89,7 +97,7 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
     for sprite in spritesPDDL:
         name = sprite.sprite.name
 
-        if name != "wall":
+        if name not in isSomething:
             # Add variableType
             variableType = "?%s" % name
             config["variablesTypes"][variableType] = name
@@ -111,9 +119,15 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
                     config["gameElementsCorrespondence"][name].append(
                         "(%s?%s)" % (match.group(), name)
                     )
+                elif not "turn" in pred:   # If no parameters include it directly to additional
+                    config["additionalPredicates"].append(pred)
 
-                # else:   # If no parameters include it directly to additional
-                    # config["additionalPredicates"].append(pred)
+
+    # Objects with is-... predicate
+    for sprite in isSomething:
+        config["gameElementsCorrespondence"][sprite] = [
+            "(is-%s ?x ?y)" % sprite,
+        ]
 
     # Add nums to variablesTypes
     config["variablesTypes"]["?x"] = "num"

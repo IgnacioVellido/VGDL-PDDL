@@ -11,26 +11,25 @@ gameElementsCorrespondence:
   diamond:
   - (at ?x ?y ?diamond)
   - (got-resource-diamond n0)
-  boulder:
-  - (at ?x ?y ?boulder)
   moving:
   - (at ?x ?y ?moving)
   enemy:
   - (at ?x ?y ?enemy)
-  crab:
-  - (at ?x ?y ?crab)
+  wall:
+  - (is-wall ?x ?y)
+  boulder:
+  - (is-boulder ?x ?y)
   butterfly:
-  - (at ?x ?y ?butterfly)
+  - (is-butterfly ?x ?y)
+  crab:
+  - (is-crab ?x ?y)
 variablesTypes:
   ?sword: sword
   ?exitdoor: exitdoor
   ?diamond: diamond
-  ?boulder: boulder
   ?moving: moving
   ?avatar: avatar
   ?enemy: enemy
-  ?crab: crab
-  ?butterfly: butterfly
   ?x: num
   ?y: num
 avatarVariable: ?avatar

@@ -4,8 +4,6 @@ domainName: VGDLGame
 gameElementsCorrespondence:
   avatar:
   - (at ?x ?y ?avatar)
-  hole:
-  - (at ?x ?y ?hole)
   mushroom:
   - (at ?x ?y ?mushroom)
   key:
@@ -15,8 +13,11 @@ gameElementsCorrespondence:
   - (at ?x ?y ?goal)
   box:
   - (at ?x ?y ?box)
+  wall:
+  - (is-wall ?x ?y)
+  hole:
+  - (is-hole ?x ?y)
 variablesTypes:
-  ?hole: hole
   ?avatar: avatar
   ?mushroom: mushroom
   ?key: key

@@ -18,7 +18,7 @@
 		avatar - MovingAvatar
 		butterfly - RandomNPC
 		wall - Immovable
-		RandomNPC Immovable MovingAvatar animalStype - Object
+		RandomNPC Immovable animalStype MovingAvatar - Object
 	)
 
 	; Predicates ----------------------------------------------------------------

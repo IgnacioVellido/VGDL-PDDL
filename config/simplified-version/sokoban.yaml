@@ -8,6 +8,8 @@ gameElementsCorrespondence:
   - (at ?x ?y ?hole)
   box:
   - (at ?x ?y ?box)
+  wall:
+  - (is-wall ?x ?y)
 variablesTypes:
   ?hole: hole
   ?avatar: avatar

@@ -11,20 +11,21 @@ gameElementsCorrespondence:
   - (got-resource-key n0)
   sword:
   - (at ?x ?y ?sword)
-  enemy:
-  - (at ?x ?y ?enemy)
   monsterQuick:
   - (at ?x ?y ?monsterQuick)
   monsterNormal:
   - (at ?x ?y ?monsterNormal)
   monsterSlow:
   - (at ?x ?y ?monsterSlow)
+  wall:
+  - (is-wall ?x ?y)
+  enemy:
+  - (is-enemy ?x ?y)
 variablesTypes:
   ?goal: goal
   ?key: key
   ?sword: sword
   ?avatar: avatar
-  ?enemy: enemy
   ?monsterQuick: monsterQuick
   ?monsterNormal: monsterNormal
   ?monsterSlow: monsterSlow

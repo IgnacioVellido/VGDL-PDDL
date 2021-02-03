@@ -6,24 +6,23 @@ gameElementsCorrespondence:
   - (at ?x ?y ?avatar)
   exit:
   - (at ?x ?y ?exit)
-  trap:
-  - (at ?x ?y ?trap)
-  ice:
-  - (at ?x ?y ?ice)
-  fire:
-  - (at ?x ?y ?fire)
   iceshoes:
   - (at ?x ?y ?iceshoes)
   - (got-resource-iceshoes n0)
   fireboots:
   - (at ?x ?y ?fireboots)
   - (got-resource-fireboots n0)
+  wall:
+  - (is-wall ?x ?y)
+  ice:
+  - (is-ice ?x ?y)
+  fire:
+  - (is-fire ?x ?y)
+  trap:
+  - (is-trap ?x ?y)
 variablesTypes:
   ?exit: exit
   ?avatar: avatar
-  ?trap: trap
-  ?ice: ice
-  ?fire: fire
   ?iceshoes: iceshoes
   ?fireboots: fireboots
   ?x: num
