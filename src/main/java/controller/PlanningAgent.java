@@ -87,8 +87,10 @@ public class PlanningAgent extends AbstractPlayer {
     // Variable that indicates whether the agent has to find a new plan or not
     protected boolean mustPlan;
 
-    // Set of connections between cells
-    protected Set<String> connectionSet;
+    // Fluents information
+    protected List<String> fluentsPredicates;
+    protected Set<String> fluentsObjects;
+
     protected Map<String, Set<String>> gameElementVars;
 
     // Variable that indicates the game's turn
@@ -129,7 +131,11 @@ public class PlanningAgent extends AbstractPlayer {
                 .stream()
                 .forEach(key -> this.PDDLGameStateObjects.put(key, new LinkedHashSet<>()));
         this.gameElementVars = this.extractVariablesFromPredicates();
-        this.connectionSet = this.generateConnectionPredicates(stateObservation);
+
+        // Initialize fluents information
+        this.fluentsPredicates = new ArrayList<>();
+        this.fluentsObjects = new LinkedHashSet<>();
+        this.generateFluents(stateObservation);
 
         // Initialize plan and iterator
         this.PDDLPlan = new PDDLPlan();
@@ -611,11 +617,10 @@ public class PlanningAgent extends AbstractPlayer {
 
                                     if (variable.equals(this.gameInformation.avatarVariable)) {
                                         variableInstance = variable.replace("?", "");
-                                    } else if (variable.equals("?c") && cellObservation.contains("avatar")
-                                            && predicate.contains("last-at")) {
-                                        variableInstance = String.format("c_%d_%d",
-                                                (int) this.avatarPreviousPosition.x,
-                                                (int) this.avatarPreviousPosition.y);
+                                    } else if (variable.equals("?x")) {
+                                      variableInstance = "n" + x;
+                                    } else if (variable.equals("?y")) {
+                                      variableInstance = "n" + y;
                                     } else {
                                         variableInstance = String.format("%s_%d_%d", variable, x, y).replace("?", "");
                                     }
@@ -639,7 +644,7 @@ public class PlanningAgent extends AbstractPlayer {
         }
 
         // Add connections to predicates
-        this.connectionSet.stream().forEach(connection -> this.PDDLGameStatePredicates.add(connection));
+        this.fluentsPredicates.stream().forEach(connection -> this.PDDLGameStatePredicates.add(connection));
 
         // Add additional predicates
         this.gameInformation.additionalPredicates.stream().forEach(predicate -> this.PDDLGameStatePredicates.add(predicate));
@@ -728,13 +733,19 @@ public class PlanningAgent extends AbstractPlayer {
 
             // Write each object
             for (String key : this.PDDLGameStateObjects.keySet()) {
-                if (!this.PDDLGameStateObjects.get(key).isEmpty()) {
+                if (!this.PDDLGameStateObjects.get(key).isEmpty() && !key.equals("?x") && !key.equals("?y")) {
                     String objectsStr = String.join(" ", this.PDDLGameStateObjects.get(key));
                     objectsStr += String.format(" - %s", this.gameInformation.variablesTypes.get(key));
                     bf.write(String.format("        %s", objectsStr));
                     bf.newLine();
                 }
             }
+
+            // Add fluents
+            String fluentsStr = String.join(" ", this.fluentsObjects);
+            fluentsStr += String.format(" - %s", this.gameInformation.variablesTypes.get("?x"));
+            bf.write(String.format("        %s", fluentsStr));
+            bf.newLine();
 
             // Finish object writing
             bf.write("    )");
@@ -812,70 +823,46 @@ public class PlanningAgent extends AbstractPlayer {
     }
 
     /**
-     * Method that generates the connection predicates between the cells of the
-     * map.
+     * Method that generates the false fluents predicates and objects. The
+     * information is stored in the corresponding attributes.
      *
      * @param stateObservation State observation of the game.
-     * @return Returns a set which preserves insertion order and contains
-     * the PDDL predicates associated to the cells connections.
      */
-    private Set<String> generateConnectionPredicates(StateObservation stateObservation) {
-        // Initialize connection set
-        Set<String> connections = new LinkedHashSet<>();
+    private void generateFluents(StateObservation stateObservation) {
+      // Get the observations of the game state as elements of the VGDDLRegistry
+      HashSet<String>[][] gameMap = this.getGameElementsMatrix(stateObservation);
 
-        // Get the observations of the game state as elements of the VGDDLRegistry
-        HashSet<String>[][] gameMap = this.getGameElementsMatrix(stateObservation);
+      final int X_MAX = gameMap.length;
+      final int Y_MAX = gameMap[0].length;
 
-        final int X_MAX = gameMap.length, Y_MAX = gameMap[0].length;
+      final int MAX_FLUENT = Math.max(X_MAX, Y_MAX);
 
-        for (int y = 0; y < Y_MAX; y++) {
-            for (int x = 0; x < X_MAX; x++) {
-                // Create string containing the current cell
-                String currentCell = String.format("%s_%d_%d", this.gameInformation.cellVariable, x, y).replace("?", "");
+      List<String> nextFluentList = new ArrayList<>(MAX_FLUENT - 1);
+      List<String> previousFluentList = new ArrayList<>(MAX_FLUENT - 1);
 
-                if (y - 1 >= 0) {
-                    String connection = this.gameInformation.connections.get(Connection.UP);
-                    connection = connection.replace("?c", currentCell);
-                    connection = connection.replace("?u", String
-                            .format("%s_%d_%d", this.gameInformation.cellVariable, x, y - 1)
-                            .replace("?", ""));
+      for (int i = 0; i < MAX_FLUENT - 1; i++) {
+        // n0 is the current number represented as a fluent
+        // n1 is the next number represented as a fluent
+        String n0 = "n" + i;
+        String n1 = "n" + (i + 1);
 
-                    connections.add(connection);
-                }
+        this.fluentsObjects.add(n0);
+        this.fluentsObjects.add(n1);
 
-                if (y + 1 < Y_MAX) {
-                    String connection = this.gameInformation.connections.get(Connection.DOWN);
-                    connection = connection.replace("?c", currentCell);
-                    connection = connection.replace("?d", String
-                            .format("%s_%d_%d", this.gameInformation.cellVariable, x, y + 1)
-                            .replace("?", ""));
+        String nextFluentPredicate = this.gameInformation.fluentsPredicates.get("next")
+          .replace("?n0", n0)
+          .replace("?n1", n1);
 
-                    connections.add(connection);
-                }
+        String previousFluentPredicate = this.gameInformation.fluentsPredicates.get("previous")
+          .replace("?n0", n0)
+          .replace("?n1", n1);
 
-                if (x - 1 >= 0) {
-                    String connection = this.gameInformation.connections.get(Connection.LEFT);
-                    connection = connection.replace("?c", currentCell);
-                    connection = connection.replace("?l", String
-                            .format("%s_%d_%d", this.gameInformation.cellVariable, x - 1, y)
-                            .replace("?", ""));
+        nextFluentList.add(nextFluentPredicate);
+        previousFluentList.add(previousFluentPredicate);
+      }
 
-                    connections.add(connection);
-                }
-
-                if (x + 1 < X_MAX) {
-                    String connection = this.gameInformation.connections.get(Connection.RIGHT);
-                    connection = connection.replace("?c", currentCell);
-                    connection = connection.replace("?r", String
-                            .format("%s_%d_%d", this.gameInformation.cellVariable, x + 1, y)
-                            .replace("?", ""));
-
-                    connections.add(connection);
-                }
-            }
-        }
-
-        return connections;
+      this.fluentsPredicates.addAll(nextFluentList);
+      this.fluentsPredicates.addAll(previousFluentList);
     }
 
     /**

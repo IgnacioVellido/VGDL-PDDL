@@ -1,4 +1,4 @@
-domainFile: domains/domain.pddl
+domainFile: domains/simplified-version/boulderdash.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:
@@ -10,24 +10,20 @@ gameElementsCorrespondence:
   - (at ?x ?y ?exitdoor)
   diamond:
   - (at ?x ?y ?diamond)
-  - (got-resource-diamond n0)
-  moving:
-  - (at ?x ?y ?moving)
-  enemy:
-  - (at ?x ?y ?enemy)
   wall:
   - (is-wall ?x ?y)
   boulder:
   - (is-boulder ?x ?y)
   butterfly:
   - (is-butterfly ?x ?y)
+  - (at ?x ?y ?enemy)
   crab:
   - (is-crab ?x ?y)
+  - (at ?x ?y ?enemy)
 variablesTypes:
   ?sword: sword
   ?exitdoor: exitdoor
   ?diamond: diamond
-  ?moving: moving
   ?avatar: avatar
   ?enemy: enemy
   ?x: num
@@ -40,11 +36,9 @@ orientationCorrespondence:
   DOWN: (oriented-down ?object)
   LEFT: (oriented-left ?object)
   RIGHT: (oriented-right ?object)
-connections:
-  UP: (connected-up ?c ?u)
-  DOWN: (connected-down ?c ?d)
-  LEFT: (connected-left ?c ?l)
-  RIGHT: (connected-right ?c ?r)
+fluentsPredicates:
+  next: (next ?n0 ?n1)
+  previous: (previous ?n1 ?n0)
 actionsCorrespondence:
   AVATAR_ACTION_MOVE_UP: ACTION_UP
   AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
@@ -60,6 +54,11 @@ actionsCorrespondence:
   AVATAR_ACTION_USE_RIGHT: ACTION_USE
 additionalPredicates:
 - (turn-avatar)
+- (got-resource-diamond n0)
 addDeadObjects:
   sword: 1
-goals: []
+goals:
+  - goalPredicate: (at n11 n8 avatar)
+    priority: 1
+    saveGoal: no
+
