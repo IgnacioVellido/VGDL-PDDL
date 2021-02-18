@@ -22,7 +22,7 @@
 		monsterNormal - RandomNPC
 		monsterSlow - RandomNPC
 		wall - Immovable
-		Resource Door ShootAvatar RandomNPC Immovable OrientedFlicker enemyStype - Object
+		RandomNPC enemyStype ShootAvatar Immovable Resource OrientedFlicker Door - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -431,7 +431,7 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - enemy ?o2 - sword ?x ?y - num) 
+						(not (exists (?o1 - goal ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -447,7 +447,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - goal ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - enemy ?o2 - sword ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

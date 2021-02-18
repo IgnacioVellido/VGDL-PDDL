@@ -13,12 +13,11 @@ import re
 
 # Basic structure of the configuration file
 config = dict(
-    domainFile = "domains/domain.pddl",
+    domainFile = "domains/simplified-version/domain.pddl",
     problemFile = "problem.pddl",
     domainName = "VGDLGame",
     gameElementsCorrespondence = {},
-    variablesTypes = {},
-    # numVariable = "?n",
+    variablesTypes = {},    
     avatarVariable = "",
     orientation = {},
     orientationCorrespondence = dict(
@@ -27,11 +26,15 @@ config = dict(
         LEFT = "(oriented-left ?object)",
         RIGHT = "(oriented-right ?object)"
     ),
-    connections = dict(
-        UP = "(connected-up ?c ?u)",
-        DOWN = "(connected-down ?c ?d)",
-        LEFT = "(connected-left ?c ?l)",
-        RIGHT = "(connected-right ?c ?r)",
+    # connections = dict(
+    #     UP = "(connected-up ?c ?u)",
+    #     DOWN = "(connected-down ?c ?d)",
+    #     LEFT = "(connected-left ?c ?l)",
+    #     RIGHT = "(connected-right ?c ?r)",
+    # ),
+    fluentsPredicates = dict(
+        next = "(next ?n0 ?n1)",
+        previous = "(previous ?n1 ?n0)"
     ),
     actionsCorrespondence = {},
     additionalPredicates = [
@@ -93,24 +96,39 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
             "(%s?%s)" % (match.group(), avatar_name)
         )
 
+    # Get parents
+    parents = [sprite.sprite.father for sprite in spritesPDDL]
+    parents = list(set([x for x in parents if x is not None]))    
+
     # Add sprites specific predicates
     for sprite in spritesPDDL:
         name = sprite.sprite.name
+        parent = sprite.sprite.father
 
-        if name not in isSomething:
+        # Create empty list
+        config["gameElementsCorrespondence"][name] = []
+
+        # Add objects with parents (that have been "simplified")
+        if parent in parents and name != "avatar":
+            config["variablesTypes"]["?%s" % parent] = parent            
+            config["gameElementsCorrespondence"][name].append(
+                "(at ?x ?y ?%s)" % parent,
+            )
+        elif name not in isSomething and name not in parents:
             # Add variableType
             variableType = "?%s" % name
             config["variablesTypes"][variableType] = name
 
-            config["gameElementsCorrespondence"][name] = [
+
+            config["gameElementsCorrespondence"][name].append(
                 "(at ?x ?y ?%s)" % name,
-            ]
+            )
 
             for pred in sprite.predicates:
                 # Check if resource predicate
                 if "got-resource" in pred:
                     match = re.search("([\w-])+ ?", pred) # Only has one occurrence
-                    config["gameElementsCorrespondence"][name].append(
+                    config["additionalPredicates"].append(
                         "(%s%s)" % (match.group(), "n0")
                     )
                 # Check if the predicate has parameters
@@ -125,9 +143,18 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
 
     # Objects with is-... predicate
     for sprite in isSomething:
-        config["gameElementsCorrespondence"][sprite] = [
+        config["gameElementsCorrespondence"][sprite].append(
             "(is-%s ?x ?y)" % sprite,
-        ]
+        )
+
+    # Remove empty lists
+    for name in parents:        
+        if not config["gameElementsCorrespondence"][name]:
+            config["gameElementsCorrespondence"].pop(name, None)
+
+    # Remove duplicates
+    for name in config["gameElementsCorrespondence"].keys():
+        config["gameElementsCorrespondence"][name] = list(set(config["gameElementsCorrespondence"][name]))
 
     # Add nums to variablesTypes
     config["variablesTypes"]["?x"] = "num"

@@ -1,9 +1,8 @@
 BasicGame
     SpriteSet
-        cocoon > Immovable
-        animal > 
-            avatar    > MovingAvatar
-            butterfly > RandomNPC
+        cocoon > Immovable        
+        avatar    > MovingAvatar
+        butterfly > RandomNPC
         wall > Immovable
 
     TerminationSet
@@ -11,7 +10,8 @@ BasicGame
         SpriteCounter stype=cocoon    win=False
 
     InteractionSet
-        animal    wall   > stepBack
+        avatar    wall   > stepBack
+        buttefly    wall   > stepBack
         butterfly avatar > killSprite
 
     LevelMapping

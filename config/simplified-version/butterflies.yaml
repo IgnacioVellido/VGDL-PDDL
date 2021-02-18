@@ -1,4 +1,4 @@
-domainFile: domains/domain.pddl
+domainFile: domains/simplified-version/butterflies.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:
@@ -6,15 +6,12 @@ gameElementsCorrespondence:
   - (at ?x ?y ?avatar)
   cocoon:
   - (at ?x ?y ?cocoon)
-  animal:
-  - (at ?x ?y ?animal)
   butterfly:
   - (at ?x ?y ?butterfly)
   wall:
   - (is-wall ?x ?y)
 variablesTypes:
   ?cocoon: cocoon
-  ?animal: animal
   ?avatar: avatar
   ?butterfly: butterfly
   ?x: num
@@ -27,11 +24,9 @@ orientationCorrespondence:
   DOWN: (oriented-down ?object)
   LEFT: (oriented-left ?object)
   RIGHT: (oriented-right ?object)
-connections:
-  UP: (connected-up ?c ?u)
-  DOWN: (connected-down ?c ?d)
-  LEFT: (connected-left ?c ?l)
-  RIGHT: (connected-right ?c ?r)
+fluentsPredicates:
+  next: (next ?n0 ?n1)
+  previous: (previous ?n1 ?n0)
 actionsCorrespondence:
   AVATAR_ACTION_MOVE_UP: ACTION_UP
   AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN

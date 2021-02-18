@@ -14,11 +14,10 @@
 	(:types
 		num 
 		cocoon - Immovable
-		animal - animalStype
 		avatar - MovingAvatar
 		butterfly - RandomNPC
 		wall - Immovable
-		RandomNPC Immovable animalStype MovingAvatar - Object
+		RandomNPC MovingAvatar Immovable - Object
 	)
 
 	; Predicates ----------------------------------------------------------------

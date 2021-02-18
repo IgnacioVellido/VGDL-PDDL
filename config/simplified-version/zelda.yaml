@@ -1,4 +1,4 @@
-domainFile: domains/domain.pddl
+domainFile: domains/simplified-version/zelda.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:
@@ -8,27 +8,24 @@ gameElementsCorrespondence:
   - (at ?x ?y ?goal)
   key:
   - (at ?x ?y ?key)
-  - (got-resource-key n0)
   sword:
   - (at ?x ?y ?sword)
-  monsterQuick:
-  - (at ?x ?y ?monsterQuick)
-  monsterNormal:
-  - (at ?x ?y ?monsterNormal)
-  monsterSlow:
-  - (at ?x ?y ?monsterSlow)
-  wall:
-  - (is-wall ?x ?y)
   enemy:
   - (is-enemy ?x ?y)
+  monsterQuick:
+  - (at ?x ?y ?enemy)
+  monsterNormal:
+  - (at ?x ?y ?enemy)
+  monsterSlow:
+  - (at ?x ?y ?enemy)
+  wall:
+  - (is-wall ?x ?y)
 variablesTypes:
   ?goal: goal
   ?key: key
   ?sword: sword
   ?avatar: avatar
-  ?monsterQuick: monsterQuick
-  ?monsterNormal: monsterNormal
-  ?monsterSlow: monsterSlow
+  ?enemy: enemy
   ?x: num
   ?y: num
 avatarVariable: ?avatar
@@ -39,11 +36,9 @@ orientationCorrespondence:
   DOWN: (oriented-down ?object)
   LEFT: (oriented-left ?object)
   RIGHT: (oriented-right ?object)
-connections:
-  UP: (connected-up ?c ?u)
-  DOWN: (connected-down ?c ?d)
-  LEFT: (connected-left ?c ?l)
-  RIGHT: (connected-right ?c ?r)
+fluentsPredicates:
+  next: (next ?n0 ?n1)
+  previous: (previous ?n1 ?n0)
 actionsCorrespondence:
   AVATAR_ACTION_MOVE_UP: ACTION_UP
   AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
@@ -59,6 +54,7 @@ actionsCorrespondence:
   AVATAR_ACTION_USE_RIGHT: ACTION_USE
 additionalPredicates:
 - (turn-avatar)
+- (got-resource-key n0)
 addDeadObjects:
   sword: 1
 goals: []

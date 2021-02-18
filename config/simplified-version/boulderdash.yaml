@@ -4,21 +4,21 @@ domainName: VGDLGame
 gameElementsCorrespondence:
   avatar:
   - (at ?x ?y ?avatar)
+  wall:
+  - (is-wall ?x ?y)
   sword:
   - (at ?x ?y ?sword)
   exitdoor:
   - (at ?x ?y ?exitdoor)
   diamond:
   - (at ?x ?y ?diamond)
-  wall:
-  - (is-wall ?x ?y)
   boulder:
   - (is-boulder ?x ?y)
+  crab:
+  - (at ?x ?y ?enemy)
+  - (is-crab ?x ?y)
   butterfly:
   - (is-butterfly ?x ?y)
-  - (at ?x ?y ?enemy)
-  crab:
-  - (is-crab ?x ?y)
   - (at ?x ?y ?enemy)
 variablesTypes:
   ?sword: sword
@@ -57,8 +57,4 @@ additionalPredicates:
 - (got-resource-diamond n0)
 addDeadObjects:
   sword: 1
-goals:
-  - goalPredicate: (at n11 n8 avatar)
-    priority: 1
-    saveGoal: no
-
+goals: []
