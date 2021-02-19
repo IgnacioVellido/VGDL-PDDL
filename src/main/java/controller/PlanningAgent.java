@@ -573,7 +573,7 @@ public class PlanningAgent extends AbstractPlayer {
                             switch (objectOrientation) {
                                 case NONE:
                                     // objectOrientation can only be NONE if the object is an avatar
-                                    this.PDDLGameStatePredicates.add("(orientation-none avatar)");
+                                    this.PDDLGameStatePredicates.add("(oriented-none avatar)");
                                     break;
                                 case FIND:
                                     // objectOrientation can only be FIND when the object is an avatar
