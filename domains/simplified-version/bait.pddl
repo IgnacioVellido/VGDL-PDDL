@@ -245,18 +245,16 @@
 	)
 
 	(:action BOX_HOLE_KILLBOTH
-		:parameters (?o1 - box ?o2 - hole ?x - num ?y - num)
+		:parameters (?o1 - box ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(not (= ?o1 ?o2))
 						(at ?x ?y ?o1)
-						(at ?x ?y ?o2)
+						(is-hole ?x ?y)
 					)
 		:effect (and
 					(not (at ?x ?y ?o1))
-					(not (at ?x ?y ?o2))
 					(object-dead ?o1)
-					(object-dead ?o2)
+					(not (is-hole ?x ?y))
 				)
 	)
 
@@ -311,7 +309,15 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - key ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - box ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - goal ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -327,23 +333,15 @@
                                 )
                             )
                         )
+						(not (exists (?o1 - key ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
 						(not (exists (?o1 - mushroom ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - box ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - goal ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

@@ -30,12 +30,14 @@ class InteractionPDDL:
         sprite: "Sprite",
         partner: "Sprite",
         hierarchy: dict,
-        avatar: str
+        avatar: str,
+        stepbacks: list
     ):
         self.interaction = interaction
         self.sprite = sprite
         self.partner = partner
         self.hierarchy = hierarchy
+        self.stepbacks = stepbacks
 
         self.tasks = []     # Empty
         self.methods = []   # Empty
@@ -55,7 +57,8 @@ class InteractionPDDL:
 
     def get_actions(self):
         self.actions = InteractionActions(
-            self.interaction, self.sprite, self.partner, self.hierarchy
+            self.interaction, self.sprite, self.partner, self.hierarchy, 
+            self.stepbacks
         ).actions
 
     # -------------------------------------------------------------------------
@@ -82,11 +85,13 @@ class InteractionActions:
         sprite: "Sprite",
         partner: "Sprite",
         hierarchy: dict,
+        stepbacks: list
     ):
         self.interaction = interaction
         self.sprite = sprite
         self.partner = partner
         self.hierarchy = hierarchy
+        self.stepbacks = stepbacks
 
         self.actions = []
         
@@ -637,19 +642,33 @@ class InteractionActions:
     # DONE
     def killBoth(self):
         name = self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLBOTH"
-        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?o1 ?o2))",
-            "(at ?x ?y ?o1)",
-            "(at ?x ?y ?o2)"
-        ]
-        effects = [
-            "(not (at ?x ?y ?o1))",
-            "(not (at ?x ?y ?o2))",
-            "(object-dead ?o1)",
-            "(object-dead ?o2)"
-        ]
+
+        if self.partner.name in self.stepbacks:
+            parameters = [["o1", self.sprite.name], ["x", "num"], ["y", "num"]]
+            preconditions = [
+                "(turn-interactions)",
+                "(at ?x ?y ?o1)",
+                "(is-{} ?x ?y)".format(self.partner.name)
+            ]
+            effects = [
+                "(not (at ?x ?y ?o1))",
+                "(object-dead ?o1)",
+                "(not (is-{} ?x ?y))".format(self.partner.name)
+            ]
+        else:
+            parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+            preconditions = [
+                "(turn-interactions)",
+                "(not (= ?o1 ?o2))",
+                "(at ?x ?y ?o1)",
+                "(at ?x ?y ?o2)"
+            ]
+            effects = [
+                "(not (at ?x ?y ?o1))",
+                "(not (at ?x ?y ?o2))",
+                "(object-dead ?o1)",
+                "(object-dead ?o2)"
+            ]
 
         return Action(name, parameters, preconditions, effects)
 
@@ -894,19 +913,40 @@ class InteractionActions:
         name = (
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_KILLSPRITE"
         )
-        # partner.stype or partner.name ?
-        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]] 
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?o1 ?o2))",
-
-            "(at ?x ?y ?o1)",
-            "(at ?x ?y ?o2)"
-        ]
-        effects = [
-            "(not (at ?x ?y ?o1))",
-            "(object-dead ?o1)"
-        ]
+        
+        if self.partner.name in self.stepbacks:
+            parameters = [["o1", self.sprite.name], ["x", "num"], ["y", "num"]]
+            preconditions = [
+                "(turn-interactions)",
+                "(at ?x ?y ?o1)",
+                "(is-{} ?x ?y)".format(self.partner.name)
+            ]
+            effects = [
+                "(not (at ?x ?y ?o1))",
+                "(object-dead ?o1)",
+            ]
+        elif self.sprite.name in self.stepbacks:
+            parameters = [["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+            preconditions = [
+                "(turn-interactions)",
+                "(is-{} ?x ?y)".format(self.sprite.name),
+                "(at ?x ?y ?o2)",
+            ]
+            effects = [
+                "(not (is-{} ?x ?y))".format(self.sprite.name)
+            ]
+        else:
+            parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]] 
+            preconditions = [
+                "(turn-interactions)",
+                "(not (= ?o1 ?o2))",
+                "(at ?x ?y ?o1)",
+                "(at ?x ?y ?o2)"
+            ]
+            effects = [
+                "(not (at ?x ?y ?o1))",
+                "(object-dead ?o1)"
+            ]
 
         return Action(name, parameters, preconditions, effects)
 

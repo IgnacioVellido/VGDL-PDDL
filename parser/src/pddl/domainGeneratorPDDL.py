@@ -337,8 +337,9 @@ class DomainGeneratorPDDL:
             sprite = self.find_sprite_by_name(interaction.sprite_name)
             partner = self.find_sprite_by_name(interaction.partner_name)
 
-            new_actions = InteractionPDDL(interaction, sprite, partner, 
-                                          self.hierarchy, self.avatar.name).actions
+            new_actions = InteractionPDDL(interaction, sprite, partner,
+                                          self.hierarchy, self.avatar.name,
+                                          self.stepbacks).actions
 
             if new_actions:
                 self.actions.extend(new_actions)

@@ -23,7 +23,7 @@
 		enemy - RandomNPC
 		crab - enemy
 		butterfly - enemy
-		ShootAvatar Door RandomNPC Immovable Resource Flicker movingStype - Object
+		Door movingStype Immovable Flicker RandomNPC ShootAvatar Resource - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -391,20 +391,6 @@
 				)
 	)
 
-	; (:action BOULDER_SWORD_KILLSPRITE
-	; 	:parameters (?o1 - boulder ?o2 - sword ?x - num ?y - num)
-	; 	:precondition (and
-	; 					(turn-interactions)
-	; 					(not (= ?o1 ?o2))
-	; 					(at ?x ?y ?o1)
-	; 					(at ?x ?y ?o2)
-	; 				)
-	; 	:effect (and
-	; 				(not (at ?x ?y ?o1))
-	; 				(object-dead ?o1)
-	; 			)
-	; )
-
 	(:action BOULDER_SWORD_KILLSPRITE
 		:parameters (?o2 - sword ?x - num ?y - num)
 		:precondition (and
@@ -414,7 +400,6 @@
 					)
 		:effect (and
 					(not (is-boulder ?x ?y))
-					; (object-dead ?o1)
 				)
 	)
 
@@ -463,7 +448,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - exitdoor ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - boulder ?o2 - sword ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -471,7 +456,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - boulder ?o2 - sword ?x ?y - num) 
+						(not (exists (?o1 - exitdoor ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
