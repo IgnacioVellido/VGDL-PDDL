@@ -20,7 +20,7 @@
 		goal - Immovable
 		box - Passive
 		wall - Immovable
-		MovingAvatar Immovable Passive Resource - Object
+		Passive MovingAvatar Immovable Resource - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -260,21 +260,21 @@
 				)
 	)
 
-	(:action AVATAR_KEY_COLLECTRESOURCE
-		:parameters (?o1 - avatar ?o2 - key ?x - num ?y - num ?r - num ?r_next - num)
+	(:action KEY_AVATAR_COLLECTRESOURCE
+		:parameters (?o1 - key ?o2 - avatar ?x - num ?y - num ?r - num ?r_next - num)
 		:precondition (and
 						(turn-interactions)
 						(not (= ?o1 ?o2))
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
-						(got-resource-avatar ?r)
+						(got-resource-key ?r)
 						(next ?r ?r_next)
 					)
 		:effect (and
 					(not (at ?x ?y ?o1))
 					(object-dead ?o1)
-					(not (got-resource-avatar ?r))
-					(got-resource-avatar ?r_next)
+					(not (got-resource-key ?r))
+					(got-resource-key ?r_next)
 				)
 	)
 
@@ -311,7 +311,7 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - mushroom ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - key ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -327,15 +327,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - goal ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - avatar ?o2 - key ?x ?y - num) 
+						(not (exists (?o1 - mushroom ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -344,6 +336,14 @@
                             )
                         )
 						(not (exists (?o1 - box ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - goal ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

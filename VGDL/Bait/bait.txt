@@ -22,7 +22,7 @@ BasicGame
         box avatar  > bounceForward
         box wall box mushroom > undoAll
         box hole > killBoth
-        avatar key > collectResource
+        key avatar > collectResource
         goal avatar > killIfOtherHasMore resource=key limit=1
         mushroom avatar > killSprite
 

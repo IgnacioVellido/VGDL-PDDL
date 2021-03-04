@@ -58,6 +58,6 @@ additionalPredicates:
 addDeadObjects:
   sword: 1
 goals:
-  - goalPredicate: (at n11 n8 avatar)
-    priority: 1
-    saveGoal: no
+- goalPredicate: (at n14 n12 avatar)
+  priority: 1
+  saveGoal: no

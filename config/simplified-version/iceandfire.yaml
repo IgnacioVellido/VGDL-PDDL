@@ -46,4 +46,7 @@ additionalPredicates:
 - (got-resource-iceshoes n0)
 - (got-resource-fireboots n0)
 addDeadObjects: {}
-goals: []
+goals:
+- goalPredicate: (at n14 n12 avatar)
+  priority: 1
+  saveGoal: no

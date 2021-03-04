@@ -391,17 +391,30 @@
 				)
 	)
 
+	; (:action BOULDER_SWORD_KILLSPRITE
+	; 	:parameters (?o1 - boulder ?o2 - sword ?x - num ?y - num)
+	; 	:precondition (and
+	; 					(turn-interactions)
+	; 					(not (= ?o1 ?o2))
+	; 					(at ?x ?y ?o1)
+	; 					(at ?x ?y ?o2)
+	; 				)
+	; 	:effect (and
+	; 				(not (at ?x ?y ?o1))
+	; 				(object-dead ?o1)
+	; 			)
+	; )
+
 	(:action BOULDER_SWORD_KILLSPRITE
-		:parameters (?o1 - boulder ?o2 - sword ?x - num ?y - num)
+		:parameters (?o2 - sword ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(not (= ?o1 ?o2))
-						(at ?x ?y ?o1)
+						(is-boulder ?x ?y)
 						(at ?x ?y ?o2)
 					)
 		:effect (and
-					(not (at ?x ?y ?o1))
-					(object-dead ?o1)
+					(not (is-boulder ?x ?y))
+					; (object-dead ?o1)
 				)
 	)
 

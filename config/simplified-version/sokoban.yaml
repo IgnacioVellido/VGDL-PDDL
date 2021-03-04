@@ -35,4 +35,7 @@ actionsCorrespondence:
 additionalPredicates:
 - (turn-avatar)
 addDeadObjects: {}
-goals: []
+goals:
+- goalPredicate: (at n14 n12 avatar)
+  priority: 1
+  saveGoal: no
