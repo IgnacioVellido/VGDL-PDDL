@@ -1202,8 +1202,8 @@ class InteractionActions:
             self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TRANSFORMTO"
         )
         parameters = [
-            ["x", self.sprite.name],
-            ["y", self.partner.stype],
+            ["o1", self.sprite.name],
+            ["o2", self.partner.stype],
             ["z", resulting_sprite],
             ["x", "num"], ["y", "num"]
         ]

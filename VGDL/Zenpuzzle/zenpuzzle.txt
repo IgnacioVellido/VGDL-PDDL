@@ -1,0 +1,23 @@
+BasicGame
+    SpriteSet
+	wall > Immovable
+        isincenter > Flicker limit=1
+        avatar  > MovingAvatar
+        ground > Immovable
+        walked > Immovable
+        rock > Immovable
+    
+    LevelMapping
+	w > wall
+        r > rock
+        g > ground
+        A > avatar
+        
+    TerminationSet
+        SpriteCounter      stype=avatar               limit=0 win=False  
+        MultiSpriteCounter   stype1=isincenter  stype2=ground   limit=0 win=True
+
+    InteractionSet
+        avatar rock walked wall > stepBack
+        ground avatar > transformTo stype=walked
+        walked avatar > transformTo stype=isincenter

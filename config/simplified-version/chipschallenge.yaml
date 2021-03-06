@@ -1,4 +1,4 @@
-domainFile: domains/simplified-version/domain.pddl
+domainFile: domains/simplified-version/chipschallenge.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:

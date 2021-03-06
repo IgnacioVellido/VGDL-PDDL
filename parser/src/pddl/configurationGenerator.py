@@ -112,7 +112,7 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
         # Add objects with parents (that have been "simplified") and don't have
         # any particular predicate
         if parent in parents and name != "avatar" and not sprite.predicates:
-            config["variablesTypes"]["?%s" % parent] = parent            
+            config["variablesTypes"]["?%s" % parent] = parent
             config["gameElementsCorrespondence"][name].append(
                 "(at ?x ?y ?%s)" % parent,
             )
@@ -227,6 +227,8 @@ def config_add_addDeadObjects(partner, transformTo):
     # Objects that can be transformed
     for obj in transformTo:
         config["addDeadObjects"][obj] = 1
+        # Make sure object is defined in variablesTypes
+        config["variablesTypes"]["?%s" % obj] = obj
 
     # TODO: Add objects that can be produced (spawnpoints...)
 

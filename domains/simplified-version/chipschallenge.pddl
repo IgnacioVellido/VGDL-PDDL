@@ -321,7 +321,7 @@
 	)
 
 	(:action WATER_CRATE_TRANSFORMTO
-		:parameters (?x - water ?y - Passive ?z - mud ?x - num ?y - num)
+		:parameters (?o1 - water ?o2 - Passive ?z - mud ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
 						(not (= ?o1 ?o2))

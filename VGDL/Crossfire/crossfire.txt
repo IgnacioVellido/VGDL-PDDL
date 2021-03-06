@@ -20,10 +20,9 @@ BasicGame
 
 
     LevelMapping
-        g > goal floor
-        t > turret floor
-        . > floor
-        A > avatar floor
+        g > goal
+        t > turret
+        A > avatar
 
     TerminationSet
         SpriteCounter stype=goal limit=0 win=True
