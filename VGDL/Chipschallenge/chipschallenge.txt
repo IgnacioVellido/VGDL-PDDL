@@ -1,8 +1,8 @@
-BasicGame square_size=45 key_handler=Pulse
+BasicGame
     SpriteSet
-        water > Immovable img=newset/water
-        mud > Immovable img=oryx/backLBrown
-        fire > Immovable img=oryx/fire1
+        water > Immovable
+        mud > Immovable
+        fire > Immovable
 
         key > Resource shrinkfactor=0.5
             redkey > img=oryx/potion3
@@ -26,11 +26,11 @@ BasicGame square_size=45 key_handler=Pulse
         exit > Immovable img=newset/exit2
         chip > Resource img=oryx/gold1 shrinkfactor=0.5 limit=11
         avatar > MovingAvatar img=oryx/rogue
-
         wall > Immovable img=oryx/wall3 autotiling=True
             
     
     LevelMapping
+        w > wall
         A > avatar 
         ~ > water 
         m > mud 
@@ -55,17 +55,16 @@ BasicGame square_size=45 key_handler=Pulse
     TerminationSet
         SpriteCounter      stype=avatar               limit=0 win=False  
         SpriteCounter      stype=exit               limit=0 win=True        
-    InteractionSet
 
+    InteractionSet
         crate avatar > bounceForward
-        crate crate wall door key chip gate mud fire boots > undoAll
 
         water crate > transformTo stype=mud scoreChange=1 killSecond=true
         
         mud avatar > killSprite
         
         gate avatar > killIfOtherHasMore resource=chip limit=11 scoreChange=4
-        avatar gate > stepBack
+        avatar gate wall > stepBack
 
         chip avatar > collectResource scoreChange=1
         key avatar > collectResource
@@ -83,7 +82,6 @@ BasicGame square_size=45 key_handler=Pulse
         yellowdoor avatar > killIfOtherHasMore resource=yellowkey limit=1  scoreChange=2
         avatar yellowdoor > changeResource resource=yellowkey value=-1
         
-        avatar wall door > undoAll
         avatar water > killIfHasLess resource=flippers limit=0
         avatar fire > killIfHasLess resource=fireboots limit=0
 
