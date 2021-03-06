@@ -108,8 +108,10 @@ def config_add_gameElementsCorrespondence_variablesTypes(spritesPDDL, avatar_pre
         # Create empty list
         config["gameElementsCorrespondence"][name] = []
 
-        # Add objects with parents (that have been "simplified")
-        if parent in parents and name != "avatar":
+
+        # Add objects with parents (that have been "simplified") and don't have
+        # any particular predicate
+        if parent in parents and name != "avatar" and not sprite.predicates:
             config["variablesTypes"]["?%s" % parent] = parent            
             config["gameElementsCorrespondence"][name].append(
                 "(at ?x ?y ?%s)" % parent,

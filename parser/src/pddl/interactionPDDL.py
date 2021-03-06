@@ -132,6 +132,10 @@ class InteractionActions:
             "collectResource":
                 [self.collectResource],
 
+            # Increment resource (sprite) in the object (partner) if another resource is held
+            "collectResourceIfHeld":
+                [self.collectResourceIfHeld],
+
             # [GVGAI] Decrease speed of all objects of the type of the sprite
             "decreaseSpeedToAll":
                 [self.decreaseSpeedToAll],
@@ -555,6 +559,41 @@ class InteractionActions:
             "(at ?x ?y ?o2)",
             "(got-resource-" + self.sprite.name + " ?r)",
             "(next ?r ?r_next)"
+        ]
+        effects = [
+            "(not (at ?x ?y ?o1))",
+            "(object-dead ?o1)",
+            "(not (got-resource-" + self.sprite.name + " ?r))",
+            "(got-resource-" + self.sprite.name + " ?r_next)"
+
+        ]        
+
+        return Action(name, parameters, preconditions, effects)
+
+    # -------------------------------------------------------------------------
+
+    def collectResourceIfHeld(self):
+        # Find the other resource needed
+        parameters = [p for p in self.interaction.parameters if "heldResource=" in p]
+        other = parameters[0].replace("heldResource=",'')
+        
+        name = (
+            self.sprite.name.upper()
+            + "_"
+            + self.partner.name.upper()
+            + "_COLLECTRESOURCEIFHELD"
+        )        
+
+        # Resource as number
+        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"], ["r", "num"], ["r_next", "num"]]
+        preconditions = [
+            "(turn-interactions)",
+            "(not (= ?o1 ?o2))",
+            "(at ?x ?y ?o1)",
+            "(at ?x ?y ?o2)",
+            "(got-resource-" + self.sprite.name + " ?r)",
+            "(next ?r ?r_next)",
+            "(not (got-resource-" + other + " n0))"
         ]
         effects = [
             "(not (at ?x ?y ?o1))",

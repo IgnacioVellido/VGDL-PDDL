@@ -43,7 +43,7 @@ class SpritePDDL:
     # -------------------------------------------------------------------------
 
     def get_predicates(self) -> list:
-        self.predicates = SpritePredicates(self.sprite).predicates
+        self.predicates = SpritePredicates(self.sprite, self.hierarchy).predicates
 
 ###############################################################################
 # -----------------------------------------------------------------------------
@@ -348,8 +348,9 @@ class SpriteActions:
 class SpritePredicates:
     """ Returns different predicates depending of the sprite """
 
-    def __init__(self, sprite):
+    def __init__(self, sprite, hierarchy):
         self.sprite = sprite
+        self.hierarchy = hierarchy
 
         self.predicates = []
         self.get_predicates()
@@ -425,7 +426,8 @@ class SpritePredicates:
             # Resource as object
             # "Resource": ["(got-resource-" + self.sprite.name + " ?o - " + self.sprite.name + ")"],
             # Resource as number
-            "Resource": ["(got-resource-" + self.sprite.name + " ?n - num)"],
+            "Resource": [],
+            # ["(got-resource-" + self.sprite.name + " ?n - num)"],
 
             # Produces sprites following a specific ratio
             "SpawnPoint": [
@@ -451,6 +453,13 @@ class SpritePredicates:
         # "FIX", but better try to include all keys manually if possible
         self.predicates.extend(sprite_predicates_list.get(self.sprite.stype, []))
 
+        self.is_resource()
+
+    # -------------------------------------------------------------------------
+
+    def is_resource(self):
+        if self.sprite.stype == "Resource" or "Resource" in self.hierarchy[self.sprite.stype]:
+            self.predicates.append("(got-resource-" + self.sprite.name + " ?n - num)")
 
 ###############################################################################
 # -----------------------------------------------------------------------------
