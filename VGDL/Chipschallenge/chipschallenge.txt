@@ -1,9 +1,5 @@
-#Chip's Challenge
-
 BasicGame square_size=45 key_handler=Pulse
     SpriteSet
-        floor > Immovable hidden=True img=oryx/floor3
-
         water > Immovable img=newset/water
         mud > Immovable img=oryx/backLBrown
         fire > Immovable img=oryx/fire1
@@ -35,29 +31,26 @@ BasicGame square_size=45 key_handler=Pulse
             
     
     LevelMapping
-        A > avatar floor
-        ~ > water floor
-        m > mud floor
-        x > fire floor
-        r > redkey floor
-        g > greenkey floor
-        b > bluekey floor
-        y > yellowkey floor
+        A > avatar 
+        ~ > water 
+        m > mud 
+        x > fire 
+        r > redkey 
+        g > greenkey 
+        b > bluekey 
+        y > yellowkey 
 
-        1 > reddoor floor
-        2 > greendoor floor
-        3 > bluedoor floor
-        4 > yellowdoor floor
+        1 > reddoor 
+        2 > greendoor 
+        3 > bluedoor 
+        4 > yellowdoor 
 
-        - > gate floor
-        c > chip floor
-        e > exit floor
-        f > flippers floor
-        i > fireboots floor
-        d > crate floor
-
-        . > floor
-
+        - > gate 
+        c > chip 
+        e > exit 
+        f > flippers 
+        i > fireboots 
+        d > crate 
 
     TerminationSet
         SpriteCounter      stype=avatar               limit=0 win=False  

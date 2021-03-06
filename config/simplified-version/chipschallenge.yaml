@@ -1,0 +1,88 @@
+domainFile: domains/simplified-version/domain.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  avatar:
+  - (at ?x ?y ?avatar)
+  water:
+  - (is-water ?x ?y)
+  mud:
+  - (at ?x ?y ?mud)
+  fire:
+  - (is-fire ?x ?y)
+  redkey:
+  - (at ?x ?y ?redkey)
+  bluekey:
+  - (at ?x ?y ?bluekey)
+  greenkey:
+  - (at ?x ?y ?greenkey)
+  yellowkey:
+  - (at ?x ?y ?yellowkey)
+  reddoor:
+  - (at ?x ?y ?door)
+  bluedoor:
+  - (at ?x ?y ?door)
+  greendoor:
+  - (at ?x ?y ?door)
+  yellowdoor:
+  - (at ?x ?y ?door)
+  flippers:
+  - (at ?x ?y ?flippers)
+  fireboots:
+  - (at ?x ?y ?fireboots)
+  crate:
+  - (at ?x ?y ?crate)
+  gate:
+  - (is-gate ?x ?y)
+  exit:
+  - (at ?x ?y ?exit)
+  chip:
+  - (at ?x ?y ?chip)
+  wall:
+  - (is-wall ?x ?y)
+variablesTypes:
+  ?mud: mud
+  ?redkey: redkey
+  ?bluekey: bluekey
+  ?greenkey: greenkey
+  ?yellowkey: yellowkey
+  ?door: door
+  ?flippers: flippers
+  ?fireboots: fireboots
+  ?crate: crate
+  ?exit: exit
+  ?chip: chip
+  ?avatar: avatar
+  ?x: num
+  ?y: num
+avatarVariable: ?avatar
+orientation:
+  avatar: NONE
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+fluentsPredicates:
+  next: (next ?n0 ?n1)
+  previous: (previous ?n1 ?n0)
+actionsCorrespondence:
+  AVATAR_ACTION_MOVE_UP: ACTION_UP
+  AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
+  AVATAR_ACTION_MOVE_LEFT: ACTION_LEFT
+  AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
+additionalPredicates:
+- (turn-avatar)
+- (got-resource-redkey n0)
+- (got-resource-bluekey n0)
+- (got-resource-greenkey n0)
+- (got-resource-yellowkey n0)
+- (got-resource-flippers n0)
+- (got-resource-fireboots n0)
+- (got-resource-chip n0)
+addDeadObjects:
+  mud: 1
+goals:
+- goalPredicate: (at n14 n12 avatar)
+  priority: 1
+  saveGoal: no
