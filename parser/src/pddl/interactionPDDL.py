@@ -1220,7 +1220,7 @@ class InteractionActions:
             # "(not (at ?x ?y ?o2))",
             "(object-dead ?o1)",
             # "(object-dead ?o2)",
-            "(at ?x ?y ?z)",           
+            "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
             "(not (object-dead ?z))",
 
             """(when

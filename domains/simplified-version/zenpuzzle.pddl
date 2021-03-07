@@ -13,13 +13,12 @@
 
 	(:types
 		num 
-		wall - Immovable
-		isincenter - Flicker
 		avatar - MovingAvatar
+		wall - Immovable
 		ground - Immovable
 		walked - Immovable
 		rock - Immovable
-		Immovable Flicker MovingAvatar - Object
+		MovingAvatar Immovable - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -45,8 +44,6 @@
 		(is-rock ?x ?y - num)
 		(is-walked ?x ?y - num)
 		(is-wall ?x ?y - num)
-		(turn-isincenter-disappear)
-		(finished-turn-isincenter-disappear)
 	)
   
 	; Actions -------------------------------------------------------------------
@@ -185,30 +182,6 @@
 				)
 	)
 
-	(:action ISINCENTER_DISAPPEAR
-		:parameters (?o - isincenter ?x - num ?y - num)
-		:precondition (and
-						(turn-isincenter-disappear)
-						(at ?x ?y ?o)
-					)
-		:effect (and
-					(not (at ?x ?y ?o))
-					(object-dead ?o)
-				)
-	)
-
-	(:action STOP_ISINCENTER_DISSAPEAR
-		:parameters ()
-		:precondition (and
-						(turn-isincenter-disappear)
-						(forall (?o - isincenter) (object-dead ?o))
-					)
-		:effect (and
-					(not (turn-isincenter-disappear))
-					(finished-turn-isincenter-disappear)
-				)
-	)
-
 	(:action GROUND_AVATAR_TRANSFORMTO
 		:parameters (?o1 - ground ?o2 - MovingAvatar ?z - walked ?x - num ?y - num)
 		:precondition (and
@@ -221,41 +194,7 @@
 		:effect (and
 					(not (at ?x ?y ?o1))
 					(object-dead ?o1)
-					(at ?x ?y ?z)
-					(not (object-dead ?z))
-					(when
-                        (oriented-up ?y)
-                        (oriented-up ?z)
-                    )
-                    (when
-                        (oriented-down ?y)
-                        (oriented-down ?z)
-                    )
-                    (when
-                        (oriented-left ?y)
-                        (oriented-left ?z)
-                    )
-                    (when
-                        (oriented-right ?y)
-                        (oriented-right ?z)
-                    )
-            
-				)
-	)
-
-	(:action WALKED_AVATAR_TRANSFORMTO
-		:parameters (?o1 - walked ?o2 - MovingAvatar ?z - isincenter ?x - num ?y - num)
-		:precondition (and
-						(turn-interactions)
-						(not (= ?o1 ?o2))
-						(at ?x ?y ?o1)
-						(at ?x ?y ?o2)
-						(object-dead ?z)
-					)
-		:effect (and
-					(not (at ?x ?y ?o1))
-					(object-dead ?o1)
-					(at ?x ?y ?z)
+					(is-walked ?x ?y)
 					(not (object-dead ?z))
 					(when
                         (oriented-up ?y)
@@ -281,14 +220,6 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - walked ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
 						(not (exists (?o1 - ground ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
@@ -310,7 +241,6 @@
 						(turn-sprites)
 					)
 		:effect (and
-					(turn-isincenter-disappear)
 					(not (turn-sprites))
 				)
 	)
@@ -318,11 +248,9 @@
 	(:action END-TURN-SPRITES
 		:parameters ()
 		:precondition (and
-						(finished-turn-isincenter-disappear)
 						(not (turn-interactions))
 					)
 		:effect (and
-					(not (finished-turn-isincenter-disappear))
 					(turn-avatar)
 				)
 	)
