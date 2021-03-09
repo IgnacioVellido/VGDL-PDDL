@@ -3,18 +3,16 @@ BasicGame
         water > Immovable
         mud > Immovable
         fire > Immovable
+        
+        redkey > Resource
+        bluekey > Resource
+        greenkey > Resource
+        yellowkey > Resource
 
-        key > Resource shrinkfactor=0.5
-            redkey > img=oryx/potion3
-            bluekey > img=oryx/potion1
-            greenkey > img=oryx/potion4
-            yellowkey > img=oryx/potion5
-
-        door > Immovable
-            reddoor > Immovable img=oryx/slime3
-            bluedoor > Immovable img=oryx/slime1
-            greendoor > Immovable img=oryx/slime2
-            yellowdoor > Immovable img=oryx/slime6
+        reddoor > Immovable img=oryx/slime3
+        bluedoor > Immovable img=oryx/slime1
+        greendoor > Immovable img=oryx/slime2
+        yellowdoor > Immovable img=oryx/slime6
 
         boots > Resource limit=1
             flippers > img=oryx/boots3
@@ -67,7 +65,10 @@ BasicGame
         avatar gate wall > stepBack
 
         chip avatar > collectResource scoreChange=1
-        key avatar > collectResource
+        redkey avatar > collectResource
+        bluekey avatar > collectResource
+        greenkey avatar > collectResource
+        yellowkey avatar > collectResource
         boots avatar > collectResource scoreChange=3
 
         reddoor avatar > killIfOtherHasMore resource=redkey limit=1 scoreChange=2

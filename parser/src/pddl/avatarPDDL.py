@@ -23,12 +23,20 @@ class AvatarPDDL:
         hierarchy        - Dict<String,String>
     """
 
-    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, 
-                    killIfHasLess: list, partner: "Sprite" = None):
+    def __init__(
+        self, 
+        avatar: "Sprite", 
+        hierarchy: dict, 
+        stepbacks: list, 
+        killIfHasLess: list,
+        killIfOtherHasMore: list,
+        partner: "Sprite" = None
+    ):
         self.avatar = avatar
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
         self.killIfHasLess = killIfHasLess
+        self.killIfOtherHasMore = killIfOtherHasMore
         self.partner = partner
 
         self.tasks = []     # Empty
@@ -46,7 +54,8 @@ class AvatarPDDL:
 
     def get_actions(self):
         self.actions = AvatarActions(self.avatar, self.hierarchy, self.stepbacks, 
-                                        self.killIfHasLess, self.partner).actions
+                                        self.killIfHasLess, self.killIfOtherHasMore,
+                                        self.partner).actions
 
     # -------------------------------------------------------------------------
 
@@ -75,12 +84,20 @@ class AvatarActions:
         actions - List<ActionPDDL>
     """
 
-    def __init__(self, avatar: "Sprite", hierarchy: dict, stepbacks: list, 
-                    killIfHasLess: list, partner: "Sprite"):
+    def __init__(
+        self, 
+        avatar: "Sprite", 
+        hierarchy: dict, 
+        stepbacks: list, 
+        killIfHasLess: list,
+        killIfOtherHasMore: list,
+        partner: "Sprite"
+    ):
         self.avatar = avatar
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
         self.killIfHasLess = killIfHasLess
+        self.killIfOtherHasMore = killIfOtherHasMore
         self.partner = partner
 
         self.actions = []
@@ -154,6 +171,19 @@ class AvatarActions:
                             (not (is-""" + o[0] + """ ?x ?new_y))
                         )""")
 
+        # Add killIfOtherHasMore
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        # o[2] -> resource limit
+        for o in self.killIfOtherHasMore:
+            preconditions.append("""(or
+                            (not (is-""" + o[0] + """ ?x ?new_y))
+                            (and 
+                                (is-""" + o[0] + """ ?x ?new_y)
+                                (got-resource-""" + o[1] + """ n""" + o[2] + """)
+                            )
+                        )""")
+        
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
@@ -203,6 +233,19 @@ class AvatarActions:
                             (not (is-""" + o[0] + """ ?x ?new_y))
                         )""")
 
+        # Add killIfOtherHasMore
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        # o[2] -> resource limit
+        for o in self.killIfOtherHasMore:
+            preconditions.append("""(or
+                            (not (is-""" + o[0] + """ ?x ?new_y))
+                            (and 
+                                (is-""" + o[0] + """ ?x ?new_y)
+                                (got-resource-""" + o[1] + """ n""" + o[2] + """)
+                            )
+                        )""")
+        
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?x ?new_y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
@@ -251,6 +294,19 @@ class AvatarActions:
                             (not (is-""" + o[0] + """ ?new_x ?y))
                         )""")
 
+        # Add killIfOtherHasMore
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        # o[2] -> resource limit
+        for o in self.killIfOtherHasMore:
+            preconditions.append("""(or
+                            (not (is-""" + o[0] + """ ?new_x ?y))
+                            (and 
+                                (is-""" + o[0] + """ ?new_x ?y)
+                                (got-resource-""" + o[1] + """ n""" + o[2] + """)
+                            )
+                        )""")
+
         effects = [
                     "(not (at ?x ?y ?a))", "(at ?new_x ?y ?a)", 
                     "(not (turn-avatar))", "(turn-interactions)", """; Change orientation
@@ -296,6 +352,19 @@ class AvatarActions:
                                 (not (got-resource-""" + o[1] + """ n0))
                             )
                             (not (is-""" + o[0] + """ ?new_x ?y))
+                        )""")
+
+        # Add killIfOtherHasMore
+        # o[0] -> type of cell
+        # o[1] -> resource needed
+        # o[2] -> resource limit
+        for o in self.killIfOtherHasMore:
+            preconditions.append("""(or
+                            (not (is-""" + o[0] + """ ?new_x ?y))
+                            (and 
+                                (is-""" + o[0] + """ ?new_x ?y)
+                                (got-resource-""" + o[1] + """ n""" + o[2] + """)
+                            )
                         )""")
 
         effects = [

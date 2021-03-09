@@ -1,4 +1,4 @@
-domainFile: domains/simplified-version/chipschallenge.pddl
+domainFile: domains/simplified-version/domain.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:
@@ -19,13 +19,13 @@ gameElementsCorrespondence:
   yellowkey:
   - (at ?x ?y ?yellowkey)
   reddoor:
-  - (at ?x ?y ?door)
+  - (at ?x ?y ?reddoor)
   bluedoor:
-  - (at ?x ?y ?door)
+  - (at ?x ?y ?bluedoor)
   greendoor:
-  - (at ?x ?y ?door)
+  - (at ?x ?y ?greendoor)
   yellowdoor:
-  - (at ?x ?y ?door)
+  - (at ?x ?y ?yellowdoor)
   flippers:
   - (at ?x ?y ?flippers)
   fireboots:
@@ -46,7 +46,10 @@ variablesTypes:
   ?bluekey: bluekey
   ?greenkey: greenkey
   ?yellowkey: yellowkey
-  ?door: door
+  ?reddoor: reddoor
+  ?bluedoor: bluedoor
+  ?greendoor: greendoor
+  ?yellowdoor: yellowdoor
   ?flippers: flippers
   ?fireboots: fireboots
   ?crate: crate

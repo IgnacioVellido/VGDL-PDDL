@@ -888,6 +888,13 @@ class InteractionActions:
     # MAYBE NEED TO INCLUDE IN THE PREDICATE THE SECOND OBJECT
     # RIGHT NOW WE ARE MAKING THE ASSUMPTION THAT IT IS THE AVATAR
     def killIfOtherHasMore(self):
+        name = (
+            self.sprite.name.upper()
+            + "_"
+            + self.partner.name.upper()
+            + "_KILLIFOTHERHASMORE"
+        )
+
         # Get resource name
         parameters = [p for p in self.interaction.parameters if "resource=" in p]
         resource = parameters[0].replace("resource=",'')
@@ -897,25 +904,31 @@ class InteractionActions:
         number = parameters[0].replace("limit=",'')
         number = int(number)
 
-        name = (
-            self.sprite.name.upper()
-            + "_"
-            + self.partner.name.upper()
-            + "_KILLIFOTHERHASMORE"
-        )
-        
-        parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?o1 ?o2))",
-            "(at ?x ?y ?o1)",
-            "(at ?x ?y ?o2)"
-        ]
 
-        effects = [
-            "(object-dead ?o1)",
-            "(not (at ?x ?y ?o1))",
-        ]
+        if self.sprite.name in self.stepbacks:
+            parameters = [["o1", self.partner.name], ["x", "num"], ["y", "num"]]
+            preconditions = [
+                "(turn-interactions)",
+                "(at ?x ?y ?o1)",
+                "(is-{} ?x ?y)".format(self.sprite.name)
+            ]
+            effects = [
+                # "(object-dead ?o1)",
+                "(not (is-{} ?x ?y))".format(self.sprite.name)
+            ]
+        else:
+            parameters = [["o1", self.sprite.name], ["o2", self.partner.name], ["x", "num"], ["y", "num"]]
+            preconditions = [
+                "(turn-interactions)",
+                "(not (= ?o1 ?o2))",
+                "(at ?x ?y ?o1)",
+                "(at ?x ?y ?o2)"
+            ]
+
+            effects = [
+                "(object-dead ?o1)",
+                "(not (at ?x ?y ?o1))",
+            ]
 
         # Get-resource <number>
         preconditions.append("(got-resource-" + resource + " n" + str(number) + ")")

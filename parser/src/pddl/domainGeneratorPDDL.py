@@ -47,6 +47,8 @@ class DomainGeneratorPDDL:
         self.partner = None
         self.stepbacks = [] # List of objects involved with the avatar in a stepback interaction
         self.killIfHasLess = [] # List of objects involved with the avatar in a killIfHasLess interaction
+        self.killIfOtherHasMore = [] # List of objects involved with the avatar in a killIfOtherHasMore and stepBack interaction
+
         self.short_types = []  # The char part of a LevelMapping
         self.long_types = []  # The sprites part of a LevelMapping
         self.stypes = set()  # All types in the game (bigger than long_types)
@@ -56,8 +58,10 @@ class DomainGeneratorPDDL:
         self.search_partner()
         self.find_stepbacks()
         self.find_killIfHasLess()
+        self.find_killIfOtherHasMore()
         self.avatarPDDL = AvatarPDDL(self.avatar, self.hierarchy, self.stepbacks, 
-                                        self.killIfHasLess, self.partner)
+                                        self.killIfHasLess, self.killIfOtherHasMore, 
+                                        self.partner)
 
         # Assign spritesPDDL
         self.spritesPDDL = []
@@ -106,6 +110,28 @@ class DomainGeneratorPDDL:
                     parameters = [p for p in i.parameters if "resource=" in p]
                     resource = parameters[0].replace("resource=",'')
                     self.killIfHasLess.append([i.partner_name, resource])
+
+    def find_killIfOtherHasMore(self):
+        """ Finds objects involved with the avatar in a killIfOtherHasMore and stepBack interaction """
+        for i in self.interactions:
+            # Check if interaction if stepback type
+            if i.type == "killIfOtherHasMore":
+                # Find if avatar is involved           
+                if i.partner_name in self.hierarchy[self.avatar.name] or i.partner_name == self.avatar.name:
+                    # for i2 in self.interactions:
+                    #     if i2.type == "stepBack" and (i2.sprite_name in self.hierarchy[self.avatar.name] or i2.sprite_name == self.avatar.name) and i.partner_name == i2.partner_name:
+                    # Make sure same object is involved in stepBack interaction
+                    if i.sprite_name in self.stepbacks:
+                        parameters = [p for p in i.parameters if "resource=" in p]
+                        resource = parameters[0].replace("resource=",'')
+
+                        parameters = [p for p in i.parameters if "limit=" in p]
+                        limit = parameters[0].replace("limit=",'')
+
+                        self.killIfOtherHasMore.append([i.sprite_name, resource, limit])
+
+                        # Remove from stepbacks
+                        self.stepbacks.remove(i.sprite_name)
 
     # -------------------------------------------------------------------------
     # Auxiliary
