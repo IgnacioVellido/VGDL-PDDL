@@ -33,7 +33,7 @@
 		chip - Resource
 		avatar - MovingAvatar
 		wall - Immovable
-		Resource Passive Immovable MovingAvatar - Object
+		Passive Immovable Resource MovingAvatar - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -597,11 +597,18 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - yellowkey ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - chip ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
                                     (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - avatar ?x ?y - num) 
+                                (and
+                                    (is-gate ?x ?y)
+                                    (at ?x ?y ?o1)
                                 )
                             )
                         )
@@ -621,55 +628,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - boots ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - bluekey ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - chip ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
 						(not (exists (?o1 - reddoor ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - redkey ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - crate ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - gate ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -685,6 +644,29 @@
                                 )
                             )
                         )
+						(not (exists (?o1 - crate ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - yellowkey ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - crate ?x ?y - num) 
+                                (and
+                                    (is-water ?x ?y)
+                                    (at ?x ?y ?o1)
+                                )
+                            )
+                        )
 						(not (exists (?o1 - mud ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
@@ -693,7 +675,23 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - water ?o2 - crate ?x ?y - num) 
+						(not (exists (?o1 - greenkey ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - redkey ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - boots ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -709,7 +707,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - greenkey ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - bluekey ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

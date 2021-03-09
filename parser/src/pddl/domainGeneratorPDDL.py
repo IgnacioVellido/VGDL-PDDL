@@ -375,12 +375,40 @@ class DomainGeneratorPDDL:
 
         # Check objects involved in interactions
         end_turn_preconditions = ["(turn-interactions)"]
+
+        # Objecst defined as a predicate
+        pred_sprite = set(self.stepbacks)
+        for o in self.killIfHasLess:
+            pred_sprite.add(o[0])
+
+        for o in self.killIfOtherHasMore:
+            pred_sprite.add(o[0])
+
+        print(pred_sprite)
+
         for p in pairs:
-            end_turn_preconditions.append("(not (exists (?o1 - " + p[0] + " ?o2 - " + p[1] + """ ?x ?y - num) 
+            if p[0] not in pred_sprite and p[1] not in pred_sprite:
+                end_turn_preconditions.append("(not (exists (?o1 - " + p[0] + " ?o2 - " + p[1] + """ ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
                                     (at ?x ?y ?o2)
+                                )
+                            )
+                        )""")
+            elif p[0] in pred_sprite:
+                end_turn_preconditions.append("(not (exists (?o1 - " + p[1] + """ ?x ?y - num) 
+                                (and
+                                    """ + "(is-{} ?x ?y)\n".format(p[0]) +
+"""                                    (at ?x ?y ?o1)
+                                )
+                            )
+                        )""")
+            else:
+                end_turn_preconditions.append("(not (exists (?o1 - " + p[0] + """ ?x ?y - num) 
+                                (and
+                                    """ + "(is-{} ?x ?y)\n".format(p[1]) +
+"""                                    (at ?x ?y ?o1)
                                 )
                             )
                         )""")
