@@ -31,13 +31,15 @@ class InteractionPDDL:
         partner: "Sprite",
         hierarchy: dict,
         avatar: str,
-        stepbacks: list
+        stepbacks: list,
+        listKillIfHasless: list
     ):
         self.interaction = interaction
         self.sprite = sprite
         self.partner = partner
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
+        self.listKillIfHasless = listKillIfHasless
 
         self.tasks = []     # Empty
         self.methods = []   # Empty
@@ -58,7 +60,7 @@ class InteractionPDDL:
     def get_actions(self):
         self.actions = InteractionActions(
             self.interaction, self.sprite, self.partner, self.hierarchy, 
-            self.stepbacks
+            self.stepbacks, self.listKillIfHasless
         ).actions
 
     # -------------------------------------------------------------------------
@@ -85,13 +87,15 @@ class InteractionActions:
         sprite: "Sprite",
         partner: "Sprite",
         hierarchy: dict,
-        stepbacks: list
+        stepbacks: list,
+        listKillIfHasless: list
     ):
         self.interaction = interaction
         self.sprite = sprite
         self.partner = partner
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
+        self.listKillIfHasless = listKillIfHasless
 
         self.actions = []
         
@@ -1207,36 +1211,47 @@ class InteractionActions:
     # DONE
     # Maintain orientation of the partner object
     def transformTo(self):
+        name = (
+            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TRANSFORMTO"
+        )
+
         # Find object to tranform
         parameters = [p for p in self.interaction.parameters if "stype=" in p]
         resulting_sprite = parameters[0].replace("stype=",'')
 
-        name = (
-            self.sprite.name.upper() + "_" + self.partner.name.upper() + "_TRANSFORMTO"
-        )
-        parameters = [
-            ["o1", self.sprite.name],
-            ["o2", self.partner.stype],
-            ["z", resulting_sprite],
-            ["x", "num"], ["y", "num"]
-        ]
-        preconditions = [
-            "(turn-interactions)",
-            "(not (= ?o1 ?o2))",
-            "(at ?x ?y ?o1)",
-            "(at ?x ?y ?o2)",
-            "(object-dead ?z)"
-        ]
+        # Find if both objects should die
+        both_die = [True for p in self.interaction.parameters if "killSecond=" in p]
+        both_die = True if True in both_die else False
 
-        effects = [
-            "(not (at ?x ?y ?o1))",
-            # "(not (at ?x ?y ?o2))",
-            "(object-dead ?o1)",
-            # "(object-dead ?o2)",
-            "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
-            "(not (object-dead ?z))",
+        # Find if sprite/partner is defined as a predicate
+        partner_as_pred = True if self.partner.name in self.stepbacks else False
+        sprite_as_pred = True if self.sprite.name in self.stepbacks else False
 
-            """(when
+        if not (partner_as_pred and sprite_as_pred):
+            for o in self.listKillIfHasless:
+                partner_as_pred = True if o[0] == self.partner.name  else partner_as_pred
+                sprite_as_pred = True if o[0] == self.sprite.name else sprite_as_pred
+
+        # Can be simplified: Default empty list with inclusion in each if
+        if partner_as_pred:
+            parameters = [
+                ["o1", self.sprite.name],
+                ["z", resulting_sprite],
+                ["x", "num"], ["y", "num"]
+            ]
+            preconditions = [
+                "(turn-interactions)",
+                "(at ?x ?y ?o1)",
+                "(is-{} ?x ?y)".format(self.partner.name),
+                "(object-dead ?z)"
+            ]
+            effects = [
+                "(not (at ?x ?y ?o1))",
+                "(object-dead ?o1)",
+                "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
+                "(not (object-dead ?z))",
+
+                """(when
                         (oriented-up ?y)
                         (oriented-up ?z)
                     )
@@ -1252,8 +1267,99 @@ class InteractionActions:
                         (oriented-right ?y)
                         (oriented-right ?z)
                     )
-            """
-        ]
+                """
+            ]
+
+            if both_die:
+                effects.append(
+                    "(not (is-{} ?x ?y))".format(self.partner.name),
+                )
+
+        elif sprite_as_pred:
+            parameters = [
+                ["o1", self.partner.name],
+                ["z", resulting_sprite],
+                ["x", "num"], ["y", "num"]
+            ]
+            preconditions = [
+                "(turn-interactions)",
+                "(at ?x ?y ?o1)",
+                "(is-{} ?x ?y)".format(self.sprite.name),
+                "(object-dead ?z)"
+            ]
+            effects = [
+                "(not (at ?x ?y ?o1))",
+                "(object-dead ?o1)",
+                "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
+                "(not (object-dead ?z))",
+
+                """(when
+                            (oriented-up ?y)
+                            (oriented-up ?z)
+                        )
+                        (when
+                            (oriented-down ?y)
+                            (oriented-down ?z)
+                        )
+                        (when
+                            (oriented-left ?y)
+                            (oriented-left ?z)
+                        )
+                        (when
+                            (oriented-right ?y)
+                            (oriented-right ?z)
+                        )
+                """
+            ]
+
+            if both_die:
+                effects.append(
+                    "(not (is-{} ?x ?y))".format(self.sprite.name),
+                )
+        else:
+            parameters = [
+                ["o1", self.sprite.name],
+                ["o2", self.partner.stype],
+                ["z", resulting_sprite],
+                ["x", "num"], ["y", "num"]
+            ]
+            preconditions = [
+                "(turn-interactions)",
+                "(not (= ?o1 ?o2))",
+                "(at ?x ?y ?o1)",
+                "(at ?x ?y ?o2)",
+                "(object-dead ?z)"
+            ]
+
+            effects = [
+                "(not (at ?x ?y ?o1))",
+                "(object-dead ?o1)",
+                "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
+                "(not (object-dead ?z))",
+
+                """(when
+                        (oriented-up ?y)
+                        (oriented-up ?z)
+                    )
+                    (when
+                        (oriented-down ?y)
+                        (oriented-down ?z)
+                    )
+                    (when
+                        (oriented-left ?y)
+                        (oriented-left ?z)
+                    )
+                    (when
+                        (oriented-right ?y)
+                        (oriented-right ?z)
+                    )
+                """
+            ]
+            if both_die:
+                effects.extend([
+                    "(not (at ?x ?y ?o2))",
+                    "(object-dead ?o2)",
+                ])
 
         return Action(name, parameters, preconditions, effects)
 

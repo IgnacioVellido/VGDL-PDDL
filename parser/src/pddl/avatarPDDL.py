@@ -100,6 +100,12 @@ class AvatarActions:
         self.killIfOtherHasMore = killIfOtherHasMore
         self.partner = partner
 
+        # stepbacks and killIfOtherHasMore intersects.
+        # Remove common sprites
+        for o in stepbacks:
+            if o[0] in stepbacks:
+                self.stepbacks.remove()
+
         self.actions = []
 
         # Dict with the functions needed for each avatar

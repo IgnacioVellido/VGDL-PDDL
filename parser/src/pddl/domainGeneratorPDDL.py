@@ -128,10 +128,7 @@ class DomainGeneratorPDDL:
                         parameters = [p for p in i.parameters if "limit=" in p]
                         limit = parameters[0].replace("limit=",'')
 
-                        self.killIfOtherHasMore.append([i.sprite_name, resource, limit])
-
-                        # Remove from stepbacks
-                        self.stepbacks.remove(i.sprite_name)
+                        self.killIfOtherHasMore.append([i.sprite_name, resource, limit])                        
 
     # -------------------------------------------------------------------------
     # Auxiliary
@@ -365,7 +362,7 @@ class DomainGeneratorPDDL:
 
             new_actions = InteractionPDDL(interaction, sprite, partner,
                                           self.hierarchy, self.avatar.name,
-                                          self.stepbacks).actions
+                                          self.stepbacks, self.killIfHasLess).actions
 
             if new_actions:
                 self.actions.extend(new_actions)
