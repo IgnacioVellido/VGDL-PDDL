@@ -36,6 +36,9 @@ public class Test {
 	@Option(names = {"-v", "--visuals"}, description = "Show game visuals at runtime.")
 	private boolean showVisuals;
 
+  @Option(names = {"-p", "--problem-only"}, description = "Generate PDDL problem without calling the planner.")
+  private boolean problemOnly;
+
 	@Option(names = {"--localhost"}, description = "Call planner running on localhost.")
 	private boolean localHost;
 
@@ -80,6 +83,7 @@ public class Test {
 			PlanningAgent.setDebugMode(test.debugMode);
 			PlanningAgent.setSaveInformation(test.saveOutput);
 			PlanningAgent.setLocalHost(test.localHost);
+      PlanningAgent.setProblemOnly(test.problemOnly);
 			ArcadeMachine.runOneGame(game, level, test.showVisuals, controller, null, seed, 0);
 			PlanningAgent.displayStats();
 		}

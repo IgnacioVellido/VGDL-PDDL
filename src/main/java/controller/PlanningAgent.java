@@ -63,6 +63,7 @@ public class PlanningAgent extends AbstractPlayer {
     protected static boolean debugMode;
     protected static boolean saveInformation;
     protected static boolean localHost;
+    protected static boolean problemOnly;
 
     // Contains the avatar's previous position
     protected Vector2d avatarPreviousPosition;
@@ -205,6 +206,20 @@ public class PlanningAgent extends AbstractPlayer {
 
         // Translate game state to PDDL predicates
         this.translateGameStateToPDDL(stateObservation);
+
+        // Generate problem and exit if flag is enabled
+        if (PlanningAgent.problemOnly) {
+          this.agenda.setCurrentGoal();
+
+          try {
+              this.createProblemFile();
+          } catch (NullPointerException e) {
+              e.printStackTrace();
+              System.exit(1);
+          }
+
+          System.exit(0);
+        }
 
         // If there's no plan, spend one turn searching for one
         if (this.mustPlan) {
@@ -807,6 +822,10 @@ public class PlanningAgent extends AbstractPlayer {
 
     public static void setLocalHost(boolean localHost) {
         PlanningAgent.localHost = localHost;
+    }
+
+    public static void setProblemOnly(boolean problemOnly) {
+      PlanningAgent.problemOnly = problemOnly;
     }
 
     /**
