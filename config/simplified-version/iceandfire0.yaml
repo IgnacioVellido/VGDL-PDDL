@@ -1,19 +1,28 @@
-domainFile: domains/simplified-version/sokoban.pddl
+domainFile: domains/simplified-version/iceandfire.pddl
 problemFile: problem.pddl
 domainName: VGDLGame
 gameElementsCorrespondence:
   avatar:
   - (at ?x ?y ?avatar)
-  hole:
-  - (at ?x ?y ?hole)
-  box:
-  - (at ?x ?y ?box)
+  exit:
+  - (at ?x ?y ?exit)
+  trap:
+  - (is-trap ?x ?y)
+  ice:
+  - (is-ice ?x ?y)
+  fire:
+  - (is-fire ?x ?y)
+  iceshoes:
+  - (at ?x ?y ?iceshoes)
+  fireboots:
+  - (at ?x ?y ?fireboots)
   wall:
   - (is-wall ?x ?y)
 variablesTypes:
-  ?hole: hole
+  ?exit: exit
   ?avatar: avatar
-  ?box: box
+  ?iceshoes: iceshoes
+  ?fireboots: fireboots
   ?x: num
   ?y: num
 avatarVariable: ?avatar
@@ -34,20 +43,10 @@ actionsCorrespondence:
   AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
 additionalPredicates:
 - (turn-avatar)
+- (got-resource-iceshoes n0)
+- (got-resource-fireboots n0)
 addDeadObjects: {}
 goals:
-# - goalPredicate: (at n14 n12 avatar)
-#   priority: 1
-#   saveGoal: no
-- goalPredicate: (object-dead box_2_6)
-  priority: 1
-  saveGoal: no
-- goalPredicate: (object-dead box_4_2)
-  priority: 1
-  saveGoal: no
-- goalPredicate: (object-dead box_5_4)
-  priority: 1
-  saveGoal: no
-- goalPredicate: (object-dead box_6_3)
+- goalPredicate: (object-dead exit_14_1)
   priority: 1
   saveGoal: no

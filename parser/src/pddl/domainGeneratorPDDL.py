@@ -117,9 +117,7 @@ class DomainGeneratorPDDL:
             # Check if interaction if stepback type
             if i.type == "killIfOtherHasMore":
                 # Find if avatar is involved           
-                if i.partner_name in self.hierarchy[self.avatar.name] or i.partner_name == self.avatar.name:
-                    # for i2 in self.interactions:
-                    #     if i2.type == "stepBack" and (i2.sprite_name in self.hierarchy[self.avatar.name] or i2.sprite_name == self.avatar.name) and i.partner_name == i2.partner_name:
+                if i.partner_name in self.hierarchy[self.avatar.name] or i.partner_name == self.avatar.name:                    
                     # Make sure same object is involved in stepBack interaction
                     if i.sprite_name in self.stepbacks:
                         parameters = [p for p in i.parameters if "resource=" in p]
@@ -383,8 +381,6 @@ class DomainGeneratorPDDL:
 
         for o in self.killIfOtherHasMore:
             pred_sprite.add(o[0])
-
-        print(pred_sprite)
 
         for p in pairs:
             if p[0] not in pred_sprite and p[1] not in pred_sprite:

@@ -58,6 +58,9 @@ additionalPredicates:
 addDeadObjects:
   sword: 1
 goals:
-- goalPredicate: (at n14 n12 avatar)
+- goalPredicate: (and (got-resource-key n1) (object-dead goal_10_5))
   priority: 1
   saveGoal: no
+# - goalPredicate: (object-dead goal_10_5)
+#   priority: 2
+#   saveGoal: no

@@ -433,7 +433,26 @@ public class PlanningAgent extends AbstractPlayer {
                     falsePreconditions.add(precondition);
                     satisfiedPreconditions = false;
                 }
-            } else {
+            } 
+            // If the preconditions contains or, check all predicates
+            else if (precondition.contains("(or")) {
+                String orPrecondition = precondition.replace("(or ", "");
+                orPrecondition = orPrecondition.substring(0, orPrecondition.length() - 1);
+
+                String[] allPreconditions = orPrecondition.split("(?<=\\))");
+
+                satisfiedPreconditions = false;
+                for (String p : allPreconditions) {
+                    System.out.println(p);
+                    if (this.PDDLGameStatePredicates.contains(p)) {                        
+                        satisfiedPreconditions = true;
+                    }
+                }
+                if (!satisfiedPreconditions) {
+                    falsePreconditions.add(precondition);
+                }
+            }
+            else {
                 if (!this.PDDLGameStatePredicates.contains(precondition)) {
                     falsePreconditions.add(precondition);
                     satisfiedPreconditions = false;

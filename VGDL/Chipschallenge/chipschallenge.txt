@@ -9,22 +9,21 @@ BasicGame
         greenkey > Resource
         yellowkey > Resource
 
-        reddoor > Immovable img=oryx/slime3
-        bluedoor > Immovable img=oryx/slime1
-        greendoor > Immovable img=oryx/slime2
-        yellowdoor > Immovable img=oryx/slime6
+        reddoor > Immovable
+        bluedoor > Immovable
+        greendoor > Immovable
+        yellowdoor > Immovable
 
-        boots > Resource limit=1
-            flippers > img=oryx/boots3
-            fireboots > img=oryx/boots2
+        flippers > Resource
+        fireboots > Resource
         
-        crate > Passive img=newset/block3
+        crate > Passive
         
-        gate > Immovable img=oryx/doorclosed1
-        exit > Immovable img=newset/exit2
-        chip > Resource img=oryx/gold1 shrinkfactor=0.5 limit=11
-        avatar > MovingAvatar img=oryx/rogue
-        wall > Immovable img=oryx/wall3 autotiling=True
+        gate > Immovable
+        exit > Immovable
+        chip > Resource limit=11
+        avatar > MovingAvatar
+        wall > Immovable
             
     
     LevelMapping
@@ -57,11 +56,11 @@ BasicGame
     InteractionSet
         crate avatar > bounceForward
 
-        water crate > transformTo stype=mud scoreChange=1 killSecond=true
+        water crate > transformTo stype=mud killSecond=true
         
         mud avatar > killSprite
         
-        gate avatar > killIfOtherHasMore resource=chip limit=11 scoreChange=4
+        gate avatar > killIfOtherHasMore resource=chip limit=11
         avatar gate wall > stepBack
 
         chip avatar > collectResource scoreChange=1
@@ -69,21 +68,22 @@ BasicGame
         bluekey avatar > collectResource
         greenkey avatar > collectResource
         yellowkey avatar > collectResource
-        boots avatar > collectResource scoreChange=3
+        fireboots avatar > collectResource scoreChange=3
+        flippers avatar > collectResource scoreChange=3
 
-        reddoor avatar > killIfOtherHasMore resource=redkey limit=1 scoreChange=2
+        reddoor avatar > killIfOtherHasMore resource=redkey limit=1
         avatar reddoor > changeResource resource=redkey value=-1
 
-        greendoor avatar > killIfOtherHasMore resource=greenkey limit=1  scoreChange=2
+        greendoor avatar > killIfOtherHasMore resource=greenkey limit=1
         avatar greendoor > changeResource resource=greenkey value=-1
 
-        bluedoor avatar > killIfOtherHasMore resource=bluekey limit=1  scoreChange=2
+        bluedoor avatar > killIfOtherHasMore resource=bluekey limit=1
         avatar bluedoor > changeResource resource=bluekey value=-1
 
-        yellowdoor avatar > killIfOtherHasMore resource=yellowkey limit=1  scoreChange=2
+        yellowdoor avatar > killIfOtherHasMore resource=yellowkey limit=1
         avatar yellowdoor > changeResource resource=yellowkey value=-1
         
         avatar water > killIfHasLess resource=flippers limit=0
         avatar fire > killIfHasLess resource=fireboots limit=0
 
-        exit avatar > killSprite scoreChange=5
+        exit avatar > killSprite

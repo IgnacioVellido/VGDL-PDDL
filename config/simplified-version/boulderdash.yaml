@@ -58,6 +58,6 @@ additionalPredicates:
 addDeadObjects:
   sword: 1
 goals:
-- goalPredicate: (at n14 n12 avatar)
+- goalPredicate: (got-resource-diamond n1)
   priority: 1
   saveGoal: no

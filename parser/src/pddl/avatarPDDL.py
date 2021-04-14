@@ -45,6 +45,12 @@ class AvatarPDDL:
         self.predicates = []
         self.level_predicates = []
 
+
+        # Remove killIfOtherHasMore sprites from stepbacks
+        for o in self.killIfOtherHasMore:
+            if o[1] in self.stepbacks:
+                self.stepbacks.remove(o[1])
+
         self.get_actions()
         self.get_predicates()
         self.get_level_predicates()

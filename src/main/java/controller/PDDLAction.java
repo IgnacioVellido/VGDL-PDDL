@@ -173,12 +173,47 @@ public class PDDLAction {
                 actionDescription,
                 ":precondition");
 
-        // Split preconditions in different lines
-        preconditionsMatch = preconditionsMatch.replaceAll("\\) \\(", "\\)\n\\(");
+        // Remove spaces between predicates
+        preconditionsMatch = preconditionsMatch.replaceAll("\\) \\(", "\\)\\(");
 
-        // Get preconditions as a list
-        return new ArrayList<>(Arrays.asList(preconditionsMatch.split("\n")));
+        return Parse(preconditionsMatch);
     }
+
+    // =======================================================================================================
+    /**
+     * Method that parse a set of predicates while grouping them (support for "and" and "or")
+     *
+     * @param theString String with all the predicates.
+     * @return Returns a list containing all the instantiated preconditions.
+     */
+    // =======================================================================================================
+    private ArrayList<String> Parse(String theString) {
+        ArrayList<String> theStrings = new ArrayList<String>();
+        StringBuffer temp = new StringBuffer("");
+        int numOpenParentheses = 0;
+
+        for (int i = 0; i < theString.length() ; i++) {
+            char cTemp = theString.charAt(i);
+            temp.append(cTemp);
+            switch (cTemp) {
+                case '(': {
+                    numOpenParentheses++;
+                    break;
+                }
+                case ')': {
+                    numOpenParentheses--;
+                    if (numOpenParentheses == 0) {
+                        theStrings.add(temp.toString());
+                        temp.delete(0,temp.length());
+                    }
+                }
+                default: { }
+            }
+        }
+        return theStrings;
+    }
+    // =======================================================================================================
+    // =======================================================================================================
 
     /**
      * Method that reads an action's description and obtains all the effects
