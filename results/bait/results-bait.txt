@@ -1,0 +1,36 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem bait/problem-lvl0.pddl...
+0.00
+0.00
+--------------------
+Trying problem bait/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem bait/problem-lvl2.pddl...
+8.24
+3.74
+--------------------
+Trying problem bait/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem bait/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem bait/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem bait/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem bait/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem bait/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem bait/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------

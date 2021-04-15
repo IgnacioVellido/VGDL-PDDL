@@ -1,0 +1,43 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py bait/bait.pddl bait/problem-lvl3.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.020s CPU, 0.031s wall-clock]
+Normalizing task... [0.000s CPU, 0.003s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.020s CPU, 0.122s wall-clock]
+Preparing model... [0.010s CPU, 0.010s wall-clock]
+Generated 186 rules.
+Computing model... [4.910s CPU, 4.907s wall-clock]
+37823 relevant atoms
+182048 auxiliary atoms
+219871 final queue length
+247285 total queue pushes
+Completing instantiation... [3.010s CPU, 3.010s wall-clock]
+Instantiating: [8.060s CPU, 8.160s wall-clock]
+Computing fact groups...
+Finding invariants...
+22 initial candidates
+Finding invariants: [0.070s CPU, 0.064s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.004s wall-clock]
+Choosing groups...
+6344 uncovered facts
+Choosing groups: [0.010s CPU, 0.006s wall-clock]
+Building translation key... [0.050s CPU, 0.050s wall-clock]
+Computing fact groups: [0.260s CPU, 0.267s wall-clock]
+Building STRIPS to SAS dictionary... [0.010s CPU, 0.014s wall-clock]
+Building dictionary for full mutex groups... [0.020s CPU, 0.012s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.010s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.090s CPU, 0.091s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... 

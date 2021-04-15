@@ -1,0 +1,35 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem chipschallenge/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem chipschallenge/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem chipschallenge/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem chipschallenge/problem-lvl3.pddl...
+846.66
+0.73
+--------------------
+Trying problem chipschallenge/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem chipschallenge/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem chipschallenge/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem chipschallenge/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem chipschallenge/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem chipschallenge/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------

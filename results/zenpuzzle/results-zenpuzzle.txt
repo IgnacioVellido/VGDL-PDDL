@@ -1,0 +1,38 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem zenpuzzle/problem-lvl0.pddl...
+86.89
+1.80
+--------------------
+Trying problem zenpuzzle/problem-lvl1.pddl...
+430.37
+1.94
+--------------------
+Trying problem zenpuzzle/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl3.pddl...
+170.56
+1.21
+--------------------
+Trying problem zenpuzzle/problem-lvl4.pddl...
+704.72
+1.07
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem zenpuzzle/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------

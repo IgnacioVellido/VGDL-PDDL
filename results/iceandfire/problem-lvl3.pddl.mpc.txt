@@ -1,0 +1,70 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:iceandfire/iceandfire.pddl file:iceandfire/problem-lvl3.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 8899 ground actions and 2121 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56  0.19 secs
+Goal: conjunctive
+Simplified: 182 ground actions and 130 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.00 secs (max SCC size 1)
+Plan type: E-step
+				Allocated 32 MB permanent (total 126 MB)
+Horizon 5: 4330 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 6010 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 8530 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 11890 variables
+14 UNSAT (0 decisions 0 conflicts)
+Horizon 20: 16930 variables
+20 UNSAT (0 decisions 0 conflicts)
+Horizon 28: 23650 variables
+28 UNSAT (0 decisions 0 conflicts)
+Horizon 40: 33730 variables
+40 UNSAT (0 decisions 0 conflicts)
+Horizon 56: 47170 variables
+				Allocated 32 MB (total 778 MB)
+Horizon 80: 67330 variables
+Horizon 113: 95050 variables
+56 UNSAT (172 decisions 153 conflicts)
+Horizon 160: 134530 variables
+Horizon 226: 189970 variables
+				Allocated 32 MB permanent (total 1237 MB)
+Horizon 320: 268930 variables
+Horizon 452: 379810 variables
+				Allocated 32 MB permanent (total 1476 MB)
+Horizon 640: 537730 variables
+				Allocated 32 MB permanent (total 1629 MB)
+Horizon 905: 760330 variables
+				Allocated 32 MB permanent (total 1801 MB)
+				Allocated 32 MB permanent (total 1833 MB)
+Horizon 1280: 1075330 variables
+				Allocated 32 MB permanent (total 2031 MB)
+				Allocated 32 MB permanent (total 2063 MB)
+Horizon 1810: 1520530 variables
+				Allocated 32 MB permanent (total 2299 MB)
+				Allocated 32 MB permanent (total 2331 MB)
+				Allocated 32 MB permanent (total 2363 MB)
+Horizon 2560: 2150530 variables
+80 UNSAT (840 decisions 624 conflicts)
+113 UNSAT (2342 decisions 1675 conflicts)
+						GC: 14.37 MB
+						GC: 1.03 MB
+						GC: 2.05 MB
+160 UNSAT (13320 decisions 7735 conflicts)
+						GC: 9.20 MB
+						GC: 3.39 MB
+						GC: 4.12 MB
+						GC: 5.18 MB
+						GC: 5.22 MB
+						GC: 6.52 MB
+						GC: 7.05 MB
+						GC: 7.09 MB
+						GC: 8.05 MB
+						GC: 8.47 MB
+						GC: 8.96 MB
+						GC: 9.21 MB
+						GC: 10.43 MB
+						GC: 10.05 MB

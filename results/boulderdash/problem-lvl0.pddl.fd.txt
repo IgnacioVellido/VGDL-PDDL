@@ -1,0 +1,42 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py boulderdash/boulderdash.pddl boulderdash/problem-lvl0.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.030s CPU, 0.050s wall-clock]
+Normalizing task... [0.000s CPU, 0.003s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.040s CPU, 0.181s wall-clock]
+Preparing model... [0.010s CPU, 0.011s wall-clock]
+Generated 193 rules.
+Computing model... [1.090s CPU, 1.086s wall-clock]
+8366 relevant atoms
+38407 auxiliary atoms
+46773 final queue length
+60227 total queue pushes
+Completing instantiation... [0.820s CPU, 0.821s wall-clock]
+Instantiating: [1.980s CPU, 2.130s wall-clock]
+Computing fact groups...
+Finding invariants...
+24 initial candidates
+Finding invariants: [0.150s CPU, 0.148s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.002s wall-clock]
+Instantiating groups... [0.000s CPU, 0.003s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.002s wall-clock]
+Choosing groups...
+1445 uncovered facts
+Choosing groups: [0.000s CPU, 0.002s wall-clock]
+Building translation key... [0.020s CPU, 0.013s wall-clock]
+Computing fact groups: [0.200s CPU, 0.207s wall-clock]
+Building STRIPS to SAS dictionary... [0.070s CPU, 0.075s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.003s wall-clock]
+Building mutex information...
+Building mutex information: [0.010s CPU, 0.003s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.002s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... 

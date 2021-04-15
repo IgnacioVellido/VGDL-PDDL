@@ -1,0 +1,34 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem boulderdash/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem boulderdash/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem boulderdash/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------

@@ -1,0 +1,36 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem sokoban/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem sokoban/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem sokoban/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem sokoban/problem-lvl3.pddl...
+0.30
+0.03
+--------------------
+Trying problem sokoban/problem-lvl4.pddl...
+0.70
+0.08
+--------------------
+===================FD======================
+(time-KB-time in seconds)
+Trying problem sokoban/problem-lvl0.pddl...
+  Problem sokoban/problem-lvl0.pddl exceeds 15m with FD
+--------------------
+Trying problem sokoban/problem-lvl1.pddl...
+  Problem sokoban/problem-lvl1.pddl exceeds 15m with FD
+--------------------
+Trying problem sokoban/problem-lvl2.pddl...
+  Problem sokoban/problem-lvl2.pddl exceeds 15m with FD
+--------------------
+Trying problem sokoban/problem-lvl3.pddl...
+  Problem sokoban/problem-lvl3.pddl exceeds 15m with FD
+--------------------
+Trying problem sokoban/problem-lvl4.pddl...
+  Problem sokoban/problem-lvl4.pddl exceeds 15m with FD
+--------------------
