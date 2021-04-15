@@ -1,0 +1,41 @@
+domainFile: domains/simplified-version/butterflies.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  avatar:
+  - (at ?x ?y ?avatar)
+  cocoon:
+  - (at ?x ?y ?cocoon)
+  butterfly:
+  - (at ?x ?y ?butterfly)
+  wall:
+  - (is-wall ?x ?y)
+variablesTypes:
+  ?cocoon: cocoon
+  ?avatar: avatar
+  ?butterfly: butterfly
+  ?x: num
+  ?y: num
+avatarVariable: ?avatar
+orientation:
+  avatar: NONE
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+fluentsPredicates:
+  next: (next ?n0 ?n1)
+  previous: (previous ?n1 ?n0)
+actionsCorrespondence:
+  AVATAR_ACTION_MOVE_UP: ACTION_UP
+  AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
+  AVATAR_ACTION_MOVE_LEFT: ACTION_LEFT
+  AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
+additionalPredicates:
+- (turn-avatar)
+addDeadObjects: {}
+goals:
+- goalPredicate: (and (object-dead butterfly_20_7)(object-dead butterfly_2_2)(object-dead butterfly_3_1)(object-dead butterfly_4_3)(object-dead butterfly_8_6)(object-dead butterfly_9_1))
+  priority: 1
+  saveGoal: no

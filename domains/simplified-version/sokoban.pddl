@@ -180,6 +180,7 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(previous ?y ?new_y)
+						(not (is-wall ?x ?new_y))
 					)
 		:effect (and
 					(at ?x ?new_y ?o1)
@@ -196,6 +197,7 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(next ?y ?new_y)
+						(not (is-wall ?x ?new_y))
 					)
 		:effect (and
 					(at ?x ?new_y ?o1)
@@ -212,6 +214,7 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(previous ?x ?new_x)
+						(not (is-wall ?new_x ?y))
 					)
 		:effect (and
 					(at ?new_x ?y ?o1)
@@ -228,6 +231,7 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(next ?x ?new_x)
+						(not (is-wall ?new_x ?y))
 					)
 		:effect (and
 					(at ?new_x ?y ?o1)

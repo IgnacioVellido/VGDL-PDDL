@@ -435,7 +435,8 @@ public class PlanningAgent extends AbstractPlayer {
                 }
             } 
             // If the preconditions contains or, check all predicates
-            else if (precondition.contains("(or")) {
+            else if (precondition.contains("(or ")) {
+            // else if (precondition.matches("\\(or[ \n]")) {
                 String orPrecondition = precondition.replace("(or ", "");
                 orPrecondition = orPrecondition.substring(0, orPrecondition.length() - 1);
 
@@ -443,7 +444,6 @@ public class PlanningAgent extends AbstractPlayer {
 
                 satisfiedPreconditions = false;
                 for (String p : allPreconditions) {
-                    System.out.println(p);
                     if (this.PDDLGameStatePredicates.contains(p)) {                        
                         satisfiedPreconditions = true;
                     }
