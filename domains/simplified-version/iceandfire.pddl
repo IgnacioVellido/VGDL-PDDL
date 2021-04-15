@@ -21,7 +21,7 @@
 		iceshoes - Resource
 		fireboots - Resource
 		wall - Immovable
-		Door MovingAvatar Resource Immovable - Object
+		Door MovingAvatar Immovable Resource - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -294,6 +294,14 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
+						(not (exists (?o1 - fireboots ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
 						(not (exists (?o1 - iceshoes ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
@@ -303,14 +311,6 @@
                             )
                         )
 						(not (exists (?o1 - exit ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - fireboots ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

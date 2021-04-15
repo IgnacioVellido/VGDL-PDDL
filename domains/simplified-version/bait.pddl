@@ -20,7 +20,7 @@
 		goal - Immovable
 		box - Passive
 		wall - Immovable
-		Passive MovingAvatar Immovable Resource - Object
+		Resource Immovable MovingAvatar Passive - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -313,14 +313,6 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - box ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
 						(not (exists (?o1 - goal ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
@@ -329,7 +321,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - box ?o2 - hole ?x ?y - num) 
+						(not (exists (?o1 - box ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -342,6 +334,13 @@
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
                                     (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - box ?x ?y - num) 
+                                (and
+                                    (is-hole ?x ?y)
+                                    (at ?x ?y ?o1)
                                 )
                             )
                         )

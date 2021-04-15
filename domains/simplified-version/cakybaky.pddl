@@ -24,7 +24,7 @@
 		incf - inc
 		avatar - OrientedAvatar
 		wall - Immovable
-		OrientedAvatar Immovable Chaser Resource - Object
+		Immovable OrientedAvatar Resource Chaser - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -424,7 +424,15 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - ince ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - inca ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - incc ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -440,7 +448,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - incc ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - ince ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -457,14 +465,6 @@
                             )
                         )
 						(not (exists (?o1 - incf ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - inca ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

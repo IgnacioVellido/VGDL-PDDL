@@ -22,7 +22,7 @@
 		monsterNormal - RandomNPC
 		monsterSlow - RandomNPC
 		wall - Immovable
-		RandomNPC enemyStype ShootAvatar Immovable Resource OrientedFlicker Door - Object
+		Immovable RandomNPC enemyStype ShootAvatar OrientedFlicker Resource Door - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -396,16 +396,14 @@
 	)
 
 	(:action ENEMY_SWORD_KILLSPRITE
-		:parameters (?o1 - enemy ?o2 - sword ?x - num ?y - num)
+		:parameters (?o2 - sword ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(not (= ?o1 ?o2))
-						(at ?x ?y ?o1)
+						(is-enemy ?x ?y)
 						(at ?x ?y ?o2)
 					)
 		:effect (and
-					(not (at ?x ?y ?o1))
-					(object-dead ?o1)
+					(not (is-enemy ?x ?y))
 				)
 	)
 
@@ -439,15 +437,14 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - key ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - sword ?x ?y - num) 
                                 (and
-                                    (not (= ?o1 ?o2))
+                                    (is-enemy ?x ?y)
                                     (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
                                 )
                             )
                         )
-						(not (exists (?o1 - enemy ?o2 - sword ?x ?y - num) 
+						(not (exists (?o1 - key ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

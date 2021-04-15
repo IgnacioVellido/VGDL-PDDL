@@ -23,7 +23,7 @@
 		enemy - RandomNPC
 		crab - enemy
 		butterfly - enemy
-		Door movingStype Immovable Flicker RandomNPC ShootAvatar Resource - Object
+		Resource RandomNPC ShootAvatar movingStype Door Flicker Immovable - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -448,11 +448,10 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - boulder ?o2 - sword ?x ?y - num) 
+						(not (exists (?o1 - sword ?x ?y - num) 
                                 (and
-                                    (not (= ?o1 ?o2))
+                                    (is-boulder ?x ?y)
                                     (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
                                 )
                             )
                         )

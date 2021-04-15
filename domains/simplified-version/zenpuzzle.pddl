@@ -212,7 +212,7 @@
                         (oriented-right ?y)
                         (oriented-right ?z)
                     )
-            
+                
 				)
 	)
 
