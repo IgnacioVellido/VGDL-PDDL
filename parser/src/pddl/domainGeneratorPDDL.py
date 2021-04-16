@@ -48,6 +48,7 @@ class DomainGeneratorPDDL:
         self.stepbacks = [] # List of objects involved with the avatar in a stepback interaction
         self.killIfHasLess = [] # List of objects involved with the avatar in a killIfHasLess interaction
         self.killIfOtherHasMore = [] # List of objects involved with the avatar in a killIfOtherHasMore and stepBack interaction
+        self.undoAll = {}
 
         self.short_types = []  # The char part of a LevelMapping
         self.long_types = []  # The sprites part of a LevelMapping
@@ -59,6 +60,7 @@ class DomainGeneratorPDDL:
         self.find_stepbacks()
         self.find_killIfHasLess()
         self.find_killIfOtherHasMore()
+        self.find_undoAll()
         self.avatarPDDL = AvatarPDDL(self.avatar, self.hierarchy, self.stepbacks, 
                                         self.killIfHasLess, self.killIfOtherHasMore, 
                                         self.partner)
@@ -126,7 +128,15 @@ class DomainGeneratorPDDL:
                         parameters = [p for p in i.parameters if "limit=" in p]
                         limit = parameters[0].replace("limit=",'')
 
-                        self.killIfOtherHasMore.append([i.sprite_name, resource, limit])                        
+                        self.killIfOtherHasMore.append([i.sprite_name, resource, limit])
+
+    def find_undoAll(self):
+        for i in self.interactions:
+            if i.type == "undoAll":
+                if i.sprite_name not in self.undoAll.keys():
+                    self.undoAll[i.sprite_name] = []
+
+                self.undoAll[i.sprite_name].append(i.partner_name)
 
     # -------------------------------------------------------------------------
     # Auxiliary
@@ -360,7 +370,8 @@ class DomainGeneratorPDDL:
 
             new_actions = InteractionPDDL(interaction, sprite, partner,
                                           self.hierarchy, self.avatar.name,
-                                          self.stepbacks, self.killIfHasLess).actions
+                                          self.stepbacks, self.killIfHasLess,
+                                          self.undoAll).actions
 
             if new_actions:
                 self.actions.extend(new_actions)

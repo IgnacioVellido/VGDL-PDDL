@@ -20,7 +20,7 @@
 		goal - Immovable
 		box - Passive
 		wall - Immovable
-		Resource Immovable MovingAvatar Passive - Object
+		MovingAvatar Immovable Passive Resource - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -190,6 +190,8 @@
 						(at ?x ?y ?o2)
 						(previous ?y ?new_y)
 						(not (is-wall ?x ?new_y))
+						(not (exists (?p - box) (at ?x ?new_y ?p)))
+						(not (exists (?p - mushroom) (at ?x ?new_y ?p)))
 					)
 		:effect (and
 					(at ?x ?new_y ?o1)
@@ -207,6 +209,8 @@
 						(at ?x ?y ?o2)
 						(next ?y ?new_y)
 						(not (is-wall ?x ?new_y))
+						(not (exists (?p - box) (at ?x ?new_y ?p)))
+						(not (exists (?p - mushroom) (at ?x ?new_y ?p)))
 					)
 		:effect (and
 					(at ?x ?new_y ?o1)
@@ -224,6 +228,8 @@
 						(at ?x ?y ?o2)
 						(previous ?x ?new_x)
 						(not (is-wall ?new_x ?y))
+						(not (exists (?p - box) (at ?new_x ?y ?p)))
+						(not (exists (?p - mushroom) (at ?new_x ?y ?p)))
 					)
 		:effect (and
 					(at ?new_x ?y ?o1)
@@ -241,6 +247,8 @@
 						(at ?x ?y ?o2)
 						(next ?x ?new_x)
 						(not (is-wall ?new_x ?y))
+						(not (exists (?p - box) (at ?new_x ?y ?p)))
+						(not (exists (?p - mushroom) (at ?new_x ?y ?p)))
 					)
 		:effect (and
 					(at ?new_x ?y ?o1)
@@ -329,7 +337,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - key ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - mushroom ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -344,7 +352,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - mushroom ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - key ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

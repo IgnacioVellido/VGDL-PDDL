@@ -32,7 +32,8 @@ class InteractionPDDL:
         hierarchy: dict,
         avatar: str,
         stepbacks: list,
-        listKillIfHasless: list
+        listKillIfHasless: list,
+        undoAll: list
     ):
         self.interaction = interaction
         self.sprite = sprite
@@ -40,6 +41,7 @@ class InteractionPDDL:
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
         self.listKillIfHasless = listKillIfHasless
+        self.undoAll = undoAll
 
         self.tasks = []     # Empty
         self.methods = []   # Empty
@@ -60,7 +62,7 @@ class InteractionPDDL:
     def get_actions(self):
         self.actions = InteractionActions(
             self.interaction, self.sprite, self.partner, self.hierarchy, 
-            self.stepbacks, self.listKillIfHasless
+            self.stepbacks, self.listKillIfHasless, self.undoAll
         ).actions
 
     # -------------------------------------------------------------------------
@@ -88,7 +90,8 @@ class InteractionActions:
         partner: "Sprite",
         hierarchy: dict,
         stepbacks: list,
-        listKillIfHasless: list
+        listKillIfHasless: list,
+        undoAll: list
     ):
         self.interaction = interaction
         self.sprite = sprite
@@ -96,6 +99,7 @@ class InteractionActions:
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
         self.listKillIfHasless = listKillIfHasless
+        self.undoAll = undoAll
 
         self.actions = []
         
@@ -392,13 +396,20 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            # "(or (oriented-up ?o2) (oriented-none ?o2))",
             "(oriented-up ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(previous ?y ?new_y)",
-            "(not (is-wall ?x ?new_y))"
         ]
+
+        # Add undoAll: objects that can't collide after this interaction
+        if self.sprite.name in self.undoAll.keys():
+            for o in self.undoAll[self.sprite.name]:
+                if o in self.listKillIfHasless or o in self.stepbacks:
+                    preconditions.append("(not (is-{} ?x ?new_y))".format(o))
+                else:
+                    preconditions.append("(not (exists (?p - {}) (at ?x ?new_y ?p)))".format(o))
+
         effects = [
             "(at ?x ?new_y ?o1)",
             "(not (at ?x ?y ?o1))",           
@@ -419,13 +430,20 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            # "(or (oriented-down ?o2) (oriented-none ?o2))",
             "(oriented-down ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(next ?y ?new_y)",
-            "(not (is-wall ?x ?new_y))"
         ]
+
+        # Add undoAll: objects that can't collide after this interaction
+        if self.sprite.name in self.undoAll.keys():
+            for o in self.undoAll[self.sprite.name]:
+                if o in self.listKillIfHasless or o in self.stepbacks:
+                    preconditions.append("(not (is-{} ?x ?new_y))".format(o))
+                else:
+                    preconditions.append("(not (exists (?p - {}) (at ?x ?new_y ?p)))".format(o))
+
         effects = [
             "(at ?x ?new_y ?o1)",
             "(not (at ?x ?y ?o1))",
@@ -446,13 +464,20 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            # "(or (oriented-left ?o2) (oriented-none ?o2))",
             "(oriented-left ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(previous ?x ?new_x)",
-            "(not (is-wall ?new_x ?y))"
         ]
+
+        # Add undoAll: objects that can't collide after this interaction
+        if self.sprite.name in self.undoAll.keys():
+            for o in self.undoAll[self.sprite.name]:
+                if o in self.listKillIfHasless or o in self.stepbacks:
+                    preconditions.append("(not (is-{} ?new_x ?y))".format(o))
+                else:
+                    preconditions.append("(not (exists (?p - {}) (at ?new_x ?y ?p)))".format(o))
+                    
         effects = [
             "(at ?new_x ?y ?o1)",
             "(not (at ?x ?y ?o1))"
@@ -473,13 +498,20 @@ class InteractionActions:
         preconditions = [
             "(turn-interactions)",
             "(not (= ?o1 ?o2))",
-            # "(or (oriented-right ?o2) (oriented-none ?o2))",
             "(oriented-right ?o2)",
             "(at ?x ?y ?o1)",
             "(at ?x ?y ?o2)",
             "(next ?x ?new_x)",
-            "(not (is-wall ?new_x ?y))"
         ]
+
+        # Add undoAll: objects that can't collide after this interaction
+        if self.sprite.name in self.undoAll.keys():
+            for o in self.undoAll[self.sprite.name]:
+                if o in self.listKillIfHasless or o in self.stepbacks:
+                    preconditions.append("(not (is-{} ?new_x ?y))".format(o))
+                else:
+                    preconditions.append("(not (exists (?p - {}) (at ?new_x ?y ?p)))".format(o))
+
         effects = [
             "(at ?new_x ?y ?o1)",
             "(not (at ?x ?y ?o1))"   
