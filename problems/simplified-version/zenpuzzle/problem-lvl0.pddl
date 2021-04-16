@@ -152,7 +152,6 @@
     )
     (:goal
         (AND
-            ; (object-dead isincenter1)
             (forall (?o - ground) (object-dead ?o))
         )
     )

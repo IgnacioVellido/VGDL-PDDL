@@ -103,7 +103,7 @@
     )
     (:goal
         (AND
-            (object-dead goal_10_1)
+            (forall (?o - goal) (object-dead ?o))
         )
     )
 )

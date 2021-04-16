@@ -237,7 +237,7 @@
     )
     (:goal
         (AND
-            (got-resource-incf n1)
+            (forall (?o - incf) (object-dead ?o))
         )
     )
 )

@@ -129,11 +129,11 @@
         (previous n11 n10)
         (previous n12 n11)
         (turn-avatar)
-        (got-resource-key n0)     
+        (got-resource-key n0)
     )
     (:goal
         (AND
-            (object-dead goal_6_1)
+            (forall (?o - goal) (object-dead ?o))
         )
     )
 )

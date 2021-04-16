@@ -108,7 +108,7 @@
     )
     (:goal
         (AND
-            (object-dead exit_1_1)
+            (forall (?o - exit) (object-dead ?o))
         )
     )
 )

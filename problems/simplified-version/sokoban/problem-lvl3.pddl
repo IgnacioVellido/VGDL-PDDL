@@ -61,9 +61,7 @@
     )
     (:goal
         (AND
-            (object-dead box_2_4)
-            (object-dead box_3_4)
-            (object-dead box_4_3)
+            (forall (?o - box) (object-dead ?o))
         )
     )
 )

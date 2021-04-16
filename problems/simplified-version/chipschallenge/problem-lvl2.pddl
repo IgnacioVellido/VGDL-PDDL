@@ -167,7 +167,7 @@
     )
     (:goal
         (AND
-            (object-dead exit_9_4)
+            (forall (?o - exit) (object-dead ?o))
         )
     )
 )

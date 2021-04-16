@@ -214,11 +214,7 @@
     )
     (:goal
         (AND
-            (object-dead exit_7_2)
-            ; (object-dead reddoor_10_4)
-            ; (object-dead reddoor_4_8)
-            ; (not (is-gate n7 n3))
-            ; (got-resource-chip n11)
+            (forall (?o - exit) (object-dead ?o))
         )
     )
 )

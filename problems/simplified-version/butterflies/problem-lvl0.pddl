@@ -202,12 +202,7 @@
     )
     (:goal
         (AND
-            (object-dead butterfly_20_7)
-            (object-dead butterfly_2_2)
-            (object-dead butterfly_3_1)
-            (object-dead butterfly_4_3)
-            (object-dead butterfly_8_6)
-            (object-dead butterfly_9_1)            
+            (forall (?o - butterfly) (object-dead ?o))
         )
     )
 )

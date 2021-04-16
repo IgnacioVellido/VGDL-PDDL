@@ -213,7 +213,7 @@
     )
     (:goal
         (AND
-            (object-dead exitdoor_6_10)
+            (forall (?o - exitdoor) (object-dead ?o))
         )
     )
 )
