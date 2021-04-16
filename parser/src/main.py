@@ -357,7 +357,8 @@ def main(argv):
         # Get configuration text
         config = get_config(
                     domainGenerator,
-                    listener
+                    listener,
+                    terminations
                 )
 
         # Write YAML file in folder

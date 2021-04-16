@@ -49,7 +49,7 @@ config = dict(
 # ------------------------------------------------------------------------------
 
 # Listener should not be needed
-def get_config(domainGenerator, listener):
+def get_config(domainGenerator, listener, terminations):
     """ Return configuration YAML 
         - domainGenerator: Contains info about predicates/types ...
         - listener: Contains info about hierarchy/names ...
@@ -77,7 +77,7 @@ def get_config(domainGenerator, listener):
     config_add_actionsCorrespondence(actions)
     config_add_additionalPredicates()
     config_add_addDeadObjects(partner, transformTo)
-    config_add_goals()
+    config_add_goals(terminations)
   
     return config
 
@@ -234,5 +234,38 @@ def config_add_addDeadObjects(partner, transformTo):
 
 # ------------------------------------------------------------------------------
 
-def config_add_goals():
-    pass
+# Only supporting SpriteCounter with limit=0
+def config_add_goals(terminations):
+    valid_goal = False
+
+    # Search for the termination criteria
+    for t in terminations:
+        if t.type == "SpriteCounter" and t.win:
+            valid_goal = True
+            valid_termination = t
+
+    # Check limit=0
+    if valid_goal:
+        parameters = [p for p in valid_termination.parameters if "limit=" in p]
+        # If empty, assuming limit=0
+        if not parameters:
+            valid_goal = True
+        else:
+            limit = parameters[0].replace("limit=",'')
+            valid_goal = limit == "0"
+
+    if valid_goal:
+        saveGoal = str("no")
+
+        # Find sprite name
+        parameters = [p for p in valid_termination.parameters if "stype=" in p]
+        sprite = parameters[0].replace("stype=",'')
+
+        config["goals"].append({
+            "goalPredicate": "(forall (?o - {}) (object-dead ?o))".format(sprite),
+            "priority": 1,
+            "saveGoal": False
+        })
+    else:
+        print("[WARNING]: The terminations criteria defined are not supported.\nA SpriteCounter with limit=0 is needed for an automatic generated goal.\n")
+    
