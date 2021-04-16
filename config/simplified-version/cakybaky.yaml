@@ -62,6 +62,6 @@ additionalPredicates:
 - (got-resource-incf n0)
 addDeadObjects: {}
 goals:
-- goalPredicate: (at n14 n12 avatar)
+- goalPredicate: (forall (?o - incf) (object-dead ?o))
   priority: 1
   saveGoal: no

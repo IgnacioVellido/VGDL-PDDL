@@ -36,6 +36,6 @@ additionalPredicates:
 - (turn-avatar)
 addDeadObjects: {}
 goals:
-- goalPredicate: (at n14 n12 avatar)
+- goalPredicate: (forall (?o - butterfly) (object-dead ?o))
   priority: 1
   saveGoal: no

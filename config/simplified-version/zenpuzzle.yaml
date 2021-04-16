@@ -43,6 +43,6 @@ addDeadObjects:
   walked: 1
   isincenter: 1
 goals:
-- goalPredicate: (at n14 n12 avatar)
+- goalPredicate: (forall (?o - ground) (object-dead ?o))
   priority: 1
   saveGoal: no

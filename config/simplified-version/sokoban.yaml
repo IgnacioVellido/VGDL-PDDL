@@ -36,18 +36,6 @@ additionalPredicates:
 - (turn-avatar)
 addDeadObjects: {}
 goals:
-# - goalPredicate: (at n14 n12 avatar)
-#   priority: 1
-#   saveGoal: no
-- goalPredicate: (object-dead box_2_6)
-  priority: 1
-  saveGoal: no
-- goalPredicate: (object-dead box_4_2)
-  priority: 1
-  saveGoal: no
-- goalPredicate: (object-dead box_5_4)
-  priority: 1
-  saveGoal: no
-- goalPredicate: (object-dead box_6_3)
+- goalPredicate: (forall (?o - box) (object-dead ?o))
   priority: 1
   saveGoal: no

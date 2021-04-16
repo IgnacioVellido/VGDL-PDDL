@@ -86,6 +86,6 @@ additionalPredicates:
 addDeadObjects:
   mud: 1
 goals:
-- goalPredicate: (at n14 n12 avatar)
+- goalPredicate: (forall (?o - exit) (object-dead ?o))
   priority: 1
   saveGoal: no

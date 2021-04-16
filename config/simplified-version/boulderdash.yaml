@@ -58,6 +58,6 @@ additionalPredicates:
 addDeadObjects:
   sword: 1
 goals:
-- goalPredicate: (got-resource-diamond n1)
+- goalPredicate: (forall (?o - exitdoor) (object-dead ?o))
   priority: 1
   saveGoal: no
