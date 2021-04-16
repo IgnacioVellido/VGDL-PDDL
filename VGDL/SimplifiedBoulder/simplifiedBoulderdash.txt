@@ -7,16 +7,11 @@ BasicGame
 		boulder > Immovable
 		moving >
 			avatar  > ShootAvatar   stype=sword
-			enemy > RandomNPC
-				crab > 
-				butterfly > 
 
 	LevelMapping
 		e > exitdoor
 		o > boulder
 		x > diamond
-		c > crab
-		b > butterfly
 		A > avatar
 
 	InteractionSet
@@ -24,8 +19,6 @@ BasicGame
 
 		diamond avatar > collectResource
 		moving wall boulder > stepBack
-
-		avatar butterfly crab > killSprite
 
 		exitdoor avatar > killIfOtherHasMore resource=diamond limit=4
 
