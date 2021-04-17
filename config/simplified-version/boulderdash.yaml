@@ -13,7 +13,10 @@ gameElementsCorrespondence:
   diamond:
   - (at ?x ?y ?diamond)
   boulder:
-  - (is-boulder ?x ?y)
+  - (at ?x ?y ?boulder)
+  - (boulder-moved ?boulder)
+  dirt:
+  - (at ?x ?y ?dirt)
   crab:
   - (at ?x ?y ?enemy)
   - (is-crab ?x ?y)
@@ -24,12 +27,15 @@ variablesTypes:
   ?sword: sword
   ?exitdoor: exitdoor
   ?diamond: diamond
+  ?boulder: boulder
+  ?dirt: dirt
   ?avatar: avatar
   ?enemy: enemy
   ?x: num
   ?y: num
 avatarVariable: ?avatar
 orientation:
+  boulder: DOWN
   avatar: FIND
 orientationCorrespondence:
   UP: (oriented-up ?object)
@@ -60,4 +66,4 @@ addDeadObjects:
 goals:
 - goalPredicate: (forall (?o - exitdoor) (object-dead ?o))
   priority: 1
-  saveGoal: no
+  saveGoal: false

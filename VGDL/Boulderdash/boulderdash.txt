@@ -4,7 +4,8 @@ BasicGame
 		sword > Flicker limit=1
 		exitdoor > Door
 		diamond > Resource limit=10
-		boulder > Immovable
+		boulder > Missile orientation=DOWN
+		dirt > Immovable
 		moving >
 			avatar  > ShootAvatar   stype=sword
 			enemy > RandomNPC
@@ -18,9 +19,11 @@ BasicGame
 		c > crab
 		b > butterfly
 		A > avatar
+		. > dirt
 
 	InteractionSet
-		boulder sword > killSprite
+		boulder dirt wall diamond boulder > undoAll
+		dirt avatar sword > killSprite
 
 		diamond avatar > collectResource
 		moving wall boulder > stepBack

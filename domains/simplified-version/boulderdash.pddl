@@ -17,13 +17,14 @@
 		sword - Flicker
 		exitdoor - Door
 		diamond - Resource
-		boulder - Immovable
+		boulder - Missile
+		dirt - Immovable
 		moving - movingStype
 		avatar - ShootAvatar
 		enemy - RandomNPC
 		crab - enemy
 		butterfly - enemy
-		Resource RandomNPC ShootAvatar movingStype Door Flicker Immovable - Object
+		Door movingStype Flicker Resource Missile Immovable ShootAvatar RandomNPC - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -47,12 +48,14 @@
 		(object-dead ?o - Object)
 		; Game specific
 		(is-wall ?x ?y - num)
-		(is-boulder ?x ?y - num)
 		(is-butterfly ?x ?y - num)
 		(is-crab ?x ?y - num)
 		(turn-sword-disappear)
 		(finished-turn-sword-disappear)
 		(got-resource-diamond ?n - num)
+		(boulder-moved ?o - Missile)
+		(turn-boulder-move)
+		(finished-turn-boulder-move)
 	)
   
 	; Actions -------------------------------------------------------------------
@@ -65,7 +68,6 @@
 						(at ?x ?y ?a)
 						(previous ?y ?new_y)
 						(not (is-wall ?x ?new_y))
-						(not (is-boulder ?x ?new_y))
 						(not (is-butterfly ?x ?new_y))
 						(not (is-crab ?x ?new_y))
 					)
@@ -101,7 +103,6 @@
 						(at ?x ?y ?a)
 						(next ?y ?new_y)
 						(not (is-wall ?x ?new_y))
-						(not (is-boulder ?x ?new_y))
 						(not (is-butterfly ?x ?new_y))
 						(not (is-crab ?x ?new_y))
 					)
@@ -135,7 +136,6 @@
 						(at ?x ?y ?a)
 						(previous ?x ?new_x)
 						(not (is-wall ?new_x ?y))
-						(not (is-boulder ?new_x ?y))
 						(not (is-butterfly ?new_x ?y))
 						(not (is-crab ?new_x ?y))
 					)
@@ -169,7 +169,6 @@
 						(at ?x ?y ?a)
 						(next ?x ?new_x)
 						(not (is-wall ?new_x ?y))
-						(not (is-boulder ?new_x ?y))
 						(not (is-butterfly ?new_x ?y))
 						(not (is-crab ?new_x ?y))
 					)
@@ -391,15 +390,64 @@
 				)
 	)
 
-	(:action BOULDER_SWORD_KILLSPRITE
-		:parameters (?o2 - sword ?x - num ?y - num)
+	(:action BOULDER_MOVE_DOWN
+		:parameters (?o - boulder ?x - num ?y - num ?new_x - num)
+		:precondition (and
+						(turn-boulder-move)
+						(not (boulder-moved ?o))
+						(oriented-down ?o)
+						(at ?x ?y ?o)
+						(next ?x ?new_x)
+						(not (exists (?p - dirt) (at ?x ?new_y ?p)))
+						(not (is-wall ?x ?new_y))
+						(not (exists (?p - diamond) (at ?x ?new_y ?p)))
+						(not (exists (?p - boulder) (at ?x ?new_y ?p)))
+					)
+		:effect (and
+					(not (at ?x ?y ?o))
+					(at ?new_x ?y ?o)
+					(boulder-moved ?o)
+				)
+	)
+
+	(:action STOP_BOULDER_MOVE
+		:parameters ()
+		:precondition (and
+						(turn-boulder-move)
+						(forall (?o - boulder) (or (object-dead ?o) (boulder-moved ?o)))
+					)
+		:effect (and
+					(forall (?o - boulder) (not (boulder-moved ?o)))
+					(not (turn-boulder-move))
+					(finished-turn-boulder-move)
+				)
+	)
+
+	(:action DIRT_AVATAR_KILLSPRITE
+		:parameters (?o1 - dirt ?o2 - avatar ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(is-boulder ?x ?y)
+						(not (= ?o1 ?o2))
+						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 					)
 		:effect (and
-					(not (is-boulder ?x ?y))
+					(not (at ?x ?y ?o1))
+					(object-dead ?o1)
+				)
+	)
+
+	(:action DIRT_SWORD_KILLSPRITE
+		:parameters (?o1 - dirt ?o2 - sword ?x - num ?y - num)
+		:precondition (and
+						(turn-interactions)
+						(not (= ?o1 ?o2))
+						(at ?x ?y ?o1)
+						(at ?x ?y ?o2)
+					)
+		:effect (and
+					(not (at ?x ?y ?o1))
+					(object-dead ?o1)
 				)
 	)
 
@@ -440,7 +488,7 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - diamond ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - dirt ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -448,10 +496,19 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - sword ?x ?y - num) 
+						(not (exists (?o1 - dirt ?o2 - sword ?x ?y - num) 
                                 (and
-                                    (is-boulder ?x ?y)
+                                    (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - diamond ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
                                 )
                             )
                         )
@@ -477,6 +534,7 @@
 					)
 		:effect (and
 					(turn-sword-disappear)
+					(turn-boulder-move)
 					(not (turn-sprites))
 				)
 	)
@@ -485,10 +543,12 @@
 		:parameters ()
 		:precondition (and
 						(finished-turn-sword-disappear)
+						(finished-turn-boulder-move)
 						(not (turn-interactions))
 					)
 		:effect (and
 					(not (finished-turn-sword-disappear))
+					(not (finished-turn-boulder-move))
 					(turn-avatar)
 				)
 	)

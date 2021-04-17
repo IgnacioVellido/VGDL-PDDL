@@ -69,7 +69,8 @@ class DomainGeneratorPDDL:
         self.spritesPDDL = []
         for obj in self.sprites:
             partner = self.find_partner(obj)
-            self.spritesPDDL.append(SpritePDDL(obj, self.hierarchy, partner))
+            self.spritesPDDL.append(SpritePDDL(obj, self.hierarchy, self.stepbacks, self.killIfHasLess,
+                                          self.undoAll, partner))
 
         self.assign_types()
         # self.assign_constants()
@@ -101,6 +102,11 @@ class DomainGeneratorPDDL:
                 # Find if avatar is involved           
                 if i.sprite_name in self.hierarchy[self.avatar.name] or i.sprite_name == self.avatar.name:
                     self.stepbacks.append(i.partner_name)
+
+        # Remove missiles
+        for o in self.sprites:
+            if o.stype == "Missile" and o.name in self.stepbacks:
+                self.stepbacks.remove(o.name)
 
     def find_killIfHasLess(self):
         """ Finds objects involved with the avatar in a killIfHasLess interaction """
