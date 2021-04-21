@@ -231,7 +231,25 @@ public class PlanningAgent extends AbstractPlayer {
         // If there's no plan, spend one turn searching for one
         if (this.mustPlan) {
             // Set current goal
-            this.agenda.setCurrentGoal();
+            Boolean haveGoal = this.agenda.setCurrentGoal();
+
+            // If we had a "for" goal, we can redo the problem file and call again the planner
+            // But first we need to set again the goal as active
+            // WE SHOULD CHECK IF THIS "IF" HAVE BEEN CALLED MULTIPLE TIMES IN SEQUENCE
+            if (!haveGoal && this.agenda.getReachedGoals().getLast().getGoalPredicate().contains("for")) {
+                // This code shouldn't be here. Probably better in Agenda
+                this.agenda.setCurrentGoal(this.agenda.getReachedGoals().getLast());
+
+                if (PlanningAgent.debugMode) {
+                    this.printMessages("Found a for-goal but game has not finished. Replanning...");
+                }
+
+                if (PlanningAgent.saveInformation) {
+                    PlanningAgent.LOGGER.warning(
+                            String.format("TURN %d Found a for-goal but game has not finished. Replanning...",
+                                    this.turn));
+                }
+            }
 
             // SHOW DEBUG INFORMATION
             if (PlanningAgent.debugMode) {
@@ -243,12 +261,12 @@ public class PlanningAgent extends AbstractPlayer {
                 this.createProblemFile();
             } catch (NullPointerException e) {
                 if (PlanningAgent.debugMode) {
-                    this.printMessages("The agent has reached all goals but can't exit the level!", "Exiting...");
+                    this.printMessages("The agent has reached all goals but can't complete the level!", "Exiting...");
                 }
 
                 if (PlanningAgent.saveInformation) {
                     PlanningAgent.LOGGER.warning(
-                            String.format("TURN %d All goals reached but agent can't completed the level.",
+                            String.format("TURN %d All goals reached but agent can't complete the level.",
                                     this.turn));
                 }
 
