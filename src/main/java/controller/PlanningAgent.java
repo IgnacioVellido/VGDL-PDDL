@@ -554,8 +554,12 @@ public class PlanningAgent extends AbstractPlayer {
                                                         this.gameInformation.domainFile,
                                                         this.gameInformation.problemFile,
                                                         planName).start();
+            
+            plannerProcess.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
         }
 
         // Call parser

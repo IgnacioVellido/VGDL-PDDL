@@ -6,6 +6,9 @@
 # Set virtual memory limit to 15m
 ulimit -t 900
 
+# Remove auxiliary files
+rm -f log plan
+
 # Temporary output file
 tmp="${3}_tmp"
 
