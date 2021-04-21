@@ -59,7 +59,7 @@ public class PDDLPlan implements Iterable<PDDLAction> {
      */
     public PDDLPlan(JSONObject plannerResponse, Map<String, Types.ACTIONS> actionCorrespondence) {
         // Get the plan from the JSON object
-        JSONArray plan = plannerResponse.getJSONObject("result").getJSONArray("plan");
+        JSONArray plan = plannerResponse.getJSONArray("plan");
 
         // Create a new empty list of actions
         ArrayList<PDDLAction> PDDLActionList = new ArrayList<>();
