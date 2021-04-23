@@ -235,8 +235,7 @@ public class PlanningAgent extends AbstractPlayer {
 
             // If we had a "for" goal, we can redo the problem file and call again the planner
             // But first we need to set again the goal as active
-            // WE SHOULD CHECK IF THIS "IF" HAVE BEEN CALLED MULTIPLE TIMES IN SEQUENCE
-            if (!haveGoal && this.agenda.getReachedGoals().getLast().getGoalPredicate().contains("for")) {
+            if (!haveGoal && this.agenda.getReachedGoals().getLast().getGoalPredicate().contains("for")) {                
                 // This code shouldn't be here. Probably better in Agenda
                 this.agenda.setCurrentGoal(this.agenda.getReachedGoals().getLast());
 
