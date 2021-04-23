@@ -51,6 +51,13 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// Needed to call solver
+import java.lang.ProcessBuilder;
+
+// import javax.script.Invocable;
+// import javax.script.ScriptEngine;
+// import javax.script.ScriptEngineManager;
+
 /**
  * Planning agent class. It represents an agent which uses a planner to reach
  * a set of goals. See {@link Agenda} to find out how goals are structured.
@@ -224,7 +231,24 @@ public class PlanningAgent extends AbstractPlayer {
         // If there's no plan, spend one turn searching for one
         if (this.mustPlan) {
             // Set current goal
-            this.agenda.setCurrentGoal();
+            Boolean haveGoal = this.agenda.setCurrentGoal();
+
+            // If we had a "for" goal, we can redo the problem file and call again the planner
+            // But first we need to set again the goal as active
+            if (!haveGoal && this.agenda.getReachedGoals().getLast().getGoalPredicate().contains("for")) {                
+                // This code shouldn't be here. Probably better in Agenda
+                this.agenda.setCurrentGoal(this.agenda.getReachedGoals().getLast());
+
+                if (PlanningAgent.debugMode) {
+                    this.printMessages("Found a for-goal but game has not finished. Replanning...");
+                }
+
+                if (PlanningAgent.saveInformation) {
+                    PlanningAgent.LOGGER.warning(
+                            String.format("TURN %d Found a for-goal but game has not finished. Replanning...",
+                                    this.turn));
+                }
+            }
 
             // SHOW DEBUG INFORMATION
             if (PlanningAgent.debugMode) {
@@ -236,12 +260,12 @@ public class PlanningAgent extends AbstractPlayer {
                 this.createProblemFile();
             } catch (NullPointerException e) {
                 if (PlanningAgent.debugMode) {
-                    this.printMessages("The agent has reached all goals but can't exit the level!", "Exiting...");
+                    this.printMessages("The agent has reached all goals but can't complete the level!", "Exiting...");
                 }
 
                 if (PlanningAgent.saveInformation) {
                     PlanningAgent.LOGGER.warning(
-                            String.format("TURN %d All goals reached but agent can't completed the level.",
+                            String.format("TURN %d All goals reached but agent can't complete the level.",
                                     this.turn));
                 }
 
@@ -532,38 +556,62 @@ public class PlanningAgent extends AbstractPlayer {
     public PDDLPlan findPlan() throws PlannerException {
         // Read domain and problem files
         String domain = readFile(this.gameInformation.domainFile);
-        String problem = readFile(this.gameInformation.problemFile);
+        String problem = readFile(this.gameInformation.problemFile);        
 
-        // Create JSON object which will be sent in the request's body
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("domain", domain);
-        jsonObject.put("problem", problem);
+        // Call planner
+        try {
+            ProcessBuilder planner = new ProcessBuilder();
 
-        String url;
-
-        if (PlanningAgent.localHost) {
-            url = "http://localhost:5000/solve";
-        } else {
-            url = "http://solver.planning.domains/solve";
+            // Redirect output to log file
+            File output = new File("log");
+            planner.redirectOutput(output);
+            
+            String planName = "plan";            
+            Process plannerProcess = planner.command("src/planner/plan",
+                                                        this.gameInformation.domainFile,
+                                                        this.gameInformation.problemFile,
+                                                        planName).start();
+            
+            plannerProcess.waitFor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
         }
 
-        // Call planner and get its response as a JSON
-        HttpResponse<JsonNode> response = Unirest.post(url)
-                .header("Content-Type", "application/json")
-                .body(jsonObject)
-                .asJson();
+        // Call parser
+        StringBuilder responseStrBuilder = new StringBuilder();
+        try {
+            ProcessBuilder parser = new ProcessBuilder();
+            Process parserProcess = parser.command("python3", "src/planner/process_solution.py", 
+                                                    this.gameInformation.domainFile,
+                                                    this.gameInformation.problemFile,
+                                                    "plan", "log").start();
 
-        // Get the JSON from the body of the HTTP response
-        JSONObject responseBody = response.getBody().getObject();
+            // Get response
+            BufferedReader bR =
+                    new BufferedReader(new InputStreamReader(parserProcess.getInputStream()));
+
+            String line = "";            
+            while((line = bR.readLine()) != null){
+                responseStrBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();        
+        }
+
+        // Transform response to JSON
+        JSONObject responseBody = new JSONObject(responseStrBuilder.toString());        
 
         // SHOW DEBUG INFORMATION
-        if (!responseBody.getString("status").equals("ok")) {
+        // This part probably doesn't work
+        if (!responseBody.getString("parse_status").equals("ok")) {
             String exceptionMessage = "";
 
             try {
-                exceptionMessage = responseBody.getJSONObject("result").getString("output");
+                exceptionMessage = responseBody.getString("output");
             } catch (JSONException jsonException) {
-                exceptionMessage = responseBody.getString("result");
+                exceptionMessage = responseBody.toString();
             } finally {
                 throw new PlannerException(exceptionMessage);
             }
@@ -1131,7 +1179,7 @@ public class PlanningAgent extends AbstractPlayer {
         StringBuilder sb = new StringBuilder();
 
         // Get the plan from the JSON object
-        JSONArray plan = plannerResponse.getJSONObject("result").getJSONArray("plan");
+        JSONArray plan = plannerResponse.getJSONArray("plan");
 
         // Add each action description to the builder
         for (int i = 0; i < plan.length(); i++) {

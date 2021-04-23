@@ -73,6 +73,10 @@ public class Agenda {
         return this.currentGoal;
     }
 
+    public void setCurrentGoal(PDDLSingleGoal goal) {
+        this.currentGoal = goal;
+    }
+
     /**
      * Method that sets the current goal. It chooses between the first goal of the pending
      * goals list and the first one of the preempted goals list. The goal's priority is
