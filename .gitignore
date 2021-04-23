@@ -102,6 +102,7 @@ target/
 
 # Extra files
 plan*.txt
+!results/**/plan*.txt
 /problem.pddl
 /plan
 /log
