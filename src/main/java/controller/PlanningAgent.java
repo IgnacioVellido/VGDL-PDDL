@@ -567,7 +567,7 @@ public class PlanningAgent extends AbstractPlayer {
             planner.redirectOutput(output);
             
             String planName = "plan";            
-            Process plannerProcess = planner.command("src/planner/plan",
+            Process plannerProcess = planner.command("src/planner/call_planner",
                                                         this.gameInformation.domainFile,
                                                         this.gameInformation.problemFile,
                                                         planName).start();
