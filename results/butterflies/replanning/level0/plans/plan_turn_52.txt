@@ -1,0 +1,3328 @@
+
+  (:action avatar_action_move_down
+    :parameters (avatar n9 n1 n2)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n9 n1 avatar)
+        (next n1 n2)
+        (not
+          (is-wall n9 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n9 n1 avatar)
+        )
+        (at n9 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n9 n2 n10)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n9 n2 avatar)
+        (next n9 n10)
+        (not
+          (is-wall n10 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n9 n2 avatar)
+        )
+        (at n10 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n10 n2 n11)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n10 n2 avatar)
+        (next n10 n11)
+        (not
+          (is-wall n11 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n10 n2 avatar)
+        )
+        (at n11 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n11 n2 n12)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n11 n2 avatar)
+        (next n11 n12)
+        (not
+          (is-wall n12 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n11 n2 avatar)
+        )
+        (at n12 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n12 n2 n13)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n12 n2 avatar)
+        (next n12 n13)
+        (not
+          (is-wall n13 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n12 n2 avatar)
+        )
+        (at n13 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n13 n2 n14)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n13 n2 avatar)
+        (next n13 n14)
+        (not
+          (is-wall n14 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n13 n2 avatar)
+        )
+        (at n14 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n14 n2 n15)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n14 n2 avatar)
+        (next n14 n15)
+        (not
+          (is-wall n15 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n14 n2 avatar)
+        )
+        (at n15 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n15 n2 n16)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n15 n2 avatar)
+        (next n15 n16)
+        (not
+          (is-wall n16 n2)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n15 n2 avatar)
+        )
+        (at n16 n2 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n16 n2 n3)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n16 n2 avatar)
+        (next n2 n3)
+        (not
+          (is-wall n16 n3)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n16 n2 avatar)
+        )
+        (at n16 n3 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n16 n3 n17)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n16 n3 avatar)
+        (next n16 n17)
+        (not
+          (is-wall n17 n3)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n16 n3 avatar)
+        )
+        (at n17 n3 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n17 n3 n4)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n17 n3 avatar)
+        (next n3 n4)
+        (not
+          (is-wall n17 n4)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n17 n3 avatar)
+        )
+        (at n17 n4 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n17 n4 n5)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n17 n4 avatar)
+        (next n4 n5)
+        (not
+          (is-wall n17 n5)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n17 n4 avatar)
+        )
+        (at n17 n5 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n17 n5 n18)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n17 n5 avatar)
+        (next n17 n18)
+        (not
+          (is-wall n18 n5)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n17 n5 avatar)
+        )
+        (at n18 n5 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n18 n5 n19)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n18 n5 avatar)
+        (next n18 n19)
+        (not
+          (is-wall n19 n5)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n18 n5 avatar)
+        )
+        (at n19 n5 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n19 n5 n6)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n5 avatar)
+        (next n5 n6)
+        (not
+          (is-wall n19 n6)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n5 avatar)
+        )
+        (at n19 n6 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n19 n6 n7)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n6 avatar)
+        (next n6 n7)
+        (not
+          (is-wall n19 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n6 avatar)
+        )
+        (at n19 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n19 n7 n8)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n7 avatar)
+        (next n7 n8)
+        (not
+          (is-wall n19 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n7 avatar)
+        )
+        (at n19 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_19_8 avatar n19 n8)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_19_8 avatar)
+        )
+        (at n19 n8 butterfly_19_8)
+        (at n19 n8 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n19 n8 butterfly_19_8)
+        )
+        (object-dead butterfly_19_8)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n19 n8 n7)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n8 avatar)
+        (previous n8 n7)
+        (not
+          (is-wall n19 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n8 avatar)
+        )
+        (at n19 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n19 n7 n6)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n7 avatar)
+        (previous n7 n6)
+        (not
+          (is-wall n19 n6)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n7 avatar)
+        )
+        (at n19 n6 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n19 n6 n7)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n6 avatar)
+        (next n6 n7)
+        (not
+          (is-wall n19 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n6 avatar)
+        )
+        (at n19 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n19 n7 n8)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n7 avatar)
+        (next n7 n8)
+        (not
+          (is-wall n19 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n7 avatar)
+        )
+        (at n19 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n19 n8 n9)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n8 avatar)
+        (next n8 n9)
+        (not
+          (is-wall n19 n9)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n8 avatar)
+        )
+        (at n19 n9 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_19_9 avatar n19 n9)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_19_9 avatar)
+        )
+        (at n19 n9 butterfly_19_9)
+        (at n19 n9 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n19 n9 butterfly_19_9)
+        )
+        (object-dead butterfly_19_9)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n19 n9 n18)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n19 n9 avatar)
+        (previous n19 n18)
+        (not
+          (is-wall n18 n9)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n19 n9 avatar)
+        )
+        (at n18 n9 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_18_9 avatar n18 n9)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_18_9 avatar)
+        )
+        (at n18 n9 butterfly_18_9)
+        (at n18 n9 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n18 n9 butterfly_18_9)
+        )
+        (object-dead butterfly_18_9)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n18 n9 n8)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n18 n9 avatar)
+        (previous n9 n8)
+        (not
+          (is-wall n18 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n18 n9 avatar)
+        )
+        (at n18 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_18_8 avatar n18 n8)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_18_8 avatar)
+        )
+        (at n18 n8 butterfly_18_8)
+        (at n18 n8 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n18 n8 butterfly_18_8)
+        )
+        (object-dead butterfly_18_8)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n18 n8 n7)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n18 n8 avatar)
+        (previous n8 n7)
+        (not
+          (is-wall n18 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n18 n8 avatar)
+        )
+        (at n18 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_18_7 avatar n18 n7)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_18_7 avatar)
+        )
+        (at n18 n7 butterfly_18_7)
+        (at n18 n7 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n18 n7 butterfly_18_7)
+        )
+        (object-dead butterfly_18_7)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n18 n7 n6)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n18 n7 avatar)
+        (previous n7 n6)
+        (not
+          (is-wall n18 n6)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n18 n7 avatar)
+        )
+        (at n18 n6 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_18_6 avatar n18 n6)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_18_6 avatar)
+        )
+        (at n18 n6 butterfly_18_6)
+        (at n18 n6 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n18 n6 butterfly_18_6)
+        )
+        (object-dead butterfly_18_6)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n18 n6 n17)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n18 n6 avatar)
+        (previous n18 n17)
+        (not
+          (is-wall n17 n6)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n18 n6 avatar)
+        )
+        (at n17 n6 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_17_6 avatar n17 n6)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_17_6 avatar)
+        )
+        (at n17 n6 butterfly_17_6)
+        (at n17 n6 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n17 n6 butterfly_17_6)
+        )
+        (object-dead butterfly_17_6)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n17 n6 n7)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n17 n6 avatar)
+        (next n6 n7)
+        (not
+          (is-wall n17 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n17 n6 avatar)
+        )
+        (at n17 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_17_7 avatar n17 n7)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_17_7 avatar)
+        )
+        (at n17 n7 butterfly_17_7)
+        (at n17 n7 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n17 n7 butterfly_17_7)
+        )
+        (object-dead butterfly_17_7)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n17 n7 n16)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n17 n7 avatar)
+        (previous n17 n16)
+        (not
+          (is-wall n16 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n17 n7 avatar)
+        )
+        (at n16 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n16 n7 n8)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n16 n7 avatar)
+        (next n7 n8)
+        (not
+          (is-wall n16 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n16 n7 avatar)
+        )
+        (at n16 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n16 n8 n15)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n16 n8 avatar)
+        (previous n16 n15)
+        (not
+          (is-wall n15 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n16 n8 avatar)
+        )
+        (at n15 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n15 n8 n14)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n15 n8 avatar)
+        (previous n15 n14)
+        (not
+          (is-wall n14 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n15 n8 avatar)
+        )
+        (at n14 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n14 n8 n13)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n14 n8 avatar)
+        (previous n14 n13)
+        (not
+          (is-wall n13 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n14 n8 avatar)
+        )
+        (at n13 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n13 n8 n12)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n13 n8 avatar)
+        (previous n13 n12)
+        (not
+          (is-wall n12 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n13 n8 avatar)
+        )
+        (at n12 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_down
+    :parameters (avatar n12 n8 n9)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-down avatar)
+          (oriented-none avatar)
+        )
+        (at n12 n8 avatar)
+        (next n8 n9)
+        (not
+          (is-wall n12 n9)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n12 n8 avatar)
+        )
+        (at n12 n9 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-down avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n12 n9 n11)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n12 n9 avatar)
+        (previous n12 n11)
+        (not
+          (is-wall n11 n9)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n12 n9 avatar)
+        )
+        (at n11 n9 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n11 n9 n10)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n11 n9 avatar)
+        (previous n11 n10)
+        (not
+          (is-wall n10 n9)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n11 n9 avatar)
+        )
+        (at n10 n9 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n10 n9 n9)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n10 n9 avatar)
+        (previous n10 n9)
+        (not
+          (is-wall n9 n9)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n10 n9 avatar)
+        )
+        (at n9 n9 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n9 n9 n8)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n9 n9 avatar)
+        (previous n9 n8)
+        (not
+          (is-wall n8 n9)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n9 n9 avatar)
+        )
+        (at n8 n9 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_8_9 avatar n8 n9)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_8_9 avatar)
+        )
+        (at n8 n9 butterfly_8_9)
+        (at n8 n9 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n8 n9 butterfly_8_9)
+        )
+        (object-dead butterfly_8_9)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n8 n9 n8)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n8 n9 avatar)
+        (previous n9 n8)
+        (not
+          (is-wall n8 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n8 n9 avatar)
+        )
+        (at n8 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_8_8 avatar n8 n8)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_8_8 avatar)
+        )
+        (at n8 n8 butterfly_8_8)
+        (at n8 n8 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n8 n8 butterfly_8_8)
+        )
+        (object-dead butterfly_8_8)
+      )
+  )

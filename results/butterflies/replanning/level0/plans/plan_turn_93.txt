@@ -1,0 +1,443 @@
+
+  (:action avatar_action_move_right
+    :parameters (avatar n8 n8 n9)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n8 n8 avatar)
+        (next n8 n9)
+        (not
+          (is-wall n9 n8)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n8 n8 avatar)
+        )
+        (at n9 n8 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n9 n8 n7)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n9 n8 avatar)
+        (previous n8 n7)
+        (not
+          (is-wall n9 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n9 n8 avatar)
+        )
+        (at n9 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_9_7 avatar n9 n7)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_9_7 avatar)
+        )
+        (at n9 n7 butterfly_9_7)
+        (at n9 n7 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n9 n7 butterfly_9_7)
+        )
+        (object-dead butterfly_9_7)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_right
+    :parameters (avatar n9 n7 n10)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-right avatar)
+          (oriented-none avatar)
+        )
+        (at n9 n7 avatar)
+        (next n9 n10)
+        (not
+          (is-wall n10 n7)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n9 n7 avatar)
+        )
+        (at n10 n7 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-right avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_10_7 avatar n10 n7)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_10_7 avatar)
+        )
+        (at n10 n7 butterfly_10_7)
+        (at n10 n7 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n10 n7 butterfly_10_7)
+        )
+        (object-dead butterfly_10_7)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_up
+    :parameters (avatar n10 n7 n6)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-up avatar)
+          (oriented-none avatar)
+        )
+        (at n10 n7 avatar)
+        (previous n7 n6)
+        (not
+          (is-wall n10 n6)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n10 n7 avatar)
+        )
+        (at n10 n6 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (when
+          (oriented-left avatar)
+          (not
+            (oriented-left avatar)
+          )
+        )
+        (oriented-up avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_10_6 avatar n10 n6)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_10_6 avatar)
+        )
+        (at n10 n6 butterfly_10_6)
+        (at n10 n6 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n10 n6 butterfly_10_6)
+        )
+        (object-dead butterfly_10_6)
+      )
+  )
+
+  (:action end-turn-interactions
+    :parameters ()
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (exists ?o1 and)
+        )
+      )
+    :effect
+      (and
+        (turn-sprites)
+        (not
+          (turn-interactions)
+        )
+      )
+  )
+
+  (:action end-turn-sprites
+    :parameters ()
+    :precondition
+      (and
+        (not
+          (turn-interactions)
+        )
+      )
+    :effect
+      (and
+        (turn-avatar)
+      )
+  )
+
+  (:action avatar_action_move_left
+    :parameters (avatar n10 n6 n9)
+    :precondition
+      (and
+        (turn-avatar)
+        (or
+          (oriented-left avatar)
+          (oriented-none avatar)
+        )
+        (at n10 n6 avatar)
+        (previous n10 n9)
+        (not
+          (is-wall n9 n6)
+        )
+      )
+    :effect
+      (and
+        (not
+          (at n10 n6 avatar)
+        )
+        (at n9 n6 avatar)
+        (not
+          (turn-avatar)
+        )
+        (turn-interactions)
+        (when
+          (oriented-up avatar)
+          (not
+            (oriented-up avatar)
+          )
+        )
+        (when
+          (oriented-down avatar)
+          (not
+            (oriented-down avatar)
+          )
+        )
+        (when
+          (oriented-right avatar)
+          (not
+            (oriented-right avatar)
+          )
+        )
+        (oriented-left avatar)
+      )
+  )
+
+  (:action butterfly_avatar_killsprite
+    :parameters (butterfly_9_6 avatar n9 n6)
+    :precondition
+      (and
+        (turn-interactions)
+        (not
+          (= butterfly_9_6 avatar)
+        )
+        (at n9 n6 butterfly_9_6)
+        (at n9 n6 avatar)
+      )
+    :effect
+      (and
+        (not
+          (at n9 n6 butterfly_9_6)
+        )
+        (object-dead butterfly_9_6)
+      )
+  )
