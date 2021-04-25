@@ -391,13 +391,13 @@
 	)
 
 	(:action BOULDER_MOVE_DOWN
-		:parameters (?o - boulder ?x - num ?y - num ?new_x - num)
+		:parameters (?o - boulder ?x - num ?y - num ?new_y - num)
 		:precondition (and
 						(turn-boulder-move)
 						(not (boulder-moved ?o))
 						(oriented-down ?o)
 						(at ?x ?y ?o)
-						(next ?x ?new_x)
+						(next ?y ?new_y)
 						(not (exists (?p - dirt) (at ?x ?new_y ?p)))
 						(not (is-wall ?x ?new_y))
 						(not (exists (?p - diamond) (at ?x ?new_y ?p)))
@@ -405,7 +405,7 @@
 					)
 		:effect (and
 					(not (at ?x ?y ?o))
-					(at ?new_x ?y ?o)
+					(at ?x ?new_y ?o)
 					(boulder-moved ?o)
 				)
 	)

@@ -194,15 +194,24 @@ class SpriteActions:
             return
 
         name = self.sprite.name.upper() + "_MOVE_UP"
-        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
         preconditions = ["(turn-" + self.sprite.name + "-move)",
                          "(not (" + self.sprite.name + "-moved ?o))",
                          "(oriented-up ?o)", 
                          "(at ?x ?y ?o)", 
-                         "(previous ?x ?new_x)"]
+                         "(previous ?y ?new_y)"]
+
+        # Add undoAll: objects that can't collide after this interaction
+        if self.sprite.name in self.undoAll.keys():
+            for o in self.undoAll[self.sprite.name]:
+                if o in self.listKillIfHasless or o in self.stepbacks:
+                    preconditions.append("(not (is-{} ?x ?new_y))".format(o))
+                else:
+                    preconditions.append("(not (exists (?p - {}) (at ?x ?new_y ?p)))".format(o))
+
         effects = [                   
                     "(not (at ?x ?y ?o))",
-                    "(at ?new_x ?y ?o)",
+                    "(at ?x ?new_y ?o)",
                     "(" + self.sprite.name + "-moved ?o)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -217,12 +226,12 @@ class SpriteActions:
             return
 
         name = self.sprite.name.upper() + "_MOVE_DOWN"
-        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
         preconditions = ["(turn-" + self.sprite.name + "-move)",
                          "(not (" + self.sprite.name + "-moved ?o))",
                          "(oriented-down ?o)", 
                          "(at ?x ?y ?o)", 
-                         "(next ?x ?new_x)"]
+                         "(next ?y ?new_y)"]
 
         # Add undoAll: objects that can't collide after this interaction
         if self.sprite.name in self.undoAll.keys():
@@ -234,7 +243,7 @@ class SpriteActions:
 
         effects = [                   
                     "(not (at ?x ?y ?o))",
-                    "(at ?new_x ?y ?o)",
+                    "(at ?x ?new_y ?o)",
                     "(" + self.sprite.name + "-moved ?o)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -249,12 +258,12 @@ class SpriteActions:
             return
 
         name = self.sprite.name.upper() + "_MOVE_LEFT"
-        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
         preconditions = ["(turn-" + self.sprite.name + "-move)",
                          "(not (" + self.sprite.name + "-moved ?o))",
                          "(oriented-left ?o)", 
                          "(at ?x ?y ?o)", 
-                         "(previous ?y ?new_y)"]
+                         "(previous ?x ?new_x)"]
 
         # Add undoAll: objects that can't collide after this interaction
         if self.sprite.name in self.undoAll.keys():
@@ -266,7 +275,7 @@ class SpriteActions:
 
         effects = [                   
                     "(not (at ?x ?y ?o))",
-                    "(at ?x ?new_yy ?o)",
+                    "(at ?new_x ?y ?o)",
                     "(" + self.sprite.name + "-moved ?o)"]
 
         return Action(name, parameters, preconditions, effects)
@@ -281,15 +290,24 @@ class SpriteActions:
             return
 
         name = self.sprite.name.upper() + "_MOVE_RIGHT"
-        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_y", "num"]]
+        parameters = [["o", self.sprite.name], ["x", "num"], ["y", "num"], ["new_x", "num"]]
         preconditions = ["(turn-" + self.sprite.name + "-move)",
                          "(not (" + self.sprite.name + "-moved ?o))",
                          "(oriented-right ?o)", 
                          "(at ?x ?y ?o)", 
-                         "(next ?y ?new_y)"]
+                         "(next ?x ?new_x)"]
+
+        # Add undoAll: objects that can't collide after this interaction
+        if self.sprite.name in self.undoAll.keys():
+            for o in self.undoAll[self.sprite.name]:
+                if o in self.listKillIfHasless or o in self.stepbacks:
+                    preconditions.append("(not (is-{} ?new_x ?y))".format(o))
+                else:
+                    preconditions.append("(not (exists (?p - {}) (at ?new_x ?y ?p)))".format(o))
+                    
         effects = [                   
                     "(not (at ?x ?y ?o))",
-                    "(at ?x ?new_yy ?o)",
+                    "(at ?new_x ?y ?o)",
                     "(" + self.sprite.name + "-moved ?o)"]
 
         return Action(name, parameters, preconditions, effects)
