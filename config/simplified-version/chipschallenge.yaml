@@ -84,7 +84,7 @@ additionalPredicates:
 - (got-resource-fireboots n0)
 - (got-resource-chip n0)
 addDeadObjects:
-  mud: 1
+  mud: 5
 goals:
 - goalPredicate: (forall (?o - exit) (object-dead ?o))
   priority: 1

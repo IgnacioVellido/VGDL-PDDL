@@ -1,0 +1,29 @@
+Level 0
+Timeout 15 min
+
+Level 1
+Timeout 15 min (or segmaentation fault)
+
+Level 2
+Timeout 15 min
+
+Level 3
+Timeout 15 min
+
+Level 4
+Timeout 15 min
+
+Level 5
+Timeout 15 min
+
+Level 6
+Timeout 15 min
+
+Level 7
+Timeout 15 min
+
+Level 8
+Timeout 15 min
+
+Level 9
+Timeout 15 min

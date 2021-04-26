@@ -1,9 +1,12 @@
-Level 0
+Level 3
+Timeout 15min
 
-Result (1->win; 0->lose): Player0:1, Player0-Score:1.0, timesteps:9
-                                                                                                                                                                             
+Level 4
+
+Result (1->win; 0->lose): Player0:1, Player0-Score:2.0, timesteps:11
+
 ----STATS----                                                                                                                                                                                                                                   
-Execution time: 391 ms                                                                                                  
+Execution time: 330 ms                                                                                                  
 Number of goals: 1                                                                                                      
 Number of time the planner was called: 1                                                                                
 Number of discrepancies: 0

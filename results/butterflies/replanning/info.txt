@@ -17,4 +17,10 @@ Timeout 15min
 
 
 Level 4
-Result (1->win; 0->lose): Player0:1, Player0-Score:14.0, timesteps:62                                                                                                                                                                           ----STATS----                                                                                                                                                                                                                                   Execution time: 874 ms                                                                                                  Number of goals: 1                                                                                                      Number of time the planner was called: 3                                                                                Number of discrepancies: 0 
+Result (1->win; 0->lose): Player0:1, Player0-Score:14.0, timesteps:62
+                                                                                                                                                                           
+----STATS----                                                                                                                                                                                                                                   
+Execution time: 874 ms                                                                                                  
+Number of goals: 1                                                                                                      
+Number of time the planner was called: 3                                                                                
+Number of discrepancies: 0 

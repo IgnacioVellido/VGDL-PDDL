@@ -61,7 +61,7 @@ BasicGame
         mud avatar > killSprite
         
         gate avatar > killIfOtherHasMore resource=chip limit=11
-        avatar gate wall > stepBack
+        avatar wall > stepBack
 
         chip avatar > collectResource scoreChange=1
         redkey avatar > collectResource

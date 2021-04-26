@@ -1,20 +1,20 @@
-Level 3
+Level 0
 
-Result (1->win; 0->lose): Player0:1, Player0-Score:1.0,timesteps:30
-                                                                                                                                                                            
+Result (1->win; 0->lose): Player0:1, Player0-Score:12.0, timesteps:62
+                                                                                                                                                                           
 ----STATS----                                                                                                                                                                                                                                   
-Execution time: 393 ms                                                                                                  
+Execution time: 629 ms                                                                                                  
 Number of goals: 1                                                                                                      
 Number of time the planner was called: 1                                                                                
-Number of discrepancies: 0 
+Number of discrepancies: 0
 
 
-Level 4
+Level 1
 
-Result (1->win; 0->lose): Player0:1, Player0-Score:1.0,timesteps:24
+Result (1->win; 0->lose): Player0:1, Player0-Score:16.0, timesteps:85
 
 ----STATS----                                                                                                                                                                                                                                   
-Execution time: 496 ms                                                                                                  
+Execution time: 675 ms                                                                                                  
 Number of goals: 1                                                                                                      
 Number of time the planner was called: 1                                                                                
 Number of discrepancies: 0

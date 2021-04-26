@@ -40,7 +40,7 @@ actionsCorrespondence:
 additionalPredicates:
 - (turn-avatar)
 addDeadObjects:
-  walked: 1
+  walked: 35
   isincenter: 1
 goals:
 - goalPredicate: (forall (?o - ground) (object-dead ?o))

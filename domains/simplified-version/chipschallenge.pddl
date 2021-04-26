@@ -77,7 +77,6 @@
 						(or (oriented-up ?a) (oriented-none ?a))
 						(at ?x ?y ?a)
 						(previous ?y ?new_y)
-						(not (is-gate ?x ?new_y))
 						(not (is-wall ?x ?new_y))
 						(or
                             (and 
@@ -132,7 +131,6 @@
 						(or (oriented-down ?a) (oriented-none ?a))
 						(at ?x ?y ?a)
 						(next ?y ?new_y)
-						(not (is-gate ?x ?new_y))
 						(not (is-wall ?x ?new_y))
 						(or
                             (and 
@@ -185,7 +183,6 @@
 						(or (oriented-left ?a) (oriented-none ?a))
 						(at ?x ?y ?a)
 						(previous ?x ?new_x)
-						(not (is-gate ?new_x ?y))
 						(not (is-wall ?new_x ?y))
 						(or
                             (and 
@@ -238,7 +235,6 @@
 						(or (oriented-right ?a) (oriented-none ?a))
 						(at ?x ?y ?a)
 						(next ?x ?new_x)
-						(not (is-gate ?new_x ?y))
 						(not (is-wall ?new_x ?y))
 						(or
                             (and 
@@ -411,7 +407,7 @@
 		:effect (and
 					(not (is-gate ?x ?y))
 				)
-	)
+	) 
 
 	(:action CHIP_AVATAR_COLLECTRESOURCE
 		:parameters (?o1 - chip ?o2 - avatar ?x - num ?y - num ?r - num ?r_next - num)
