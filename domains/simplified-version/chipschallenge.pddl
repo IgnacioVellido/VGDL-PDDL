@@ -32,7 +32,7 @@
 		chip - Resource
 		avatar - MovingAvatar
 		wall - Immovable
-		Resource MovingAvatar Immovable Passive - Object
+		Immovable Passive Resource MovingAvatar - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -55,8 +55,12 @@
 		(at ?x ?y - num ?o - Object)
 		(object-dead ?o - Object)
 		; Game specific
-		(is-gate ?x ?y - num)
 		(is-wall ?x ?y - num)
+		(is-gate ?x ?y - num)
+		(is-reddoor ?x ?y - num)
+		(is-greendoor ?x ?y - num)
+		(is-bluedoor ?x ?y - num)
+		(is-yellowdoor ?x ?y - num)
 		(is-water ?x ?y - num)
 		(is-fire ?x ?y - num)
 		(got-resource-redkey ?n - num)
@@ -78,6 +82,11 @@
 						(at ?x ?y ?a)
 						(previous ?y ?new_y)
 						(not (is-wall ?x ?new_y))
+						(not (is-gate ?x ?new_y))
+						(not (is-reddoor ?x ?new_y))
+						(not (is-greendoor ?x ?new_y))
+						(not (is-bluedoor ?x ?new_y))
+						(not (is-yellowdoor ?x ?new_y))
 						(or
                             (and 
                                 (is-water ?x ?new_y)
@@ -97,6 +106,34 @@
                             (and 
                                 (is-gate ?x ?new_y)
                                 (got-resource-chip n11)
+                            )
+                        )
+						(or
+                            (not (is-reddoor ?x ?new_y))
+                            (and 
+                                (is-reddoor ?x ?new_y)
+                                (got-resource-redkey n1)
+                            )
+                        )
+						(or
+                            (not (is-greendoor ?x ?new_y))
+                            (and 
+                                (is-greendoor ?x ?new_y)
+                                (got-resource-greenkey n1)
+                            )
+                        )
+						(or
+                            (not (is-bluedoor ?x ?new_y))
+                            (and 
+                                (is-bluedoor ?x ?new_y)
+                                (got-resource-bluekey n1)
+                            )
+                        )
+						(or
+                            (not (is-yellowdoor ?x ?new_y))
+                            (and 
+                                (is-yellowdoor ?x ?new_y)
+                                (got-resource-yellowkey n1)
                             )
                         )
 					)
@@ -132,6 +169,11 @@
 						(at ?x ?y ?a)
 						(next ?y ?new_y)
 						(not (is-wall ?x ?new_y))
+						(not (is-gate ?x ?new_y))
+						(not (is-reddoor ?x ?new_y))
+						(not (is-greendoor ?x ?new_y))
+						(not (is-bluedoor ?x ?new_y))
+						(not (is-yellowdoor ?x ?new_y))
 						(or
                             (and 
                                 (is-water ?x ?new_y)
@@ -151,6 +193,34 @@
                             (and 
                                 (is-gate ?x ?new_y)
                                 (got-resource-chip n11)
+                            )
+                        )
+						(or
+                            (not (is-reddoor ?x ?new_y))
+                            (and 
+                                (is-reddoor ?x ?new_y)
+                                (got-resource-redkey n1)
+                            )
+                        )
+						(or
+                            (not (is-greendoor ?x ?new_y))
+                            (and 
+                                (is-greendoor ?x ?new_y)
+                                (got-resource-greenkey n1)
+                            )
+                        )
+						(or
+                            (not (is-bluedoor ?x ?new_y))
+                            (and 
+                                (is-bluedoor ?x ?new_y)
+                                (got-resource-bluekey n1)
+                            )
+                        )
+						(or
+                            (not (is-yellowdoor ?x ?new_y))
+                            (and 
+                                (is-yellowdoor ?x ?new_y)
+                                (got-resource-yellowkey n1)
                             )
                         )
 					)
@@ -184,6 +254,11 @@
 						(at ?x ?y ?a)
 						(previous ?x ?new_x)
 						(not (is-wall ?new_x ?y))
+						(not (is-gate ?new_x ?y))
+						(not (is-reddoor ?new_x ?y))
+						(not (is-greendoor ?new_x ?y))
+						(not (is-bluedoor ?new_x ?y))
+						(not (is-yellowdoor ?new_x ?y))
 						(or
                             (and 
                                 (is-water ?new_x ?y)
@@ -203,6 +278,34 @@
                             (and 
                                 (is-gate ?new_x ?y)
                                 (got-resource-chip n11)
+                            )
+                        )
+						(or
+                            (not (is-reddoor ?new_x ?y))
+                            (and 
+                                (is-reddoor ?new_x ?y)
+                                (got-resource-redkey n1)
+                            )
+                        )
+						(or
+                            (not (is-greendoor ?new_x ?y))
+                            (and 
+                                (is-greendoor ?new_x ?y)
+                                (got-resource-greenkey n1)
+                            )
+                        )
+						(or
+                            (not (is-bluedoor ?new_x ?y))
+                            (and 
+                                (is-bluedoor ?new_x ?y)
+                                (got-resource-bluekey n1)
+                            )
+                        )
+						(or
+                            (not (is-yellowdoor ?new_x ?y))
+                            (and 
+                                (is-yellowdoor ?new_x ?y)
+                                (got-resource-yellowkey n1)
                             )
                         )
 					)
@@ -236,6 +339,11 @@
 						(at ?x ?y ?a)
 						(next ?x ?new_x)
 						(not (is-wall ?new_x ?y))
+						(not (is-gate ?new_x ?y))
+						(not (is-reddoor ?new_x ?y))
+						(not (is-greendoor ?new_x ?y))
+						(not (is-bluedoor ?new_x ?y))
+						(not (is-yellowdoor ?new_x ?y))
 						(or
                             (and 
                                 (is-water ?new_x ?y)
@@ -255,6 +363,34 @@
                             (and 
                                 (is-gate ?new_x ?y)
                                 (got-resource-chip n11)
+                            )
+                        )
+						(or
+                            (not (is-reddoor ?new_x ?y))
+                            (and 
+                                (is-reddoor ?new_x ?y)
+                                (got-resource-redkey n1)
+                            )
+                        )
+						(or
+                            (not (is-greendoor ?new_x ?y))
+                            (and 
+                                (is-greendoor ?new_x ?y)
+                                (got-resource-greenkey n1)
+                            )
+                        )
+						(or
+                            (not (is-bluedoor ?new_x ?y))
+                            (and 
+                                (is-bluedoor ?new_x ?y)
+                                (got-resource-bluekey n1)
+                            )
+                        )
+						(or
+                            (not (is-yellowdoor ?new_x ?y))
+                            (and 
+                                (is-yellowdoor ?new_x ?y)
+                                (got-resource-yellowkey n1)
                             )
                         )
 					)
@@ -289,7 +425,6 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(previous ?y ?new_y)
-						(not (is-wall ?x ?new_y))
 					)
 		:effect (and
 					(at ?x ?new_y ?o1)
@@ -306,7 +441,6 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(next ?y ?new_y)
-						(not (is-wall ?x ?new_y))
 					)
 		:effect (and
 					(at ?x ?new_y ?o1)
@@ -323,7 +457,6 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(previous ?x ?new_x)
-						(not (is-wall ?new_x ?y))
 					)
 		:effect (and
 					(at ?new_x ?y ?o1)
@@ -340,7 +473,6 @@
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
 						(next ?x ?new_x)
-						(not (is-wall ?new_x ?y))
 					)
 		:effect (and
 					(at ?new_x ?y ?o1)
@@ -349,7 +481,7 @@
 	)
 
 	(:action WATER_CRATE_TRANSFORMTO
-		:parameters (?o1 - crate ?z - mud ?x - num ?y - num)
+		:parameters (?o1 - crate ?x - num ?y - num ?z - mud)
 		:precondition (and
 						(turn-interactions)
 						(at ?x ?y ?o1)
@@ -359,26 +491,26 @@
 		:effect (and
 					(not (at ?x ?y ?o1))
 					(object-dead ?o1)
+					(not (is-water ?x ?y))
 					(at ?x ?y ?z)
 					(not (object-dead ?z))
 					(when
-                            (oriented-up ?y)
-                            (oriented-up ?z)
-                        )
-                        (when
-                            (oriented-down ?y)
-                            (oriented-down ?z)
-                        )
-                        (when
-                            (oriented-left ?y)
-                            (oriented-left ?z)
-                        )
-                        (when
-                            (oriented-right ?y)
-                            (oriented-right ?z)
-                        )
+                        (oriented-up ?y)
+                        (oriented-up ?z)
+                    )
+                    (when
+                        (oriented-down ?y)
+                        (oriented-down ?z)
+                    )
+                    (when
+                        (oriented-left ?y)
+                        (oriented-left ?z)
+                    )
+                    (when
+                        (oriented-right ?y)
+                        (oriented-right ?z)
+                    )
                 
-					(not (is-water ?x ?y))
 				)
 	)
 
@@ -407,7 +539,7 @@
 		:effect (and
 					(not (is-gate ?x ?y))
 				)
-	) 
+	)
 
 	(:action CHIP_AVATAR_COLLECTRESOURCE
 		:parameters (?o1 - chip ?o2 - avatar ?x - num ?y - num ?r - num ?r_next - num)
@@ -536,62 +668,54 @@
 	)
 
 	(:action REDDOOR_AVATAR_KILLIFOTHERHASMORE
-		:parameters (?o1 - reddoor ?o2 - avatar ?x - num ?y - num)
+		:parameters (?o1 - avatar ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(not (= ?o1 ?o2))
 						(at ?x ?y ?o1)
-						(at ?x ?y ?o2)
+						(is-reddoor ?x ?y)
 						(got-resource-redkey n1)
 					)
 		:effect (and
-					(object-dead ?o1)
-					(not (at ?x ?y ?o1))
+					(not (is-reddoor ?x ?y))
 				)
 	)
 
 	(:action GREENDOOR_AVATAR_KILLIFOTHERHASMORE
-		:parameters (?o1 - greendoor ?o2 - avatar ?x - num ?y - num)
+		:parameters (?o1 - avatar ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(not (= ?o1 ?o2))
 						(at ?x ?y ?o1)
-						(at ?x ?y ?o2)
+						(is-greendoor ?x ?y)
 						(got-resource-greenkey n1)
 					)
 		:effect (and
-					(object-dead ?o1)
-					(not (at ?x ?y ?o1))
+					(not (is-greendoor ?x ?y))
 				)
 	)
 
 	(:action BLUEDOOR_AVATAR_KILLIFOTHERHASMORE
-		:parameters (?o1 - bluedoor ?o2 - avatar ?x - num ?y - num)
+		:parameters (?o1 - avatar ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(not (= ?o1 ?o2))
 						(at ?x ?y ?o1)
-						(at ?x ?y ?o2)
+						(is-bluedoor ?x ?y)
 						(got-resource-bluekey n1)
 					)
 		:effect (and
-					(object-dead ?o1)
-					(not (at ?x ?y ?o1))
+					(not (is-bluedoor ?x ?y))
 				)
 	)
 
 	(:action YELLOWDOOR_AVATAR_KILLIFOTHERHASMORE
-		:parameters (?o1 - yellowdoor ?o2 - avatar ?x - num ?y - num)
+		:parameters (?o1 - avatar ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
-						(not (= ?o1 ?o2))
 						(at ?x ?y ?o1)
-						(at ?x ?y ?o2)
+						(is-yellowdoor ?x ?y)
 						(got-resource-yellowkey n1)
 					)
 		:effect (and
-					(object-dead ?o1)
-					(not (at ?x ?y ?o1))
+					(not (is-yellowdoor ?x ?y))
 				)
 	)
 
@@ -613,54 +737,7 @@
 		:parameters ()
 		:precondition (and
 						(turn-interactions)
-						(not (exists (?o1 - bluedoor ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - yellowdoor ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - fireboots ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - crate ?x ?y - num) 
-                                (and
-                                    (is-water ?x ?y)
-                                    (at ?x ?y ?o1)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - redkey ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - greenkey ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - yellowkey ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - bluekey ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -676,23 +753,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - crate ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - mud ?o2 - avatar ?x ?y - num) 
-                                (and
-                                    (not (= ?o1 ?o2))
-                                    (at ?x ?y ?o1)
-                                    (at ?x ?y ?o2)
-                                )
-                            )
-                        )
-						(not (exists (?o1 - reddoor ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - fireboots ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -707,7 +768,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - exit ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - mud ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -723,7 +784,7 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - bluekey ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - crate ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)
@@ -731,7 +792,66 @@
                                 )
                             )
                         )
-						(not (exists (?o1 - greendoor ?o2 - avatar ?x ?y - num) 
+						(not (exists (?o1 - greenkey ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - avatar ?x ?y - num) 
+                                (and
+                                    (is-greendoor ?x ?y)
+                                    (at ?x ?y ?o1)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - avatar ?x ?y - num) 
+                                (and
+                                    (is-yellowdoor ?x ?y)
+                                    (at ?x ?y ?o1)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - exit ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - avatar ?x ?y - num) 
+                                (and
+                                    (is-bluedoor ?x ?y)
+                                    (at ?x ?y ?o1)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - avatar ?x ?y - num) 
+                                (and
+                                    (is-reddoor ?x ?y)
+                                    (at ?x ?y ?o1)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - crate ?x ?y - num) 
+                                (and
+                                    (is-water ?x ?y)
+                                    (at ?x ?y ?o1)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - yellowkey ?o2 - avatar ?x ?y - num) 
+                                (and
+                                    (not (= ?o1 ?o2))
+                                    (at ?x ?y ?o1)
+                                    (at ?x ?y ?o2)
+                                )
+                            )
+                        )
+						(not (exists (?o1 - redkey ?o2 - avatar ?x ?y - num) 
                                 (and
                                     (not (= ?o1 ?o2))
                                     (at ?x ?y ?o1)

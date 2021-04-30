@@ -19,13 +19,13 @@ gameElementsCorrespondence:
   yellowkey:
   - (at ?x ?y ?yellowkey)
   reddoor:
-  - (at ?x ?y ?reddoor)
+  - (is-reddoor ?x ?y)
   bluedoor:
-  - (at ?x ?y ?bluedoor)
+  - (is-bluedoor ?x ?y)
   greendoor:
-  - (at ?x ?y ?greendoor)
+  - (is-greendoor ?x ?y)
   yellowdoor:
-  - (at ?x ?y ?yellowdoor)
+  - (is-yellowdoor ?x ?y)
   flippers:
   - (at ?x ?y ?flippers)
   fireboots:
@@ -46,10 +46,6 @@ variablesTypes:
   ?bluekey: bluekey
   ?greenkey: greenkey
   ?yellowkey: yellowkey
-  ?reddoor: reddoor
-  ?bluedoor: bluedoor
-  ?greendoor: greendoor
-  ?yellowdoor: yellowdoor
   ?flippers: flippers
   ?fireboots: fireboots
   ?crate: crate
@@ -84,8 +80,8 @@ additionalPredicates:
 - (got-resource-fireboots n0)
 - (got-resource-chip n0)
 addDeadObjects:
-  mud: 5
+  mud: 1
 goals:
 - goalPredicate: (forall (?o - exit) (object-dead ?o))
   priority: 1
-  saveGoal: no
+  saveGoal: false

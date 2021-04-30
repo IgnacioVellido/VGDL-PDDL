@@ -18,7 +18,7 @@
 		ground - Immovable
 		walked - Immovable
 		rock - Immovable
-		MovingAvatar Immovable - Object
+		Immovable MovingAvatar - Object
 	)
 
 	; Predicates ----------------------------------------------------------------
@@ -183,36 +183,17 @@
 	)
 
 	(:action GROUND_AVATAR_TRANSFORMTO
-		:parameters (?o1 - ground ?o2 - MovingAvatar ?z - walked ?x - num ?y - num)
+		:parameters (?o1 - ground ?o2 - MovingAvatar ?x - num ?y - num)
 		:precondition (and
 						(turn-interactions)
 						(not (= ?o1 ?o2))
 						(at ?x ?y ?o1)
 						(at ?x ?y ?o2)
-						(object-dead ?z)
 					)
 		:effect (and
 					(not (at ?x ?y ?o1))
 					(object-dead ?o1)
 					(is-walked ?x ?y)
-					(not (object-dead ?z))
-					(when
-                        (oriented-up ?y)
-                        (oriented-up ?z)
-                    )
-                    (when
-                        (oriented-down ?y)
-                        (oriented-down ?z)
-                    )
-                    (when
-                        (oriented-left ?y)
-                        (oriented-left ?z)
-                    )
-                    (when
-                        (oriented-right ?y)
-                        (oriented-right ?z)
-                    )
-                
 				)
 	)
 

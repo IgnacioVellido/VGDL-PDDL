@@ -1272,38 +1272,16 @@ class InteractionActions:
         if partner_as_pred:
             parameters = [
                 ["o1", self.sprite.name],
-                ["z", resulting_sprite],
                 ["x", "num"], ["y", "num"]
             ]
             preconditions = [
                 "(turn-interactions)",
                 "(at ?x ?y ?o1)",
                 "(is-{} ?x ?y)".format(self.partner.name),
-                "(object-dead ?z)"
             ]
             effects = [
                 "(not (at ?x ?y ?o1))",
                 "(object-dead ?o1)",
-                "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
-                "(not (object-dead ?z))",
-
-                """(when
-                        (oriented-up ?y)
-                        (oriented-up ?z)
-                    )
-                    (when
-                        (oriented-down ?y)
-                        (oriented-down ?z)
-                    )
-                    (when
-                        (oriented-left ?y)
-                        (oriented-left ?z)
-                    )
-                    (when
-                        (oriented-right ?y)
-                        (oriented-right ?z)
-                    )
-                """
             ]
 
             if both_die:
@@ -1314,38 +1292,16 @@ class InteractionActions:
         elif sprite_as_pred:
             parameters = [
                 ["o1", self.partner.name],
-                ["z", resulting_sprite],
                 ["x", "num"], ["y", "num"]
             ]
             preconditions = [
                 "(turn-interactions)",
                 "(at ?x ?y ?o1)",
                 "(is-{} ?x ?y)".format(self.sprite.name),
-                "(object-dead ?z)"
             ]
             effects = [
                 "(not (at ?x ?y ?o1))",
                 "(object-dead ?o1)",
-                "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
-                "(not (object-dead ?z))",
-
-                """(when
-                            (oriented-up ?y)
-                            (oriented-up ?z)
-                        )
-                        (when
-                            (oriented-down ?y)
-                            (oriented-down ?z)
-                        )
-                        (when
-                            (oriented-left ?y)
-                            (oriented-left ?z)
-                        )
-                        (when
-                            (oriented-right ?y)
-                            (oriented-right ?z)
-                        )
-                """
             ]
 
             if both_die:
@@ -1356,7 +1312,6 @@ class InteractionActions:
             parameters = [
                 ["o1", self.sprite.name],
                 ["o2", self.partner.stype],
-                ["z", resulting_sprite],
                 ["x", "num"], ["y", "num"]
             ]
             preconditions = [
@@ -1364,15 +1319,27 @@ class InteractionActions:
                 "(not (= ?o1 ?o2))",
                 "(at ?x ?y ?o1)",
                 "(at ?x ?y ?o2)",
-                "(object-dead ?z)"
             ]
 
             effects = [
                 "(not (at ?x ?y ?o1))",
                 "(object-dead ?o1)",
-                "(is-{} ?x ?y)".format(resulting_sprite) if resulting_sprite in self.stepbacks else "(at ?x ?y ?z)",
-                "(not (object-dead ?z))",
+            ]
+            if both_die:
+                effects.extend([
+                    "(not (at ?x ?y ?o2))",
+                    "(object-dead ?o2)",
+                ])
 
+        # Including object transformed
+        if resulting_sprite in self.stepbacks:
+            effects.append("(is-{} ?x ?y)".format(resulting_sprite))
+        else:
+            parameters.append(["z", resulting_sprite])
+            preconditions.append("(object-dead ?z)")
+            effects.extend([
+                "(at ?x ?y ?z)",
+                "(not (object-dead ?z))",
                 """(when
                         (oriented-up ?y)
                         (oriented-up ?z)
@@ -1389,13 +1356,7 @@ class InteractionActions:
                         (oriented-right ?y)
                         (oriented-right ?z)
                     )
-                """
-            ]
-            if both_die:
-                effects.extend([
-                    "(not (at ?x ?y ?o2))",
-                    "(object-dead ?o2)",
-                ])
+                """])
 
         return Action(name, parameters, preconditions, effects)
 
