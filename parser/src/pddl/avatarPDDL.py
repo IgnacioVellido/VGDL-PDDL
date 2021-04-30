@@ -72,7 +72,7 @@ class AvatarPDDL:
 
     def get_predicates(self):
         self.predicates = AvatarPredicates(self.avatar, self.stepbacks, 
-                                            self.killIfHasLess, self.partner).predicates
+                                            self.killIfHasLess, self.killIfOtherHasMore, self.partner).predicates
 
 ###############################################################################
 # -----------------------------------------------------------------------------
@@ -631,11 +631,12 @@ class AvatarActions:
 class AvatarPredicates:
     """ Returns different predicates depending of the avatar """
 
-    def __init__(self, avatar: "Sprite", stepbacks: list, killIfHasLess: list, 
+    def __init__(self, avatar: "Sprite", stepbacks: list, killIfHasLess: list, killIfOtherHasMore: list,
                     partner: "Sprite" = None):
         self.avatar = avatar
         self.stepbacks = stepbacks
         self.killIfHasLess = killIfHasLess
+        self.killIfOtherHasMore = killIfOtherHasMore
         self.partner = partner
 
         self.predicates = []
@@ -684,6 +685,8 @@ class AvatarPredicates:
         for o in self.stepbacks:
             self.predicates.append("(is-" + o + " ?x ?y - num)")
         for o in self.killIfHasLess:
+            self.predicates.append("(is-" + o[0] + " ?x ?y - num)")
+        for o in self.killIfOtherHasMore:
             self.predicates.append("(is-" + o[0] + " ?x ?y - num)")
 
         self.predicates.extend(avatar_predicates_list.get(self.avatar.stype, []))

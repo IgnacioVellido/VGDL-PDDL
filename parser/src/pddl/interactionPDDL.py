@@ -33,6 +33,7 @@ class InteractionPDDL:
         avatar: str,
         stepbacks: list,
         listKillIfHasless: list,
+        listKillIfOtherHasMore: list,
         undoAll: list
     ):
         self.interaction = interaction
@@ -41,6 +42,7 @@ class InteractionPDDL:
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
         self.listKillIfHasless = listKillIfHasless
+        self.listKillIfOtherHasMore = listKillIfOtherHasMore
         self.undoAll = undoAll
 
         self.tasks = []     # Empty
@@ -62,7 +64,7 @@ class InteractionPDDL:
     def get_actions(self):
         self.actions = InteractionActions(
             self.interaction, self.sprite, self.partner, self.hierarchy, 
-            self.stepbacks, self.listKillIfHasless, self.undoAll
+            self.stepbacks, self.listKillIfHasless, self.listKillIfOtherHasMore, self.undoAll
         ).actions
 
     # -------------------------------------------------------------------------
@@ -91,6 +93,7 @@ class InteractionActions:
         hierarchy: dict,
         stepbacks: list,
         listKillIfHasless: list,
+        listKillIfOtherHasMore: list,
         undoAll: list
     ):
         self.interaction = interaction
@@ -99,6 +102,7 @@ class InteractionActions:
         self.hierarchy = hierarchy
         self.stepbacks = stepbacks
         self.listKillIfHasless = listKillIfHasless
+        self.listKillIfOtherHasMore = listKillIfOtherHasMore
         self.undoAll = undoAll
 
         self.actions = []
@@ -945,7 +949,13 @@ class InteractionActions:
         number = int(number)
 
 
-        if self.sprite.name in self.stepbacks:
+        # Check if sprite in killIfOtherHasMore
+        inKill = True
+        for o in self.listKillIfOtherHasMore:
+            if self.sprite.name in o[1]:
+                inKill = True
+
+        if self.sprite.name in self.stepbacks or inKill or self.sprite.name in self.listKillIfOtherHasMore:
             parameters = [["o1", self.partner.name], ["x", "num"], ["y", "num"]]
             preconditions = [
                 "(turn-interactions)",

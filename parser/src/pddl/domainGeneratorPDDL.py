@@ -127,14 +127,14 @@ class DomainGeneratorPDDL:
                 # Find if avatar is involved           
                 if i.partner_name in self.hierarchy[self.avatar.name] or i.partner_name == self.avatar.name:                    
                     # Make sure same object is involved in stepBack interaction
-                    if i.sprite_name in self.stepbacks:
-                        parameters = [p for p in i.parameters if "resource=" in p]
-                        resource = parameters[0].replace("resource=",'')
+                    # if i.sprite_name in self.stepbacks:
+                    parameters = [p for p in i.parameters if "resource=" in p]
+                    resource = parameters[0].replace("resource=",'')
 
-                        parameters = [p for p in i.parameters if "limit=" in p]
-                        limit = parameters[0].replace("limit=",'')
+                    parameters = [p for p in i.parameters if "limit=" in p]
+                    limit = parameters[0].replace("limit=",'')
 
-                        self.killIfOtherHasMore.append([i.sprite_name, resource, limit])
+                    self.killIfOtherHasMore.append([i.sprite_name, resource, limit])
 
     def find_undoAll(self):
         for i in self.interactions:
@@ -377,6 +377,7 @@ class DomainGeneratorPDDL:
             new_actions = InteractionPDDL(interaction, sprite, partner,
                                           self.hierarchy, self.avatar.name,
                                           self.stepbacks, self.killIfHasLess,
+                                          self.killIfOtherHasMore,
                                           self.undoAll).actions
 
             if new_actions:
