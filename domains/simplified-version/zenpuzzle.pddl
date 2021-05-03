@@ -13,7 +13,6 @@
 
 	(:types
 		num 
-		isincenter
 		avatar - MovingAvatar
 		wall - Immovable
 		ground - Immovable
