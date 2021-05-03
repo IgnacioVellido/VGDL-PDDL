@@ -39,9 +39,7 @@ actionsCorrespondence:
   AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
 additionalPredicates:
 - (turn-avatar)
-addDeadObjects:
-  walked: 35
-  isincenter: 1
+addDeadObjects: {}
 goals:
 - goalPredicate: (forall (?o - ground) (object-dead ?o))
   priority: 1

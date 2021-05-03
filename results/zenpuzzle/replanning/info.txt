@@ -1,7 +1,9 @@
-Level 0
+Level 7
 
-Timeout 15 min
+Result (1->win; 0->lose): Player0:0, Player0-Score:0.0, timesteps:0
 
-Level 1
-
-Timeout 15 min
+----STATS----                                                                                                                                                                                                                                   
+Execution time: 356 ms                                                                                                  
+Number of goals: 1                                                                                                      
+Number of time the planner was called: 1                                                                                
+Number of discrepancies: 0
