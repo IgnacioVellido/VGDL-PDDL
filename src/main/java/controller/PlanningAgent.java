@@ -609,7 +609,7 @@ public class PlanningAgent extends AbstractPlayer {
             String exceptionMessage = "";
 
             try {
-                exceptionMessage = responseBody.getString("output");
+                exceptionMessage = responseBody.getString("error");
             } catch (JSONException jsonException) {
                 exceptionMessage = responseBody.toString();
             } finally {
