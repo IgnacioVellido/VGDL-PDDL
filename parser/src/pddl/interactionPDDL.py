@@ -407,9 +407,16 @@ class InteractionActions:
         ]
 
         # Add undoAll: objects that can't collide after this interaction
+        pred_sprites = set(self.stepbacks)  # Objects defined as predicate
+        for o in self.listKillIfHasless:
+            pred_sprites.add(o[0])
+        for o in self.listKillIfOtherHasMore:
+            pred_sprites.add(o[0])
+            pred_sprites.add(o[1])        
+
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
-                if o in self.listKillIfHasless or o in self.stepbacks:
+                if o in pred_sprites:
                     preconditions.append("(not (is-{} ?x ?new_y))".format(o))
                 else:
                     preconditions.append("(not (exists (?p - {}) (at ?x ?new_y ?p)))".format(o))
@@ -441,9 +448,16 @@ class InteractionActions:
         ]
 
         # Add undoAll: objects that can't collide after this interaction
+        pred_sprites = set(self.stepbacks)  # Objects defined as predicate
+        for o in self.listKillIfHasless:
+            pred_sprites.add(o[0])
+        for o in self.listKillIfOtherHasMore:
+            pred_sprites.add(o[0])
+            pred_sprites.add(o[1])        
+
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
-                if o in self.listKillIfHasless or o in self.stepbacks:
+                if o in pred_sprites:
                     preconditions.append("(not (is-{} ?x ?new_y))".format(o))
                 else:
                     preconditions.append("(not (exists (?p - {}) (at ?x ?new_y ?p)))".format(o))
@@ -475,9 +489,16 @@ class InteractionActions:
         ]
 
         # Add undoAll: objects that can't collide after this interaction
+        pred_sprites = set(self.stepbacks)  # Objects defined as predicate
+        for o in self.listKillIfHasless:
+            pred_sprites.add(o[0])
+        for o in self.listKillIfOtherHasMore:
+            pred_sprites.add(o[0])
+            pred_sprites.add(o[1])        
+
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
-                if o in self.listKillIfHasless or o in self.stepbacks:
+                if o in pred_sprites:
                     preconditions.append("(not (is-{} ?new_x ?y))".format(o))
                 else:
                     preconditions.append("(not (exists (?p - {}) (at ?new_x ?y ?p)))".format(o))
@@ -509,9 +530,16 @@ class InteractionActions:
         ]
 
         # Add undoAll: objects that can't collide after this interaction
+        pred_sprites = set(self.stepbacks)  # Objects defined as predicate
+        for o in self.listKillIfHasless:
+            pred_sprites.add(o[0])
+        for o in self.listKillIfOtherHasMore:
+            pred_sprites.add(o[0])
+            pred_sprites.add(o[1])        
+
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
-                if o in self.listKillIfHasless or o in self.stepbacks:
+                if o in pred_sprites:
                     preconditions.append("(not (is-{} ?new_x ?y))".format(o))
                 else:
                     preconditions.append("(not (exists (?p - {}) (at ?new_x ?y ?p)))".format(o))
@@ -950,7 +978,7 @@ class InteractionActions:
 
 
         # Check if sprite in killIfOtherHasMore
-        inKill = True
+        inKill = False
         for o in self.listKillIfOtherHasMore:
             if self.sprite.name in o[1]:
                 inKill = True

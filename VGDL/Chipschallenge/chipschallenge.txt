@@ -55,6 +55,7 @@ BasicGame
 
     InteractionSet
         crate avatar > bounceForward
+        crate crate wall reddoor bluedoor greendoor yellowdoor redkey yellowkey bluekey greenkey chip gate mud fire flippers fireboots > undoAll
 
         water crate > transformTo stype=mud killSecond=true
         
