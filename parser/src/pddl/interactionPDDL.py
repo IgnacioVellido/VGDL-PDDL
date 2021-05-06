@@ -412,7 +412,6 @@ class InteractionActions:
             pred_sprites.add(o[0])
         for o in self.listKillIfOtherHasMore:
             pred_sprites.add(o[0])
-            pred_sprites.add(o[1])        
 
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
@@ -452,8 +451,7 @@ class InteractionActions:
         for o in self.listKillIfHasless:
             pred_sprites.add(o[0])
         for o in self.listKillIfOtherHasMore:
-            pred_sprites.add(o[0])
-            pred_sprites.add(o[1])        
+            pred_sprites.add(o[0])    
 
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
@@ -493,8 +491,7 @@ class InteractionActions:
         for o in self.listKillIfHasless:
             pred_sprites.add(o[0])
         for o in self.listKillIfOtherHasMore:
-            pred_sprites.add(o[0])
-            pred_sprites.add(o[1])        
+            pred_sprites.add(o[0])  
 
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
@@ -535,7 +532,6 @@ class InteractionActions:
             pred_sprites.add(o[0])
         for o in self.listKillIfOtherHasMore:
             pred_sprites.add(o[0])
-            pred_sprites.add(o[1])        
 
         if self.sprite.name in self.undoAll.keys():
             for o in self.undoAll[self.sprite.name]:
@@ -980,7 +976,7 @@ class InteractionActions:
         # Check if sprite in killIfOtherHasMore
         inKill = False
         for o in self.listKillIfOtherHasMore:
-            if self.sprite.name in o[1]:
+            if self.sprite.name in o[0]:
                 inKill = True
 
         if self.sprite.name in self.stepbacks or inKill or self.sprite.name in self.listKillIfOtherHasMore:
