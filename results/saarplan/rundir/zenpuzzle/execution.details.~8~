@@ -1,0 +1,77 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zenpuzzle/zenpuzzle.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zenpuzzle/problem-lvl7.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.020s CPU, 0.125s wall-clock]
+Normalizing task... [0.000s CPU, 0.003s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.003s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.030s CPU, 0.016s wall-clock]
+Preparing model... [0.000s CPU, 0.008s wall-clock]
+Generated 99 rules.
+Computing model... [0.120s CPU, 0.119s wall-clock]
+1105 relevant atoms
+3119 auxiliary atoms
+4224 final queue length
+6299 total queue pushes
+Completing instantiation... [0.130s CPU, 0.136s wall-clock]
+Instantiating: [0.290s CPU, 0.289s wall-clock]
+Computing fact groups...
+Finding invariants...
+20 initial candidates
+Finding invariants: [0.050s CPU, 0.049s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+165 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.004s wall-clock]
+Computing fact groups: [0.060s CPU, 0.064s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.002s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.001s wall-clock]
+Processing axioms: [161.650s CPU, 161.673s wall-clock]
+Translating task: [453.630s CPU, 453.652s wall-clock]
+2461 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+88 operators removed
+0 axioms removed
+78 propositions removed
+Detecting unreachable propositions: [15.570s CPU, 15.577s wall-clock]
+Translator variables: 126
+Translator derived variables: 1
+Translator facts: 252
+Translator goal facts: 19
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 422
+Translator axioms: 524288
+Translator task size: 10490839
+Translator peak memory: 1673088 KB
+Writing output... [24.000s CPU, 34.004s wall-clock]
+Done! [494.180s CPU, 504.337s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: ['--h2_time_limit', '15']
+Building causal graph...
+The causal graph is not acyclic.
+125 variables of 126 necessary
+0 of 0 mutex groups necessary.
+421 of 422 operators necessary.
+524288 of 524288 axiom rules necessary.
+Disabling h2 analysis because it does not currently support axioms
+Preprocessor variables: 125
+Preprocessor facts: 250
+Preprocessor derived variables: 1
+Preprocessor operators: 421
+Preprocessor mutex groups: 0
+Preprocessor task size: 10490832
+Writing output...

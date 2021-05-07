@@ -1,0 +1,221 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:zenpuzzle/zenpuzzle.pddl file:zenpuzzle/problem-lvl3.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 44307 ground actions and 5294 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14  0.14 secs
+Goal: conjunctive
+Simplified: 271 ground actions and 147 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.02 secs (max SCC size 1)
+Plan type: E-step
+				Allocated 32 MB permanent (total 132 MB)
+Horizon 5: 5957 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 8281 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 11767 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 16415 variables
+				Allocated 32 MB (total 472 MB)
+14 UNSAT (23 decisions 23 conflicts)
+Horizon 20: 23387 variables
+Horizon 28: 32683 variables
+Horizon 40: 46627 variables
+Horizon 56: 65219 variables
+20 UNSAT (241 decisions 235 conflicts)
+Horizon 80: 93107 variables
+Horizon 113: 131453 variables
+Horizon 160: 186067 variables
+				Allocated 32 MB permanent (total 1165 MB)
+Horizon 226: 262759 variables
+Horizon 320: 371987 variables
+				Allocated 32 MB permanent (total 1402 MB)
+Horizon 452: 525371 variables
+				Allocated 32 MB permanent (total 1555 MB)
+Horizon 640: 743827 variables
+				Allocated 32 MB permanent (total 1725 MB)
+Horizon 905: 1051757 variables
+				Allocated 32 MB permanent (total 1922 MB)
+				Allocated 32 MB permanent (total 1954 MB)
+Horizon 1280: 1487507 variables
+				Allocated 32 MB permanent (total 2186 MB)
+				Allocated 32 MB permanent (total 2218 MB)
+				Allocated 32 MB permanent (total 2250 MB)
+Horizon 1810: 2103367 variables
+				Allocated 32 MB permanent (total 2534 MB)
+				Allocated 32 MB permanent (total 2566 MB)
+				Allocated 32 MB permanent (total 2598 MB)
+				Allocated 32 MB permanent (total 2630 MB)
+Horizon 2560: 2974867 variables
+28 UNSAT (1288 decisions 1011 conflicts)
+						GC: 8.19 MB
+SAT (4469 decisions 1858 conflicts)
+PLAN FOUND: 640 steps
+STEP 0: avatar_action_move_right(avatar,n1,n5,n2)
+STEP 1: end-turn-interactions()
+STEP 2: end-turn-sprites()
+STEP 3: avatar_action_move_right(avatar,n2,n5,n3)
+STEP 4: ground_avatar_transformto(ground_3_5,avatar,n3,n5)
+STEP 5: end-turn-interactions()
+STEP 6: end-turn-sprites()
+STEP 7: avatar_action_move_right(avatar,n3,n5,n4)
+STEP 8: ground_avatar_transformto(ground_4_5,avatar,n4,n5)
+STEP 9: end-turn-interactions()
+STEP 10: end-turn-sprites()
+STEP 11: avatar_action_move_down(avatar,n4,n5,n6)
+STEP 12: ground_avatar_transformto(ground_4_6,avatar,n4,n6)
+STEP 13: end-turn-interactions()
+STEP 14: end-turn-sprites()
+STEP 15: avatar_action_move_right(avatar,n4,n6,n5)
+STEP 16: ground_avatar_transformto(ground_5_6,avatar,n5,n6)
+STEP 17: end-turn-interactions()
+STEP 18: end-turn-sprites()
+STEP 19: avatar_action_move_right(avatar,n5,n6,n6)
+STEP 20: ground_avatar_transformto(ground_6_6,avatar,n6,n6)
+STEP 21: end-turn-interactions()
+STEP 22: end-turn-sprites()
+STEP 23: avatar_action_move_right(avatar,n6,n6,n7)
+STEP 24: ground_avatar_transformto(ground_7_6,avatar,n7,n6)
+STEP 25: end-turn-interactions()
+STEP 26: end-turn-sprites()
+STEP 27: avatar_action_move_down(avatar,n7,n6,n7)
+STEP 28: ground_avatar_transformto(ground_7_7,avatar,n7,n7)
+STEP 29: end-turn-interactions()
+STEP 30: end-turn-sprites()
+STEP 31: avatar_action_move_right(avatar,n7,n7,n8)
+STEP 32: ground_avatar_transformto(ground_8_7,avatar,n8,n7)
+STEP 33: end-turn-interactions()
+STEP 34: end-turn-sprites()
+STEP 35: avatar_action_move_down(avatar,n8,n7,n8)
+STEP 36: end-turn-interactions()
+STEP 37: end-turn-sprites()
+STEP 38: avatar_action_move_left(avatar,n8,n8,n7)
+STEP 39: end-turn-interactions()
+STEP 40: end-turn-sprites()
+STEP 41: avatar_action_move_left(avatar,n7,n8,n6)
+STEP 42: end-turn-interactions()
+STEP 43: end-turn-sprites()
+STEP 44: avatar_action_move_left(avatar,n6,n8,n5)
+STEP 45: end-turn-interactions()
+STEP 46: end-turn-sprites()
+STEP 47: avatar_action_move_left(avatar,n5,n8,n4)
+STEP 48: end-turn-interactions()
+STEP 49: end-turn-sprites()
+STEP 50: avatar_action_move_right(avatar,n4,n8,n5)
+STEP 51: end-turn-interactions()
+STEP 52: end-turn-sprites()
+STEP 53: avatar_action_move_left(avatar,n5,n8,n4)
+STEP 54: end-turn-interactions()
+STEP 55: end-turn-sprites()
+STEP 56: avatar_action_move_up(avatar,n4,n8,n7)
+STEP 57: ground_avatar_transformto(ground_4_7,avatar,n4,n7)
+STEP 58: end-turn-interactions()
+STEP 59: end-turn-sprites()
+STEP 60: avatar_action_move_left(avatar,n4,n7,n3)
+STEP 61: ground_avatar_transformto(ground_3_7,avatar,n3,n7)
+STEP 62: end-turn-interactions()
+STEP 63: end-turn-sprites()
+STEP 64: avatar_action_move_down(avatar,n3,n7,n8)
+STEP 65: end-turn-interactions()
+STEP 66: end-turn-sprites()
+STEP 67: avatar_action_move_right(avatar,n3,n8,n4)
+STEP 68: end-turn-interactions()
+STEP 69: end-turn-sprites()
+STEP 70: avatar_action_move_right(avatar,n4,n8,n5)
+STEP 71: end-turn-interactions()
+STEP 72: end-turn-sprites()
+STEP 73: avatar_action_move_right(avatar,n5,n8,n6)
+STEP 74: end-turn-interactions()
+STEP 75: end-turn-sprites()
+STEP 76: avatar_action_move_right(avatar,n6,n8,n7)
+STEP 77: end-turn-interactions()
+STEP 78: end-turn-sprites()
+STEP 79: avatar_action_move_right(avatar,n7,n8,n8)
+STEP 80: end-turn-interactions()
+STEP 81: end-turn-sprites()
+STEP 82: avatar_action_move_right(avatar,n8,n8,n9)
+STEP 83: end-turn-interactions()
+STEP 84: end-turn-sprites()
+STEP 85: avatar_action_move_up(avatar,n9,n8,n7)
+STEP 86: end-turn-interactions()
+STEP 87: end-turn-sprites()
+STEP 88: avatar_action_move_up(avatar,n9,n7,n6)
+STEP 89: end-turn-interactions()
+STEP 90: end-turn-sprites()
+STEP 91: avatar_action_move_up(avatar,n9,n6,n5)
+STEP 92: end-turn-interactions()
+STEP 93: end-turn-sprites()
+STEP 94: avatar_action_move_left(avatar,n9,n5,n8)
+STEP 95: ground_avatar_transformto(ground_8_5,avatar,n8,n5)
+STEP 96: end-turn-interactions()
+STEP 97: end-turn-sprites()
+STEP 98: avatar_action_move_left(avatar,n8,n5,n7)
+STEP 99: ground_avatar_transformto(ground_7_5,avatar,n7,n5)
+STEP 100: end-turn-interactions()
+STEP 101: end-turn-sprites()
+STEP 102: avatar_action_move_up(avatar,n7,n5,n4)
+STEP 103: ground_avatar_transformto(ground_7_4,avatar,n7,n4)
+STEP 104: end-turn-interactions()
+STEP 105: end-turn-sprites()
+STEP 106: avatar_action_move_left(avatar,n7,n4,n6)
+STEP 107: ground_avatar_transformto(ground_6_4,avatar,n6,n4)
+STEP 108: end-turn-interactions()
+STEP 109: end-turn-sprites()
+STEP 110: avatar_action_move_left(avatar,n6,n4,n5)
+STEP 111: ground_avatar_transformto(ground_5_4,avatar,n5,n4)
+STEP 112: end-turn-interactions()
+STEP 113: end-turn-sprites()
+STEP 114: avatar_action_move_left(avatar,n5,n4,n4)
+STEP 115: ground_avatar_transformto(ground_4_4,avatar,n4,n4)
+STEP 116: end-turn-interactions()
+STEP 117: end-turn-sprites()
+STEP 118: avatar_action_move_up(avatar,n4,n4,n3)
+STEP 119: ground_avatar_transformto(ground_4_3,avatar,n4,n3)
+STEP 120: end-turn-interactions()
+STEP 121: end-turn-sprites()
+STEP 122: avatar_action_move_left(avatar,n4,n3,n3)
+STEP 123: ground_avatar_transformto(ground_3_3,avatar,n3,n3)
+STEP 124: end-turn-interactions()
+STEP 125: end-turn-sprites()
+STEP 126: avatar_action_move_up(avatar,n3,n3,n2)
+STEP 127: end-turn-interactions()
+STEP 128: end-turn-sprites()
+STEP 129: avatar_action_move_right(avatar,n3,n2,n4)
+STEP 130: end-turn-interactions()
+STEP 131: end-turn-sprites()
+STEP 132: avatar_action_move_right(avatar,n4,n2,n5)
+STEP 133: end-turn-interactions()
+STEP 134: end-turn-sprites()
+STEP 135: avatar_action_move_right(avatar,n5,n2,n6)
+STEP 136: end-turn-interactions()
+STEP 137: end-turn-sprites()
+STEP 138: avatar_action_move_right(avatar,n6,n2,n7)
+STEP 139: end-turn-interactions()
+STEP 140: end-turn-sprites()
+STEP 141: avatar_action_move_down(avatar,n7,n2,n3)
+STEP 142: ground_avatar_transformto(ground_7_3,avatar,n7,n3)
+STEP 143: end-turn-interactions()
+STEP 144: end-turn-sprites()
+STEP 145: avatar_action_move_right(avatar,n7,n3,n8)
+STEP 146: ground_avatar_transformto(ground_8_3,avatar,n8,n3)
+147 actions in the plan.
+total time 56.53 preprocess 0.29 
+total size 2.706 GB
+max. learned clause length 29814
+t val conflicts decisions
+5 0 0 0
+7 0 0 0
+10 0 0 0
+14 0 23 23
+20 0 235 241
+28 0 1011 1288
+40 -1 2341 3796
+56 -1 2281 3814
+80 -1 2223 3995
+113 -1 2162 3902
+160 -1 2102 3789
+226 -1 2043 3939
+320 -1 1980 3655
+452 -1 1920 3554
+640 1 1858 4469

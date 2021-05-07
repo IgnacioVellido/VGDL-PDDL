@@ -1,0 +1,192 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:butterflies/butterflies.pddl file:butterflies/problem-lvl6.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 4595 ground actions and 3215 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34  0.48 secs
+Goal: conjunctive
+Simplified: 749 ground actions and 227 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.45 secs (max SCC size 1)
+Plan type: E-step
+				Allocated 32 MB permanent (total 137 MB)
+Horizon 5: 16267 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 22683 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 32307 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 45139 variables
+14 UNSAT (0 decisions 0 conflicts)
+Horizon 20: 64387 variables
+20 UNSAT (0 decisions 0 conflicts)
+Horizon 28: 90051 variables
+				Allocated 32 MB (total 648 MB)
+Horizon 40: 128547 variables
+Horizon 56: 179875 variables
+				Allocated 32 MB permanent (total 942 MB)
+Horizon 80: 256867 variables
+Horizon 113: 362731 variables
+				Allocated 32 MB permanent (total 1179 MB)
+Horizon 160: 513507 variables
+28 UNSAT (367 decisions 343 conflicts)
+				Allocated 32 MB permanent (total 1330 MB)
+Horizon 226: 725235 variables
+				Allocated 32 MB permanent (total 1499 MB)
+Horizon 320: 1026787 variables
+				Allocated 32 MB permanent (total 1693 MB)
+				Allocated 32 MB permanent (total 1725 MB)
+Horizon 452: 1450243 variables
+				Allocated 32 MB permanent (total 1955 MB)
+				Allocated 32 MB permanent (total 1987 MB)
+				Allocated 32 MB permanent (total 2019 MB)
+Horizon 640: 2053347 variables
+				Allocated 32 MB permanent (total 2299 MB)
+				Allocated 32 MB permanent (total 2331 MB)
+				Allocated 32 MB permanent (total 2363 MB)
+				Allocated 32 MB permanent (total 2395 MB)
+Horizon 905: 2903467 variables
+				Allocated 32 MB permanent (total 2746 MB)
+				Allocated 32 MB permanent (total 2778 MB)
+				Allocated 32 MB permanent (total 2810 MB)
+				Allocated 32 MB permanent (total 2842 MB)
+				Allocated 32 MB permanent (total 2874 MB)
+				Allocated 32 MB permanent (total 2906 MB)
+Horizon 1280: 4106467 variables
+				Allocated 32 MB permanent (total 3357 MB)
+				Allocated 32 MB permanent (total 3389 MB)
+				Allocated 32 MB permanent (total 3421 MB)
+				Allocated 32 MB permanent (total 3453 MB)
+				Allocated 32 MB permanent (total 3485 MB)
+				Allocated 32 MB permanent (total 3517 MB)
+				Allocated 32 MB permanent (total 3549 MB)
+				Allocated 32 MB permanent (total 3581 MB)
+Horizon 1810: 5806707 variables
+				Allocated 32 MB permanent (total 4175 MB)
+				Allocated 32 MB permanent (total 4207 MB)
+				Allocated 32 MB permanent (total 4239 MB)
+				Allocated 32 MB permanent (total 4271 MB)
+				Allocated 32 MB permanent (total 4303 MB)
+				Allocated 32 MB permanent (total 4335 MB)
+				Allocated 32 MB permanent (total 4367 MB)
+				Allocated 32 MB permanent (total 4399 MB)
+				Allocated 32 MB permanent (total 4431 MB)
+				Allocated 32 MB permanent (total 4463 MB)
+				Allocated 32 MB permanent (total 4495 MB)
+				Allocated 32 MB permanent (total 4527 MB)
+Horizon 2560: 8212707 variables
+40 UNSAT (1622 decisions 1246 conflicts)
+						GC: 18.97 MB
+SAT (14095 decisions 2620 conflicts)
+PLAN FOUND: 320 steps
+STEP 0: avatar_action_move_down(avatar,n3,n2,n3)
+STEP 1: end-turn-interactions()
+STEP 2: end-turn-sprites()
+STEP 3: avatar_action_move_down(avatar,n3,n3,n4)
+STEP 4: end-turn-interactions()
+STEP 5: end-turn-sprites()
+STEP 6: avatar_action_move_down(avatar,n3,n4,n5)
+STEP 7: end-turn-interactions()
+STEP 8: end-turn-sprites()
+STEP 9: avatar_action_move_down(avatar,n3,n5,n6)
+STEP 10: end-turn-interactions()
+STEP 11: end-turn-sprites()
+STEP 12: avatar_action_move_down(avatar,n3,n6,n7)
+STEP 13: end-turn-interactions()
+STEP 14: end-turn-sprites()
+STEP 15: avatar_action_move_down(avatar,n3,n7,n8)
+STEP 16: end-turn-interactions()
+STEP 17: end-turn-sprites()
+STEP 18: avatar_action_move_down(avatar,n3,n8,n9)
+STEP 19: end-turn-interactions()
+STEP 20: end-turn-sprites()
+STEP 21: avatar_action_move_left(avatar,n3,n9,n2)
+STEP 22: end-turn-interactions()
+STEP 23: end-turn-sprites()
+STEP 24: avatar_action_move_left(avatar,n2,n9,n1)
+STEP 25: butterfly_avatar_killsprite(butterfly_1_9,avatar,n1,n9)
+STEP 26: end-turn-interactions()
+STEP 27: end-turn-sprites()
+STEP 28: avatar_action_move_right(avatar,n1,n9,n2)
+STEP 29: end-turn-interactions()
+STEP 30: end-turn-sprites()
+STEP 31: avatar_action_move_right(avatar,n2,n9,n3)
+STEP 32: end-turn-interactions()
+STEP 33: end-turn-sprites()
+STEP 34: avatar_action_move_right(avatar,n3,n9,n4)
+STEP 35: end-turn-interactions()
+STEP 36: end-turn-sprites()
+STEP 37: avatar_action_move_right(avatar,n4,n9,n5)
+STEP 38: end-turn-interactions()
+STEP 39: end-turn-sprites()
+STEP 40: avatar_action_move_right(avatar,n5,n9,n6)
+STEP 41: end-turn-interactions()
+STEP 42: end-turn-sprites()
+STEP 43: avatar_action_move_right(avatar,n6,n9,n7)
+STEP 44: end-turn-interactions()
+STEP 45: end-turn-sprites()
+STEP 46: avatar_action_move_right(avatar,n7,n9,n8)
+STEP 47: end-turn-interactions()
+STEP 48: end-turn-sprites()
+STEP 49: avatar_action_move_right(avatar,n8,n9,n9)
+STEP 50: end-turn-interactions()
+STEP 51: end-turn-sprites()
+STEP 52: avatar_action_move_right(avatar,n9,n9,n10)
+STEP 53: end-turn-interactions()
+STEP 54: end-turn-sprites()
+STEP 55: avatar_action_move_right(avatar,n10,n9,n11)
+STEP 56: end-turn-interactions()
+STEP 57: end-turn-sprites()
+STEP 58: avatar_action_move_right(avatar,n11,n9,n12)
+STEP 59: end-turn-interactions()
+STEP 60: end-turn-sprites()
+STEP 61: avatar_action_move_right(avatar,n12,n9,n13)
+STEP 62: end-turn-interactions()
+STEP 63: end-turn-sprites()
+STEP 64: avatar_action_move_right(avatar,n13,n9,n14)
+STEP 65: end-turn-interactions()
+STEP 66: end-turn-sprites()
+STEP 67: avatar_action_move_up(avatar,n14,n9,n8)
+STEP 68: end-turn-interactions()
+STEP 69: end-turn-sprites()
+STEP 70: avatar_action_move_right(avatar,n14,n8,n15)
+STEP 71: end-turn-interactions()
+STEP 72: end-turn-sprites()
+STEP 73: avatar_action_move_up(avatar,n15,n8,n7)
+STEP 74: end-turn-interactions()
+STEP 75: end-turn-sprites()
+STEP 76: avatar_action_move_right(avatar,n15,n7,n16)
+STEP 77: end-turn-interactions()
+STEP 78: end-turn-sprites()
+STEP 79: avatar_action_move_right(avatar,n16,n7,n17)
+STEP 80: end-turn-interactions()
+STEP 81: end-turn-sprites()
+STEP 82: avatar_action_move_up(avatar,n17,n7,n6)
+STEP 83: end-turn-interactions()
+STEP 84: end-turn-sprites()
+STEP 85: avatar_action_move_right(avatar,n17,n6,n18)
+STEP 86: end-turn-interactions()
+STEP 87: end-turn-sprites()
+STEP 88: avatar_action_move_right(avatar,n18,n6,n19)
+STEP 89: end-turn-interactions()
+STEP 90: end-turn-sprites()
+STEP 91: avatar_action_move_up(avatar,n19,n6,n5)
+STEP 92: butterfly_avatar_killsprite(butterfly_19_5,avatar,n19,n5)
+93 actions in the plan.
+total time 266.64 preprocess 1.10 
+total size 4.626 GB
+max. learned clause length 1226
+t val conflicts decisions
+5 0 0 0
+7 0 0 0
+10 0 0 0
+14 0 0 0
+20 0 0 0
+28 0 343 367
+40 0 1246 1622
+56 -1 2941 4797
+80 -1 2885 13735
+113 -1 2823 14749
+160 -1 2761 12747
+226 -1 2700 9067
+320 1 2620 14095

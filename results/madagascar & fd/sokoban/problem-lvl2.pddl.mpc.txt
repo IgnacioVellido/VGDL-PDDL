@@ -1,0 +1,61 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:sokoban/sokoban.pddl file:sokoban/problem-lvl2.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 2852 ground actions and 999 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  0.15 secs
+Goal: conjunctive
+Simplified: 548 ground actions and 202 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.01 secs (max SCC size 379)
+Plan type: E-step
+				Allocated 32 MB permanent (total 127 MB)
+Horizon 5: 5962 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 8266 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 11722 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 16330 variables
+				Allocated 32 MB (total 468 MB)
+14 UNSAT (29 decisions 28 conflicts)
+Horizon 20: 23242 variables
+Horizon 28: 32458 variables
+Horizon 40: 46282 variables
+Horizon 56: 64714 variables
+Horizon 80: 92362 variables
+20 UNSAT (277 decisions 260 conflicts)
+Horizon 113: 130378 variables
+Horizon 160: 184522 variables
+				Allocated 32 MB permanent (total 1160 MB)
+Horizon 226: 260554 variables
+Horizon 320: 368842 variables
+				Allocated 32 MB permanent (total 1397 MB)
+Horizon 452: 520906 variables
+				Allocated 32 MB permanent (total 1549 MB)
+Horizon 640: 737482 variables
+				Allocated 32 MB permanent (total 1719 MB)
+Horizon 905: 1042762 variables
+				Allocated 32 MB permanent (total 1915 MB)
+				Allocated 32 MB permanent (total 1947 MB)
+Horizon 1280: 1474762 variables
+28 UNSAT (844 decisions 672 conflicts)
+				Allocated 32 MB permanent (total 2178 MB)
+				Allocated 32 MB permanent (total 2210 MB)
+				Allocated 32 MB permanent (total 2242 MB)
+Horizon 1810: 2085322 variables
+				Allocated 32 MB permanent (total 2525 MB)
+				Allocated 32 MB permanent (total 2557 MB)
+				Allocated 32 MB permanent (total 2589 MB)
+				Allocated 32 MB permanent (total 2621 MB)
+Horizon 2560: 2949322 variables
+						GC: 5.64 MB
+						GC: 4.73 MB
+40 UNSAT (5571 decisions 3538 conflicts)
+						GC: 9.53 MB
+						GC: 8.72 MB
+						GC: 8.90 MB
+						GC: 9.56 MB
+						GC: 10.85 MB
+						GC: 11.54 MB
+						GC: 11.19 MB

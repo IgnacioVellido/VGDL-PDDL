@@ -1,0 +1,549 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zelda/zelda.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zelda/problem-lvl9.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.030s CPU, 0.123s wall-clock]
+Normalizing task... [0.010s CPU, 0.004s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.023s wall-clock]
+Preparing model... [0.010s CPU, 0.012s wall-clock]
+Generated 192 rules.
+Computing model... [0.300s CPU, 0.300s wall-clock]
+1986 relevant atoms
+9288 auxiliary atoms
+11274 final queue length
+14242 total queue pushes
+Completing instantiation... [0.190s CPU, 0.181s wall-clock]
+Instantiating: [0.520s CPU, 0.530s wall-clock]
+Computing fact groups...
+Finding invariants...
+24 initial candidates
+Finding invariants: [0.190s CPU, 0.191s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+354 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.006s wall-clock]
+Computing fact groups: [0.220s CPU, 0.219s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.002s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.002s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.002s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.001s wall-clock]
+Processing axioms: [0.010s CPU, 0.014s wall-clock]
+Translating task: [0.230s CPU, 0.235s wall-clock]
+1790 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+324 operators removed
+0 axioms removed
+140 propositions removed
+Detecting unreachable propositions: [0.080s CPU, 0.082s wall-clock]
+Translator variables: 287
+Translator derived variables: 3
+Translator facts: 588
+Translator goal facts: 1
+Translator mutex groups: 2
+Translator total mutex groups size: 18
+Translator operators: 889
+Translator axioms: 5
+Translator task size: 7123
+Translator peak memory: 55444 KB
+Writing output... [0.040s CPU, 0.065s wall-clock]
+Done! [1.140s CPU, 1.283s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: ['--h2_time_limit', '15']
+Building causal graph...
+The causal graph is not acyclic.
+117 variables of 287 necessary
+0 of 2 mutex groups necessary.
+720 of 889 operators necessary.
+5 of 5 axiom rules necessary.
+Disabling h2 analysis because it does not currently support axioms
+Preprocessor variables: 117
+Preprocessor facts: 248
+Preprocessor derived variables: 3
+Preprocessor operators: 720
+Preprocessor mutex groups: 0
+Preprocessor task size: 5508
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search portfolio: /planner/driver/portfolios/seq_sat_saarplan.py
+External time limits: 900, 900
+Internal time limit: 900
+External memory limits: -1, -1
+Internal memory limit: 8000000000
+remaining time at start: 895.60
+remaining time: 895.6
+config 0: relative time 100, remaining 1800
+g bound: infinity
+next plan number: 1
+args: ['/planner/driver/../fast-downward-decoupled/search/downward-release', '--decoupling', 'fork(search_type=sat, pruning=cost_frontier(irrelevance=TRANSITIONS), max_leaf_size=1000000)', '--heuristic', 'hff=ff(cost_type=one)', '--search', 'lazy_greedy(hff, preferred=hff, cost_type=one, bound=infinity)', '--internal-previous-portfolio-plans', '0', '--internal-plan-file', '/sas_plan']
+timeout: 49.76 -> (50, 51)
+using frontier pruning method
+performing irrelevance analysis in leaf factors
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using fork factoring profile
+reading input... [t=0.025865s]
+done reading input! [t=0.0347948s]
+Peak memory: 3928 KB
+returncode: 3
+
+remaining time: 895.33
+config 1: relative time 600, remaining 1700
+g bound: infinity
+next plan number: 1
+args: ['/planner/driver/../fast-downward-decoupled/search/downward-release', '--decoupling', 'portfolio(fallback_on_abstain=true, overwrite_options=true, choose_max_leaves=true,          factorings=[fork(search_type=sat, max_leaf_size=1000000), ifork(search_type=sat, max_leaf_size=1000000), incarcs(search_type=sat, max_leaf_size=100000)])', '--heuristic', 'hff=ff(cost_type=one)', '--search', 'lazy_greedy(hff, preferred=hff, cost_type=one, bound=infinity, symmetry=symmetry_state_pruning(lex_prices=false, lex_num_states=false, lex_goal_cost=false))', '--internal-previous-portfolio-plans', '0', '--internal-plan-file', '/sas_plan']
+timeout: 316.00 -> (316, 317)
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using default pruning method: BasicPruning
+using fork factoring profile
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using default pruning method: BasicPruning
+using inverted-fork factoring profile
+performing decoupled satisficing search
+maximum leaf factor size 100000
+using default pruning method: BasicPruning
+using incident-arcs factoring profile
+performing Star Decoupled A* search
+using default pruning method: BasicPruning
+using factoring portfolio
+reading input... [t=0.0063247s]
+done reading input! [t=0.0209056s]
+Variables: 117
+Bytes per state: 16
+Building successor generator...done! [t=0.022346s]
+peak memory difference for root successor generator creation: 144 KB
+time for root successor generation creation: 0s
+done! [t=0.0239845s]
+done initalizing global data [t=0.0242691s]
+Creating symmetry graph stabilizing goal only and using orbit search.
+Conducting lazy best first search, (real) bound = 2147483647
+Initializing FF heuristic...
+Initializing additive heuristic...
+Simplifying 2254 unary operators... done! [1954 unary operators]
+Best heuristic value: 33 [g=0, 1 evaluated, 0 expanded, t=0.030012s, 4880 KB]
+Best heuristic value: 32 [g=9, 13 evaluated, 12 expanded, t=0.0311852s, 4880 KB]
+Best heuristic value: 31 [g=14, 21 evaluated, 20 expanded, t=0.0323702s, 4880 KB]
+Best heuristic value: 30 [g=19, 29 evaluated, 28 expanded, t=0.0330792s, 4880 KB]
+Best heuristic value: 29 [g=24, 37 evaluated, 36 expanded, t=0.0339511s, 4880 KB]
+Best heuristic value: 28 [g=90, 230 evaluated, 228 expanded, t=0.0403686s, 4880 KB]
+Best heuristic value: 27 [g=180, 506 evaluated, 503 expanded, t=0.0597504s, 4880 KB]
+Best heuristic value: 26 [g=221, 622 evaluated, 619 expanded, t=0.0691253s, 4880 KB]
+Best heuristic value: 25 [g=231, 633 evaluated, 630 expanded, t=0.0753433s, 4880 KB]
+Best heuristic value: 24 [g=236, 640 evaluated, 637 expanded, t=0.0763391s, 4880 KB]
+Best heuristic value: 23 [g=241, 647 evaluated, 644 expanded, t=0.0771072s, 4880 KB]
+Best heuristic value: 22 [g=246, 654 evaluated, 651 expanded, t=0.0777221s, 4880 KB]
+Best heuristic value: 21 [g=251, 661 evaluated, 658 expanded, t=0.0784947s, 4880 KB]
+Best heuristic value: 20 [g=256, 668 evaluated, 665 expanded, t=0.0793033s, 4880 KB]
+Best heuristic value: 19 [g=261, 675 evaluated, 672 expanded, t=0.080076s, 4880 KB]
+Best heuristic value: 18 [g=266, 682 evaluated, 679 expanded, t=0.0808525s, 4880 KB]
+Best heuristic value: 17 [g=276, 698 evaluated, 695 expanded, t=0.0816272s, 4880 KB]
+Best heuristic value: 16 [g=286, 712 evaluated, 709 expanded, t=0.0830235s, 4880 KB]
+Best heuristic value: 15 [g=291, 721 evaluated, 718 expanded, t=0.0841941s, 4880 KB]
+Best heuristic value: 14 [g=296, 728 evaluated, 725 expanded, t=0.0851305s, 4880 KB]
+Best heuristic value: 13 [g=301, 735 evaluated, 732 expanded, t=0.0859042s, 4880 KB]
+Best heuristic value: 12 [g=306, 742 evaluated, 739 expanded, t=0.0866725s, 4880 KB]
+Best heuristic value: 11 [g=311, 749 evaluated, 746 expanded, t=0.0874363s, 4880 KB]
+Best heuristic value: 10 [g=316, 756 evaluated, 753 expanded, t=0.0884152s, 4880 KB]
+Best heuristic value: 9 [g=321, 763 evaluated, 760 expanded, t=0.0890243s, 4880 KB]
+Best heuristic value: 8 [g=330, 775 evaluated, 772 expanded, t=0.0897547s, 4880 KB]
+Best heuristic value: 7 [g=335, 782 evaluated, 779 expanded, t=0.0907538s, 4880 KB]
+Best heuristic value: 6 [g=341, 789 evaluated, 786 expanded, t=0.0914902s, 4880 KB]
+Best heuristic value: 5 [g=346, 794 evaluated, 791 expanded, t=0.0922253s, 4880 KB]
+Best heuristic value: 4 [g=351, 800 evaluated, 797 expanded, t=0.0928551s, 4880 KB]
+Best heuristic value: 3 [g=356, 806 evaluated, 803 expanded, t=0.0935268s, 4880 KB]
+Best heuristic value: 1 [g=362, 812 evaluated, 809 expanded, t=0.0942243s, 4880 KB]
+Solution found!
+Actual search time: 0.0697523s [t=0.0952081s]
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n1 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n1 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n1 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n1 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n1 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n1 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n1 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n1 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n3 n1 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n3 n2 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n3 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n3 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n3 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n3 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n3 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n3 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n3 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n3 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n4 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n5 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n5 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n5 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n5 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n5 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n5 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n3 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n3 n6 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n7 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n7 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n7 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n7 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+key_avatar_collectresource key_11_7 avatar n11 n7 n0 n1 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n7 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n7 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n7 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n7 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n3 n7 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n3 n6 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n5 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n5 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n5 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n5 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n5 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n5 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n10 n5 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n10 n4 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n3 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n3 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n3 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n3 n2 (1)
+goal_avatar_killifotherhasmore goal_7_2 avatar n7 n2 (1)
+Plan length: 363 step(s).
+Plan cost: 363
+Initial state h value: 33.
+Expanded 810 state(s).
+Reopened 0 state(s).
+Evaluated 813 state(s).
+Evaluations: 813
+Generated 1358 state(s).
+Dead ends: 2 state(s).
+Number of registered states: 813
+Search time: 0.0703862s
+Total time: 0.0954921s
+Solution found.
+Peak memory: 4880 KB
+returncode: 0
+

@@ -1,0 +1,40 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/bait.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/problem-lvl6.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.030s CPU, 0.183s wall-clock]
+Normalizing task... [0.000s CPU, 0.005s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.030s CPU, 0.028s wall-clock]
+Preparing model... [0.010s CPU, 0.014s wall-clock]
+Generated 201 rules.
+Computing model... [1.210s CPU, 1.204s wall-clock]
+7205 relevant atoms
+32300 auxiliary atoms
+39505 final queue length
+46620 total queue pushes
+Completing instantiation... [0.690s CPU, 0.694s wall-clock]
+Instantiating: [1.960s CPU, 1.970s wall-clock]
+Computing fact groups...
+Finding invariants...
+22 initial candidates
+Finding invariants: [0.060s CPU, 0.063s wall-clock]
+Checking invariant weight... [0.010s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.002s wall-clock]
+Choosing groups...
+1210 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.016s wall-clock]
+Computing fact groups: [0.120s CPU, 0.129s wall-clock]
+Building STRIPS to SAS dictionary... [0.010s CPU, 0.006s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.004s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.005s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.020s CPU, 0.021s wall-clock]
+Command '['/planner/driver/../fast-downward-conjunctions/src/translate/translate.py', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/bait.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/problem-lvl6.pddl']' returned non-zero exit status -9

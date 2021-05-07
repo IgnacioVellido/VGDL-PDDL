@@ -1,0 +1,45 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py chipschallenge/chipschallenge.pddl chipschallenge/problem-lvl1.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.040s CPU, 0.202s wall-clock]
+Normalizing task... [0.150s CPU, 0.153s wall-clock]
+Instantiating...
+Generating Datalog program... [0.070s CPU, 0.076s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [1.340s CPU, 1.415s wall-clock]
+Preparing model... [0.570s CPU, 0.568s wall-clock]
+Generated 14164 rules.
+Computing model... [10.450s CPU, 10.451s wall-clock]
+6962 relevant atoms
+224922 auxiliary atoms
+231884 final queue length
+239370 total queue pushes
+Completing instantiation... [0.610s CPU, 0.615s wall-clock]
+Instantiating: [13.270s CPU, 13.358s wall-clock]
+Computing fact groups...
+Finding invariants...
+49 initial candidates
+Finding invariants: [0.450s CPU, 0.452s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+1164 uncovered facts
+Choosing groups: [0.010s CPU, 0.002s wall-clock]
+Building translation key... [0.000s CPU, 0.010s wall-clock]
+Computing fact groups: [0.480s CPU, 0.493s wall-clock]
+Building STRIPS to SAS dictionary... [0.010s CPU, 0.003s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.003s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.002s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.020s CPU, 0.014s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... translate exit code: -9
+
+Driver aborting after translate

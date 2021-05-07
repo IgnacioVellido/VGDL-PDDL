@@ -1,0 +1,533 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/testVGDL-PDDL/planners/FastDownward/builds/release/bin/translate/translate.py iceandfire/iceandfire.pddl iceandfire/problem-lvl3.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.020s CPU, 0.034s wall-clock]
+Normalizing task... [0.000s CPU, 0.005s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.070s CPU, 0.180s wall-clock]
+Preparing model... [0.010s CPU, 0.016s wall-clock]
+Generated 405 rules.
+Computing model... [0.400s CPU, 0.392s wall-clock]
+2676 relevant atoms
+16691 auxiliary atoms
+19367 final queue length
+25328 total queue pushes
+Completing instantiation... [0.190s CPU, 0.188s wall-clock]
+Instantiating: [0.680s CPU, 0.796s wall-clock]
+Computing fact groups...
+Finding invariants...
+21 initial candidates
+Finding invariants: [0.120s CPU, 0.114s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+273 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.003s wall-clock]
+Computing fact groups: [0.130s CPU, 0.131s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.001s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.001s wall-clock]
+Processing axioms: [0.010s CPU, 0.012s wall-clock]
+Translating task: [0.700s CPU, 0.700s wall-clock]
+15313 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+1484 operators removed
+0 axioms removed
+280 propositions removed
+Detecting unreachable propositions: [0.170s CPU, 0.178s wall-clock]
+Reordering and filtering variables...
+133 of 136 variables necessary.
+0 of 2 mutex groups necessary.
+1605 of 1606 operators necessary.
+11 of 11 axiom rules necessary.
+Reordering and filtering variables: [0.070s CPU, 0.069s wall-clock]
+Translator variables: 133
+Translator derived variables: 4
+Translator facts: 294
+Translator goal facts: 1
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 1605
+Translator axioms: 11
+Translator task size: 19080
+Translator peak memory: 41612 KB
+Writing output... [0.060s CPU, 0.082s wall-clock]
+Done! [1.840s CPU, 2.017s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /mnt/e/Users/ignac/Desktop/testVGDL-PDDL/planners/FastDownward/builds/release/bin/downward --search 'astar(blind())' --internal-plan-file sas_plan < output.sas
+[t=0.0041869s, 9964 KB] reading input...
+[t=0.0444048s, 10768 KB] done reading input!
+[t=0.0477075s, 11032 KB] Initializing blind search heuristic...
+[t=0.0482557s, 11032 KB] Building successor generator...done!
+[t=0.0506442s, 11296 KB] peak memory difference for successor generator creation: 264 KB
+[t=0.0510306s, 11296 KB] time for successor generation creation: 0s
+[t=0.0512895s, 11296 KB] Variables: 133
+[t=0.051576s, 11296 KB] FactPairs: 294
+[t=0.0518435s, 11296 KB] Bytes per state: 20
+[t=0.0521272s, 11296 KB] Conducting best first search with reopening closed nodes, (real) bound = 2147483647
+[t=0.0526433s, 11296 KB] New best heuristic value for blind: 1
+[t=0.0529288s, 11296 KB] g=0, 1 evaluated, 0 expanded
+[t=0.0532042s, 11296 KB] f = 1, 1 evaluated, 0 expanded
+[t=0.0534688s, 11296 KB] Initial heuristic value for blind: 1
+[t=0.0538153s, 11296 KB] pruning method: none
+[t=0.0541292s, 11296 KB] f = 2, 4 evaluated, 1 expanded
+[t=0.054477s, 11296 KB] f = 3, 7 evaluated, 4 expanded
+[t=0.0548286s, 11296 KB] f = 4, 10 evaluated, 7 expanded
+[t=0.0551447s, 11296 KB] f = 5, 16 evaluated, 10 expanded
+[t=0.0555369s, 11296 KB] f = 6, 22 evaluated, 16 expanded
+[t=0.0559503s, 11296 KB] f = 7, 28 evaluated, 22 expanded
+[t=0.0563201s, 11296 KB] f = 8, 34 evaluated, 28 expanded
+[t=0.0567182s, 11296 KB] f = 9, 40 evaluated, 34 expanded
+[t=0.0570523s, 11296 KB] f = 10, 46 evaluated, 40 expanded
+[t=0.0573852s, 11296 KB] f = 11, 53 evaluated, 46 expanded
+[t=0.0577734s, 11296 KB] f = 12, 60 evaluated, 53 expanded
+[t=0.0581236s, 11296 KB] f = 13, 67 evaluated, 60 expanded
+[t=0.0585079s, 11296 KB] f = 14, 77 evaluated, 67 expanded
+[t=0.0589647s, 11296 KB] f = 15, 87 evaluated, 77 expanded
+[t=0.0593654s, 11296 KB] f = 16, 97 evaluated, 87 expanded
+[t=0.0597645s, 11296 KB] f = 17, 108 evaluated, 97 expanded
+[t=0.0601945s, 11296 KB] f = 18, 119 evaluated, 108 expanded
+[t=0.060608s, 11296 KB] f = 19, 130 evaluated, 119 expanded
+[t=0.0610045s, 11296 KB] f = 20, 140 evaluated, 130 expanded
+[t=0.0614621s, 11296 KB] f = 21, 150 evaluated, 140 expanded
+[t=0.0618198s, 11296 KB] f = 22, 160 evaluated, 150 expanded
+[t=0.0622178s, 11296 KB] f = 23, 170 evaluated, 160 expanded
+[t=0.0626591s, 11296 KB] f = 24, 180 evaluated, 170 expanded
+[t=0.0630984s, 11296 KB] f = 25, 190 evaluated, 180 expanded
+[t=0.0634849s, 11296 KB] f = 26, 200 evaluated, 190 expanded
+[t=0.0640735s, 11296 KB] f = 27, 210 evaluated, 200 expanded
+[t=0.0645032s, 11296 KB] f = 28, 220 evaluated, 210 expanded
+[t=0.0649019s, 11296 KB] f = 29, 228 evaluated, 220 expanded
+[t=0.06539s, 11296 KB] f = 30, 236 evaluated, 228 expanded
+[t=0.0656074s, 11296 KB] f = 31, 244 evaluated, 236 expanded
+[t=0.065945s, 11296 KB] f = 32, 250 evaluated, 244 expanded
+[t=0.0663791s, 11296 KB] f = 33, 256 evaluated, 250 expanded
+[t=0.06666s, 11296 KB] f = 34, 262 evaluated, 256 expanded
+[t=0.0670129s, 11296 KB] f = 35, 267 evaluated, 262 expanded
+[t=0.0674734s, 11296 KB] f = 36, 272 evaluated, 267 expanded
+[t=0.0678004s, 11296 KB] f = 37, 277 evaluated, 272 expanded
+[t=0.0681555s, 11296 KB] f = 38, 281 evaluated, 277 expanded
+[t=0.0686318s, 11296 KB] f = 39, 285 evaluated, 281 expanded
+[t=0.0690417s, 11296 KB] f = 40, 289 evaluated, 285 expanded
+[t=0.0692649s, 11296 KB] f = 41, 293 evaluated, 289 expanded
+[t=0.0696239s, 11296 KB] f = 42, 297 evaluated, 293 expanded
+[t=0.0699392s, 11296 KB] f = 43, 301 evaluated, 297 expanded
+[t=0.0702458s, 11296 KB] f = 44, 305 evaluated, 301 expanded
+[t=0.0705407s, 11296 KB] f = 45, 309 evaluated, 305 expanded
+[t=0.0708911s, 11296 KB] f = 46, 313 evaluated, 309 expanded
+[t=0.0712413s, 11296 KB] f = 47, 317 evaluated, 313 expanded
+[t=0.0716355s, 11296 KB] f = 48, 321 evaluated, 317 expanded
+[t=0.0719567s, 11296 KB] f = 49, 325 evaluated, 321 expanded
+[t=0.0722288s, 11296 KB] f = 50, 328 evaluated, 325 expanded
+[t=0.072614s, 11296 KB] f = 51, 331 evaluated, 328 expanded
+[t=0.0729469s, 11296 KB] f = 52, 334 evaluated, 331 expanded
+[t=0.0733042s, 11296 KB] f = 53, 337 evaluated, 334 expanded
+[t=0.0736377s, 11296 KB] f = 54, 340 evaluated, 337 expanded
+[t=0.0739574s, 11296 KB] f = 55, 343 evaluated, 340 expanded
+[t=0.0742954s, 11296 KB] f = 56, 347 evaluated, 343 expanded
+[t=0.0746312s, 11296 KB] f = 57, 352 evaluated, 347 expanded
+[t=0.0749554s, 11296 KB] f = 58, 357 evaluated, 352 expanded
+[t=0.0752828s, 11296 KB] f = 59, 362 evaluated, 357 expanded
+[t=0.0756769s, 11296 KB] f = 60, 367 evaluated, 362 expanded
+[t=0.0761058s, 11296 KB] f = 61, 372 evaluated, 367 expanded
+[t=0.07656s, 11296 KB] f = 62, 375 evaluated, 372 expanded
+[t=0.0768868s, 11296 KB] f = 63, 378 evaluated, 375 expanded
+[t=0.0772148s, 11296 KB] f = 64, 381 evaluated, 378 expanded
+[t=0.0775224s, 11296 KB] f = 65, 383 evaluated, 381 expanded
+[t=0.0778398s, 11296 KB] f = 66, 386 evaluated, 383 expanded
+[t=0.0781663s, 11296 KB] f = 67, 389 evaluated, 386 expanded
+[t=0.0784629s, 11296 KB] f = 68, 392 evaluated, 389 expanded
+[t=0.0787726s, 11296 KB] f = 69, 396 evaluated, 392 expanded
+[t=0.0791203s, 11296 KB] f = 70, 400 evaluated, 396 expanded
+[t=0.0794381s, 11296 KB] f = 71, 404 evaluated, 400 expanded
+[t=0.0797914s, 11296 KB] f = 72, 408 evaluated, 404 expanded
+[t=0.0801473s, 11296 KB] f = 73, 412 evaluated, 408 expanded
+[t=0.0804643s, 11296 KB] f = 74, 416 evaluated, 412 expanded
+[t=0.0807761s, 11296 KB] f = 75, 421 evaluated, 416 expanded
+[t=0.0810961s, 11296 KB] f = 76, 426 evaluated, 421 expanded
+[t=0.0814613s, 11296 KB] f = 77, 431 evaluated, 426 expanded
+[t=0.0818171s, 11296 KB] f = 78, 436 evaluated, 431 expanded
+[t=0.0821576s, 11296 KB] f = 79, 441 evaluated, 436 expanded
+[t=0.0824806s, 11296 KB] f = 80, 446 evaluated, 441 expanded
+[t=0.082802s, 11296 KB] f = 81, 451 evaluated, 446 expanded
+[t=0.0831749s, 11296 KB] f = 82, 456 evaluated, 451 expanded
+[t=0.0834888s, 11296 KB] f = 83, 461 evaluated, 456 expanded
+[t=0.0838077s, 11296 KB] f = 84, 467 evaluated, 461 expanded
+[t=0.0844088s, 11296 KB] f = 85, 473 evaluated, 467 expanded
+[t=0.0845729s, 11296 KB] f = 86, 479 evaluated, 473 expanded
+[t=0.0849464s, 11296 KB] f = 87, 488 evaluated, 479 expanded
+[t=0.0853506s, 11296 KB] f = 88, 497 evaluated, 488 expanded
+[t=0.0857069s, 11296 KB] f = 89, 506 evaluated, 497 expanded
+[t=0.0860541s, 11296 KB] f = 90, 517 evaluated, 506 expanded
+[t=0.0865829s, 11296 KB] f = 91, 528 evaluated, 517 expanded
+[t=0.0869601s, 11296 KB] f = 92, 539 evaluated, 528 expanded
+[t=0.0873323s, 11296 KB] f = 93, 549 evaluated, 539 expanded
+[t=0.0878044s, 11296 KB] f = 94, 559 evaluated, 549 expanded
+[t=0.0881633s, 11296 KB] f = 95, 569 evaluated, 559 expanded
+[t=0.0885237s, 11296 KB] f = 96, 579 evaluated, 569 expanded
+[t=0.0889721s, 11296 KB] f = 97, 589 evaluated, 579 expanded
+[t=0.0893321s, 11296 KB] f = 98, 599 evaluated, 589 expanded
+[t=0.0897401s, 11296 KB] f = 99, 609 evaluated, 599 expanded
+[t=0.0902421s, 11296 KB] f = 100, 619 evaluated, 609 expanded
+[t=0.0906826s, 11296 KB] f = 101, 629 evaluated, 619 expanded
+[t=0.0911104s, 11296 KB] f = 102, 639 evaluated, 629 expanded
+[t=0.0916178s, 11296 KB] f = 103, 649 evaluated, 639 expanded
+[t=0.092071s, 11296 KB] f = 104, 659 evaluated, 649 expanded
+[t=0.0924849s, 11296 KB] f = 105, 668 evaluated, 659 expanded
+[t=0.09293s, 11296 KB] f = 106, 677 evaluated, 668 expanded
+[t=0.0933485s, 11296 KB] f = 107, 686 evaluated, 677 expanded
+[t=0.0937063s, 11296 KB] f = 108, 694 evaluated, 686 expanded
+[t=0.0941326s, 11296 KB] f = 109, 702 evaluated, 694 expanded
+[t=0.0944911s, 11296 KB] f = 110, 710 evaluated, 702 expanded
+[t=0.0948303s, 11296 KB] f = 111, 717 evaluated, 710 expanded
+[t=0.0952834s, 11296 KB] f = 112, 726 evaluated, 717 expanded
+[t=0.0956705s, 11296 KB] f = 113, 735 evaluated, 726 expanded
+[t=0.0960535s, 11296 KB] f = 114, 742 evaluated, 735 expanded
+[t=0.0964544s, 11296 KB] f = 115, 750 evaluated, 742 expanded
+[t=0.0968548s, 11296 KB] f = 116, 758 evaluated, 750 expanded
+[t=0.0972412s, 11296 KB] f = 117, 764 evaluated, 758 expanded
+[t=0.0977114s, 11296 KB] f = 118, 770 evaluated, 764 expanded
+[t=0.0981298s, 11296 KB] f = 119, 776 evaluated, 770 expanded
+[t=0.0984924s, 11296 KB] f = 120, 782 evaluated, 776 expanded
+[t=0.0989219s, 11296 KB] f = 121, 788 evaluated, 782 expanded
+[t=0.0993008s, 11296 KB] f = 122, 794 evaluated, 788 expanded
+[t=0.0995923s, 11296 KB] f = 123, 799 evaluated, 794 expanded
+[t=0.0999786s, 11296 KB] f = 124, 807 evaluated, 799 expanded
+[t=0.1004s, 11296 KB] f = 125, 815 evaluated, 807 expanded
+[t=0.100706s, 11296 KB] f = 126, 822 evaluated, 815 expanded
+[t=0.101062s, 11296 KB] f = 127, 830 evaluated, 822 expanded
+[t=0.101446s, 11296 KB] f = 128, 838 evaluated, 830 expanded
+[t=0.10166s, 11296 KB] f = 129, 846 evaluated, 838 expanded
+[t=0.102006s, 11296 KB] f = 130, 853 evaluated, 846 expanded
+[t=0.102396s, 11296 KB] f = 131, 860 evaluated, 853 expanded
+[t=0.10272s, 11296 KB] f = 132, 867 evaluated, 860 expanded
+[t=0.103045s, 11296 KB] f = 133, 875 evaluated, 867 expanded
+[t=0.103472s, 11296 KB] f = 134, 883 evaluated, 875 expanded
+[t=0.103883s, 11296 KB] f = 135, 891 evaluated, 883 expanded
+[t=0.10423s, 11296 KB] f = 136, 901 evaluated, 891 expanded
+[t=0.104656s, 11296 KB] f = 137, 911 evaluated, 901 expanded
+[t=0.10502s, 11296 KB] f = 138, 921 evaluated, 911 expanded
+[t=0.105375s, 11296 KB] f = 139, 933 evaluated, 921 expanded
+[t=0.105792s, 11296 KB] f = 140, 945 evaluated, 933 expanded
+[t=0.10612s, 11296 KB] f = 141, 957 evaluated, 945 expanded
+[t=0.106501s, 11296 KB] f = 142, 969 evaluated, 957 expanded
+[t=0.106993s, 11296 KB] f = 143, 981 evaluated, 969 expanded
+[t=0.107431s, 11296 KB] f = 144, 993 evaluated, 981 expanded
+[t=0.107806s, 11296 KB] f = 145, 1006 evaluated, 993 expanded
+[t=0.108319s, 11296 KB] f = 146, 1019 evaluated, 1006 expanded
+[t=0.108711s, 11296 KB] f = 147, 1032 evaluated, 1019 expanded
+[t=0.109376s, 11296 KB] f = 148, 1046 evaluated, 1032 expanded
+[t=0.109751s, 11296 KB] f = 149, 1060 evaluated, 1046 expanded
+[t=0.110148s, 11296 KB] f = 150, 1074 evaluated, 1060 expanded
+[t=0.110544s, 11296 KB] f = 151, 1086 evaluated, 1074 expanded
+[t=0.111064s, 11296 KB] f = 152, 1098 evaluated, 1086 expanded
+[t=0.111469s, 11296 KB] f = 153, 1110 evaluated, 1098 expanded
+[t=0.111805s, 11296 KB] f = 154, 1120 evaluated, 1110 expanded
+[t=0.112274s, 11296 KB] f = 155, 1130 evaluated, 1120 expanded
+[t=0.112629s, 11296 KB] f = 156, 1140 evaluated, 1130 expanded
+[t=0.112971s, 11296 KB] f = 157, 1148 evaluated, 1140 expanded
+[t=0.113623s, 11296 KB] f = 158, 1156 evaluated, 1148 expanded
+[t=0.113825s, 11296 KB] f = 159, 1164 evaluated, 1156 expanded
+[t=0.114179s, 11296 KB] f = 160, 1168 evaluated, 1164 expanded
+[t=0.114573s, 11296 KB] f = 161, 1172 evaluated, 1168 expanded
+[t=0.114929s, 11296 KB] f = 162, 1176 evaluated, 1172 expanded
+[t=0.115288s, 11296 KB] f = 163, 1178 evaluated, 1176 expanded
+[t=0.115731s, 11296 KB] f = 164, 1180 evaluated, 1178 expanded
+[t=0.116078s, 11296 KB] f = 165, 1182 evaluated, 1180 expanded
+[t=0.116383s, 11296 KB] f = 166, 1184 evaluated, 1182 expanded
+[t=0.116702s, 11296 KB] f = 167, 1186 evaluated, 1184 expanded
+[t=0.117001s, 11296 KB] f = 168, 1188 evaluated, 1186 expanded
+[t=0.11733s, 11296 KB] f = 169, 1190 evaluated, 1188 expanded
+[t=0.117695s, 11296 KB] f = 170, 1192 evaluated, 1190 expanded
+[t=0.117996s, 11296 KB] f = 171, 1194 evaluated, 1192 expanded
+[t=0.118293s, 11296 KB] f = 172, 1196 evaluated, 1194 expanded
+[t=0.118614s, 11296 KB] f = 173, 1198 evaluated, 1196 expanded
+[t=0.118868s, 11296 KB] f = 174, 1200 evaluated, 1198 expanded
+[t=0.119168s, 11296 KB] f = 175, 1202 evaluated, 1200 expanded
+[t=0.119447s, 11296 KB] f = 176, 1204 evaluated, 1202 expanded
+[t=0.119766s, 11296 KB] f = 177, 1206 evaluated, 1204 expanded
+[t=0.120067s, 11296 KB] f = 178, 1208 evaluated, 1206 expanded
+[t=0.120403s, 11296 KB] f = 179, 1210 evaluated, 1208 expanded
+[t=0.120748s, 11296 KB] f = 180, 1212 evaluated, 1210 expanded
+[t=0.121049s, 11296 KB] f = 181, 1214 evaluated, 1212 expanded
+[t=0.12137s, 11296 KB] f = 182, 1216 evaluated, 1214 expanded
+[t=0.121674s, 11296 KB] f = 183, 1218 evaluated, 1216 expanded
+[t=0.122018s, 11296 KB] f = 184, 1220 evaluated, 1218 expanded
+[t=0.122341s, 11296 KB] f = 185, 1222 evaluated, 1220 expanded
+[t=0.122641s, 11296 KB] f = 186, 1224 evaluated, 1222 expanded
+[t=0.122935s, 11296 KB] f = 187, 1226 evaluated, 1224 expanded
+[t=0.12334s, 11296 KB] f = 188, 1228 evaluated, 1226 expanded
+[t=0.123575s, 11296 KB] f = 189, 1230 evaluated, 1228 expanded
+[t=0.123905s, 11296 KB] f = 190, 1232 evaluated, 1230 expanded
+[t=0.124276s, 11296 KB] f = 191, 1234 evaluated, 1232 expanded
+[t=0.124629s, 11296 KB] f = 192, 1236 evaluated, 1234 expanded
+[t=0.124965s, 11296 KB] f = 193, 1238 evaluated, 1236 expanded
+[t=0.125332s, 11296 KB] f = 194, 1240 evaluated, 1238 expanded
+[t=0.125646s, 11296 KB] f = 195, 1242 evaluated, 1240 expanded
+[t=0.125948s, 11296 KB] f = 196, 1244 evaluated, 1242 expanded
+[t=0.126301s, 11296 KB] f = 197, 1246 evaluated, 1244 expanded
+[t=0.126601s, 11296 KB] f = 198, 1248 evaluated, 1246 expanded
+[t=0.126885s, 11296 KB] f = 199, 1250 evaluated, 1248 expanded
+[t=0.127234s, 11296 KB] f = 200, 1252 evaluated, 1250 expanded
+[t=0.127523s, 11296 KB] f = 201, 1254 evaluated, 1252 expanded
+[t=0.127857s, 11296 KB] f = 202, 1256 evaluated, 1254 expanded
+[t=0.128213s, 11296 KB] f = 203, 1258 evaluated, 1256 expanded
+[t=0.128553s, 11296 KB] f = 204, 1260 evaluated, 1258 expanded
+[t=0.12893s, 11296 KB] f = 205, 1262 evaluated, 1260 expanded
+[t=0.129306s, 11296 KB] f = 206, 1264 evaluated, 1262 expanded
+[t=0.129598s, 11296 KB] f = 207, 1266 evaluated, 1264 expanded
+[t=0.129892s, 11296 KB] f = 208, 1268 evaluated, 1266 expanded
+[t=0.130257s, 11296 KB] New best heuristic value for blind: 0
+[t=0.130576s, 11296 KB] g=208, 1269 evaluated, 1267 expanded
+[t=0.130967s, 11296 KB] Solution found!
+[t=0.131243s, 11296 KB] Actual search time: 0.0771135s
+avatar_action_move_right avatar n1 n7 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n7 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n7 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n9 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n10 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n11 n12 (1)
+iceshoes_avatar_collectresource iceshoes_12_12 avatar n12 n12 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n12 n12 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n12 n11 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n12 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n12 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n12 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n4 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n3 n3 (1)
+fireboots_avatar_collectresource fireboots_3_3 avatar n3 n3 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n3 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n5 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n5 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n5 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n5 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n7 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n7 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n7 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n7 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n4 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n1 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n1 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n1 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n1 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n1 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n1 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n1 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n1 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n1 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n1 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n1 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n1 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n14 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n14 n2 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n14 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n14 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n14 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n14 n6 n7 (1)
+exit_avatar_killsprite exit_14_7 avatar n14 n7 (1)
+[t=0.131566s, 11296 KB] Plan length: 208 step(s).
+[t=0.131566s, 11296 KB] Plan cost: 208
+[t=0.131566s, 11296 KB] Expanded 1268 state(s).
+[t=0.131566s, 11296 KB] Reopened 0 state(s).
+[t=0.131566s, 11296 KB] Evaluated 1269 state(s).
+[t=0.131566s, 11296 KB] Evaluations: 1269
+[t=0.131566s, 11296 KB] Generated 2549 state(s).
+[t=0.131566s, 11296 KB] Dead ends: 0 state(s).
+[t=0.131566s, 11296 KB] Expanded until last jump: 1266 state(s).
+[t=0.131566s, 11296 KB] Reopened until last jump: 0 state(s).
+[t=0.131566s, 11296 KB] Evaluated until last jump: 1268 state(s).
+[t=0.131566s, 11296 KB] Generated until last jump: 2548 state(s).
+[t=0.131566s, 11296 KB] Number of registered states: 1269
+[t=0.131566s, 11296 KB] Int hash set load factor: 1269/2048 = 0.619629
+[t=0.131566s, 11296 KB] Int hash set resizes: 11
+[t=0.131566s, 11296 KB] Search time: 0.0794383s
+[t=0.131566s, 11296 KB] Total time: 0.131566s
+Solution found.
+Peak memory: 11296 KB
+Remove intermediate file output.sas
+search exit code: 0
+

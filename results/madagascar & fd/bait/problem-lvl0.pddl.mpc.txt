@@ -1,0 +1,130 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:bait/bait.pddl file:bait/problem-lvl0.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 651 ground actions and 280 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9  0.00 secs
+Goal: conjunctive
+Simplified: 65 ground actions and 44 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.00 secs (max SCC size 41)
+Plan type: E-step
+				Allocated 32 MB permanent (total 122 MB)
+Horizon 5: 889 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 1227 variables
+				Allocated 32 MB (total 307 MB)
+7 UNSAT (2 decisions 2 conflicts)
+Horizon 10: 1734 variables
+10 UNSAT (14 decisions 14 conflicts)
+Horizon 14: 2410 variables
+Horizon 20: 3424 variables
+14 UNSAT (62 decisions 62 conflicts)
+Horizon 28: 4776 variables
+Horizon 40: 6804 variables
+Horizon 56: 9508 variables
+20 UNSAT (213 decisions 205 conflicts)
+Horizon 80: 13564 variables
+Horizon 113: 19141 variables
+Horizon 160: 27084 variables
+Horizon 226: 38238 variables
+Horizon 320: 54124 variables
+Horizon 452: 76432 variables
+Horizon 640: 108204 variables
+Horizon 905: 152989 variables
+				Allocated 32 MB permanent (total 1527 MB)
+Horizon 1280: 216364 variables
+Horizon 1810: 305934 variables
+				Allocated 32 MB permanent (total 1756 MB)
+Horizon 2560: 432684 variables
+SAT (5636 decisions 334 conflicts)
+PLAN FOUND: 2560 steps
+STEP 0: avatar_action_move_down(avatar,n2,n1,n2)
+STEP 1: end-turn-interactions()
+STEP 2: end-turn-sprites()
+STEP 3: avatar_action_move_right(avatar,n2,n2,n3)
+STEP 4: end-turn-interactions()
+STEP 5: end-turn-sprites()
+STEP 6: avatar_action_move_down(avatar,n3,n2,n3)
+STEP 7: box_avatar_bounceforward_down(box_3_3,avatar,n3,n3,n4)
+STEP 8: end-turn-interactions()
+STEP 9: end-turn-sprites()
+STEP 10: avatar_action_move_left(avatar,n3,n3,n2)
+STEP 11: box_avatar_bounceforward_left(box_2_3,avatar,n2,n3,n1)
+STEP 12: end-turn-interactions()
+STEP 13: end-turn-sprites()
+STEP 14: avatar_action_move_up(avatar,n2,n3,n2)
+STEP 15: end-turn-interactions()
+STEP 16: end-turn-sprites()
+STEP 17: avatar_action_move_down(avatar,n2,n2,n3)
+STEP 18: end-turn-interactions()
+STEP 19: end-turn-sprites()
+STEP 20: avatar_action_move_up(avatar,n2,n3,n2)
+STEP 21: end-turn-interactions()
+STEP 22: end-turn-sprites()
+STEP 23: avatar_action_move_up(avatar,n2,n2,n1)
+STEP 24: end-turn-interactions()
+STEP 25: end-turn-sprites()
+STEP 26: avatar_action_move_down(avatar,n2,n1,n2)
+STEP 27: end-turn-interactions()
+STEP 28: end-turn-sprites()
+STEP 29: avatar_action_move_up(avatar,n2,n2,n1)
+STEP 30: end-turn-interactions()
+STEP 31: end-turn-sprites()
+STEP 32: avatar_action_move_down(avatar,n2,n1,n2)
+STEP 33: end-turn-interactions()
+STEP 34: end-turn-sprites()
+STEP 35: avatar_action_move_right(avatar,n2,n2,n3)
+STEP 36: end-turn-interactions()
+STEP 37: end-turn-sprites()
+STEP 38: avatar_action_move_left(avatar,n3,n2,n2)
+STEP 39: end-turn-interactions()
+STEP 40: end-turn-sprites()
+STEP 41: avatar_action_move_up(avatar,n2,n2,n1)
+STEP 42: end-turn-interactions()
+STEP 43: end-turn-sprites()
+STEP 44: avatar_action_move_down(avatar,n2,n1,n2)
+STEP 45: end-turn-interactions()
+STEP 46: end-turn-sprites()
+STEP 47: avatar_action_move_down(avatar,n2,n2,n3)
+STEP 48: end-turn-interactions()
+STEP 49: end-turn-sprites()
+STEP 50: avatar_action_move_down(avatar,n2,n3,n4)
+STEP 51: key_avatar_collectresource(key_2_4,avatar,n2,n4,n0,n1)
+STEP 52: end-turn-interactions()
+STEP 53: end-turn-sprites()
+STEP 54: avatar_action_move_up(avatar,n2,n4,n3)
+STEP 55: end-turn-interactions()
+STEP 56: end-turn-sprites()
+STEP 57: avatar_action_move_up(avatar,n2,n3,n2)
+STEP 58: end-turn-interactions()
+STEP 59: end-turn-sprites()
+STEP 60: avatar_action_move_up(avatar,n2,n2,n1)
+STEP 61: end-turn-interactions()
+STEP 62: end-turn-sprites()
+STEP 63: avatar_action_move_left(avatar,n2,n1,n1)
+STEP 64: goal_avatar_killifotherhasmore(goal_1_1,avatar,n1,n1)
+65 actions in the plan.
+total time 8.94 preprocess 0.00 
+total size 1.791 GB
+max. learned clause length 487
+t val conflicts decisions
+5 0 0 0
+7 0 2 2
+10 0 14 14
+14 0 62 62
+20 0 205 213
+28 -1 1140 1667
+40 -1 1085 1901
+56 -1 1022 1705
+80 -1 960 1752
+113 -1 900 1677
+160 -1 842 1469
+226 -1 782 1425
+320 -1 721 1247
+452 -1 660 1156
+640 -1 600 1053
+905 -1 540 991
+1280 -1 480 832
+1810 -1 421 730
+2560 1 334 5636

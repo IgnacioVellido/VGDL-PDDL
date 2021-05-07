@@ -1,0 +1,84 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:sokoban/sokoban.pddl file:sokoban/problem-lvl4.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 1191 ground actions and 512 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14  0.02 secs
+Goal: conjunctive
+Simplified: 265 ground actions and 102 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.00 secs (max SCC size 163)
+Plan type: E-step
+				Allocated 32 MB permanent (total 124 MB)
+Horizon 5: 3227 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 4477 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 6352 variables
+				Allocated 32 MB (total 386 MB)
+10 UNSAT (2 decisions 2 conflicts)
+Horizon 14: 8852 variables
+14 UNSAT (50 decisions 50 conflicts)
+Horizon 20: 12602 variables
+Horizon 28: 17602 variables
+Horizon 40: 25102 variables
+Horizon 56: 35102 variables
+Horizon 80: 50102 variables
+Horizon 113: 70727 variables
+20 UNSAT (324 decisions 303 conflicts)
+Horizon 160: 100102 variables
+Horizon 226: 141352 variables
+SAT (431 decisions 207 conflicts)
+PLAN FOUND: 80 steps
+STEP 0: avatar_action_move_right(avatar,n6,n2,n7)
+STEP 1: end-turn-interactions()
+STEP 2: end-turn-sprites()
+STEP 3: avatar_action_move_left(avatar,n7,n2,n6)
+STEP 4: end-turn-interactions()
+STEP 5: end-turn-sprites()
+STEP 6: avatar_action_move_left(avatar,n6,n2,n5)
+STEP 7: box_avatar_bounceforward_left(box_5_2,avatar,n5,n2,n4)
+STEP 8: end-turn-interactions()
+STEP 9: end-turn-sprites()
+STEP 10: avatar_action_move_left(avatar,n5,n2,n4)
+STEP 11: box_avatar_bounceforward_left(box_5_2,avatar,n4,n2,n3)
+STEP 12: end-turn-interactions()
+STEP 13: end-turn-sprites()
+STEP 14: avatar_action_move_down(avatar,n4,n2,n3)
+STEP 15: end-turn-interactions()
+STEP 16: end-turn-sprites()
+STEP 17: avatar_action_move_left(avatar,n4,n3,n3)
+STEP 18: end-turn-interactions()
+STEP 19: end-turn-sprites()
+STEP 20: avatar_action_move_down(avatar,n3,n3,n4)
+STEP 21: box_avatar_bounceforward_down(box_3_4,avatar,n3,n4,n5)
+STEP 22: end-turn-interactions()
+STEP 23: end-turn-sprites()
+STEP 24: avatar_action_move_down(avatar,n3,n4,n5)
+STEP 25: box_avatar_bounceforward_down(box_3_4,avatar,n3,n5,n6)
+STEP 26: box_hole_killsprite(box_3_4,hole_3_6,n3,n6)
+STEP 27: end-turn-interactions()
+STEP 28: end-turn-sprites()
+STEP 29: avatar_action_move_up(avatar,n3,n5,n4)
+STEP 30: end-turn-interactions()
+STEP 31: end-turn-sprites()
+STEP 32: avatar_action_move_up(avatar,n3,n4,n3)
+STEP 33: end-turn-interactions()
+STEP 34: end-turn-sprites()
+STEP 35: avatar_action_move_up(avatar,n3,n3,n2)
+STEP 36: box_avatar_bounceforward_up(box_5_2,avatar,n3,n2,n1)
+STEP 37: box_hole_killsprite(box_5_2,hole_3_1,n3,n1)
+38 actions in the plan.
+total time 1.22 preprocess 0.04 
+total size 1.149 GB
+max. learned clause length 459
+t val conflicts decisions
+5 0 0 0
+7 0 0 0
+10 0 2 2
+14 0 50 50
+20 0 303 324
+28 -1 421 535
+40 -1 360 505
+56 -1 300 419
+80 1 207 431

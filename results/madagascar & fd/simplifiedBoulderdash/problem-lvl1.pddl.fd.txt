@@ -1,0 +1,45 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py simplifiedBoulderdash/simplifiedBoulderdash.pddl simplifiedBoulderdash/problem-lvl1.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.020s CPU, 0.154s wall-clock]
+Normalizing task... [0.000s CPU, 0.003s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.050s CPU, 0.152s wall-clock]
+Preparing model... [0.010s CPU, 0.011s wall-clock]
+Generated 193 rules.
+Computing model... [0.900s CPU, 0.903s wall-clock]
+8332 relevant atoms
+37032 auxiliary atoms
+45364 final queue length
+58841 total queue pushes
+Completing instantiation... [0.690s CPU, 0.686s wall-clock]
+Instantiating: [1.680s CPU, 1.782s wall-clock]
+Computing fact groups...
+Finding invariants...
+24 initial candidates
+Finding invariants: [0.080s CPU, 0.084s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.002s wall-clock]
+Instantiating groups... [0.000s CPU, 0.003s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.002s wall-clock]
+Choosing groups...
+1434 uncovered facts
+Choosing groups: [0.000s CPU, 0.003s wall-clock]
+Building translation key... [0.010s CPU, 0.012s wall-clock]
+Computing fact groups: [0.120s CPU, 0.137s wall-clock]
+Building STRIPS to SAS dictionary... [0.010s CPU, 0.004s wall-clock]
+Building dictionary for full mutex groups... [0.060s CPU, 0.061s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.003s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.002s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... translate exit code: -9
+
+Driver aborting after translate

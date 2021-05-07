@@ -1,0 +1,84 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem cakybaky/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl5.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl6.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl7.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl8.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem cakybaky/problem-lvl9.pddl...
+Timeout 15m exceeded
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem cakybaky/problem-lvl0.pddl...
+1.07305
+15888 
+1.07305
+--------------------
+Trying problem cakybaky/problem-lvl1.pddl...
+1.17469
+15968 
+1.17469
+--------------------
+Trying problem cakybaky/problem-lvl2.pddl...
+1.01777
+15916 
+1.01777
+--------------------
+Trying problem cakybaky/problem-lvl3.pddl...
+1.04981
+15756 
+1.04981
+--------------------
+Trying problem cakybaky/problem-lvl4.pddl...
+1.12074
+15916 
+1.12074
+--------------------
+Trying problem cakybaky/problem-lvl5.pddl...
+1.01284
+15600 
+1.01284
+--------------------
+Trying problem cakybaky/problem-lvl6.pddl...
+1.39579
+16936 
+1.39579
+--------------------
+Trying problem cakybaky/problem-lvl7.pddl...
+1.03054
+15748 
+1.03054
+--------------------
+Trying problem cakybaky/problem-lvl8.pddl...
+0.992767
+15256 
+0.992767
+--------------------
+Trying problem cakybaky/problem-lvl9.pddl...
+0.940316
+15764 
+0.940316
+--------------------

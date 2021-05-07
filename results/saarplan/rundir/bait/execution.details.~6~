@@ -1,0 +1,40 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/bait.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/problem-lvl5.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.030s CPU, 0.094s wall-clock]
+Normalizing task... [0.010s CPU, 0.005s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.030s CPU, 0.029s wall-clock]
+Preparing model... [0.010s CPU, 0.012s wall-clock]
+Generated 201 rules.
+Computing model... [0.220s CPU, 0.221s wall-clock]
+1339 relevant atoms
+6107 auxiliary atoms
+7446 final queue length
+8843 total queue pushes
+Completing instantiation... [0.110s CPU, 0.108s wall-clock]
+Instantiating: [0.370s CPU, 0.383s wall-clock]
+Computing fact groups...
+Finding invariants...
+22 initial candidates
+Finding invariants: [0.090s CPU, 0.083s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+263 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.004s wall-clock]
+Computing fact groups: [0.100s CPU, 0.102s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.002s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.004s wall-clock]
+Command '['/planner/driver/../fast-downward-conjunctions/src/translate/translate.py', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/bait.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/problem-lvl5.pddl']' returned non-zero exit status -9

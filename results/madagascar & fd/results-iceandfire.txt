@@ -1,0 +1,92 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem iceandfire/problem-lvl0.pddl...
+295.71
+0.35
+--------------------
+Trying problem iceandfire/problem-lvl1.pddl...
+335.76
+0.27
+--------------------
+Trying problem iceandfire/problem-lvl2.pddl...
+885.99
+0.26
+--------------------
+Trying problem iceandfire/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem iceandfire/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem iceandfire/problem-lvl5.pddl...
+507.30
+0.27
+--------------------
+Trying problem iceandfire/problem-lvl6.pddl...
+215.17
+0.28
+--------------------
+Trying problem iceandfire/problem-lvl7.pddl...
+366.21
+0.29
+--------------------
+Trying problem iceandfire/problem-lvl8.pddl...
+4.35
+0.28
+--------------------
+Trying problem iceandfire/problem-lvl9.pddl...
+347.65
+0.28
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem iceandfire/problem-lvl0.pddl...
+0.127311
+11308 
+0.127311
+--------------------
+Trying problem iceandfire/problem-lvl1.pddl...
+0.137241
+11308 
+0.137241
+--------------------
+Trying problem iceandfire/problem-lvl2.pddl...
+0.145514
+11456 
+0.145514
+--------------------
+Trying problem iceandfire/problem-lvl3.pddl...
+0.131566
+11296 
+0.131566
+--------------------
+Trying problem iceandfire/problem-lvl4.pddl...
+0.165537
+11308 
+0.165537
+--------------------
+Trying problem iceandfire/problem-lvl5.pddl...
+0.1122
+10900 
+0.1122
+--------------------
+Trying problem iceandfire/problem-lvl6.pddl...
+0.108722
+11052 
+0.108722
+--------------------
+Trying problem iceandfire/problem-lvl7.pddl...
+0.106403
+10768 
+0.106403
+--------------------
+Trying problem iceandfire/problem-lvl8.pddl...
+0.0794796
+11064 
+0.0794796
+--------------------
+Trying problem iceandfire/problem-lvl9.pddl...
+0.0716773
+10772 
+0.0716773
+--------------------

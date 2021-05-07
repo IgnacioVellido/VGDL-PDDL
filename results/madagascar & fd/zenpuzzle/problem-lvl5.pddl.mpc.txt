@@ -1,0 +1,61 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:zenpuzzle/zenpuzzle.pddl file:zenpuzzle/problem-lvl5.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 30363 ground actions and 3900 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11  0.09 secs
+Goal: conjunctive
+Simplified: 213 ground actions and 138 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.01 secs (max SCC size 1)
+Plan type: E-step
+				Allocated 32 MB permanent (total 129 MB)
+Horizon 5: 4683 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 6501 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 9228 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 12864 variables
+				Allocated 32 MB (total 468 MB)
+14 UNSAT (18 decisions 18 conflicts)
+Horizon 20: 18318 variables
+Horizon 28: 25590 variables
+Horizon 40: 36498 variables
+Horizon 56: 51042 variables
+Horizon 80: 72858 variables
+20 UNSAT (261 decisions 245 conflicts)
+Horizon 113: 102855 variables
+Horizon 160: 145578 variables
+Horizon 226: 205572 variables
+				Allocated 32 MB permanent (total 1243 MB)
+Horizon 320: 291018 variables
+Horizon 452: 411006 variables
+				Allocated 32 MB permanent (total 1487 MB)
+Horizon 640: 581898 variables
+				Allocated 32 MB permanent (total 1644 MB)
+Horizon 905: 822783 variables
+				Allocated 32 MB permanent (total 1821 MB)
+				Allocated 32 MB permanent (total 1853 MB)
+Horizon 1280: 1163658 variables
+				Allocated 32 MB permanent (total 2059 MB)
+				Allocated 32 MB permanent (total 2091 MB)
+Horizon 1810: 1645428 variables
+				Allocated 32 MB permanent (total 2337 MB)
+				Allocated 32 MB permanent (total 2369 MB)
+				Allocated 32 MB permanent (total 2401 MB)
+Horizon 2560: 2327178 variables
+28 UNSAT (1105 decisions 842 conflicts)
+						GC: 14.10 MB
+						GC: 17.76 MB
+40 UNSAT (6541 decisions 4656 conflicts)
+				Allocated 32 MB (total 2433 MB)
+						GC: 33.91 MB
+				Allocated 32 MB (total 2465 MB)
+						GC: 61.35 MB
+						GC: 80.11 MB
+				Allocated 32 MB (total 2497 MB)
+						GC: 106.30 MB
+						GC: 95.03 MB
+						GC: 96.82 MB
+						GC: 112.51 MB

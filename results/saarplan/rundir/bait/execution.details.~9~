@@ -1,0 +1,40 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/bait.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/problem-lvl8.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.030s CPU, 0.090s wall-clock]
+Normalizing task... [0.010s CPU, 0.005s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.030s CPU, 0.028s wall-clock]
+Preparing model... [0.010s CPU, 0.014s wall-clock]
+Generated 201 rules.
+Computing model... [0.770s CPU, 0.770s wall-clock]
+4617 relevant atoms
+20929 auxiliary atoms
+25546 final queue length
+30724 total queue pushes
+Completing instantiation... [0.470s CPU, 0.475s wall-clock]
+Instantiating: [1.300s CPU, 1.311s wall-clock]
+Computing fact groups...
+Finding invariants...
+22 initial candidates
+Finding invariants: [0.080s CPU, 0.083s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.002s wall-clock]
+Choosing groups...
+881 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.011s wall-clock]
+Computing fact groups: [0.120s CPU, 0.132s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.004s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.005s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.003s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.020s CPU, 0.013s wall-clock]
+Command '['/planner/driver/../fast-downward-conjunctions/src/translate/translate.py', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/bait.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/problem-lvl8.pddl']' returned non-zero exit status -9

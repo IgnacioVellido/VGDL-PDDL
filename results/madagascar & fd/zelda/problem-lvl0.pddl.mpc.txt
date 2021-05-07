@@ -1,0 +1,67 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:zelda/zelda.pddl file:zelda/problem-lvl0.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 3791 ground actions and 1067 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29  0.11 secs
+Goal: conjunctive
+Simplified: 567 ground actions and 199 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.05 secs (max SCC size 452)
+Plan type: E-step
+				Allocated 32 MB permanent (total 129 MB)
+Horizon 5: 12184 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 16978 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 24169 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 33757 variables
+14 UNSAT (0 decisions 0 conflicts)
+Horizon 20: 48139 variables
+				Allocated 32 MB (total 552 MB)
+20 UNSAT (45 decisions 45 conflicts)
+Horizon 28: 67315 variables
+Horizon 40: 96079 variables
+Horizon 56: 134431 variables
+Horizon 80: 191959 variables
+28 UNSAT (214 decisions 207 conflicts)
+Horizon 113: 271060 variables
+Horizon 160: 383719 variables
+				Allocated 32 MB permanent (total 1218 MB)
+Horizon 226: 541921 variables
+Horizon 320: 767239 variables
+				Allocated 32 MB permanent (total 1512 MB)
+Horizon 452: 1083643 variables
+				Allocated 32 MB permanent (total 1711 MB)
+Horizon 640: 1534279 variables
+				Allocated 32 MB permanent (total 1948 MB)
+Horizon 905: 2169484 variables
+40 UNSAT (622 decisions 551 conflicts)
+				Allocated 32 MB permanent (total 2238 MB)
+				Allocated 32 MB permanent (total 2270 MB)
+				Allocated 32 MB permanent (total 2302 MB)
+Horizon 1280: 3068359 variables
+				Allocated 32 MB permanent (total 2666 MB)
+				Allocated 32 MB permanent (total 2698 MB)
+Horizon 1810: 4338769 variables
+				Allocated 32 MB permanent (total 3170 MB)
+				Allocated 32 MB permanent (total 3202 MB)
+				Allocated 32 MB permanent (total 3234 MB)
+				Allocated 32 MB permanent (total 3266 MB)
+				Allocated 32 MB permanent (total 3298 MB)
+Horizon 2560: 6136519 variables
+56 UNSAT (970 decisions 799 conflicts)
+						GC: 11.19 MB
+						GC: 7.17 MB
+80 UNSAT (6824 decisions 4453 conflicts)
+						GC: 13.45 MB
+						GC: 12.91 MB
+						GC: 14.35 MB
+						GC: 15.41 MB
+113 UNSAT (24363 decisions 14494 conflicts)
+						GC: 20.29 MB
+						GC: 16.57 MB
+						GC: 15.40 MB
+						GC: 18.27 MB
+						GC: 18.67 MB

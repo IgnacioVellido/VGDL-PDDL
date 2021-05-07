@@ -1,0 +1,90 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem zelda/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zelda/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zelda/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zelda/problem-lvl3.pddl...
+377.76
+0.30
+--------------------
+Trying problem zelda/problem-lvl4.pddl...
+555.86
+0.16
+--------------------
+Trying problem zelda/problem-lvl5.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zelda/problem-lvl6.pddl...
+124.26
+0.27
+--------------------
+Trying problem zelda/problem-lvl7.pddl...
+710.67
+0.43
+--------------------
+Trying problem zelda/problem-lvl8.pddl...
+829.02
+0.21
+--------------------
+Trying problem zelda/problem-lvl9.pddl...
+850.38
+0.26
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem zelda/problem-lvl0.pddl...
+0.110882
+10748 
+0.110882
+--------------------
+Trying problem zelda/problem-lvl1.pddl...
+0.114484
+10748 
+0.114484
+--------------------
+Trying problem zelda/problem-lvl2.pddl...
+0.115649
+10732 
+0.115649
+--------------------
+Trying problem zelda/problem-lvl3.pddl...
+0.0887512
+10756 
+0.0887512
+--------------------
+Trying problem zelda/problem-lvl4.pddl...
+0.0822987
+10616 
+0.0822987
+--------------------
+Trying problem zelda/problem-lvl5.pddl...
+0.11194
+10752 
+0.11194
+--------------------
+Trying problem zelda/problem-lvl6.pddl...
+0.0955845
+10744 
+0.0955845
+--------------------
+Trying problem zelda/problem-lvl7.pddl...
+0.10772
+10756 
+0.10772
+--------------------
+Trying problem zelda/problem-lvl8.pddl...
+0.114128
+10616 
+0.114128
+--------------------
+Trying problem zelda/problem-lvl9.pddl...
+0.15307
+10616 
+0.15307
+--------------------
