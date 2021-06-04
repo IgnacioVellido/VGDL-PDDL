@@ -10,7 +10,7 @@ In two simple steps you can have a perfectly (but unfortunately, slowly) running
 
 The repo is compromised of two systems. A parser module produces the PDDL domains and configurations files needed to run the agent. This agent uses a replanning and monitoring strategy until the goals are achieved.
 
-Please refer to the [wiki](https://github.com/IgnacioVellido/VGDL-PDDL/wiki/Usage) for detailed instructions in installation, usage and further documentation.
+Please refer to the [wiki](https://github.com/IgnacioVellido/VGDL-PDDL/wiki) for detailed instructions in installation, usage and further documentation.
 
 ## :handshake: Contributing
 
