@@ -1,4 +1,4 @@
-domainFile: domains/boulderdash-domain.pddl
+domainFile: domains/handmade/boulderdash2.pddl
 problemFile: problem.pddl
 domainName: BoulderDash
 gameElementsCorrespondence:
