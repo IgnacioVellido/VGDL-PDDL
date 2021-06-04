@@ -2,14 +2,15 @@
 
 BasicGame key_handler=Pulse square_size=48
     SpriteSet
+        wall > Immovable
         background > Immovable img=oryx/backBiege hidden=True
-        isincenter > Flicker limit=1
         avatar  > MovingAvatar img=oryx/angel1
         ground > Immovable img=oryx/floorTileOrange
         walked > Immovable img=oryx/floorTileGreen
         rock > Immovable img=oryx/wall5
     
     LevelMapping
+        w > background wall
         r > background rock
         g > background ground
         . > background
@@ -17,9 +18,9 @@ BasicGame key_handler=Pulse square_size=48
         
     TerminationSet
         SpriteCounter      stype=avatar               limit=0 win=False  
-        MultiSpriteCounter   stype1=isincenter  stype2=ground   limit=0 win=True
+        SpriteCounter     stype=ground   limit=0 win=True
 
     InteractionSet
-        avatar  EOS rock walked  > stepBack
+        avatar wall rock walked  > stepBack
         ground avatar > transformTo stype=walked scoreChange=1
-        walked avatar > spawn stype=isincenter
+        avatar walked > killSprite

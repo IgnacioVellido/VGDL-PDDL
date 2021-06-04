@@ -1,0 +1,142 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:chipschallenge/chipschallenge.pddl file:chipschallenge/problem-lvl3.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 7423 ground actions and 2227 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  0.53 secs
+Goal: conjunctive
+Simplified: 986 ground actions and 502 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.02 secs (max SCC size 631)
+Plan type: E-step
+				Allocated 32 MB permanent (total 132 MB)
+Horizon 5: 10857 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 14999 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 21212 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 29496 variables
+14 UNSAT (0 decisions 0 conflicts)
+Horizon 20: 41922 variables
+				Allocated 32 MB (total 554 MB)
+20 UNSAT (25 decisions 22 conflicts)
+Horizon 28: 58490 variables
+Horizon 40: 83342 variables
+Horizon 56: 116478 variables
+28 UNSAT (154 decisions 148 conflicts)
+Horizon 80: 166182 variables
+Horizon 113: 234525 variables
+				Allocated 32 MB permanent (total 1102 MB)
+Horizon 160: 331862 variables
+Horizon 226: 468548 variables
+				Allocated 32 MB permanent (total 1354 MB)
+Horizon 320: 663222 variables
+				Allocated 32 MB permanent (total 1518 MB)
+Horizon 452: 936594 variables
+				Allocated 32 MB permanent (total 1704 MB)
+Horizon 640: 1325942 variables
+				Allocated 32 MB permanent (total 1924 MB)
+				Allocated 32 MB permanent (total 1956 MB)
+Horizon 905: 1874757 variables
+				Allocated 32 MB permanent (total 2221 MB)
+				Allocated 32 MB permanent (total 2253 MB)
+				Allocated 32 MB permanent (total 2285 MB)
+Horizon 1280: 2651382 variables
+				Allocated 32 MB permanent (total 2615 MB)
+				Allocated 32 MB permanent (total 2647 MB)
+				Allocated 32 MB permanent (total 2679 MB)
+Horizon 1810: 3749012 variables
+				Allocated 32 MB permanent (total 3100 MB)
+				Allocated 32 MB permanent (total 3132 MB)
+				Allocated 32 MB permanent (total 3164 MB)
+				Allocated 32 MB permanent (total 3196 MB)
+				Allocated 32 MB permanent (total 3228 MB)
+				Allocated 32 MB permanent (total 3260 MB)
+Horizon 2560: 5302262 variables
+40 UNSAT (1286 decisions 959 conflicts)
+						GC: 9.33 MB
+						GC: 2.64 MB
+56 UNSAT (6327 decisions 3852 conflicts)
+SAT (8450 decisions 4898 conflicts)
+PLAN FOUND: 80 steps
+STEP 0: avatar_action_move_up(avatar,n7,n5,n4)
+STEP 1: crate_avatar_bounceforward_up(crate_7_4,avatar,n7,n4,n3)
+STEP 2: end-turn-interactions()
+STEP 3: end-turn-sprites()
+STEP 4: avatar_action_move_up(avatar,n7,n4,n3)
+STEP 5: crate_avatar_bounceforward_up(crate_7_4,avatar,n7,n3,n2)
+STEP 6: end-turn-interactions()
+STEP 7: end-turn-sprites()
+STEP 8: avatar_action_move_left(avatar,n7,n3,n6)
+STEP 9: crate_avatar_bounceforward_left(crate_6_3,avatar,n6,n3,n5)
+STEP 10: end-turn-interactions()
+STEP 11: end-turn-sprites()
+STEP 12: avatar_action_move_left(avatar,n6,n3,n5)
+STEP 13: crate_avatar_bounceforward_left(crate_6_3,avatar,n5,n3,n4)
+STEP 14: end-turn-interactions()
+STEP 15: end-turn-sprites()
+STEP 16: avatar_action_move_left(avatar,n5,n3,n4)
+STEP 17: crate_avatar_bounceforward_left(crate_6_3,avatar,n4,n3,n3)
+STEP 18: end-turn-interactions()
+STEP 19: end-turn-sprites()
+STEP 20: avatar_action_move_left(avatar,n4,n3,n3)
+STEP 21: crate_avatar_bounceforward_left(crate_6_3,avatar,n3,n3,n2) yellowkey_avatar_collectresource(yellowkey_3_3,avatar,n3,n3,n0,n1)
+STEP 22: water_crate_transformto(crate_6_3,n2,n3,mud1)
+STEP 23: end-turn-interactions()
+STEP 24: end-turn-sprites()
+STEP 25: avatar_action_move_left(avatar,n3,n3,n2)
+STEP 26: mud_avatar_killsprite(mud1,avatar,n2,n3)
+STEP 27: end-turn-interactions()
+STEP 28: end-turn-sprites()
+STEP 29: avatar_action_move_left(avatar,n2,n3,n1)
+STEP 30: fireboots_avatar_collectresource(fireboots_1_3,avatar,n1,n3,n0,n1)
+STEP 31: end-turn-interactions()
+STEP 32: end-turn-sprites()
+STEP 33: avatar_action_move_right(avatar,n1,n3,n2)
+STEP 34: end-turn-interactions()
+STEP 35: end-turn-sprites()
+STEP 36: avatar_action_move_down(avatar,n2,n3,n4)
+STEP 37: redkey_avatar_collectresource(redkey_2_4,avatar,n2,n4,n0,n1)
+STEP 38: end-turn-interactions()
+STEP 39: end-turn-sprites()
+STEP 40: avatar_action_move_right(avatar,n2,n4,n3)
+STEP 41: crate_avatar_bounceforward_right(crate_3_4,avatar,n3,n4,n4)
+STEP 42: end-turn-interactions()
+STEP 43: end-turn-sprites()
+STEP 44: avatar_action_move_right(avatar,n3,n4,n4)
+STEP 45: crate_avatar_bounceforward_right(crate_3_4,avatar,n4,n4,n5) crate_avatar_bounceforward_right(crate_4_4,avatar,n4,n4,n5)
+STEP 46: end-turn-interactions()
+STEP 47: end-turn-sprites()
+STEP 48: avatar_action_move_up(avatar,n4,n4,n3)
+STEP 49: end-turn-interactions()
+STEP 50: end-turn-sprites()
+STEP 51: avatar_action_move_up(avatar,n4,n3,n2)
+STEP 52: end-turn-interactions()
+STEP 53: end-turn-sprites()
+STEP 54: avatar_action_move_up(avatar,n4,n2,n1)
+STEP 55: reddoor_avatar_killifotherhasmore(avatar,n4,n1)
+STEP 56: end-turn-interactions()
+STEP 57: end-turn-sprites()
+STEP 58: avatar_action_move_left(avatar,n4,n1,n3)
+STEP 59: end-turn-interactions()
+STEP 60: end-turn-sprites()
+STEP 61: avatar_action_move_left(avatar,n3,n1,n2)
+STEP 62: end-turn-interactions()
+STEP 63: end-turn-sprites()
+STEP 64: avatar_action_move_left(avatar,n2,n1,n1)
+STEP 65: exit_avatar_killsprite(exit_1_1,avatar,n1,n1)
+68 actions in the plan.
+total time 260.88 preprocess 0.64 
+total size 3.326 GB
+max. learned clause length 3870
+t val conflicts decisions
+5 0 0 0
+7 0 0 0
+10 0 0 0
+14 0 0 0
+20 0 22 25
+28 0 148 154
+40 0 959 1286
+56 0 3852 6327
+80 1 4898 8450

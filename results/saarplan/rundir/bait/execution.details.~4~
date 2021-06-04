@@ -1,0 +1,39 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/bait.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/bait/problem-lvl3.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.030s CPU, 0.193s wall-clock]
+Normalizing task... [0.000s CPU, 0.004s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.005s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.030s CPU, 0.032s wall-clock]
+Preparing model... [0.020s CPU, 0.016s wall-clock]
+Generated 201 rules.
+Computing model... [9.120s CPU, 9.126s wall-clock]
+51702 relevant atoms
+224070 auxiliary atoms
+275772 final queue length
+316383 total queue pushes
+Completing instantiation... [5.510s CPU, 5.516s wall-clock]
+Instantiating: [14.880s CPU, 14.878s wall-clock]
+Computing fact groups...
+Finding invariants...
+22 initial candidates
+Finding invariants: [0.100s CPU, 0.103s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.002s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.005s wall-clock]
+Choosing groups...
+6685 uncovered facts
+Choosing groups: [0.000s CPU, 0.007s wall-clock]
+Building translation key... [0.090s CPU, 0.087s wall-clock]
+Computing fact groups: [0.480s CPU, 0.489s wall-clock]
+Building STRIPS to SAS dictionary... [0.020s CPU, 0.023s wall-clock]
+Building dictionary for full mutex groups... [0.020s CPU, 0.021s wall-clock]
+Building mutex information...
+Building mutex information: [0.020s CPU, 0.024s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.210s CPU, 0.205s wall-clock]

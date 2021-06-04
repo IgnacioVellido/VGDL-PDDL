@@ -1,0 +1,15 @@
+Level 0
+
+Result (1->win; 0->lose): Player0:1, Player0-Score:34.0, timesteps:40                                                                                                                                                                           ----STATS----                                                                                                                                                                                                                                   
+Execution time: 671 ms                                                                                                  
+Number of goals: 1                                                                                                      
+Number of time the planner was called: 1                                                                                
+Number of discrepancies: 0
+
+Level 7
+
+Result (1->win; 0->lose): Player0:1, Player0-Score:19.0, timesteps:28                                                                                                                                                                           ----STATS----                                                                                                                                                                                                                                   
+Execution time: 426 ms                                                                                                  
+Number of goals: 1                                                                                                      
+Number of time the planner was called: 1                                                                                
+Number of discrepancies: 0

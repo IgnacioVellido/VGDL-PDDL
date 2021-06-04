@@ -1,0 +1,45 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py chipschallenge/chipschallenge.pddl chipschallenge/problem-lvl4.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.050s CPU, 0.157s wall-clock]
+Normalizing task... [0.190s CPU, 0.189s wall-clock]
+Instantiating...
+Generating Datalog program... [0.110s CPU, 0.115s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [1.750s CPU, 1.860s wall-clock]
+Preparing model... [0.960s CPU, 0.963s wall-clock]
+Generated 14164 rules.
+Computing model... [87.320s CPU, 87.319s wall-clock]
+55347 relevant atoms
+937583 auxiliary atoms
+992930 final queue length
+1041773 total queue pushes
+Completing instantiation... [6.010s CPU, 6.011s wall-clock]
+Instantiating: [98.710s CPU, 98.847s wall-clock]
+Computing fact groups...
+Finding invariants...
+49 initial candidates
+Finding invariants: [0.450s CPU, 0.449s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.002s wall-clock]
+Instantiating groups... [0.010s CPU, 0.005s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.010s wall-clock]
+Choosing groups...
+7735 uncovered facts
+Choosing groups: [0.010s CPU, 0.016s wall-clock]
+Building translation key... [0.070s CPU, 0.071s wall-clock]
+Computing fact groups: [0.750s CPU, 0.757s wall-clock]
+Building STRIPS to SAS dictionary... [0.020s CPU, 0.022s wall-clock]
+Building dictionary for full mutex groups... [0.020s CPU, 0.018s wall-clock]
+Building mutex information...
+Building mutex information: [0.010s CPU, 0.017s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.180s CPU, 0.177s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... translate exit code: -9
+
+Driver aborting after translate

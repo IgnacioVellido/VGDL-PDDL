@@ -1,0 +1,74 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem zenpuzzle/problem-lvl0.pddl...
+35.05
+0.43
+--------------------
+Trying problem zenpuzzle/problem-lvl1.pddl...
+740.08
+0.43
+--------------------
+Trying problem zenpuzzle/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl3.pddl...
+56.53
+0.29
+--------------------
+Trying problem zenpuzzle/problem-lvl4.pddl...
+214.47
+0.35
+--------------------
+Trying problem zenpuzzle/problem-lvl5.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl6.pddl...
+20.56
+0.24
+--------------------
+Trying problem zenpuzzle/problem-lvl7.pddl...
+1.07
+0.17
+--------------------
+Trying problem zenpuzzle/problem-lvl8.pddl...
+69.42
+0.13
+--------------------
+Trying problem zenpuzzle/problem-lvl9.pddl...
+60.34
+0.17
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem zenpuzzle/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl4.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl5.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl6.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl7.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem zenpuzzle/problem-lvl8.pddl...
+4.34236
+36200 
+4.34236
+--------------------
+Trying problem zenpuzzle/problem-lvl9.pddl...
+Timeout 15m exceeded
+--------------------

@@ -33,6 +33,12 @@ public class Test {
 	@Option(names = {"-s", "--save"}, description = "Save runtime information (problems, plans and log).")
 	private boolean saveOutput;
 
+	@Option(names = {"-v", "--visuals"}, description = "Show game visuals at runtime.")
+	private boolean showVisuals;
+
+  @Option(names = {"-p", "--problem-only"}, description = "Generate PDDL problem without calling the planner.")
+  private boolean problemOnly;
+
 	@Option(names = {"--localhost"}, description = "Call planner running on localhost.")
 	private boolean localHost;
 
@@ -56,7 +62,6 @@ public class Test {
     	String[][] games = Utils.readGames(spGamesCollection);
 
     	// Game settings
-		boolean visuals = true;
 		int seed = new Random().nextInt();
 
 		// Game and level to play
@@ -78,7 +83,8 @@ public class Test {
 			PlanningAgent.setDebugMode(test.debugMode);
 			PlanningAgent.setSaveInformation(test.saveOutput);
 			PlanningAgent.setLocalHost(test.localHost);
-			ArcadeMachine.runOneGame(game, level, visuals, controller, null, seed, 0);
+      PlanningAgent.setProblemOnly(test.problemOnly);
+			ArcadeMachine.runOneGame(game, level, test.showVisuals, controller, null, seed, 0);
 			PlanningAgent.displayStats();
 		}
     }

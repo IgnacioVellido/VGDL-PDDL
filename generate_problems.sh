@@ -13,6 +13,6 @@ esac
 
 for (( i=$1; i<=$2; i++ )); do
   echo "Generating problem for level $i"
-  timeout 1 java -jar target/GVGAI-PDDL-1.0.jar -g $3 -l $i -c $4 --localhost 2> /dev/null
-  mv problem.pddl $5/problem-lvl${i}.pddl 
+  timeout 5 java -jar target/GVGAI-PDDL-1.0.jar -g $3 -l $i -c $4 -s 2> /dev/null
+  mv output/problems/problem_turn_0.pddl $5/problem-lvl${i}.pddl 
 done

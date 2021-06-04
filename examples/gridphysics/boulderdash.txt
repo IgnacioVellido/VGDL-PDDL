@@ -6,7 +6,7 @@ BasicGame
 		dirt > Immovable color=BROWN img=oryx/backLBrown
 		exitdoor > Door color=GREEN img=oryx/door2
 		diamond > Resource color=YELLOW limit=10 shrinkfactor=0.75 img=oryx/diamond3
-		boulder > Immovable color=GRAY img=oryx/mineral1
+		boulder > Missile orientation=DOWN color=GRAY img=oryx/mineral1
 		moving >
 			avatar  > ShootAvatar   stype=sword frameRate=8 img=oryx/spelunky
 			enemy > RandomNPC cons=1
@@ -24,8 +24,7 @@ BasicGame
 		A > background avatar
 
 	InteractionSet
-		boulder sword > killSprite
-
+		boulder dirt wall diamond boulder > undoAll
 		dirt avatar sword > killSprite
 
 		diamond avatar > collectResource  scoreChange=2

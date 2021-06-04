@@ -1,0 +1,40 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zenpuzzle/zenpuzzle.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zenpuzzle/problem-lvl4.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.040s CPU, 0.107s wall-clock]
+Normalizing task... [0.000s CPU, 0.003s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.010s CPU, 0.014s wall-clock]
+Preparing model... [0.010s CPU, 0.010s wall-clock]
+Generated 99 rules.
+Computing model... [0.150s CPU, 0.150s wall-clock]
+1583 relevant atoms
+4471 auxiliary atoms
+6054 final queue length
+9101 total queue pushes
+Completing instantiation... [0.170s CPU, 0.170s wall-clock]
+Instantiating: [0.350s CPU, 0.357s wall-clock]
+Computing fact groups...
+Finding invariants...
+20 initial candidates
+Finding invariants: [0.040s CPU, 0.040s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+233 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.000s CPU, 0.004s wall-clock]
+Computing fact groups: [0.050s CPU, 0.059s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.002s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.002s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.002s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.002s wall-clock]
+Command '['/planner/driver/../fast-downward-conjunctions/src/translate/translate.py', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zenpuzzle/zenpuzzle.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zenpuzzle/problem-lvl4.pddl']' returned non-zero exit status -9

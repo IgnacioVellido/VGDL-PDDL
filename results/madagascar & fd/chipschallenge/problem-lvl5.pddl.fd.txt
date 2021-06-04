@@ -1,0 +1,45 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py chipschallenge/chipschallenge.pddl chipschallenge/problem-lvl5.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.050s CPU, 0.115s wall-clock]
+Normalizing task... [0.180s CPU, 0.181s wall-clock]
+Instantiating...
+Generating Datalog program... [0.170s CPU, 0.164s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [1.680s CPU, 1.824s wall-clock]
+Preparing model... [1.090s CPU, 1.083s wall-clock]
+Generated 14164 rules.
+Computing model... [10.970s CPU, 10.978s wall-clock]
+4134 relevant atoms
+204355 auxiliary atoms
+208489 final queue length
+213235 total queue pushes
+Completing instantiation... [0.580s CPU, 0.584s wall-clock]
+Instantiating: [14.720s CPU, 14.862s wall-clock]
+Computing fact groups...
+Finding invariants...
+49 initial candidates
+Finding invariants: [1.120s CPU, 1.121s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.002s wall-clock]
+Instantiating groups... [0.000s CPU, 0.003s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.002s wall-clock]
+Choosing groups...
+792 uncovered facts
+Choosing groups: [0.000s CPU, 0.002s wall-clock]
+Building translation key... [0.010s CPU, 0.011s wall-clock]
+Computing fact groups: [1.160s CPU, 1.179s wall-clock]
+Building STRIPS to SAS dictionary... [0.010s CPU, 0.015s wall-clock]
+Building dictionary for full mutex groups... [0.010s CPU, 0.007s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.013s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.020s CPU, 0.013s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... translate exit code: -9
+
+Driver aborting after translate

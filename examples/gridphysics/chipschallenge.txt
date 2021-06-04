@@ -55,6 +55,7 @@ BasicGame square_size=45 key_handler=Pulse
         f > flippers floor
         i > fireboots floor
         d > crate floor
+        w > wall floor
 
         . > floor
 

@@ -1,0 +1,49 @@
+domainFile: domains/CatapultDomain.pddl
+problemFile: problem.pddl
+domainName: Catapult
+cellVariable: ?cell
+avatarVariable: ?p
+gameElementsCorrespondence:
+  water:
+  - (at ?w ?cell)
+  southfacing:
+  - (at ?catapult ?cell)
+  - (catapult-down ?catapult)
+  northfacing:
+  - (at ?catapult ?cell)
+  - (catapult-up ?catapult)
+  eastfacing:
+  - (at ?catapult ?cell)
+  - (catapult-right ?catapult)
+  westfacing:
+  - (at ?catapult ?cell)
+  - (catapult-left ?catapult)
+  moving:
+  - (at ?p ?cell)
+  goal:
+  - (at ?e ?cell)
+  wall:
+  - (at ?t ?cell)
+variablesTypes:
+  ?cell: Cell
+  ?p: Player
+  ?w: Water
+  ?t: Tree
+  ?e: Exit
+  ?catapult: Catapult
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence:
+  MOVE-UP: ACTION_UP
+  MOVE-DOWN: ACTION_DOWN
+  MOVE-RIGHT: ACTION_RIGHT
+  MOVE-LEFT: ACTION_LEFT
+appendPredicatesList:
+  -
+goals:
+- goalPredicate: (exited-level)
+  priority: 1
+  saveGoal: no

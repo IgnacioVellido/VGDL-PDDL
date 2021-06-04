@@ -1,0 +1,67 @@
+domainFile: domains/handmade/ice-and-fire-domain.pddl
+# domainFile: domains/handmade/IceAndFireDomain.pddl
+problemFile: problem.pddl
+domainName: IceAndFire
+gameElementsCorrespondence:
+  background:
+  - (empty ?c)
+  exit:
+  - (at ?e ?c)
+  avatar:
+  - (at ?a ?c)
+  trap:
+  - (at ?t ?c)
+  - (non-traversable ?c)
+  ice:
+  - (at ?i ?c)
+  - (has-hazard ?c)
+  fire:
+  - (at ?f ?c)
+  - (has-hazard ?c)
+  iceshoes:
+  - (at ?b ?c)
+  - (ice-boots ?b)
+  fireboots:
+  - (at ?b ?c)
+  - (fire-boots ?b)
+  chip:
+  - (at ?m ?c)
+  wall:
+  - (at ?w ?c)
+  - (non-traversable ?c)
+variablesTypes:
+  ?e: Exit
+  ?a: Avatar
+  ?t: Trap
+  ?i: Ice
+  ?f: Fire
+  ?b: Boots
+  ?m: Coin
+  ?w: Tree
+  ?c: Cell
+cellVariable: ?c
+avatarVariable: ?a
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence:
+  MOVE-UP: ACTION_UP
+  MOVE-DOWN: ACTION_DOWN
+  MOVE-LEFT: ACTION_LEFT
+  MOVE-RIGHT: ACTION_RIGHT
+  MOVE-UP-ICE: ACTION_UP
+  MOVE-DOWN-ICE: ACTION_DOWN
+  MOVE-LEFT-ICE: ACTION_LEFT
+  MOVE-RIGHT-ICE: ACTION_RIGHT
+  MOVE-UP-FIRE: ACTION_UP
+  MOVE-DOWN-FIRE: ACTION_DOWN
+  MOVE-LEFT-FIRE: ACTION_LEFT
+  MOVE-RIGHT-FIRE: ACTION_RIGHT
+appendPredicatesList:
+  - (= (collected-coins) 0)
+goals:
+- goalPredicate: (exited-level)
+  priority: 1
+  saveGoal: no

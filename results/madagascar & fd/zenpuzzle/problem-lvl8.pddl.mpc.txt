@@ -1,0 +1,164 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:zenpuzzle/zenpuzzle.pddl file:zenpuzzle/problem-lvl8.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 20463 ground actions and 2991 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12  0.05 secs
+Goal: conjunctive
+Simplified: 190 ground actions and 109 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.01 secs (max SCC size 1)
+Plan type: E-step
+				Allocated 32 MB permanent (total 127 MB)
+Horizon 5: 4184 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 5814 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 8259 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 11519 variables
+				Allocated 32 MB (total 467 MB)
+14 UNSAT (21 decisions 21 conflicts)
+Horizon 20: 16409 variables
+Horizon 28: 22929 variables
+Horizon 40: 32709 variables
+Horizon 56: 45749 variables
+20 UNSAT (204 decisions 195 conflicts)
+Horizon 80: 65309 variables
+Horizon 113: 92204 variables
+Horizon 160: 130509 variables
+Horizon 226: 184299 variables
+				Allocated 32 MB permanent (total 1236 MB)
+Horizon 320: 260909 variables
+Horizon 452: 368489 variables
+				Allocated 32 MB permanent (total 1473 MB)
+Horizon 640: 521709 variables
+				Allocated 32 MB permanent (total 1625 MB)
+Horizon 905: 737684 variables
+				Allocated 32 MB permanent (total 1795 MB)
+Horizon 1280: 1043309 variables
+28 UNSAT (949 decisions 714 conflicts)
+				Allocated 32 MB permanent (total 1991 MB)
+				Allocated 32 MB permanent (total 2023 MB)
+Horizon 1810: 1475259 variables
+				Allocated 32 MB permanent (total 2254 MB)
+				Allocated 32 MB permanent (total 2286 MB)
+				Allocated 32 MB permanent (total 2318 MB)
+Horizon 2560: 2086509 variables
+						GC: 4.92 MB
+40 UNSAT (5441 decisions 2685 conflicts)
+SAT (7067 decisions 2748 conflicts)
+PLAN FOUND: 452 steps
+STEP 0: avatar_action_move_down(avatar,n1,n1,n2)
+STEP 1: end-turn-interactions()
+STEP 2: end-turn-sprites()
+STEP 3: avatar_action_move_down(avatar,n1,n2,n3)
+STEP 4: end-turn-interactions()
+STEP 5: end-turn-sprites()
+STEP 6: avatar_action_move_down(avatar,n1,n3,n4)
+STEP 7: end-turn-interactions()
+STEP 8: end-turn-sprites()
+STEP 9: avatar_action_move_down(avatar,n1,n4,n5)
+STEP 10: end-turn-interactions()
+STEP 11: end-turn-sprites()
+STEP 12: avatar_action_move_right(avatar,n1,n5,n2)
+STEP 13: end-turn-interactions()
+STEP 14: end-turn-sprites()
+STEP 15: avatar_action_move_right(avatar,n2,n5,n3)
+STEP 16: ground_avatar_transformto(ground_3_5,avatar,n3,n5)
+STEP 17: end-turn-interactions()
+STEP 18: end-turn-sprites()
+STEP 19: avatar_action_move_right(avatar,n3,n5,n4)
+STEP 20: ground_avatar_transformto(ground_4_5,avatar,n4,n5)
+STEP 21: end-turn-interactions()
+STEP 22: end-turn-sprites()
+STEP 23: avatar_action_move_down(avatar,n4,n5,n6)
+STEP 24: ground_avatar_transformto(ground_4_6,avatar,n4,n6)
+STEP 25: end-turn-interactions()
+STEP 26: end-turn-sprites()
+STEP 27: avatar_action_move_down(avatar,n4,n6,n7)
+STEP 28: ground_avatar_transformto(ground_4_7,avatar,n4,n7)
+STEP 29: end-turn-interactions()
+STEP 30: end-turn-sprites()
+STEP 31: avatar_action_move_down(avatar,n4,n7,n8)
+STEP 32: end-turn-interactions()
+STEP 33: end-turn-sprites()
+STEP 34: avatar_action_move_left(avatar,n4,n8,n3)
+STEP 35: end-turn-interactions()
+STEP 36: end-turn-sprites()
+STEP 37: avatar_action_move_left(avatar,n3,n8,n2)
+STEP 38: end-turn-interactions()
+STEP 39: end-turn-sprites()
+STEP 40: avatar_action_move_up(avatar,n2,n8,n7)
+STEP 41: end-turn-interactions()
+STEP 42: end-turn-sprites()
+STEP 43: avatar_action_move_up(avatar,n2,n7,n6)
+STEP 44: end-turn-interactions()
+STEP 45: end-turn-sprites()
+STEP 46: avatar_action_move_up(avatar,n2,n6,n5)
+STEP 47: end-turn-interactions()
+STEP 48: end-turn-sprites()
+STEP 49: avatar_action_move_up(avatar,n2,n5,n4)
+STEP 50: end-turn-interactions()
+STEP 51: end-turn-sprites()
+STEP 52: avatar_action_move_right(avatar,n2,n4,n3)
+STEP 53: ground_avatar_transformto(ground_3_4,avatar,n3,n4)
+STEP 54: end-turn-interactions()
+STEP 55: end-turn-sprites()
+STEP 56: avatar_action_move_up(avatar,n3,n4,n3)
+STEP 57: ground_avatar_transformto(ground_3_3,avatar,n3,n3)
+STEP 58: end-turn-interactions()
+STEP 59: end-turn-sprites()
+STEP 60: avatar_action_move_right(avatar,n3,n3,n4)
+STEP 61: ground_avatar_transformto(ground_4_3,avatar,n4,n3)
+STEP 62: end-turn-interactions()
+STEP 63: end-turn-sprites()
+STEP 64: avatar_action_move_up(avatar,n4,n3,n2)
+STEP 65: ground_avatar_transformto(ground_4_2,avatar,n4,n2)
+STEP 66: end-turn-interactions()
+STEP 67: end-turn-sprites()
+STEP 68: avatar_action_move_right(avatar,n4,n2,n5)
+STEP 69: ground_avatar_transformto(ground_5_2,avatar,n5,n2)
+STEP 70: end-turn-interactions()
+STEP 71: end-turn-sprites()
+STEP 72: avatar_action_move_right(avatar,n5,n2,n6)
+STEP 73: ground_avatar_transformto(ground_6_2,avatar,n6,n2)
+STEP 74: end-turn-interactions()
+STEP 75: end-turn-sprites()
+STEP 76: avatar_action_move_down(avatar,n6,n2,n3)
+STEP 77: ground_avatar_transformto(ground_6_3,avatar,n6,n3)
+STEP 78: end-turn-interactions()
+STEP 79: end-turn-sprites()
+STEP 80: avatar_action_move_down(avatar,n6,n3,n4)
+STEP 81: ground_avatar_transformto(ground_6_4,avatar,n6,n4)
+STEP 82: end-turn-interactions()
+STEP 83: end-turn-sprites()
+STEP 84: avatar_action_move_left(avatar,n6,n4,n5)
+STEP 85: ground_avatar_transformto(ground_5_4,avatar,n5,n4)
+STEP 86: end-turn-interactions()
+STEP 87: end-turn-sprites()
+STEP 88: avatar_action_move_down(avatar,n5,n4,n5)
+STEP 89: ground_avatar_transformto(ground_5_5,avatar,n5,n5)
+STEP 90: end-turn-interactions()
+STEP 91: end-turn-sprites()
+STEP 92: avatar_action_move_down(avatar,n5,n5,n6)
+STEP 93: ground_avatar_transformto(ground_5_6,avatar,n5,n6)
+94 actions in the plan.
+total time 69.42 preprocess 0.13 
+total size 2.374 GB
+max. learned clause length 25750
+t val conflicts decisions
+5 0 0 0
+7 0 0 0
+10 0 0 0
+14 0 21 21
+20 0 195 204
+28 0 714 949
+40 0 2685 5441
+56 -1 3127 6293
+80 -1 3063 6524
+113 -1 3000 6589
+160 -1 2941 5895
+226 -1 2883 6383
+320 -1 2823 5950
+452 1 2748 7067

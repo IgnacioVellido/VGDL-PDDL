@@ -1,5 +1,8 @@
 # For this repo: Generate PDDL domain and configuration file
 config:
+	python3 ./src/main.py -l pddl -c -gi $(gi) -go ../domains/simplified-version/$(go).pddl -co ../config/simplified-version/$(go).yaml
+	
+config-test:
 	python3 ./src/main.py -l pddl -c -gi $(gi) -go ../domains/domain.pddl
 
 

@@ -202,6 +202,9 @@ def main(argv):
     argparser.add_argument(
         "-c", "--configuration", action="store_true", help="Generate configuration file"
     )
+    argparser.add_argument(
+        "-co", "--configurationOutput", default="configuration.yaml", help="Configuration output path"
+    )
 
     args = argparser.parse_args()
 
@@ -354,13 +357,13 @@ def main(argv):
         # Get configuration text
         config = get_config(
                     domainGenerator,
-                    listener
+                    listener,
+                    terminations
                 )
 
         # Write YAML file in folder
-        configPath = "../config/configuration.yaml"
-        os.makedirs(os.path.dirname(configPath), exist_ok=True)
-        with open(configPath, 'w') as configfile:
+        os.makedirs(os.path.dirname(args.configurationOutput), exist_ok=True)
+        with open(args.configurationOutput, 'w') as configfile:
             yaml.dump(config, configfile, default_flow_style=False, sort_keys=False)
         
         print("Configuration file produced without errors.")

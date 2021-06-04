@@ -1,0 +1,39 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/boulderdash/boulderdash.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/boulderdash/problem-lvl0.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.060s CPU, 0.203s wall-clock]
+Normalizing task... [0.000s CPU, 0.006s wall-clock]
+Instantiating...
+Generating Datalog program... [0.030s CPU, 0.021s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.030s CPU, 0.032s wall-clock]
+Preparing model... [0.050s CPU, 0.045s wall-clock]
+Generated 234 rules.
+Computing model... [3.090s CPU, 3.092s wall-clock]
+13131 relevant atoms
+75030 auxiliary atoms
+88161 final queue length
+103086 total queue pushes
+Completing instantiation... [1.510s CPU, 1.505s wall-clock]
+Instantiating: [4.760s CPU, 4.762s wall-clock]
+Computing fact groups...
+Finding invariants...
+25 initial candidates
+Finding invariants: [0.350s CPU, 0.356s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.002s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.004s wall-clock]
+Choosing groups...
+3162 uncovered facts
+Choosing groups: [0.000s CPU, 0.003s wall-clock]
+Building translation key... [0.040s CPU, 0.041s wall-clock]
+Computing fact groups: [0.530s CPU, 0.534s wall-clock]
+Building STRIPS to SAS dictionary... [0.010s CPU, 0.012s wall-clock]
+Building dictionary for full mutex groups... [0.010s CPU, 0.011s wall-clock]
+Building mutex information...
+Building mutex information: [0.010s CPU, 0.013s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.010s CPU, 0.018s wall-clock]
+Command '['/planner/driver/../fast-downward-conjunctions/src/translate/translate.py', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/boulderdash/boulderdash.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/boulderdash/problem-lvl0.pddl']' returned non-zero exit status -9

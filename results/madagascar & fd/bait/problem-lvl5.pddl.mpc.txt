@@ -1,0 +1,71 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:bait/bait.pddl file:bait/problem-lvl5.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 948 ground actions and 374 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  0.01 secs
+Goal: conjunctive
+Simplified: 139 ground actions and 72 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.00 secs (max SCC size 89)
+Plan type: E-step
+				Allocated 32 MB permanent (total 123 MB)
+Horizon 5: 1787 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 2473 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 3502 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 4874 variables
+				Allocated 32 MB (total 461 MB)
+14 UNSAT (1 decisions 1 conflicts)
+Horizon 20: 6932 variables
+20 UNSAT (62 decisions 58 conflicts)
+Horizon 28: 9676 variables
+Horizon 40: 13792 variables
+Horizon 56: 19280 variables
+Horizon 80: 27512 variables
+28 UNSAT (228 decisions 182 conflicts)
+Horizon 113: 38831 variables
+Horizon 160: 54952 variables
+Horizon 226: 77590 variables
+Horizon 320: 109832 variables
+Horizon 452: 155108 variables
+				Allocated 32 MB permanent (total 1376 MB)
+Horizon 640: 219592 variables
+Horizon 905: 310487 variables
+				Allocated 32 MB permanent (total 1605 MB)
+Horizon 1280: 439112 variables
+Horizon 1810: 620902 variables
+				Allocated 32 MB permanent (total 1878 MB)
+				Allocated 32 MB permanent (total 1910 MB)
+Horizon 2560: 878152 variables
+40 UNSAT (1070 decisions 758 conflicts)
+						GC: 2.80 MB
+						GC: 1.77 MB
+						GC: 2.30 MB
+56 UNSAT (10226 decisions 5894 conflicts)
+						GC: 3.77 MB
+						GC: 3.38 MB
+						GC: 3.66 MB
+						GC: 4.16 MB
+						GC: 4.34 MB
+						GC: 4.94 MB
+						GC: 5.04 MB
+						GC: 5.70 MB
+						GC: 6.17 MB
+						GC: 6.20 MB
+						GC: 6.79 MB
+						GC: 6.89 MB
+						GC: 7.41 MB
+						GC: 8.03 MB
+						GC: 8.28 MB
+						GC: 8.44 MB
+						GC: 8.76 MB
+						GC: 10.15 MB
+						GC: 11.69 MB
+						GC: 11.04 MB
+						GC: 10.17 MB
+						GC: 12.12 MB
+						GC: 12.61 MB
+						GC: 12.88 MB

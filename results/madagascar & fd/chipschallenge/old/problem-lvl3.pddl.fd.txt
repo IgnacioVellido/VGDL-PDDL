@@ -1,0 +1,45 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py chipschallenge/chipschallenge.pddl chipschallenge/problem-lvl3.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.030s CPU, 0.075s wall-clock]
+Normalizing task... [0.160s CPU, 0.159s wall-clock]
+Instantiating...
+Generating Datalog program... [0.080s CPU, 0.077s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [1.310s CPU, 1.445s wall-clock]
+Preparing model... [0.610s CPU, 0.605s wall-clock]
+Generated 14092 rules.
+Computing model... [8.240s CPU, 8.247s wall-clock]
+4636 relevant atoms
+145293 auxiliary atoms
+149929 final queue length
+154662 total queue pushes
+Completing instantiation... [0.410s CPU, 0.417s wall-clock]
+Instantiating: [10.810s CPU, 10.956s wall-clock]
+Computing fact groups...
+Finding invariants...
+49 initial candidates
+Finding invariants: [1.280s CPU, 1.290s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+756 uncovered facts
+Choosing groups: [0.000s CPU, 0.002s wall-clock]
+Building translation key... [0.010s CPU, 0.007s wall-clock]
+Computing fact groups: [1.320s CPU, 1.323s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.003s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.003s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.002s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.010s CPU, 0.010s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... translate exit code: -9
+
+Driver aborting after translate

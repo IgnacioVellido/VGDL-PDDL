@@ -1,0 +1,101 @@
+domainFile: domains/cell-based/boulderdash.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  background:
+  - (at ?c ?background)
+  - (last-at ?c ?background)
+  wall:
+  - (at ?c ?wall)
+  - (last-at ?c ?wall)
+  sword:
+  - (at ?c ?sword)
+  - (last-at ?c ?sword)
+  - (sword-disappeared ?sword)
+  dirt:
+  - (at ?c ?dirt)
+  - (last-at ?c ?dirt)
+  exitdoor:
+  - (at ?c ?exitdoor)
+  - (last-at ?c ?exitdoor)
+  diamond:
+  - (at ?c ?diamond)
+  - (last-at ?c ?diamond)
+  - (got-resource-diamond ?diamond)
+  boulder:
+  - (at ?c ?boulder)
+  - (last-at ?c ?boulder)
+  - (boulder-moved ?boulder)
+  moving:
+  - (at ?c ?moving)
+  - (last-at ?c ?moving)
+  avatar:
+  - (at ?c ?avatar)
+  - (last-at ?c ?avatar)
+  enemy:
+  - (at ?c ?enemy)
+  - (last-at ?c ?enemy)
+  crab:
+  - (at ?c ?crab)
+  - (last-at ?c ?crab)
+  butterfly:
+  - (at ?c ?butterfly)
+  - (last-at ?c ?butterfly)
+variablesTypes:
+  ?background: background
+  ?wall: wall
+  ?sword: sword
+  ?dirt: dirt
+  ?exitdoor: exitdoor
+  ?diamond: diamond
+  ?boulder: boulder
+  ?moving: moving
+  ?avatar: avatar
+  ?enemy: enemy
+  ?crab: crab
+  ?butterfly: butterfly
+  ?c: cell
+cellVariable: ?c
+avatarVariable: ?avatar
+orientation:
+  boulder: DOWN
+  avatar: FIND
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+connections:
+  UP: (connected-up ?c ?u)
+  DOWN: (connected-down ?c ?d)
+  LEFT: (connected-left ?c ?l)
+  RIGHT: (connected-right ?c ?r)
+actionsCorrespondence:
+  AVATAR_ACTION_MOVE_UP: ACTION_UP
+  AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
+  AVATAR_ACTION_MOVE_LEFT: ACTION_LEFT
+  AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
+  AVATAR_ACTION_TURN_UP: ACTION_UP
+  AVATAR_ACTION_TURN_DOWN: ACTION_DOWN
+  AVATAR_ACTION_TURN_LEFT: ACTION_LEFT
+  AVATAR_ACTION_TURN_RIGHT: ACTION_RIGHT
+  AVATAR_ACTION_USE_UP: ACTION_USE
+  AVATAR_ACTION_USE_DOWN: ACTION_USE
+  AVATAR_ACTION_USE_LEFT: ACTION_USE
+  AVATAR_ACTION_USE_RIGHT: ACTION_USE
+  AVATAR_ACTION_NIL: ACTION_NIL
+additionalPredicates:
+- (turn-avatar)
+- (turn-sprites)
+- (turn-interactions)
+- (turn-sword-disappear)
+- (finished-turn-sword-disappear)
+- (turn-boulder-move)
+- (finished-turn-boulder-move)
+addDeadObjects:
+  sword: 5
+  diamond: 10
+goals: 
+- goalPredicate: (turn-avatar)
+  priority: 1
+  saveGoal: no

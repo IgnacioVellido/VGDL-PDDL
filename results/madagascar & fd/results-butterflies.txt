@@ -1,0 +1,92 @@
+===================MpC======================
+(exec_time-compilation_time. Time in seconds)
+Trying problem butterflies/problem-lvl0.pddl...
+505.53
+0.91
+--------------------
+Trying problem butterflies/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem butterflies/problem-lvl2.pddl...
+258.99
+1.24
+--------------------
+Trying problem butterflies/problem-lvl3.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem butterflies/problem-lvl4.pddl...
+158.88
+1.15
+--------------------
+Trying problem butterflies/problem-lvl5.pddl...
+385.23
+1.31
+--------------------
+Trying problem butterflies/problem-lvl6.pddl...
+266.64
+1.10
+--------------------
+Trying problem butterflies/problem-lvl7.pddl...
+205.66
+0.71
+--------------------
+Trying problem butterflies/problem-lvl8.pddl...
+63.19
+0.39
+--------------------
+Trying problem butterflies/problem-lvl9.pddl...
+252.04
+0.82
+--------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem butterflies/problem-lvl0.pddl...
+4.55842
+23464 
+4.55842
+--------------------
+Trying problem butterflies/problem-lvl1.pddl...
+369.379
+946288 
+369.379
+--------------------
+Trying problem butterflies/problem-lvl2.pddl...
+244.984
+612680 
+244.984
+--------------------
+Trying problem butterflies/problem-lvl3.pddl...
+88.552
+214988 
+88.552
+--------------------
+Trying problem butterflies/problem-lvl4.pddl...
+3.72712
+22072 
+3.72712
+--------------------
+Trying problem butterflies/problem-lvl5.pddl...
+0.643947
+14372 
+0.643947
+--------------------
+Trying problem butterflies/problem-lvl6.pddl...
+0.418573
+13880 
+0.418573
+--------------------
+Trying problem butterflies/problem-lvl7.pddl...
+0.330637
+13596 
+0.330637
+--------------------
+Trying problem butterflies/problem-lvl8.pddl...
+0.339857
+13424 
+0.339857
+--------------------
+Trying problem butterflies/problem-lvl9.pddl...
+0.545661
+14140 
+0.545661
+--------------------

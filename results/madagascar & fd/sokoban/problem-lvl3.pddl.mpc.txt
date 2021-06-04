@@ -1,0 +1,64 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:sokoban/sokoban.pddl file:sokoban/problem-lvl3.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 1116 ground actions and 415 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13  0.01 secs
+Goal: conjunctive
+Simplified: 204 ground actions and 86 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.00 secs (max SCC size 121)
+Plan type: E-step
+				Allocated 32 MB permanent (total 123 MB)
+Horizon 5: 2256 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 3124 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 4426 variables
+				Allocated 32 MB (total 385 MB)
+10 UNSAT (10 decisions 10 conflicts)
+Horizon 14: 6162 variables
+Horizon 20: 8766 variables
+14 UNSAT (71 decisions 66 conflicts)
+Horizon 28: 12238 variables
+Horizon 40: 17446 variables
+Horizon 56: 24390 variables
+Horizon 80: 34806 variables
+Horizon 113: 49128 variables
+20 UNSAT (386 decisions 335 conflicts)
+Horizon 160: 69526 variables
+Horizon 226: 98170 variables
+Horizon 320: 138966 variables
+Horizon 452: 196254 variables
+				Allocated 32 MB permanent (total 1388 MB)
+Horizon 640: 277846 variables
+Horizon 905: 392856 variables
+				Allocated 32 MB permanent (total 1629 MB)
+Horizon 1280: 555606 variables
+				Allocated 32 MB permanent (total 1784 MB)
+Horizon 1810: 785626 variables
+				Allocated 32 MB permanent (total 1958 MB)
+				Allocated 32 MB permanent (total 1990 MB)
+Horizon 2560: 1111126 variables
+28 UNSAT (2295 decisions 1583 conflicts)
+						GC: 3.53 MB
+						GC: 3.71 MB
+						GC: 6.09 MB
+						GC: 5.11 MB
+						GC: 5.56 MB
+						GC: 6.06 MB
+						GC: 6.98 MB
+						GC: 7.83 MB
+						GC: 7.77 MB
+						GC: 9.38 MB
+						GC: 9.41 MB
+						GC: 10.06 MB
+						GC: 11.34 MB
+						GC: 11.06 MB
+						GC: 11.08 MB
+40 UNSAT (41261 decisions 28380 conflicts)
+						GC: 11.86 MB
+						GC: 11.27 MB
+						GC: 10.46 MB
+						GC: 11.07 MB
+						GC: 12.10 MB

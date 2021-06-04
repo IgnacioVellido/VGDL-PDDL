@@ -1,26 +1,21 @@
 BasicGame
     SpriteSet
-        floor > Immovable img=oryx/grass autotiling=True hidden=True
-        cocoon > Immovable color=BLUE img=newset/cocoonb2
-        animal > 
-            avatar    > MovingAvatar img=oryx/angel1 frameRate=8
-            butterfly > RandomNPC speed=0.6 img=newset/butterfly1 cons=1 frameRate=5
-
-        wall > Immovable img=oryx/tree2
+        cocoon > Immovable        
+        avatar    > MovingAvatar
+        butterfly > RandomNPC
+        wall > Immovable
 
     TerminationSet
         SpriteCounter stype=butterfly win=True
         SpriteCounter stype=cocoon    win=False
 
     InteractionSet
-        animal    wall   > stepBack
-        butterfly avatar > killSprite scoreChange=2
-        butterfly cocoon > cloneSprite
-        cocoon butterfly > killSprite
+        avatar    wall   > stepBack
+        buttefly    wall   > stepBack
+        butterfly avatar > killSprite
 
     LevelMapping
-        1 > floor butterfly
-        0 > floor cocoon
-        A > floor avatar
-        . > floor
-        w > floor wall
+        1 > butterfly
+        0 > cocoon
+        A > avatar
+        w > wall

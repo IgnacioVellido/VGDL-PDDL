@@ -1,0 +1,65 @@
+# Cambios:
+# cellVariable -> numVariable
+# connections
+
+domainFile: domains/dummy_boulder.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+
+
+gameElementsCorrespondence:
+  wall:
+  - (at ?n0 ?n1 ?wall)
+  sword:
+  - (at ?n0 ?n1 ?sword)
+  dirt:
+  - (at ?n0 ?n1 ?dirt)
+  exitdoor:
+  - (at ?n0 ?n1 ?exitdoor)
+  diamond:
+  - (at ?n0 ?n1 ?diamond)
+  boulder:
+  - (at ?n0 ?n1 ?boulder)
+  avatar:
+  - (at ?n0 ?n1 ?avatar)  
+  crab:
+  - (at ?n0 ?n1 ?crab)
+  butterfly:
+  - (at ?n0 ?n1 ?butterfly)
+variablesTypes:
+  ?wall: wall
+  ?sword: sword
+  ?dirt: dirt
+  ?exitdoor: exitdoor
+  ?diamond: diamond
+  ?boulder: boulder
+  ?avatar: avatar
+  ?crab: crab
+  ?butterfly: butterfly
+  ?n0: num
+  ?n1: num
+numVariable: ?n
+avatarVariable: ?avatar
+
+# Esto habrá que modificarlo según el juego
+orientation:
+  avatar: NONE
+
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+connections:
+  NEXT: (next ?n1 ?n2)
+  PREVIOUS: (previous ?n1 ?n2)
+actionsCorrespondence:
+  DO_NOTHING: ACTION_NIL
+additionalPredicates: {}
+addDeadObjects: {}
+
+# Objetivo cualquiera ?
+goals:
+- goalPredicate: (next n0 n1)
+  priority: 1
+  saveGoal: no

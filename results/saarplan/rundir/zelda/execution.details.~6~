@@ -1,0 +1,324 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zelda/zelda.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/zelda/problem-lvl5.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.030s CPU, 0.120s wall-clock]
+Normalizing task... [0.000s CPU, 0.004s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.020s CPU, 0.022s wall-clock]
+Preparing model... [0.010s CPU, 0.012s wall-clock]
+Generated 192 rules.
+Computing model... [0.310s CPU, 0.311s wall-clock]
+1985 relevant atoms
+9316 auxiliary atoms
+11301 final queue length
+14269 total queue pushes
+Completing instantiation... [0.220s CPU, 0.212s wall-clock]
+Instantiating: [0.570s CPU, 0.573s wall-clock]
+Computing fact groups...
+Finding invariants...
+24 initial candidates
+Finding invariants: [0.180s CPU, 0.180s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+356 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.006s wall-clock]
+Computing fact groups: [0.200s CPU, 0.208s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.002s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.002s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.002s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.001s wall-clock]
+Processing axioms: [0.010s CPU, 0.014s wall-clock]
+Translating task: [0.230s CPU, 0.235s wall-clock]
+1966 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+256 operators removed
+0 axioms removed
+122 propositions removed
+Detecting unreachable propositions: [0.090s CPU, 0.083s wall-clock]
+Translator variables: 298
+Translator derived variables: 3
+Translator facts: 610
+Translator goal facts: 1
+Translator mutex groups: 2
+Translator total mutex groups size: 18
+Translator operators: 1001
+Translator axioms: 5
+Translator task size: 8100
+Translator peak memory: 55824 KB
+Writing output... [0.040s CPU, 0.119s wall-clock]
+Done! [1.160s CPU, 1.367s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: ['--h2_time_limit', '15']
+Building causal graph...
+The causal graph is not acyclic.
+128 variables of 298 necessary
+0 of 2 mutex groups necessary.
+832 of 1001 operators necessary.
+5 of 5 axiom rules necessary.
+Disabling h2 analysis because it does not currently support axioms
+Preprocessor variables: 128
+Preprocessor facts: 270
+Preprocessor derived variables: 3
+Preprocessor operators: 832
+Preprocessor mutex groups: 0
+Preprocessor task size: 6441
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search portfolio: /planner/driver/portfolios/seq_sat_saarplan.py
+External time limits: 900, 900
+Internal time limit: 900
+External memory limits: -1, -1
+Internal memory limit: 8000000000
+remaining time at start: 895.32
+remaining time: 895.32
+config 0: relative time 100, remaining 1800
+g bound: infinity
+next plan number: 1
+args: ['/planner/driver/../fast-downward-decoupled/search/downward-release', '--decoupling', 'fork(search_type=sat, pruning=cost_frontier(irrelevance=TRANSITIONS), max_leaf_size=1000000)', '--heuristic', 'hff=ff(cost_type=one)', '--search', 'lazy_greedy(hff, preferred=hff, cost_type=one, bound=infinity)', '--internal-previous-portfolio-plans', '0', '--internal-plan-file', '/sas_plan']
+timeout: 49.74 -> (50, 51)
+using frontier pruning method
+performing irrelevance analysis in leaf factors
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using fork factoring profile
+reading input... [t=0.0234819s]
+done reading input! [t=0.041209s]
+Peak memory: 4060 KB
+returncode: 3
+
+remaining time: 895.03
+config 1: relative time 600, remaining 1700
+g bound: infinity
+next plan number: 1
+args: ['/planner/driver/../fast-downward-decoupled/search/downward-release', '--decoupling', 'portfolio(fallback_on_abstain=true, overwrite_options=true, choose_max_leaves=true,          factorings=[fork(search_type=sat, max_leaf_size=1000000), ifork(search_type=sat, max_leaf_size=1000000), incarcs(search_type=sat, max_leaf_size=100000)])', '--heuristic', 'hff=ff(cost_type=one)', '--search', 'lazy_greedy(hff, preferred=hff, cost_type=one, bound=infinity, symmetry=symmetry_state_pruning(lex_prices=false, lex_num_states=false, lex_goal_cost=false))', '--internal-previous-portfolio-plans', '0', '--internal-plan-file', '/sas_plan']
+timeout: 315.89 -> (316, 317)
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using default pruning method: BasicPruning
+using fork factoring profile
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using default pruning method: BasicPruning
+using inverted-fork factoring profile
+performing decoupled satisficing search
+maximum leaf factor size 100000
+using default pruning method: BasicPruning
+using incident-arcs factoring profile
+performing Star Decoupled A* search
+using default pruning method: BasicPruning
+using factoring portfolio
+reading input... [t=0.0049203s]
+done reading input! [t=0.019699s]
+Variables: 128
+Bytes per state: 20
+Building successor generator...done! [t=0.0205417s]
+peak memory difference for root successor generator creation: 0 KB
+time for root successor generation creation: 0s
+done! [t=0.0219653s]
+done initalizing global data [t=0.0221929s]
+Creating symmetry graph stabilizing goal only and using orbit search.
+Conducting lazy best first search, (real) bound = 2147483647
+Initializing FF heuristic...
+Initializing additive heuristic...
+Simplifying 2706 unary operators... done! [2338 unary operators]
+Best heuristic value: 24 [g=0, 1 evaluated, 0 expanded, t=0.0326014s, 5096 KB]
+Best heuristic value: 22 [g=5, 8 evaluated, 7 expanded, t=0.0338575s, 5096 KB]
+Best heuristic value: 21 [g=10, 13 evaluated, 12 expanded, t=0.0353434s, 5096 KB]
+Best heuristic value: 20 [g=15, 20 evaluated, 19 expanded, t=0.036521s, 5096 KB]
+Best heuristic value: 19 [g=20, 27 evaluated, 26 expanded, t=0.0377292s, 5096 KB]
+Best heuristic value: 18 [g=25, 34 evaluated, 33 expanded, t=0.0393493s, 5096 KB]
+Best heuristic value: 17 [g=30, 41 evaluated, 40 expanded, t=0.0406228s, 5096 KB]
+Best heuristic value: 16 [g=50, 81 evaluated, 80 expanded, t=0.0439283s, 5096 KB]
+Best heuristic value: 15 [g=85, 240 evaluated, 238 expanded, t=0.0533704s, 5096 KB]
+Best heuristic value: 14 [g=90, 248 evaluated, 246 expanded, t=0.0624592s, 5096 KB]
+Best heuristic value: 13 [g=95, 256 evaluated, 254 expanded, t=0.0629847s, 5096 KB]
+Best heuristic value: 12 [g=100, 261 evaluated, 259 expanded, t=0.0640005s, 5096 KB]
+Best heuristic value: 11 [g=105, 268 evaluated, 266 expanded, t=0.0693109s, 5096 KB]
+Best heuristic value: 10 [g=110, 275 evaluated, 273 expanded, t=0.0702954s, 5096 KB]
+Best heuristic value: 9 [g=115, 282 evaluated, 280 expanded, t=0.0720059s, 5096 KB]
+Best heuristic value: 8 [g=120, 289 evaluated, 287 expanded, t=0.073346s, 5096 KB]
+Best heuristic value: 7 [g=126, 296 evaluated, 294 expanded, t=0.0755351s, 5096 KB]
+Best heuristic value: 6 [g=131, 301 evaluated, 299 expanded, t=0.0759651s, 5096 KB]
+Best heuristic value: 5 [g=136, 307 evaluated, 305 expanded, t=0.077131s, 5096 KB]
+Best heuristic value: 4 [g=141, 313 evaluated, 311 expanded, t=0.078351s, 5096 KB]
+Best heuristic value: 3 [g=146, 319 evaluated, 317 expanded, t=0.0795345s, 5096 KB]
+Best heuristic value: 1 [g=147, 320 evaluated, 318 expanded, t=0.0807538s, 5096 KB]
+Solution found!
+Actual search time: 0.0582441s [t=0.0817389s]
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n5 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n5 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n5 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n5 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n6 n5 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n6 n4 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n6 n3 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n2 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n2 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n2 n3 (1)
+key_avatar_collectresource key_3_2 avatar n3 n2 n0 n1 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n2 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n2 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n2 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n2 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n3 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n4 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n6 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n7 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n7 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n7 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n7 n1 (1)
+goal_avatar_killifotherhasmore goal_1_7 avatar n1 n7 (1)
+Plan length: 148 step(s).
+Plan cost: 148
+Initial state h value: 24.
+Expanded 319 state(s).
+Reopened 0 state(s).
+Evaluated 321 state(s).
+Evaluations: 321
+Generated 530 state(s).
+Dead ends: 1 state(s).
+Number of registered states: 321
+Search time: 0.0588704s
+Total time: 0.0820276s
+Solution found.
+Peak memory: 5096 KB
+returncode: 0
+

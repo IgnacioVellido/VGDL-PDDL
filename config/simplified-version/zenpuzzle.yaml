@@ -1,0 +1,46 @@
+domainFile: domains/simplified-version/zenpuzzle.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  avatar:
+  - (at ?x ?y ?avatar)
+  wall:
+  - (is-wall ?x ?y)
+  isincenter:
+  - (at ?x ?y ?isincenter)
+  ground:
+  - (at ?x ?y ?ground)
+  walked:
+  - (is-walked ?x ?y)
+  rock:
+  - (is-rock ?x ?y)
+variablesTypes:
+  ?isincenter: isincenter
+  ?avatar: avatar
+  ?ground: ground
+  ?x: num
+  ?y: num
+  ?walked: walked
+avatarVariable: ?avatar
+orientation:
+  avatar: NONE
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+fluentsPredicates:
+  next: (next ?n0 ?n1)
+  previous: (previous ?n1 ?n0)
+actionsCorrespondence:
+  AVATAR_ACTION_MOVE_UP: ACTION_UP
+  AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
+  AVATAR_ACTION_MOVE_LEFT: ACTION_LEFT
+  AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
+additionalPredicates:
+- (turn-avatar)
+addDeadObjects: {}
+goals:
+- goalPredicate: (forall (?o - ground) (object-dead ?o))
+  priority: 1
+  saveGoal: no

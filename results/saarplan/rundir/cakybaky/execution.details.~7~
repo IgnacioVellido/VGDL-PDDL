@@ -1,0 +1,533 @@
+INFO     Running translator.
+INFO     translator inputs: ['/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/cakybaky/cakybaky.pddl', '/mnt/e/Users/ignac/Desktop/newTestPDDL/planners/saarplan/rundir/cakybaky/problem-lvl6.pddl']
+INFO     translator arguments: []
+Parsing...
+Parsing: [0.040s CPU, 0.125s wall-clock]
+Normalizing task... [0.000s CPU, 0.005s wall-clock]
+Instantiating...
+Generating Datalog program... [0.010s CPU, 0.005s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.020s CPU, 0.028s wall-clock]
+Preparing model... [0.020s CPU, 0.014s wall-clock]
+Generated 203 rules.
+Computing model... [1.190s CPU, 1.186s wall-clock]
+4761 relevant atoms
+34568 auxiliary atoms
+39329 final queue length
+48400 total queue pushes
+Completing instantiation... [0.790s CPU, 0.791s wall-clock]
+Instantiating: [2.050s CPU, 2.048s wall-clock]
+Computing fact groups...
+Finding invariants...
+29 initial candidates
+Finding invariants: [0.060s CPU, 0.062s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.002s wall-clock]
+Choosing groups...
+866 uncovered facts
+Choosing groups: [0.000s CPU, 0.002s wall-clock]
+Building translation key... [0.010s CPU, 0.013s wall-clock]
+Computing fact groups: [0.110s CPU, 0.117s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.003s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.003s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.003s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.001s wall-clock]
+Processing axioms: [0.050s CPU, 0.041s wall-clock]
+Translating task: [1.590s CPU, 1.584s wall-clock]
+18931 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+257 operators removed
+0 axioms removed
+176 propositions removed
+Detecting unreachable propositions: [0.660s CPU, 0.666s wall-clock]
+Translator variables: 787
+Translator derived variables: 6
+Translator facts: 1736
+Translator goal facts: 1
+Translator mutex groups: 6
+Translator total mutex groups size: 174
+Translator operators: 6803
+Translator axioms: 12
+Translator task size: 69606
+Translator peak memory: 94928 KB
+Writing output... [0.250s CPU, 0.383s wall-clock]
+Done! [4.740s CPU, 4.981s wall-clock]
+INFO     Running preprocessor.
+INFO     preprocessor input: output.sas
+INFO     preprocessor arguments: ['--h2_time_limit', '30']
+Building causal graph...
+The causal graph is not acyclic.
+781 variables of 787 necessary
+0 of 6 mutex groups necessary.
+6802 of 6803 operators necessary.
+12 of 12 axiom rules necessary.
+Disabling h2 analysis because it does not currently support axioms
+Preprocessor variables: 781
+Preprocessor facts: 1724
+Preprocessor derived variables: 6
+Preprocessor operators: 6802
+Preprocessor mutex groups: 0
+Preprocessor task size: 66246
+Writing output...
+done
+INFO     Running search.
+INFO     search input: output
+INFO     search portfolio: /planner/driver/portfolios/seq_sat_saarplan.py
+External time limits: 900, 900
+Internal time limit: 900
+External memory limits: -1, -1
+Internal memory limit: 8000000000
+remaining time at start: 880.34
+remaining time: 880.34
+config 0: relative time 100, remaining 1800
+g bound: infinity
+next plan number: 1
+args: ['/planner/driver/../fast-downward-decoupled/search/downward-release', '--decoupling', 'fork(search_type=sat, pruning=cost_frontier(irrelevance=TRANSITIONS), max_leaf_size=1000000)', '--heuristic', 'hff=ff(cost_type=one)', '--search', 'lazy_greedy(hff, preferred=hff, cost_type=one, bound=infinity)', '--internal-previous-portfolio-plans', '0', '--internal-plan-file', '/sas_plan']
+timeout: 48.91 -> (49, 50)
+using frontier pruning method
+performing irrelevance analysis in leaf factors
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using fork factoring profile
+reading input... [t=0.0273769s]
+done reading input! [t=0.173975s]
+Peak memory: 7796 KB
+returncode: 3
+
+remaining time: 879.89
+config 1: relative time 600, remaining 1700
+g bound: infinity
+next plan number: 1
+args: ['/planner/driver/../fast-downward-decoupled/search/downward-release', '--decoupling', 'portfolio(fallback_on_abstain=true, overwrite_options=true, choose_max_leaves=true,          factorings=[fork(search_type=sat, max_leaf_size=1000000), ifork(search_type=sat, max_leaf_size=1000000), incarcs(search_type=sat, max_leaf_size=100000)])', '--heuristic', 'hff=ff(cost_type=one)', '--search', 'lazy_greedy(hff, preferred=hff, cost_type=one, bound=infinity, symmetry=symmetry_state_pruning(lex_prices=false, lex_num_states=false, lex_goal_cost=false))', '--internal-previous-portfolio-plans', '0', '--internal-plan-file', '/sas_plan']
+timeout: 310.55 -> (311, 312)
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using default pruning method: BasicPruning
+using fork factoring profile
+performing decoupled satisficing search
+maximum leaf factor size 1000000
+using default pruning method: BasicPruning
+using inverted-fork factoring profile
+performing decoupled satisficing search
+maximum leaf factor size 100000
+using default pruning method: BasicPruning
+using incident-arcs factoring profile
+performing Star Decoupled A* search
+using default pruning method: BasicPruning
+using factoring portfolio
+reading input... [t=0.0045709s]
+done reading input! [t=0.152598s]
+Variables: 781
+Bytes per state: 104
+Building successor generator...done! [t=0.154041s]
+peak memory difference for root successor generator creation: 1024 KB
+time for root successor generation creation: 0s
+done! [t=0.162525s]
+done initalizing global data [t=0.162745s]
+Creating symmetry graph stabilizing goal only and using orbit search.
+Conducting lazy best first search, (real) bound = 2147483647
+Initializing FF heuristic...
+Initializing additive heuristic...
+Simplifying 28654 unary operators... done! [28654 unary operators]
+Best heuristic value: 64 [g=0, 1 evaluated, 0 expanded, t=0.26403s, 18628 KB]
+Best heuristic value: 51 [g=1, 2 evaluated, 1 expanded, t=0.271404s, 18628 KB]
+Best heuristic value: 50 [g=3, 4 evaluated, 3 expanded, t=0.272696s, 18628 KB]
+Best heuristic value: 49 [g=6, 9 evaluated, 8 expanded, t=0.274826s, 18628 KB]
+Best heuristic value: 48 [g=8, 13 evaluated, 12 expanded, t=0.280724s, 18628 KB]
+Best heuristic value: 46 [g=19, 32 evaluated, 30 expanded, t=0.299959s, 18628 KB]
+Best heuristic value: 45 [g=21, 34 evaluated, 32 expanded, t=0.300738s, 18628 KB]
+Best heuristic value: 44 [g=81, 381 evaluated, 378 expanded, t=0.628449s, 18628 KB]
+Best heuristic value: 43 [g=85, 387 evaluated, 384 expanded, t=0.637676s, 18628 KB]
+Best heuristic value: 42 [g=88, 393 evaluated, 390 expanded, t=0.639339s, 18628 KB]
+Best heuristic value: 41 [g=91, 399 evaluated, 396 expanded, t=0.646166s, 18628 KB]
+Best heuristic value: 40 [g=93, 404 evaluated, 401 expanded, t=0.655456s, 18628 KB]
+Best heuristic value: 39 [g=136, 579 evaluated, 576 expanded, t=0.824737s, 18628 KB]
+Best heuristic value: 38 [g=139, 616 evaluated, 613 expanded, t=0.863846s, 18628 KB]
+Best heuristic value: 37 [g=154, 659 evaluated, 656 expanded, t=0.903027s, 18628 KB]
+Best heuristic value: 36 [g=157, 678 evaluated, 674 expanded, t=0.922043s, 18628 KB]
+Best heuristic value: 35 [g=147, 785 evaluated, 781 expanded, t=1.02135s, 18628 KB]
+Best heuristic value: 34 [g=154, 796 evaluated, 792 expanded, t=1.04043s, 18628 KB]
+Best heuristic value: 33 [g=170, 1236 evaluated, 1231 expanded, t=1.45965s, 18628 KB]
+Best heuristic value: 32 [g=176, 2755 evaluated, 2740 expanded, t=2.91887s, 18628 KB]
+Best heuristic value: 31 [g=179, 2759 evaluated, 2744 expanded, t=2.92432s, 18628 KB]
+Best heuristic value: 30 [g=183, 2765 evaluated, 2750 expanded, t=2.92828s, 18628 KB]
+Best heuristic value: 29 [g=186, 2770 evaluated, 2755 expanded, t=2.93677s, 18628 KB]
+Best heuristic value: 28 [g=189, 2775 evaluated, 2760 expanded, t=2.93879s, 18628 KB]
+Best heuristic value: 27 [g=191, 2779 evaluated, 2764 expanded, t=2.94524s, 18628 KB]
+Best heuristic value: 26 [g=207, 2805 evaluated, 2790 expanded, t=2.96455s, 18628 KB]
+Best heuristic value: 25 [g=212, 2826 evaluated, 2811 expanded, t=2.98391s, 18628 KB]
+Best heuristic value: 24 [g=213, 2827 evaluated, 2812 expanded, t=2.99149s, 18628 KB]
+Best heuristic value: 23 [g=237, 2869 evaluated, 2854 expanded, t=3.02252s, 18628 KB]
+Best heuristic value: 22 [g=245, 2882 evaluated, 2867 expanded, t=3.04151s, 18628 KB]
+Best heuristic value: 21 [g=246, 2883 evaluated, 2868 expanded, t=3.04331s, 18628 KB]
+Best heuristic value: 20 [g=250, 2887 evaluated, 2872 expanded, t=3.04442s, 18628 KB]
+Best heuristic value: 19 [g=256, 2904 evaluated, 2889 expanded, t=3.05905s, 18628 KB]
+Best heuristic value: 18 [g=281, 3020 evaluated, 3005 expanded, t=3.15828s, 18628 KB]
+Best heuristic value: 17 [g=284, 3025 evaluated, 3010 expanded, t=3.16753s, 18628 KB]
+Best heuristic value: 16 [g=286, 3029 evaluated, 3014 expanded, t=3.16777s, 18628 KB]
+Best heuristic value: 15 [g=290, 3035 evaluated, 3020 expanded, t=3.17609s, 18628 KB]
+Best heuristic value: 14 [g=293, 3040 evaluated, 3025 expanded, t=3.17655s, 18628 KB]
+Best heuristic value: 13 [g=296, 3045 evaluated, 3030 expanded, t=3.18466s, 18628 KB]
+Best heuristic value: 12 [g=298, 3049 evaluated, 3034 expanded, t=3.18519s, 18628 KB]
+Best heuristic value: 11 [g=302, 3055 evaluated, 3040 expanded, t=3.19325s, 18628 KB]
+Best heuristic value: 10 [g=305, 3060 evaluated, 3045 expanded, t=3.19353s, 18628 KB]
+Best heuristic value: 9 [g=308, 3065 evaluated, 3050 expanded, t=3.1975s, 18628 KB]
+Best heuristic value: 8 [g=310, 3068 evaluated, 3053 expanded, t=3.2015s, 18628 KB]
+Best heuristic value: 7 [g=313, 3071 evaluated, 3056 expanded, t=3.20389s, 18628 KB]
+Best heuristic value: 6 [g=316, 3075 evaluated, 3060 expanded, t=3.20624s, 18628 KB]
+Best heuristic value: 5 [g=320, 3080 evaluated, 3065 expanded, t=3.20932s, 18628 KB]
+Best heuristic value: 4 [g=323, 3084 evaluated, 3069 expanded, t=3.21292s, 18628 KB]
+Best heuristic value: 3 [g=325, 3087 evaluated, 3072 expanded, t=3.21735s, 18628 KB]
+Best heuristic value: 1 [g=327, 3089 evaluated, 3074 expanded, t=3.2181s, 18628 KB]
+Solution found!
+Actual search time: 3.05565s [t=3.21976s]
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n25 n10 n24 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n24 n10 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n23 n8 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n8 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n8 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n8 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n8 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n8 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n8 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n8 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n8 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n8 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n8 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n8 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n8 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n8 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n8 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n8 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n8 n4 (1)
+inca_avatar_collectresource inca_4_8 avatar n4 n8 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n8 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n8 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n8 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n8 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n8 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n8 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n8 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n8 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n8 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n8 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n4 n3 (1)
+incb_avatar_collectresourceifheld incb_16_3 avatar n16 n3 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n16 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n4 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n4 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n4 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n4 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n4 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n4 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n4 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n4 n8 (1)
+incc_avatar_collectresourceifheld incc_8_4 avatar n8 n4 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n4 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n4 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n4 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n4 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n4 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n4 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n4 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n4 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n4 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n4 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n4 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n19 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n19 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n19 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n19 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n8 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n8 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n21 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n21 n9 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n10 n22 (1)
+incd_avatar_collectresourceifheld incd_22_10 avatar n22 n10 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n22 n10 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n5 n4 (1)
+ince_avatar_collectresourceifheld ince_23_4 avatar n23 n4 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n23 n4 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n4 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n4 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n4 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n4 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n4 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n4 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n4 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n4 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n4 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n9 n10 (1)
+incf_avatar_collectresourceifheld incf_13_10 avatar n13 n10 n0 n1 (1)
+Plan length: 328 step(s).
+Plan cost: 328
+Initial state h value: 64.
+Expanded 3075 state(s).
+Reopened 0 state(s).
+Evaluated 3090 state(s).
+Evaluations: 3090
+Generated 6833 state(s).
+Dead ends: 14 state(s).
+Number of registered states: 3090
+Search time: 3.05647s
+Total time: 3.2199s
+Solution found.
+Peak memory: 18628 KB
+returncode: 0
+

@@ -1,0 +1,69 @@
+domainFile: domains/simplified-version/boulderdash.pddl
+problemFile: problem.pddl
+domainName: VGDLGame
+gameElementsCorrespondence:
+  avatar:
+  - (at ?x ?y ?avatar)
+  wall:
+  - (is-wall ?x ?y)
+  sword:
+  - (at ?x ?y ?sword)
+  exitdoor:
+  - (at ?x ?y ?exitdoor)
+  diamond:
+  - (at ?x ?y ?diamond)
+  boulder:
+  - (at ?x ?y ?boulder)
+  - (boulder-moved ?boulder)
+  dirt:
+  - (at ?x ?y ?dirt)
+  crab:
+  - (at ?x ?y ?enemy)
+  - (is-crab ?x ?y)
+  butterfly:
+  - (is-butterfly ?x ?y)
+  - (at ?x ?y ?enemy)
+variablesTypes:
+  ?sword: sword
+  ?exitdoor: exitdoor
+  ?diamond: diamond
+  ?boulder: boulder
+  ?dirt: dirt
+  ?avatar: avatar
+  ?enemy: enemy
+  ?x: num
+  ?y: num
+avatarVariable: ?avatar
+orientation:
+  boulder: DOWN
+  avatar: FIND
+orientationCorrespondence:
+  UP: (oriented-up ?object)
+  DOWN: (oriented-down ?object)
+  LEFT: (oriented-left ?object)
+  RIGHT: (oriented-right ?object)
+fluentsPredicates:
+  next: (next ?n0 ?n1)
+  previous: (previous ?n1 ?n0)
+actionsCorrespondence:
+  AVATAR_ACTION_MOVE_UP: ACTION_UP
+  AVATAR_ACTION_MOVE_DOWN: ACTION_DOWN
+  AVATAR_ACTION_MOVE_LEFT: ACTION_LEFT
+  AVATAR_ACTION_MOVE_RIGHT: ACTION_RIGHT
+  AVATAR_ACTION_TURN_UP: ACTION_UP
+  AVATAR_ACTION_TURN_DOWN: ACTION_DOWN
+  AVATAR_ACTION_TURN_LEFT: ACTION_LEFT
+  AVATAR_ACTION_TURN_RIGHT: ACTION_RIGHT
+  AVATAR_ACTION_USE_UP: ACTION_USE
+  AVATAR_ACTION_USE_DOWN: ACTION_USE
+  AVATAR_ACTION_USE_LEFT: ACTION_USE
+  AVATAR_ACTION_USE_RIGHT: ACTION_USE
+additionalPredicates:
+- (turn-avatar)
+- (got-resource-diamond n0)
+addDeadObjects:
+  sword: 1
+goals:
+- goalPredicate: (forall (?o - exitdoor) (object-dead ?o))
+  priority: 1
+  saveGoal: false

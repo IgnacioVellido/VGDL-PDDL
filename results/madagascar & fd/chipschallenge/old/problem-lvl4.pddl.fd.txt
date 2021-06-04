@@ -1,0 +1,45 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py chipschallenge/chipschallenge.pddl chipschallenge/problem-lvl4.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.030s CPU, 0.148s wall-clock]
+Normalizing task... [0.160s CPU, 0.153s wall-clock]
+Instantiating...
+Generating Datalog program... [0.070s CPU, 0.078s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [1.360s CPU, 1.468s wall-clock]
+Preparing model... [0.590s CPU, 0.590s wall-clock]
+Generated 14092 rules.
+Computing model... [61.500s CPU, 61.502s wall-clock]
+41933 relevant atoms
+697751 auxiliary atoms
+739684 final queue length
+777061 total queue pushes
+Completing instantiation... [3.980s CPU, 3.979s wall-clock]
+Instantiating: [68.430s CPU, 68.552s wall-clock]
+Computing fact groups...
+Finding invariants...
+49 initial candidates
+Finding invariants: [1.480s CPU, 1.476s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.002s wall-clock]
+Instantiating groups... [0.000s CPU, 0.004s wall-clock]
+Collecting mutex groups... [0.010s CPU, 0.005s wall-clock]
+Choosing groups...
+6761 uncovered facts
+Choosing groups: [0.000s CPU, 0.008s wall-clock]
+Building translation key... [0.050s CPU, 0.058s wall-clock]
+Computing fact groups: [1.700s CPU, 1.714s wall-clock]
+Building STRIPS to SAS dictionary... [0.020s CPU, 0.017s wall-clock]
+Building dictionary for full mutex groups... [0.010s CPU, 0.015s wall-clock]
+Building mutex information...
+Building mutex information: [0.020s CPU, 0.012s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.350s CPU, 0.356s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... translate exit code: -9
+
+Driver aborting after translate

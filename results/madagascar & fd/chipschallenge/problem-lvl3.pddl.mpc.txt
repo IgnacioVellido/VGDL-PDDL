@@ -1,0 +1,62 @@
+Madagascar 0.99999 25/02/2015 09:45:59 amd64 1-core (no VSIDS)
+Options: file:chipschallenge/chipschallenge.pddl file:chipschallenge/problem-lvl3.pddl
+Domain: vgdlgame
+Problem: vgdlgameproblem
+Parser: 7423 ground actions and 2227 state variables
+Invariants: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  0.24 secs
+Goal: conjunctive
+Simplified: 638 ground actions and 298 state variables
+Actions: general
+Disabling graph %: 10 20 30 40 50 60 70 80 90 100 0.01 secs (max SCC size 523)
+Plan type: E-step
+				Allocated 32 MB permanent (total 129 MB)
+Horizon 5: 7628 variables
+5 UNSAT (0 decisions 0 conflicts)
+Horizon 7: 10560 variables
+7 UNSAT (0 decisions 0 conflicts)
+Horizon 10: 14958 variables
+10 UNSAT (0 decisions 0 conflicts)
+Horizon 14: 20822 variables
+14 UNSAT (0 decisions 0 conflicts)
+Horizon 20: 29618 variables
+				Allocated 32 MB (total 549 MB)
+20 UNSAT (19 decisions 19 conflicts)
+Horizon 28: 41346 variables
+Horizon 40: 58938 variables
+Horizon 56: 82394 variables
+28 UNSAT (177 decisions 157 conflicts)
+Horizon 80: 117578 variables
+Horizon 113: 165956 variables
+Horizon 160: 234858 variables
+				Allocated 32 MB permanent (total 1176 MB)
+Horizon 226: 331614 variables
+Horizon 320: 469418 variables
+				Allocated 32 MB permanent (total 1428 MB)
+Horizon 452: 662930 variables
+				Allocated 32 MB permanent (total 1592 MB)
+Horizon 640: 938538 variables
+				Allocated 32 MB permanent (total 1779 MB)
+				Allocated 32 MB permanent (total 1811 MB)
+Horizon 905: 1327028 variables
+				Allocated 32 MB permanent (total 2030 MB)
+				Allocated 32 MB permanent (total 2062 MB)
+Horizon 1280: 1876778 variables
+				Allocated 32 MB permanent (total 2327 MB)
+				Allocated 32 MB permanent (total 2359 MB)
+				Allocated 32 MB permanent (total 2391 MB)
+Horizon 1810: 2653758 variables
+				Allocated 32 MB permanent (total 2721 MB)
+				Allocated 32 MB permanent (total 2753 MB)
+				Allocated 32 MB permanent (total 2785 MB)
+				Allocated 32 MB permanent (total 2817 MB)
+Horizon 2560: 3753258 variables
+40 UNSAT (1178 decisions 888 conflicts)
+						GC: 7.81 MB
+						GC: 2.49 MB
+56 UNSAT (6026 decisions 3935 conflicts)
+						GC: 7.66 MB
+						GC: 6.35 MB
+						GC: 7.83 MB
+						GC: 9.07 MB
+						GC: 10.56 MB
+						GC: 10.82 MB
