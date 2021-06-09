@@ -90,3 +90,51 @@ Trying problem butterflies/problem-lvl9.pddl...
 14140 
 0.545661
 --------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem butterflies/problem-lvl0.pddl...
+61.8598
+28956 
+61.8598
+--------------------
+Trying problem butterflies/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem butterflies/problem-lvl2.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem butterflies/problem-lvl3.pddl...
+681.571
+254832 
+681.571
+--------------------
+Trying problem butterflies/problem-lvl4.pddl...
+48.8304
+26724 
+48.8304
+--------------------
+Trying problem butterflies/problem-lvl5.pddl...
+10.0125
+20700 
+10.0125
+--------------------
+Trying problem butterflies/problem-lvl6.pddl...
+6.69806
+20760 
+6.69806
+--------------------
+Trying problem butterflies/problem-lvl7.pddl...
+4.87303
+20428 
+4.87303
+--------------------
+Trying problem butterflies/problem-lvl8.pddl...
+5.40428
+17560 
+5.40428
+--------------------
+Trying problem butterflies/problem-lvl9.pddl...
+8.08845
+20368 
+8.08845
+--------------------

@@ -88,3 +88,55 @@ Trying problem zelda/problem-lvl9.pddl...
 10616 
 0.15307
 --------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem zelda/problem-lvl0.pddl...
+1.12609
+11400 
+1.12609
+--------------------
+Trying problem zelda/problem-lvl1.pddl...
+1.22992
+11392 
+1.22992
+--------------------
+Trying problem zelda/problem-lvl2.pddl...
+1.29623
+11428 
+1.29623
+--------------------
+Trying problem zelda/problem-lvl3.pddl...
+1.10584
+11400 
+1.10584
+--------------------
+Trying problem zelda/problem-lvl4.pddl...
+0.904111
+11368 
+0.904111
+--------------------
+Trying problem zelda/problem-lvl5.pddl...
+1.30739
+11380 
+1.30739
+--------------------
+Trying problem zelda/problem-lvl6.pddl...
+1.18411
+11396 
+1.18411
+--------------------
+Trying problem zelda/problem-lvl7.pddl...
+1.20859
+11416 
+1.20859
+--------------------
+Trying problem zelda/problem-lvl8.pddl...
+1.30047
+11448 
+1.30047
+--------------------
+Trying problem zelda/problem-lvl9.pddl...
+1.12491
+11436 
+1.12491
+--------------------

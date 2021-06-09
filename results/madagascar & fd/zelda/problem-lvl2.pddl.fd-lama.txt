@@ -1,0 +1,1168 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py zelda/zelda.pddl zelda/problem-lvl2.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.010s CPU, 0.085s wall-clock]
+Normalizing task... [0.000s CPU, 0.003s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.003s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.030s CPU, 0.138s wall-clock]
+Preparing model... [0.010s CPU, 0.007s wall-clock]
+Generated 193 rules.
+Computing model... [0.200s CPU, 0.201s wall-clock]
+1979 relevant atoms
+9274 auxiliary atoms
+11253 final queue length
+14221 total queue pushes
+Completing instantiation... [0.110s CPU, 0.111s wall-clock]
+Instantiating: [0.350s CPU, 0.469s wall-clock]
+Computing fact groups...
+Finding invariants...
+24 initial candidates
+Finding invariants: [0.140s CPU, 0.138s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+354 uncovered facts
+Choosing groups: [0.000s CPU, 0.001s wall-clock]
+Building translation key... [0.010s CPU, 0.003s wall-clock]
+Computing fact groups: [0.150s CPU, 0.156s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.001s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.001s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.001s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.001s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.001s wall-clock]
+Processing axioms: [0.010s CPU, 0.011s wall-clock]
+Translating task: [0.150s CPU, 0.152s wall-clock]
+1854 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+298 operators removed
+1 axioms removed
+130 propositions removed
+Detecting unreachable propositions: [0.050s CPU, 0.050s wall-clock]
+Reordering and filtering variables...
+122 of 292 variables necessary.
+0 of 2 mutex groups necessary.
+762 of 931 operators necessary.
+9 of 9 axiom rules necessary.
+Reordering and filtering variables: [0.030s CPU, 0.032s wall-clock]
+Translator variables: 122
+Translator derived variables: 4
+Translator facts: 258
+Translator goal facts: 1
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 762
+Translator axioms: 9
+Translator task size: 5873
+Translator peak memory: 36140 KB
+Writing output... [0.020s CPU, 0.033s wall-clock]
+Done! [0.760s CPU, 0.998s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/downward --if-unit-cost --evaluator 'hlm=lmcount(lm_rhw(reasonable_orders=true),pref=true)' --evaluator 'hff=ff()' --search 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)' --if-non-unit-cost --evaluator 'hlm1=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=true)' --evaluator 'hff1=ff(transform=adapt_costs(one))' --evaluator 'hlm2=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(plusone),pref=true)' --evaluator 'hff2=ff(transform=adapt_costs(plusone))' --search 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)' --always --internal-plan-file sas_plan < output.sas
+[t=0.0054169s, 9964 KB] reading input...
+[t=0.0214374s, 10220 KB] done reading input!
+[t=0.0233026s, 10484 KB] Initializing landmarks count heuristic...
+[t=0.0261713s, 10484 KB] Initializing Exploration...
+[t=0.0266422s, 11008 KB] Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+[t=0.0346978s, 11140 KB] approx. obedient reasonable orders
+[t=0.0373297s, 11140 KB] Removed 0 reasonable or obedient reasonable orders
+[t=0.0385887s, 11140 KB] Landmarks generation time: 0.0204689s
+[t=0.0467719s, 11140 KB] Discovered 40 landmarks, of which 3 are disjunctive and 0 are conjunctive.
+[t=0.0470676s, 11140 KB] 163 edges
+[t=0.047361s, 11140 KB] Simplifying 2430 unary operators... done! [2104 unary operators]
+[t=0.0523149s, 11140 KB] time to simplify: 0.0049539s
+[t=0.0528479s, 11140 KB] Initializing additive heuristic...
+[t=0.0532942s, 11140 KB] Initializing FF heuristic...
+[t=0.05359s, 11140 KB] Building successor generator...done!
+[t=0.0551466s, 11140 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.0555128s, 11140 KB] time for successor generation creation: 0s
+[t=0.0558268s, 11140 KB] Variables: 122
+[t=0.0561421s, 11140 KB] FactPairs: 258
+[t=0.0564614s, 11140 KB] Bytes per state: 16
+[t=0.0567929s, 11160 KB] Building successor generator...done!
+[t=0.0581119s, 11160 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.0584807s, 11160 KB] time for successor generation creation: 0s
+[t=0.0587651s, 11160 KB] Variables: 122
+[t=0.0590666s, 11160 KB] FactPairs: 258
+[t=0.0593604s, 11160 KB] Bytes per state: 16
+[t=0.059653s, 11160 KB] Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+[t=0.0599988s, 11160 KB] Conducting lazy best first search, (real) bound = 2147483647
+[t=0.0603046s, 11160 KB] 20 initial landmarks, 1 goal landmarks
+[t=0.0604734s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.0609342s, 11292 KB] New best heuristic value for ff: 33
+[t=0.0612395s, 11292 KB] g=0, 1 evaluated, 0 expanded
+[t=0.061531s, 11292 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.0618459s, 11292 KB] Initial heuristic value for ff: 33
+[t=0.0621403s, 11292 KB] New best heuristic value for ff: 32
+[t=0.0643302s, 11292 KB] g=10, 21 evaluated, 20 expanded
+[t=0.0646335s, 11292 KB] New best heuristic value for ff: 31
+[t=0.0657664s, 11292 KB] g=15, 34 evaluated, 33 expanded
+[t=0.0661754s, 11292 KB] New best heuristic value for ff: 30
+[t=0.06753s, 11292 KB] g=20, 48 evaluated, 47 expanded
+[t=0.0678429s, 11292 KB] New best heuristic value for ff: 29
+[t=0.0691966s, 11292 KB] g=25, 61 evaluated, 60 expanded
+[t=0.0700745s, 11292 KB] New best heuristic value for ff: 28
+[t=0.0742037s, 11292 KB] g=40, 111 evaluated, 110 expanded
+[t=0.0745069s, 11292 KB] New best heuristic value for ff: 27
+[t=0.075383s, 11292 KB] g=45, 116 evaluated, 115 expanded
+[t=0.0772053s, 11292 KB] New best heuristic value for ff: 26
+[t=0.0789933s, 11292 KB] g=58, 151 evaluated, 150 expanded
+[t=0.0792884s, 11292 KB] New best heuristic value for ff: 25
+[t=0.0798621s, 11292 KB] g=59, 153 evaluated, 152 expanded
+[t=0.0801591s, 11292 KB] New best heuristic value for ff: 24
+[t=0.0806657s, 11292 KB] g=60, 155 evaluated, 154 expanded
+[t=0.0826824s, 11292 KB] New best heuristic value for ff: 23
+[t=0.0848265s, 11292 KB] g=79, 198 evaluated, 197 expanded
+[t=0.0852279s, 11292 KB] New best heuristic value for ff: 22
+[t=0.0856752s, 11292 KB] g=80, 199 evaluated, 198 expanded
+[t=0.0860172s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 18
+[t=0.0865511s, 11292 KB] g=81, 200 evaluated, 199 expanded
+[t=0.0875176s, 11292 KB] New best heuristic value for ff: 21
+[t=0.0881103s, 11292 KB] g=85, 208 evaluated, 207 expanded
+[t=0.0884885s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 17
+[t=0.088982s, 11292 KB] g=86, 209 evaluated, 208 expanded
+[t=0.0893516s, 11292 KB] New best heuristic value for ff: 20
+[t=0.090491s, 11292 KB] g=90, 217 evaluated, 216 expanded
+[t=0.0918511s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 16
+[t=0.0923674s, 11292 KB] g=96, 227 evaluated, 226 expanded
+[t=0.0927659s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 15
+[t=0.0937074s, 11292 KB] g=101, 232 evaluated, 231 expanded
+[t=0.0940517s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 14
+[t=0.0953407s, 11292 KB] g=106, 241 evaluated, 240 expanded
+[t=0.09626s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 13
+[t=0.0986679s, 11292 KB] g=116, 264 evaluated, 263 expanded
+[t=0.0990551s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 12
+[t=0.102189s, 11292 KB] g=126, 287 evaluated, 286 expanded
+[t=0.102576s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 11
+[t=0.103721s, 11292 KB] g=131, 293 evaluated, 292 expanded
+[t=0.1041s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 10
+[t=0.106808s, 11292 KB] g=141, 318 evaluated, 317 expanded
+[t=0.107166s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 9
+[t=0.108174s, 11292 KB] g=146, 324 evaluated, 323 expanded
+[t=0.108542s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 8
+[t=0.11014s, 11292 KB] g=151, 337 evaluated, 336 expanded
+[t=0.1105s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 7
+[t=0.111534s, 11292 KB] g=156, 343 evaluated, 342 expanded
+[t=0.111906s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 6
+[t=0.113239s, 11292 KB] g=161, 353 evaluated, 352 expanded
+[t=0.11373s, 11292 KB] New best heuristic value for ff: 19
+[t=0.114782s, 11292 KB] g=165, 360 evaluated, 359 expanded
+[t=0.115151s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 5
+[t=0.115608s, 11292 KB] g=166, 361 evaluated, 360 expanded
+[t=0.127572s, 11292 KB] New best heuristic value for ff: 18
+[t=0.131452s, 11292 KB] g=126, 510 evaluated, 509 expanded
+[t=0.131883s, 11292 KB] New best heuristic value for ff: 17
+[t=0.133979s, 11292 KB] g=136, 525 evaluated, 524 expanded
+[t=0.134324s, 11292 KB] New best heuristic value for ff: 16
+[t=0.135826s, 11292 KB] g=141, 534 evaluated, 533 expanded
+[t=0.136239s, 11292 KB] New best heuristic value for ff: 15
+[t=0.137807s, 11292 KB] g=151, 546 evaluated, 545 expanded
+[t=0.138156s, 11292 KB] New best heuristic value for ff: 14
+[t=0.139663s, 11292 KB] g=156, 555 evaluated, 554 expanded
+[t=0.139811s, 11292 KB] New best heuristic value for ff: 13
+[t=0.141008s, 11292 KB] g=161, 563 evaluated, 562 expanded
+[t=0.141377s, 11292 KB] New best heuristic value for ff: 12
+[t=0.142505s, 11292 KB] g=166, 571 evaluated, 570 expanded
+[t=0.142873s, 11292 KB] New best heuristic value for ff: 11
+[t=0.14397s, 11292 KB] g=171, 579 evaluated, 578 expanded
+[t=0.144122s, 11292 KB] New best heuristic value for ff: 10
+[t=0.145205s, 11292 KB] g=176, 587 evaluated, 586 expanded
+[t=0.14556s, 11292 KB] New best heuristic value for ff: 9
+[t=0.147278s, 11292 KB] g=186, 603 evaluated, 602 expanded
+[t=0.147649s, 11292 KB] New best heuristic value for ff: 8
+[t=0.149219s, 11292 KB] g=196, 616 evaluated, 615 expanded
+[t=0.149581s, 11292 KB] New best heuristic value for ff: 7
+[t=0.150611s, 11292 KB] g=201, 624 evaluated, 623 expanded
+[t=0.150979s, 11292 KB] New best heuristic value for ff: 6
+[t=0.152376s, 11292 KB] g=211, 637 evaluated, 636 expanded
+[t=0.153932s, 11292 KB] New best heuristic value for ff: 5
+[t=0.154175s, 11292 KB] g=220, 648 evaluated, 647 expanded
+[t=0.154531s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=0.155193s, 11292 KB] g=222, 650 evaluated, 649 expanded
+[t=0.155592s, 11292 KB] New best heuristic value for ff: 4
+[t=0.156406s, 11292 KB] g=225, 655 evaluated, 654 expanded
+[t=0.156762s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=0.157399s, 11292 KB] g=227, 658 evaluated, 657 expanded
+[t=0.157777s, 11292 KB] New best heuristic value for ff: 3
+[t=0.158546s, 11292 KB] g=230, 662 evaluated, 661 expanded
+[t=0.15889s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=0.159583s, 11292 KB] New best heuristic value for ff: 1
+[t=0.159918s, 11292 KB] g=232, 665 evaluated, 664 expanded
+[t=0.160306s, 11292 KB] Solution found!
+[t=0.160744s, 11292 KB] Actual search time: 0.10027s
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n1 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n1 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n1 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n1 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n7 n1 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n2 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n2 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n3 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n3 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n4 n3 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n4 n4 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n4 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n6 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n6 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n6 n1 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n6 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n5 n4 (1)
+key_avatar_collectresource key_1_4 avatar n1 n4 n0 n1 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n4 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n6 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n6 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n6 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n6 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n6 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n6 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n7 n6 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n9 n7 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n6 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n6 n11 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n11 n6 n7 (1)
+goal_avatar_killifotherhasmore goal_11_7 avatar n11 n7 (1)
+[t=0.282263s, 11292 KB] Plan length: 233 step(s).
+[t=0.282638s, 11292 KB] Plan cost: 233
+[t=0.283014s, 11292 KB] Expanded 665 state(s).
+[t=0.283468s, 11292 KB] Reopened 0 state(s).
+[t=0.283797s, 11292 KB] Evaluated 666 state(s).
+[t=0.284209s, 11292 KB] Evaluations: 1332
+[t=0.284489s, 11292 KB] Generated 1079 state(s).
+[t=0.284849s, 11292 KB] Dead ends: 0 state(s).
+[t=0.285269s, 11292 KB] Number of registered states: 666
+[t=0.28574s, 11292 KB] Int hash set load factor: 666/1024 = 0.650391
+[t=0.286171s, 11292 KB] Int hash set resizes: 10
+[t=0.286554s, 11292 KB] Best solution cost so far: 233
+[t=0.286929s, 11292 KB] Solution found - keep searching
+[t=0.287424s, 11292 KB] Building successor generator...done!
+[t=0.288587s, 11292 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.289027s, 11292 KB] time for successor generation creation: 0s
+[t=0.28955s, 11292 KB] Variables: 122
+[t=0.290038s, 11292 KB] FactPairs: 258
+[t=0.290498s, 11292 KB] Bytes per state: 16
+[t=0.290855s, 11292 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+[t=0.29133s, 11292 KB] Conducting lazy best first search, (real) bound = 233
+[t=0.291854s, 11292 KB] 20 initial landmarks, 1 goal landmarks
+[t=0.292317s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.292955s, 11292 KB] New best heuristic value for ff: 33
+[t=0.293348s, 11292 KB] g=0, 1 evaluated, 0 expanded
+[t=0.293769s, 11292 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.294214s, 11292 KB] Initial heuristic value for ff: 33
+[t=0.296197s, 11292 KB] New best heuristic value for ff: 32
+[t=0.298828s, 11292 KB] g=10, 27 evaluated, 26 expanded
+[t=0.299224s, 11292 KB] New best heuristic value for ff: 31
+[t=0.301283s, 11292 KB] g=15, 38 evaluated, 37 expanded
+[t=0.302474s, 11292 KB] New best heuristic value for ff: 30
+[t=0.303988s, 11292 KB] g=20, 54 evaluated, 53 expanded
+[t=0.304512s, 11292 KB] New best heuristic value for ff: 29
+[t=0.306302s, 11292 KB] g=25, 66 evaluated, 65 expanded
+[t=0.308608s, 11292 KB] New best heuristic value for ff: 28
+[t=0.315005s, 11292 KB] g=35, 135 evaluated, 134 expanded, 1 reopened
+[t=0.31539s, 11292 KB] New best heuristic value for ff: 27
+[t=0.316943s, 11292 KB] g=40, 144 evaluated, 143 expanded, 1 reopened
+[t=0.325155s, 11292 KB] New best heuristic value for ff: 26
+[t=0.328069s, 11292 KB] g=44, 229 evaluated, 228 expanded, 3 reopened
+[t=0.328367s, 11292 KB] New best heuristic value for ff: 25
+[t=0.328982s, 11292 KB] g=45, 231 evaluated, 230 expanded, 3 reopened
+[t=0.332117s, 11292 KB] New best heuristic value for ff: 24
+[t=0.333012s, 11292 KB] g=60, 268 evaluated, 267 expanded, 3 reopened
+[t=0.333315s, 11292 KB] New best heuristic value for ff: 23
+[t=0.338328s, 11292 KB] g=69, 323 evaluated, 322 expanded, 4 reopened
+[t=0.338631s, 11292 KB] New best heuristic value for ff: 22
+[t=0.339122s, 11292 KB] g=70, 325 evaluated, 324 expanded, 4 reopened
+[t=0.339403s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 18
+[t=0.339922s, 11292 KB] g=71, 327 evaluated, 326 expanded, 4 reopened
+[t=0.340268s, 11292 KB] New best heuristic value for ff: 21
+[t=0.341385s, 11292 KB] g=75, 336 evaluated, 335 expanded, 4 reopened
+[t=0.341681s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 17
+[t=0.342149s, 11292 KB] g=76, 337 evaluated, 336 expanded, 4 reopened
+[t=0.343542s, 11292 KB] New best heuristic value for ff: 20
+[t=0.344214s, 11292 KB] g=80, 352 evaluated, 351 expanded, 4 reopened
+[t=0.344621s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 16
+[t=0.349976s, 11292 KB] g=86, 409 evaluated, 408 expanded, 5 reopened
+[t=0.350285s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 15
+[t=0.355374s, 11292 KB] g=91, 464 evaluated, 463 expanded, 5 reopened
+[t=0.358709s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 14
+[t=0.360143s, 11292 KB] g=96, 511 evaluated, 510 expanded, 8 reopened
+[t=0.36728s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 13
+[t=0.370361s, 11292 KB] g=106, 606 evaluated, 605 expanded, 10 reopened
+[t=0.375534s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 12
+[t=0.377504s, 11292 KB] g=116, 665 evaluated, 664 expanded, 13 reopened
+[t=0.377852s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 11
+[t=0.379304s, 11292 KB] g=121, 675 evaluated, 674 expanded, 13 reopened
+[t=0.381905s, 11292 KB] New best heuristic value for ff: 19
+[t=0.382343s, 11292 KB] g=105, 697 evaluated, 696 expanded, 13 reopened
+[t=0.382698s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 10
+[t=0.38894s, 11292 KB] g=131, 758 evaluated, 757 expanded, 13 reopened
+[t=0.389313s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 9
+[t=0.391443s, 11292 KB] g=136, 777 evaluated, 776 expanded, 13 reopened
+[t=0.391776s, 11292 KB] New best heuristic value for ff: 18
+[t=0.39397s, 11292 KB] g=106, 797 evaluated, 796 expanded, 13 reopened
+[t=0.394946s, 11292 KB] New best heuristic value for ff: 17
+[t=0.395557s, 11292 KB] g=111, 806 evaluated, 805 expanded, 13 reopened
+[t=0.395896s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 8
+[t=0.396586s, 11292 KB] g=141, 809 evaluated, 808 expanded, 13 reopened
+[t=0.396935s, 11292 KB] New best heuristic value for ff: 16
+[t=0.398583s, 11292 KB] g=116, 822 evaluated, 821 expanded, 13 reopened
+[t=0.398932s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 7
+[t=0.399652s, 11292 KB] g=146, 825 evaluated, 824 expanded, 13 reopened
+[t=0.399963s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 6
+[t=0.401706s, 11292 KB] g=151, 841 evaluated, 840 expanded, 13 reopened
+[t=0.402036s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 5
+[t=0.403587s, 11292 KB] g=156, 855 evaluated, 854 expanded, 13 reopened
+[t=0.403965s, 11292 KB] New best heuristic value for ff: 15
+[t=0.404799s, 11292 KB] g=126, 860 evaluated, 859 expanded, 13 reopened
+[t=0.40511s, 11292 KB] New best heuristic value for ff: 14
+[t=0.406041s, 11292 KB] g=131, 867 evaluated, 866 expanded, 13 reopened
+[t=0.406366s, 11292 KB] New best heuristic value for ff: 13
+[t=0.407331s, 11292 KB] g=136, 874 evaluated, 873 expanded, 13 reopened
+[t=0.407632s, 11292 KB] New best heuristic value for ff: 12
+[t=0.408533s, 11292 KB] g=141, 881 evaluated, 880 expanded, 13 reopened
+[t=0.409037s, 11292 KB] New best heuristic value for ff: 11
+[t=0.409835s, 11292 KB] g=146, 889 evaluated, 888 expanded, 13 reopened
+[t=0.410148s, 11292 KB] New best heuristic value for ff: 10
+[t=0.411506s, 11292 KB] g=151, 902 evaluated, 901 expanded, 13 reopened
+[t=0.416191s, 11292 KB] New best heuristic value for ff: 9
+[t=0.421789s, 11292 KB] g=161, 1011 evaluated, 1010 expanded, 13 reopened
+[t=0.4221s, 11292 KB] New best heuristic value for ff: 8
+[t=0.424183s, 11292 KB] g=171, 1030 evaluated, 1029 expanded, 13 reopened
+[t=0.424471s, 11292 KB] New best heuristic value for ff: 7
+[t=0.425457s, 11292 KB] g=176, 1037 evaluated, 1036 expanded, 13 reopened
+[t=0.425764s, 11292 KB] New best heuristic value for ff: 6
+[t=0.428029s, 11292 KB] g=186, 1060 evaluated, 1059 expanded, 13 reopened
+[t=0.428334s, 11292 KB] New best heuristic value for ff: 5
+[t=0.429529s, 11292 KB] g=195, 1071 evaluated, 1070 expanded, 13 reopened
+[t=0.429823s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=0.430362s, 11292 KB] g=197, 1073 evaluated, 1072 expanded, 13 reopened
+[t=0.430669s, 11292 KB] New best heuristic value for ff: 4
+[t=0.431345s, 11292 KB] g=200, 1078 evaluated, 1077 expanded, 13 reopened
+[t=0.431649s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=0.432177s, 11292 KB] g=202, 1080 evaluated, 1079 expanded, 13 reopened
+[t=0.43249s, 11292 KB] New best heuristic value for ff: 3
+[t=0.433175s, 11292 KB] g=205, 1084 evaluated, 1083 expanded, 13 reopened
+[t=0.433304s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=0.433796s, 11292 KB] New best heuristic value for ff: 1
+[t=0.434118s, 11292 KB] g=207, 1086 evaluated, 1085 expanded, 13 reopened
+[t=0.434425s, 11292 KB] Solution found!
+[t=0.434795s, 11292 KB] Actual search time: 0.142478s
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n1 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n1 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n1 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n1 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n7 n1 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n7 n2 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n3 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n3 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n3 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n3 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n3 n3 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n2 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n2 n1 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n2 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n3 n4 (1)
+key_avatar_collectresource key_1_4 avatar n1 n4 n0 n1 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n4 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n5 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n6 n2 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n6 n3 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n6 n4 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n6 n5 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n6 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n6 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n7 n6 n7 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n9 n7 n6 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n6 n10 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n6 n11 (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+turn-sprites  (1)
+stop_sword_dissapear  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n11 n6 n7 (1)
+goal_avatar_killifotherhasmore goal_11_7 avatar n11 n7 (1)
+[t=0.53068s, 11292 KB] Plan length: 208 step(s).
+[t=0.530993s, 11292 KB] Plan cost: 208
+[t=0.531312s, 11292 KB] Expanded 1086 state(s).
+[t=0.531672s, 11292 KB] Reopened 13 state(s).
+[t=0.531997s, 11292 KB] Evaluated 1087 state(s).
+[t=0.532315s, 11292 KB] Evaluations: 2161
+[t=0.532621s, 11292 KB] Generated 1871 state(s).
+[t=0.532923s, 11292 KB] Dead ends: 0 state(s).
+[t=0.533256s, 11292 KB] Number of registered states: 1074
+[t=0.533544s, 11292 KB] Int hash set load factor: 1074/2048 = 0.524414
+[t=0.533928s, 11292 KB] Int hash set resizes: 11
+[t=0.534287s, 11292 KB] Best solution cost so far: 208
+[t=0.534581s, 11292 KB] Solution found - keep searching
+[t=0.53487s, 11292 KB] Building successor generator...done!
+[t=0.53583s, 11292 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.536154s, 11292 KB] time for successor generation creation: 0s
+[t=0.536435s, 11292 KB] Variables: 122
+[t=0.53678s, 11292 KB] FactPairs: 258
+[t=0.537099s, 11292 KB] Bytes per state: 16
+[t=0.537379s, 11292 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 3)
+[t=0.537873s, 11292 KB] Conducting lazy best first search, (real) bound = 208
+[t=0.538153s, 11292 KB] 20 initial landmarks, 1 goal landmarks
+[t=0.538451s, 11292 KB] New best heuristic value for ff: 33
+[t=0.538898s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.539215s, 11292 KB] g=0, 1 evaluated, 0 expanded
+[t=0.539498s, 11292 KB] Initial heuristic value for ff: 33
+[t=0.539846s, 11292 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.540123s, 11292 KB] New best heuristic value for ff: 32
+[t=0.542846s, 11292 KB] g=10, 27 evaluated, 26 expanded
+[t=0.543135s, 11292 KB] New best heuristic value for ff: 31
+[t=0.544399s, 11292 KB] g=15, 38 evaluated, 37 expanded
+[t=0.546884s, 11292 KB] New best heuristic value for ff: 30
+[t=0.547673s, 11292 KB] g=20, 68 evaluated, 67 expanded
+[t=0.54807s, 11292 KB] New best heuristic value for ff: 29
+[t=0.549861s, 11292 KB] g=25, 86 evaluated, 85 expanded
+[t=0.55339s, 11292 KB] New best heuristic value for ff: 28
+[t=0.557339s, 11292 KB] g=35, 159 evaluated, 158 expanded, 1 reopened
+[t=0.557634s, 11292 KB] New best heuristic value for ff: 27
+[t=0.5602s, 11292 KB] g=40, 184 evaluated, 183 expanded, 1 reopened
+[t=0.560554s, 11292 KB] New best heuristic value for ff: 26
+[t=0.564534s, 11292 KB] g=44, 225 evaluated, 224 expanded, 2 reopened
+[t=0.564839s, 11292 KB] New best heuristic value for ff: 25
+[t=0.565344s, 11292 KB] g=45, 227 evaluated, 226 expanded, 2 reopened
+[t=0.567472s, 11292 KB] New best heuristic value for ff: 24
+[t=0.572002s, 11292 KB] g=55, 292 evaluated, 291 expanded, 3 reopened
+[t=0.576063s, 11292 KB] New best heuristic value for ff: 23
+[t=0.576595s, 11292 KB] g=65, 336 evaluated, 335 expanded, 3 reopened
+[t=0.576901s, 11292 KB] New best heuristic value for ff: 22
+[t=0.579732s, 11292 KB] g=70, 364 evaluated, 363 expanded, 3 reopened
+[t=0.580075s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 18
+[t=0.580533s, 11292 KB] g=71, 365 evaluated, 364 expanded, 3 reopened
+[t=0.58129s, 11292 KB] New best heuristic value for ff: 21
+[t=0.583683s, 11292 KB] g=75, 396 evaluated, 395 expanded, 5 reopened
+[t=0.584022s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 17
+[t=0.584466s, 11292 KB] g=76, 397 evaluated, 396 expanded, 5 reopened
+[t=0.58845s, 11292 KB] New best heuristic value for ff: 20
+[t=0.589403s, 11292 KB] g=80, 445 evaluated, 444 expanded, 5 reopened
+[t=0.589709s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 16
+[t=0.59377s, 11292 KB] g=86, 484 evaluated, 483 expanded, 5 reopened
+[t=0.595249s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 15
+[t=0.598053s, 11292 KB] g=91, 523 evaluated, 522 expanded, 5 reopened
+[t=0.598354s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 14
+[t=0.601693s, 11292 KB] g=96, 555 evaluated, 554 expanded, 5 reopened
+[t=0.602377s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 13
+[t=0.609106s, 11292 KB] g=106, 633 evaluated, 632 expanded, 5 reopened
+[t=0.610932s, 11292 KB] New best heuristic value for ff: 19
+[t=0.616261s, 11292 KB] g=105, 703 evaluated, 702 expanded, 5 reopened
+[t=0.616577s, 11292 KB] New best heuristic value for ff: 18
+[t=0.617026s, 11292 KB] g=106, 704 evaluated, 703 expanded, 5 reopened
+[t=0.617704s, 11292 KB] New best heuristic value for ff: 17
+[t=0.620297s, 11292 KB] g=111, 733 evaluated, 732 expanded, 5 reopened
+[t=0.620602s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 12
+[t=0.62272s, 11292 KB] g=116, 752 evaluated, 751 expanded, 5 reopened
+[t=0.623034s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 11
+[t=0.624772s, 11292 KB] g=121, 768 evaluated, 767 expanded, 5 reopened
+[t=0.625054s, 11292 KB] New best heuristic value for ff: 16
+[t=0.625586s, 11292 KB] g=116, 769 evaluated, 768 expanded, 5 reopened
+[t=0.625891s, 11292 KB] New best heuristic value for ff: 15
+[t=0.631272s, 11292 KB] g=126, 825 evaluated, 824 expanded, 5 reopened
+[t=0.631434s, 11292 KB] New best heuristic value for ff: 14
+[t=0.633644s, 11292 KB] g=131, 847 evaluated, 846 expanded, 5 reopened
+[t=0.63395s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 10
+[t=0.635213s, 11292 KB] g=131, 855 evaluated, 854 expanded, 5 reopened
+[t=0.635506s, 11292 KB] New best heuristic value for ff: 13
+[t=0.636184s, 11292 KB] g=136, 859 evaluated, 858 expanded, 5 reopened
+[t=0.636491s, 11292 KB] New best heuristic value for ff: 12
+[t=0.638547s, 11292 KB] g=141, 877 evaluated, 876 expanded, 5 reopened
+[t=0.638862s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 9
+[t=0.639464s, 11292 KB] g=136, 880 evaluated, 879 expanded, 5 reopened
+[t=0.639779s, 11292 KB] New best heuristic value for ff: 11
+[t=0.64174s, 11292 KB] g=146, 900 evaluated, 899 expanded, 5 reopened
+[t=0.642044s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 8
+[t=0.642926s, 11292 KB] g=141, 904 evaluated, 903 expanded, 5 reopened
+[t=0.643243s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 7
+[t=0.645311s, 11292 KB] g=146, 923 evaluated, 922 expanded, 5 reopened
+[t=0.645616s, 11292 KB] New best heuristic value for ff: 10
+[t=0.646293s, 11292 KB] g=151, 926 evaluated, 925 expanded, 5 reopened
+[t=0.64728s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 6
+[t=0.648587s, 11292 KB] g=151, 946 evaluated, 945 expanded, 5 reopened
+[t=0.64897s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 5
+[t=0.650534s, 11292 KB] g=156, 961 evaluated, 960 expanded, 5 reopened
+[t=0.65423s, 11292 KB] New best heuristic value for ff: 9
+[t=0.655448s, 11292 KB] g=161, 1005 evaluated, 1004 expanded, 5 reopened
+[t=0.655762s, 11292 KB] New best heuristic value for ff: 8
+[t=0.657935s, 11292 KB] g=171, 1028 evaluated, 1027 expanded, 5 reopened
+[t=0.65824s, 11292 KB] New best heuristic value for ff: 7
+[t=0.659319s, 11292 KB] g=176, 1035 evaluated, 1034 expanded, 5 reopened
+[t=0.659631s, 11292 KB] New best heuristic value for ff: 6
+[t=0.661566s, 11292 KB] g=186, 1058 evaluated, 1057 expanded, 5 reopened
+[t=0.66187s, 11292 KB] New best heuristic value for ff: 5
+[t=0.663269s, 11292 KB] g=195, 1072 evaluated, 1071 expanded, 5 reopened
+[t=0.663515s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=0.66405s, 11292 KB] g=197, 1074 evaluated, 1073 expanded, 5 reopened
+[t=0.664801s, 11292 KB] New best heuristic value for ff: 4
+[t=0.665198s, 11292 KB] g=200, 1079 evaluated, 1078 expanded, 5 reopened
+[t=0.66551s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=0.666016s, 11292 KB] g=202, 1081 evaluated, 1080 expanded, 5 reopened
+[t=0.666327s, 11292 KB] New best heuristic value for ff: 3
+[t=0.667047s, 11292 KB] g=205, 1086 evaluated, 1085 expanded, 5 reopened
+[t=0.667362s, 11292 KB] New best heuristic value for ff: 1
+[t=0.667863s, 11292 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=0.668168s, 11292 KB] g=207, 1088 evaluated, 1087 expanded, 5 reopened
+[t=0.777911s, 11428 KB] Completely explored state space -- no solution!
+[t=0.784796s, 11428 KB] Actual search time: 0.246345s
+[t=0.785092s, 11428 KB] Expanded 2341 state(s).
+[t=0.785393s, 11428 KB] Reopened 160 state(s).
+[t=0.78578s, 11428 KB] Evaluated 2341 state(s).
+[t=0.786093s, 11428 KB] Evaluations: 4522
+[t=0.786381s, 11428 KB] Generated 4049 state(s).
+[t=0.78677s, 11428 KB] Dead ends: 0 state(s).
+[t=0.78705s, 11428 KB] Number of registered states: 2181
+[t=0.787374s, 11428 KB] Int hash set load factor: 2181/4096 = 0.532471
+[t=0.787667s, 11428 KB] Int hash set resizes: 12
+[t=0.787956s, 11428 KB] Best solution cost so far: 208
+[t=0.788241s, 11428 KB] No solution found - keep searching
+[t=0.788541s, 11428 KB] Building successor generator...done!
+[t=0.789144s, 11428 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.789502s, 11428 KB] time for successor generation creation: 0s
+[t=0.789817s, 11428 KB] Variables: 122
+[t=0.790145s, 11428 KB] FactPairs: 258
+[t=0.790485s, 11428 KB] Bytes per state: 16
+[t=0.790802s, 11428 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 2)
+[t=0.791122s, 11428 KB] Conducting lazy best first search, (real) bound = 208
+[t=0.791413s, 11428 KB] 20 initial landmarks, 1 goal landmarks
+[t=0.791739s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.792174s, 11428 KB] New best heuristic value for ff: 33
+[t=0.79247s, 11428 KB] g=0, 1 evaluated, 0 expanded
+[t=0.792751s, 11428 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=0.793116s, 11428 KB] Initial heuristic value for ff: 33
+[t=0.793417s, 11428 KB] New best heuristic value for ff: 32
+[t=0.7958s, 11428 KB] g=10, 25 evaluated, 24 expanded
+[t=0.796095s, 11428 KB] New best heuristic value for ff: 31
+[t=0.798302s, 11428 KB] g=15, 43 evaluated, 42 expanded
+[t=0.798606s, 11428 KB] New best heuristic value for ff: 30
+[t=0.801494s, 11428 KB] g=20, 76 evaluated, 75 expanded
+[t=0.802641s, 11428 KB] New best heuristic value for ff: 29
+[t=0.804637s, 11428 KB] g=25, 103 evaluated, 102 expanded
+[t=0.811168s, 11428 KB] New best heuristic value for ff: 28
+[t=0.811512s, 11428 KB] g=35, 173 evaluated, 172 expanded
+[t=0.811941s, 11428 KB] New best heuristic value for ff: 27
+[t=0.814046s, 11428 KB] g=40, 193 evaluated, 192 expanded, 1 reopened
+[t=0.814351s, 11428 KB] New best heuristic value for ff: 26
+[t=0.817004s, 11428 KB] g=44, 219 evaluated, 218 expanded, 1 reopened
+[t=0.817337s, 11428 KB] New best heuristic value for ff: 25
+[t=0.817852s, 11428 KB] g=45, 221 evaluated, 220 expanded, 1 reopened
+[t=0.818208s, 11428 KB] New best heuristic value for ff: 24
+[t=0.823791s, 11428 KB] g=55, 281 evaluated, 280 expanded, 1 reopened
+[t=0.824099s, 11428 KB] New best heuristic value for ff: 23
+[t=0.830066s, 11428 KB] g=65, 346 evaluated, 345 expanded, 1 reopened
+[t=0.831599s, 11428 KB] New best heuristic value for ff: 22
+[t=0.834122s, 11428 KB] g=70, 383 evaluated, 382 expanded, 1 reopened
+[t=0.834429s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 18
+[t=0.834942s, 11428 KB] g=71, 385 evaluated, 384 expanded, 1 reopened
+[t=0.83527s, 11428 KB] New best heuristic value for ff: 21
+[t=0.838811s, 11428 KB] g=75, 419 evaluated, 418 expanded, 1 reopened
+[t=0.839112s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 17
+[t=0.839632s, 11428 KB] g=76, 420 evaluated, 419 expanded, 1 reopened
+[t=0.839927s, 11428 KB] New best heuristic value for ff: 20
+[t=0.842494s, 11428 KB] g=80, 445 evaluated, 444 expanded, 1 reopened
+[t=0.844054s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 16
+[t=0.847935s, 11428 KB] g=86, 499 evaluated, 498 expanded, 1 reopened
+[t=0.848251s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 15
+[t=0.851975s, 11428 KB] g=91, 537 evaluated, 536 expanded, 1 reopened
+[t=0.852142s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 14
+[t=0.85573s, 11428 KB] g=96, 573 evaluated, 572 expanded, 1 reopened
+[t=0.859599s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 13
+[t=0.865464s, 11428 KB] g=106, 676 evaluated, 675 expanded, 1 reopened
+[t=0.865759s, 11428 KB] New best heuristic value for ff: 19
+[t=0.867561s, 11428 KB] g=105, 693 evaluated, 692 expanded, 1 reopened
+[t=0.867871s, 11428 KB] New best heuristic value for ff: 18
+[t=0.868336s, 11428 KB] g=106, 694 evaluated, 693 expanded, 1 reopened
+[t=0.868658s, 11428 KB] New best heuristic value for ff: 17
+[t=0.87249s, 11428 KB] g=111, 734 evaluated, 733 expanded, 1 reopened
+[t=0.873455s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 12
+[t=0.876392s, 11428 KB] g=116, 766 evaluated, 765 expanded, 1 reopened
+[t=0.876694s, 11428 KB] New best heuristic value for ff: 16
+[t=0.877641s, 11428 KB] g=116, 772 evaluated, 771 expanded, 1 reopened
+[t=0.877953s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 11
+[t=0.880184s, 11428 KB] g=121, 792 evaluated, 791 expanded, 1 reopened
+[t=0.880468s, 11428 KB] New best heuristic value for ff: 15
+[t=0.883569s, 11428 KB] g=126, 826 evaluated, 825 expanded, 1 reopened
+[t=0.883874s, 11428 KB] New best heuristic value for ff: 14
+[t=0.885387s, 11428 KB] g=131, 838 evaluated, 837 expanded, 1 reopened
+[t=0.886108s, 11428 KB] New best heuristic value for ff: 13
+[t=0.88795s, 11428 KB] g=136, 860 evaluated, 859 expanded, 1 reopened
+[t=0.888257s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 10
+[t=0.8887s, 11428 KB] g=131, 861 evaluated, 860 expanded, 1 reopened
+[t=0.888992s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 9
+[t=0.890721s, 11428 KB] g=136, 876 evaluated, 875 expanded, 1 reopened
+[t=0.891654s, 11428 KB] New best heuristic value for ff: 12
+[t=0.892431s, 11428 KB] g=141, 887 evaluated, 886 expanded, 1 reopened
+[t=0.892735s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 8
+[t=0.89427s, 11428 KB] g=141, 901 evaluated, 900 expanded, 1 reopened
+[t=0.894567s, 11428 KB] New best heuristic value for ff: 11
+[t=0.896122s, 11428 KB] g=146, 913 evaluated, 912 expanded, 1 reopened
+[t=0.896727s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 7
+[t=0.897423s, 11428 KB] g=146, 919 evaluated, 918 expanded, 1 reopened
+[t=0.897738s, 11428 KB] New best heuristic value for ff: 10
+[t=0.900058s, 11428 KB] g=151, 942 evaluated, 941 expanded, 1 reopened
+[t=0.900362s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 6
+[t=0.901399s, 11428 KB] g=151, 949 evaluated, 948 expanded, 1 reopened
+[t=0.902127s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 5
+[t=0.905108s, 11428 KB] g=156, 981 evaluated, 980 expanded, 1 reopened
+[t=0.905406s, 11428 KB] New best heuristic value for ff: 9
+[t=0.907564s, 11428 KB] g=161, 1000 evaluated, 999 expanded, 1 reopened
+[t=0.908988s, 11428 KB] New best heuristic value for ff: 8
+[t=0.910395s, 11428 KB] g=171, 1024 evaluated, 1023 expanded, 1 reopened
+[t=0.910698s, 11428 KB] New best heuristic value for ff: 7
+[t=0.911789s, 11428 KB] g=176, 1031 evaluated, 1030 expanded, 1 reopened
+[t=0.912094s, 11428 KB] New best heuristic value for ff: 6
+[t=0.914292s, 11428 KB] g=186, 1054 evaluated, 1053 expanded, 1 reopened
+[t=0.914589s, 11428 KB] New best heuristic value for ff: 5
+[t=0.916064s, 11428 KB] g=195, 1068 evaluated, 1067 expanded, 1 reopened
+[t=0.916371s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=0.916924s, 11428 KB] g=197, 1070 evaluated, 1069 expanded, 1 reopened
+[t=0.91729s, 11428 KB] New best heuristic value for ff: 4
+[t=0.918058s, 11428 KB] g=200, 1075 evaluated, 1074 expanded, 1 reopened
+[t=0.918369s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=0.91895s, 11428 KB] g=202, 1078 evaluated, 1077 expanded, 1 reopened
+[t=0.919081s, 11428 KB] New best heuristic value for ff: 3
+[t=0.919957s, 11428 KB] g=205, 1083 evaluated, 1082 expanded, 1 reopened
+[t=0.920271s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=0.920812s, 11428 KB] New best heuristic value for ff: 1
+[t=0.921115s, 11428 KB] g=207, 1086 evaluated, 1085 expanded, 1 reopened
+[t=1.03442s, 11428 KB] Completely explored state space -- no solution!
+[t=1.04115s, 11428 KB] Actual search time: 0.249407s
+[t=1.04149s, 11428 KB] Expanded 2331 state(s).
+[t=1.04184s, 11428 KB] Reopened 150 state(s).
+[t=1.04212s, 11428 KB] Evaluated 2331 state(s).
+[t=1.04242s, 11428 KB] Evaluations: 4512
+[t=1.04275s, 11428 KB] Generated 4036 state(s).
+[t=1.04304s, 11428 KB] Dead ends: 0 state(s).
+[t=1.04333s, 11428 KB] Number of registered states: 2181
+[t=1.04363s, 11428 KB] Int hash set load factor: 2181/4096 = 0.532471
+[t=1.04392s, 11428 KB] Int hash set resizes: 12
+[t=1.04423s, 11428 KB] Best solution cost so far: 208
+[t=1.04452s, 11428 KB] No solution found - keep searching
+[t=1.04482s, 11428 KB] Building successor generator...done!
+[t=1.04542s, 11428 KB] peak memory difference for successor generator creation: 0 KB
+[t=1.04573s, 11428 KB] time for successor generation creation: 0s
+[t=1.04604s, 11428 KB] Variables: 122
+[t=1.04635s, 11428 KB] FactPairs: 258
+[t=1.04664s, 11428 KB] Bytes per state: 16
+[t=1.04693s, 11428 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 1)
+[t=1.04728s, 11428 KB] Conducting lazy best first search, (real) bound = 208
+[t=1.04762s, 11428 KB] 20 initial landmarks, 1 goal landmarks
+[t=1.04797s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=1.04852s, 11428 KB] New best heuristic value for ff: 33
+[t=1.04882s, 11428 KB] g=0, 1 evaluated, 0 expanded
+[t=1.04914s, 11428 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 19
+[t=1.04946s, 11428 KB] Initial heuristic value for ff: 33
+[t=1.04974s, 11428 KB] New best heuristic value for ff: 32
+[t=1.05261s, 11428 KB] g=10, 28 evaluated, 27 expanded
+[t=1.05293s, 11428 KB] New best heuristic value for ff: 31
+[t=1.05471s, 11428 KB] g=15, 44 evaluated, 43 expanded
+[t=1.055s, 11428 KB] New best heuristic value for ff: 30
+[t=1.05868s, 11428 KB] g=20, 78 evaluated, 77 expanded
+[t=1.05956s, 11428 KB] New best heuristic value for ff: 29
+[t=1.06188s, 11428 KB] g=25, 110 evaluated, 109 expanded
+[t=1.06816s, 11428 KB] New best heuristic value for ff: 28
+[t=1.06859s, 11428 KB] g=35, 179 evaluated, 178 expanded
+[t=1.06893s, 11428 KB] New best heuristic value for ff: 27
+[t=1.07106s, 11428 KB] g=40, 198 evaluated, 197 expanded
+[t=1.07136s, 11428 KB] New best heuristic value for ff: 26
+[t=1.07345s, 11428 KB] g=44, 220 evaluated, 219 expanded
+[t=1.07376s, 11428 KB] New best heuristic value for ff: 25
+[t=1.0741s, 11428 KB] g=45, 222 evaluated, 221 expanded
+[t=1.07442s, 11428 KB] New best heuristic value for ff: 24
+[t=1.07965s, 11428 KB] g=55, 279 evaluated, 278 expanded
+[t=1.08026s, 11428 KB] New best heuristic value for ff: 23
+[t=1.08604s, 11428 KB] g=65, 345 evaluated, 344 expanded
+[t=1.08866s, 11428 KB] New best heuristic value for ff: 22
+[t=1.0903s, 11428 KB] g=70, 386 evaluated, 385 expanded
+[t=1.09061s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 18
+[t=1.09113s, 11428 KB] g=71, 388 evaluated, 387 expanded
+[t=1.09141s, 11428 KB] New best heuristic value for ff: 21
+[t=1.09496s, 11428 KB] g=75, 424 evaluated, 423 expanded
+[t=1.09509s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 17
+[t=1.09561s, 11428 KB] g=76, 426 evaluated, 425 expanded
+[t=1.09594s, 11428 KB] New best heuristic value for ff: 20
+[t=1.10032s, 11428 KB] g=80, 472 evaluated, 471 expanded
+[t=1.10114s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 16
+[t=1.10508s, 11428 KB] g=86, 513 evaluated, 512 expanded
+[t=1.1054s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 15
+[t=1.10909s, 11428 KB] g=91, 554 evaluated, 553 expanded
+[t=1.10939s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 14
+[t=1.11375s, 11428 KB] g=96, 599 evaluated, 598 expanded
+[t=1.1163s, 11428 KB] New best heuristic value for ff: 19
+[t=1.12194s, 11428 KB] g=105, 687 evaluated, 686 expanded
+[t=1.12226s, 11428 KB] New best heuristic value for ff: 18
+[t=1.12298s, 11428 KB] g=106, 690 evaluated, 689 expanded
+[t=1.12353s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 13
+[t=1.12463s, 11428 KB] g=106, 701 evaluated, 700 expanded
+[t=1.12495s, 11428 KB] New best heuristic value for ff: 17
+[t=1.12792s, 11428 KB] g=111, 729 evaluated, 728 expanded
+[t=1.13074s, 11428 KB] New best heuristic value for ff: 16
+[t=1.13232s, 11428 KB] g=116, 771 evaluated, 770 expanded
+[t=1.13263s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 12
+[t=1.13402s, 11428 KB] g=116, 782 evaluated, 781 expanded
+[t=1.13431s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 11
+[t=1.13656s, 11428 KB] g=121, 800 evaluated, 799 expanded
+[t=1.13687s, 11428 KB] New best heuristic value for ff: 15
+[t=1.13909s, 11428 KB] g=126, 821 evaluated, 820 expanded
+[t=1.13948s, 11428 KB] New best heuristic value for ff: 14
+[t=1.14186s, 11428 KB] g=131, 845 evaluated, 844 expanded
+[t=1.14318s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 10
+[t=1.14349s, 11428 KB] g=131, 856 evaluated, 855 expanded
+[t=1.14379s, 11428 KB] New best heuristic value for ff: 13
+[t=1.145s, 11428 KB] g=136, 866 evaluated, 865 expanded
+[t=1.14532s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 9
+[t=1.14646s, 11428 KB] g=136, 874 evaluated, 873 expanded
+[t=1.14676s, 11428 KB] New best heuristic value for ff: 12
+[t=1.14893s, 11428 KB] g=141, 895 evaluated, 894 expanded
+[t=1.14924s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 8
+[t=1.15019s, 11428 KB] g=141, 902 evaluated, 901 expanded
+[t=1.15049s, 11428 KB] New best heuristic value for ff: 11
+[t=1.15216s, 11428 KB] g=146, 916 evaluated, 915 expanded
+[t=1.15248s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 7
+[t=1.15395s, 11428 KB] g=146, 930 evaluated, 929 expanded
+[t=1.15428s, 11428 KB] New best heuristic value for ff: 10
+[t=1.15594s, 11428 KB] g=151, 945 evaluated, 944 expanded
+[t=1.15625s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 6
+[t=1.15749s, 11428 KB] g=151, 956 evaluated, 955 expanded
+[t=1.15998s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 5
+[t=1.16159s, 11428 KB] g=156, 994 evaluated, 993 expanded
+[t=1.16193s, 11428 KB] New best heuristic value for ff: 9
+[t=1.16312s, 11428 KB] g=161, 1004 evaluated, 1003 expanded
+[t=1.16342s, 11428 KB] New best heuristic value for ff: 8
+[t=1.16544s, 11428 KB] g=171, 1023 evaluated, 1022 expanded
+[t=1.16573s, 11428 KB] New best heuristic value for ff: 7
+[t=1.16672s, 11428 KB] g=176, 1032 evaluated, 1031 expanded
+[t=1.16703s, 11428 KB] New best heuristic value for ff: 6
+[t=1.16889s, 11428 KB] g=186, 1053 evaluated, 1052 expanded
+[t=1.1692s, 11428 KB] New best heuristic value for ff: 5
+[t=1.17051s, 11428 KB] g=195, 1067 evaluated, 1066 expanded
+[t=1.17082s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=1.17115s, 11428 KB] g=197, 1069 evaluated, 1068 expanded
+[t=1.17146s, 11428 KB] New best heuristic value for ff: 4
+[t=1.17226s, 11428 KB] g=200, 1075 evaluated, 1074 expanded
+[t=1.17257s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=1.17314s, 11428 KB] g=202, 1078 evaluated, 1077 expanded
+[t=1.17345s, 11428 KB] New best heuristic value for ff: 3
+[t=1.17456s, 11428 KB] g=205, 1089 evaluated, 1088 expanded
+[t=1.17488s, 11428 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=1.17545s, 11428 KB] New best heuristic value for ff: 1
+[t=1.17577s, 11428 KB] g=207, 1092 evaluated, 1091 expanded
+[t=1.28252s, 11428 KB] Completely explored state space -- no solution!
+[t=1.29223s, 11428 KB] Actual search time: 0.244261s
+[t=1.29254s, 11428 KB] Expanded 2325 state(s).
+[t=1.29282s, 11428 KB] Reopened 144 state(s).
+[t=1.2931s, 11428 KB] Evaluated 2325 state(s).
+[t=1.2934s, 11428 KB] Evaluations: 4506
+[t=1.29369s, 11428 KB] Generated 4026 state(s).
+[t=1.29403s, 11428 KB] Dead ends: 0 state(s).
+[t=1.29436s, 11428 KB] Number of registered states: 2181
+[t=1.29467s, 11428 KB] Int hash set load factor: 2181/4096 = 0.532471
+[t=1.29501s, 11428 KB] Int hash set resizes: 12
+[t=1.29532s, 11428 KB] Best solution cost so far: 208
+[t=1.2956s, 11428 KB] No solution found - keep searching
+[t=1.2959s, 11428 KB] Actual search time: 1.23911s
+[t=1.29623s, 11428 KB] Cumulative statistics:
+[t=1.29623s, 11428 KB] Expanded 8748 state(s).
+[t=1.29623s, 11428 KB] Reopened 467 state(s).
+[t=1.29623s, 11428 KB] Evaluated 8750 state(s).
+[t=1.29623s, 11428 KB] Evaluations: 17033
+[t=1.29623s, 11428 KB] Generated 15061 state(s).
+[t=1.29623s, 11428 KB] Dead ends: 0 state(s).
+[t=1.29623s, 11428 KB] Search time: 1.23944s
+[t=1.29623s, 11428 KB] Total time: 1.29623s
+Solution found.
+Peak memory: 11428 KB
+Remove intermediate file output.sas
+search exit code: 0
+

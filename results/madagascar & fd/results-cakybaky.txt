@@ -82,3 +82,55 @@ Trying problem cakybaky/problem-lvl9.pddl...
 15764 
 0.940316
 --------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem cakybaky/problem-lvl0.pddl...
+40.3451
+19272 
+40.3451
+--------------------
+Trying problem cakybaky/problem-lvl1.pddl...
+55.22
+19540 
+55.22
+--------------------
+Trying problem cakybaky/problem-lvl2.pddl...
+39.673
+19424 
+39.673
+--------------------
+Trying problem cakybaky/problem-lvl3.pddl...
+41.2872
+19236 
+41.2872
+--------------------
+Trying problem cakybaky/problem-lvl4.pddl...
+45.4747
+19136 
+45.4747
+--------------------
+Trying problem cakybaky/problem-lvl5.pddl...
+42.5687
+19044 
+42.5687
+--------------------
+Trying problem cakybaky/problem-lvl6.pddl...
+68.0429
+21004 
+68.0429
+--------------------
+Trying problem cakybaky/problem-lvl7.pddl...
+39.0431
+19160 
+39.0431
+--------------------
+Trying problem cakybaky/problem-lvl8.pddl...
+34.7919
+18764 
+34.7919
+--------------------
+Trying problem cakybaky/problem-lvl9.pddl...
+32.7744
+19144 
+32.7744
+--------------------

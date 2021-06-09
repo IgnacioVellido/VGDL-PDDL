@@ -90,3 +90,64 @@ Trying problem iceandfire/problem-lvl9.pddl...
 10772 
 0.0716773
 --------------------
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem iceandfire/problem-lvl0.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem iceandfire/problem-lvl1.pddl...
+Timeout 15m exceeded
+--------------------
+Trying problem iceandfire/problem-lvl2.pddl...
+===================FD======================
+(time-KB-time. Time in seconds)
+Trying problem iceandfire/problem-lvl0.pddl...
+1.30894
+13540 
+1.30894
+--------------------
+Trying problem iceandfire/problem-lvl1.pddl...
+1.16501
+13644 
+1.16501
+--------------------
+Trying problem iceandfire/problem-lvl2.pddl...
+1.37333
+13660 
+1.37333
+--------------------
+Trying problem iceandfire/problem-lvl3.pddl...
+1.32671
+13440 
+1.32671
+--------------------
+Trying problem iceandfire/problem-lvl4.pddl...
+2.24186
+13808 
+2.24186
+--------------------
+Trying problem iceandfire/problem-lvl5.pddl...
+0.926801
+12096 
+0.926801
+--------------------
+Trying problem iceandfire/problem-lvl6.pddl...
+1.18294
+12848 
+1.18294
+--------------------
+Trying problem iceandfire/problem-lvl7.pddl...
+0.997112
+12044 
+0.997112
+--------------------
+Trying problem iceandfire/problem-lvl8.pddl...
+0.701255
+12940 
+0.701255
+--------------------
+Trying problem iceandfire/problem-lvl9.pddl...
+0.999681
+11924 
+0.999681
+--------------------

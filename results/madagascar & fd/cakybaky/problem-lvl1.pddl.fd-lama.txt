@@ -1,0 +1,2612 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: None
+INFO     translator memory limit: None
+INFO     translator command line string: /usr/bin/python3 /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/translate/translate.py cakybaky/cakybaky.pddl cakybaky/problem-lvl1.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.020s CPU, 0.106s wall-clock]
+Normalizing task... [0.000s CPU, 0.004s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.004s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.040s CPU, 0.162s wall-clock]
+Preparing model... [0.010s CPU, 0.011s wall-clock]
+Generated 204 rules.
+Computing model... [0.700s CPU, 0.705s wall-clock]
+4826 relevant atoms
+34568 auxiliary atoms
+39394 final queue length
+48465 total queue pushes
+Completing instantiation... [0.470s CPU, 0.470s wall-clock]
+Instantiating: [1.240s CPU, 1.375s wall-clock]
+Computing fact groups...
+Finding invariants...
+29 initial candidates
+Finding invariants: [0.050s CPU, 0.052s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.001s wall-clock]
+Instantiating groups... [0.000s CPU, 0.002s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.001s wall-clock]
+Choosing groups...
+867 uncovered facts
+Choosing groups: [0.000s CPU, 0.002s wall-clock]
+Building translation key... [0.000s CPU, 0.007s wall-clock]
+Computing fact groups: [0.070s CPU, 0.085s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.003s wall-clock]
+Building dictionary for full mutex groups... [0.010s CPU, 0.002s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.003s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.001s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.001s wall-clock]
+Processing axioms: [0.020s CPU, 0.024s wall-clock]
+Translating task: [0.950s CPU, 0.960s wall-clock]
+17671 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+405 operators removed
+0 axioms removed
+302 propositions removed
+Detecting unreachable propositions: [0.450s CPU, 0.450s wall-clock]
+Reordering and filtering variables...
+719 of 725 variables necessary.
+0 of 6 mutex groups necessary.
+6402 of 6403 operators necessary.
+20 of 20 axiom rules necessary.
+Reordering and filtering variables: [0.300s CPU, 0.303s wall-clock]
+Translator variables: 719
+Translator derived variables: 7
+Translator facts: 1600
+Translator goal facts: 1
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 6402
+Translator axioms: 20
+Translator task size: 61682
+Translator peak memory: 60024 KB
+Writing output... [0.150s CPU, 0.243s wall-clock]
+Done! [3.220s CPU, 3.567s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: None
+INFO     search memory limit: None
+INFO     search command line string: /mnt/e/Users/ignac/Desktop/newTestPDDL/planners/FastDownward/builds/release/bin/downward --if-unit-cost --evaluator 'hlm=lmcount(lm_rhw(reasonable_orders=true),pref=true)' --evaluator 'hff=ff()' --search 'iterated([lazy_greedy([hff,hlm],preferred=[hff,hlm]),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=5),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=3),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=2),lazy_wastar([hff,hlm],preferred=[hff,hlm],w=1)],repeat_last=true,continue_on_fail=true)' --if-non-unit-cost --evaluator 'hlm1=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(one),pref=true)' --evaluator 'hff1=ff(transform=adapt_costs(one))' --evaluator 'hlm2=lmcount(lm_rhw(reasonable_orders=true),transform=adapt_costs(plusone),pref=true)' --evaluator 'hff2=ff(transform=adapt_costs(plusone))' --search 'iterated([lazy_greedy([hff1,hlm1],preferred=[hff1,hlm1],cost_type=one,reopen_closed=false),lazy_greedy([hff2,hlm2],preferred=[hff2,hlm2],reopen_closed=false),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=5),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=3),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=2),lazy_wastar([hff2,hlm2],preferred=[hff2,hlm2],w=1)],repeat_last=true,continue_on_fail=true)' --always --internal-plan-file sas_plan < output.sas
+[t=0.0055123s, 9964 KB] reading input...
+[t=0.153703s, 12956 KB] done reading input!
+[t=0.158351s, 13216 KB] Initializing landmarks count heuristic...
+[t=0.159153s, 13480 KB] Initializing Exploration...
+[t=0.16671s, 17892 KB] Generating landmarks using the RPG/SAS+ approach
+approx. reasonable orders
+[t=0.225417s, 18452 KB] approx. obedient reasonable orders
+[t=0.229933s, 18452 KB] Removed 0 reasonable or obedient reasonable orders
+[t=0.263759s, 18452 KB] Landmarks generation time: 0.104606s
+[t=0.264281s, 18452 KB] Discovered 12 landmarks, of which 1 are disjunctive and 0 are conjunctive.
+[t=0.264602s, 18452 KB] 17 edges
+[t=0.271319s, 18452 KB] Simplifying 25862 unary operators... done! [25862 unary operators]
+[t=0.369582s, 18452 KB] time to simplify: 0.0982633s
+[t=0.370455s, 18452 KB] Initializing additive heuristic...
+[t=0.372406s, 18452 KB] Initializing FF heuristic...
+[t=0.372758s, 18452 KB] Building successor generator...done!
+[t=0.380741s, 18452 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.381075s, 18452 KB] time for successor generation creation: 0.0031552s
+[t=0.381413s, 18452 KB] Variables: 719
+[t=0.381809s, 18452 KB] FactPairs: 1600
+[t=0.382113s, 18452 KB] Bytes per state: 96
+[t=0.382404s, 18452 KB] Building successor generator...done!
+[t=0.383692s, 18452 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.384057s, 18452 KB] time for successor generation creation: 0s
+[t=0.384355s, 18452 KB] Variables: 719
+[t=0.384783s, 18452 KB] FactPairs: 1600
+[t=0.385075s, 18452 KB] Bytes per state: 96
+[t=0.385398s, 18452 KB] Starting search: lazy_greedy(list(hff, hlm), preferred = list(hff, hlm))
+[t=0.385766s, 18452 KB] Conducting lazy best first search, (real) bound = 2147483647
+[t=0.386007s, 18452 KB] 7 initial landmarks, 1 goal landmarks
+[t=0.386381s, 18452 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=0.38739s, 18452 KB] New best heuristic value for ff: 74
+[t=0.387746s, 18452 KB] g=0, 1 evaluated, 0 expanded
+[t=0.388066s, 18452 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=0.388466s, 18452 KB] Initial heuristic value for ff: 74
+[t=0.40037s, 18452 KB] New best heuristic value for ff: 73
+[t=0.410428s, 18452 KB] g=15, 39 evaluated, 38 expanded
+[t=0.448293s, 18452 KB] New best heuristic value for ff: 68
+[t=0.449967s, 18452 KB] g=25, 106 evaluated, 105 expanded
+[t=0.450264s, 18452 KB] New best heuristic value for ff: 67
+[t=0.451182s, 18452 KB] g=26, 107 evaluated, 106 expanded
+[t=0.451475s, 18452 KB] New best heuristic value for ff: 66
+[t=0.452405s, 18452 KB] g=27, 108 evaluated, 107 expanded
+[t=0.593714s, 18452 KB] New best heuristic value for ff: 65
+[t=0.602992s, 18452 KB] g=24, 362 evaluated, 361 expanded
+[t=0.603208s, 18452 KB] New best heuristic value for ff: 63
+[t=0.604856s, 18452 KB] g=25, 364 evaluated, 363 expanded
+[t=0.60515s, 18452 KB] New best heuristic value for ff: 62
+[t=0.606084s, 18452 KB] g=26, 365 evaluated, 364 expanded
+[t=0.606385s, 18452 KB] New best heuristic value for ff: 61
+[t=0.607385s, 18452 KB] g=27, 366 evaluated, 365 expanded
+[t=0.667604s, 18452 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=0.668369s, 18452 KB] g=37, 470 evaluated, 469 expanded
+[t=0.668754s, 18452 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=0.670653s, 18452 KB] g=40, 473 evaluated, 472 expanded
+[t=1.27442s, 18452 KB] New best heuristic value for ff: 60
+[t=1.2774s, 18452 KB] g=109, 1480 evaluated, 1479 expanded
+[t=1.2779s, 18452 KB] New best heuristic value for ff: 59
+[t=1.2795s, 18452 KB] g=110, 1482 evaluated, 1481 expanded
+[t=1.27984s, 18452 KB] New best heuristic value for ff: 58
+[t=1.2808s, 18452 KB] g=111, 1483 evaluated, 1482 expanded
+[t=1.28104s, 18452 KB] New best heuristic value for ff: 57
+[t=1.28198s, 18452 KB] g=112, 1484 evaluated, 1483 expanded
+[t=2.56853s, 18452 KB] New best heuristic value for ff: 56
+[t=2.57725s, 18452 KB] g=209, 3614 evaluated, 3613 expanded
+[t=2.61686s, 18452 KB] New best heuristic value for ff: 55
+[t=2.61796s, 18452 KB] g=212, 3679 evaluated, 3678 expanded
+[t=2.72534s, 18452 KB] New best heuristic value for ff: 53
+[t=2.72972s, 18452 KB] g=241, 3874 evaluated, 3873 expanded
+[t=2.73003s, 18452 KB] New best heuristic value for ff: 52
+[t=2.73336s, 18452 KB] g=245, 3879 evaluated, 3878 expanded
+[t=2.74214s, 18452 KB] New best heuristic value for ff: 51
+[t=2.74835s, 18452 KB] g=254, 3904 evaluated, 3903 expanded
+[t=2.93068s, 18452 KB] New best heuristic value for ff: 49
+[t=2.93602s, 18452 KB] g=276, 4211 evaluated, 4210 expanded
+[t=2.9393s, 18452 KB] New best heuristic value for ff: 48
+[t=2.94058s, 18452 KB] g=276, 4218 evaluated, 4217 expanded
+[t=2.9408s, 18452 KB] New best heuristic value for ff: 47
+[t=2.94198s, 18452 KB] g=277, 4219 evaluated, 4218 expanded
+[t=2.94223s, 18452 KB] New best heuristic value for ff: 46
+[t=2.94377s, 18452 KB] g=278, 4221 evaluated, 4220 expanded
+[t=3.90535s, 18452 KB] New best heuristic value for ff: 45
+[t=3.9136s, 18452 KB] g=390, 5878 evaluated, 5877 expanded
+[t=3.91398s, 18452 KB] New best heuristic value for ff: 44
+[t=3.91775s, 18452 KB] g=393, 5884 evaluated, 5883 expanded
+[t=3.91804s, 18452 KB] New best heuristic value for ff: 43
+[t=3.92019s, 18452 KB] g=394, 5887 evaluated, 5886 expanded
+[t=3.92101s, 18452 KB] New best heuristic value for ff: 42
+[t=3.92147s, 18452 KB] g=395, 5888 evaluated, 5887 expanded
+[t=3.92177s, 18452 KB] New best heuristic value for ff: 41
+[t=3.92289s, 18452 KB] g=396, 5889 evaluated, 5888 expanded
+[t=3.93766s, 18452 KB] New best heuristic value for ff: 40
+[t=3.94265s, 18452 KB] g=411, 5924 evaluated, 5923 expanded
+[t=3.94295s, 18452 KB] New best heuristic value for ff: 39
+[t=3.94576s, 18452 KB] g=414, 5928 evaluated, 5927 expanded
+[t=3.95464s, 18452 KB] New best heuristic value for ff: 36
+[t=3.9554s, 18452 KB] g=418, 5944 evaluated, 5943 expanded
+[t=3.95569s, 18452 KB] New best heuristic value for ff: 35
+[t=3.95666s, 18452 KB] g=419, 5945 evaluated, 5944 expanded
+[t=3.95696s, 18452 KB] New best heuristic value for ff: 34
+[t=3.95796s, 18452 KB] g=420, 5946 evaluated, 5945 expanded
+[t=4.01982s, 18452 KB] New best heuristic value for ff: 33
+[t=4.02359s, 18452 KB] g=453, 6056 evaluated, 6055 expanded
+[t=4.12832s, 18452 KB] New best heuristic value for ff: 32
+[t=4.13378s, 18452 KB] g=481, 6203 evaluated, 6202 expanded
+[t=4.13665s, 18452 KB] New best heuristic value for ff: 31
+[t=4.13726s, 18452 KB] g=482, 6206 evaluated, 6205 expanded
+[t=4.13757s, 18452 KB] New best heuristic value for ff: 30
+[t=4.1388s, 18452 KB] g=483, 6207 evaluated, 6206 expanded
+[t=4.13913s, 18452 KB] New best heuristic value for ff: 29
+[t=4.14366s, 18452 KB] g=486, 6213 evaluated, 6212 expanded
+[t=4.14411s, 18452 KB] New best heuristic value for ff: 28
+[t=4.14973s, 18452 KB] g=489, 6220 evaluated, 6219 expanded
+[t=4.15063s, 18452 KB] New best heuristic value for ff: 27
+[t=4.15348s, 18452 KB] g=492, 6225 evaluated, 6224 expanded
+[t=4.15379s, 18452 KB] New best heuristic value for ff: 26
+[t=4.15913s, 18452 KB] g=496, 6232 evaluated, 6231 expanded
+[t=4.33768s, 18452 KB] New best heuristic value for ff: 25
+[t=4.3457s, 18452 KB] g=570, 6492 evaluated, 6491 expanded
+[t=4.34601s, 18452 KB] New best heuristic value for ff: 24
+[t=4.35077s, 18452 KB] g=575, 6500 evaluated, 6499 expanded
+[t=4.35107s, 18452 KB] New best heuristic value for ff: 23
+[t=4.3536s, 18452 KB] g=578, 6504 evaluated, 6503 expanded
+[t=4.35379s, 18452 KB] New best heuristic value for ff: 22
+[t=4.35654s, 18452 KB] g=581, 6509 evaluated, 6508 expanded
+[t=4.35684s, 18452 KB] New best heuristic value for ff: 21
+[t=4.3604s, 18452 KB] g=584, 6515 evaluated, 6514 expanded
+[t=4.36057s, 18452 KB] New best heuristic value for ff: 20
+[t=4.36779s, 18452 KB] g=592, 6528 evaluated, 6527 expanded
+[t=4.36809s, 18452 KB] New best heuristic value for ff: 19
+[t=4.37073s, 18452 KB] g=595, 6533 evaluated, 6532 expanded
+[t=4.37117s, 18452 KB] New best heuristic value for ff: 18
+[t=4.37378s, 18452 KB] g=598, 6537 evaluated, 6536 expanded
+[t=4.3748s, 18452 KB] New best heuristic value for ff: 17
+[t=4.37765s, 18452 KB] g=601, 6542 evaluated, 6541 expanded
+[t=4.37801s, 18452 KB] New best heuristic value for ff: 16
+[t=4.38127s, 18452 KB] g=604, 6547 evaluated, 6546 expanded
+[t=4.38162s, 18452 KB] New best heuristic value for ff: 15
+[t=4.38507s, 18452 KB] g=607, 6552 evaluated, 6551 expanded
+[t=4.38543s, 18452 KB] New best heuristic value for ff: 14
+[t=4.38863s, 18452 KB] g=610, 6557 evaluated, 6556 expanded
+[t=4.38888s, 18452 KB] New best heuristic value for ff: 13
+[t=4.39187s, 18452 KB] g=613, 6562 evaluated, 6561 expanded
+[t=4.39234s, 18452 KB] New best heuristic value for ff: 12
+[t=4.39525s, 18452 KB] g=616, 6567 evaluated, 6566 expanded
+[t=4.39546s, 18452 KB] New best heuristic value for ff: 11
+[t=4.39832s, 18452 KB] g=619, 6572 evaluated, 6571 expanded
+[t=4.39869s, 18452 KB] New best heuristic value for ff: 10
+[t=4.4016s, 18452 KB] g=622, 6577 evaluated, 6576 expanded
+[t=4.40195s, 18452 KB] New best heuristic value for ff: 9
+[t=4.40484s, 18452 KB] g=625, 6582 evaluated, 6581 expanded
+[t=4.40522s, 18452 KB] New best heuristic value for ff: 8
+[t=4.40788s, 18452 KB] g=628, 6587 evaluated, 6586 expanded
+[t=4.40825s, 18452 KB] New best heuristic value for ff: 7
+[t=4.41113s, 18452 KB] g=631, 6592 evaluated, 6591 expanded
+[t=4.41145s, 18452 KB] New best heuristic value for ff: 6
+[t=4.41418s, 18452 KB] g=634, 6597 evaluated, 6596 expanded
+[t=4.41484s, 18452 KB] New best heuristic value for ff: 5
+[t=4.41737s, 18452 KB] g=637, 6602 evaluated, 6601 expanded
+[t=4.4177s, 18452 KB] New best heuristic value for ff: 4
+[t=4.42039s, 18452 KB] g=640, 6607 evaluated, 6606 expanded
+[t=4.42166s, 18452 KB] New best heuristic value for ff: 3
+[t=4.42265s, 18452 KB] g=643, 6610 evaluated, 6609 expanded
+[t=4.42303s, 18452 KB] New best heuristic value for ff: 1
+[t=4.42417s, 18452 KB] g=645, 6612 evaluated, 6611 expanded
+[t=4.42451s, 18452 KB] Solution found!
+[t=4.42503s, 18452 KB] Actual search time: 4.03865s
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n9 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n10 n5 (1)
+inca_avatar_collectresource inca_5_10 avatar n5 n10 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n10 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n10 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n11 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n11 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n11 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n4 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n4 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n13 n4 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n13 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n13 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n1 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n1 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n1 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n1 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n1 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n1 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n1 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n1 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n1 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n22 n1 n2 (1)
+incb_avatar_collectresourceifheld incb_22_2 avatar n22 n2 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n2 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n21 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n1 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n1 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n1 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n1 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n1 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n1 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n1 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n1 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n1 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n2 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n11 n2 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n3 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n4 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n4 n4 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n3 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n3 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n1 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n1 n4 (1)
+incc_avatar_collectresourceifheld incc_4_1 avatar n4 n1 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n1 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n1 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n2 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n3 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n3 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n3 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n3 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n3 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n3 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n3 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n3 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n3 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n3 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n6 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n6 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n6 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n6 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n17 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n7 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n7 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n7 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n7 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n7 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n22 n7 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n23 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n23 n8 n24 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n24 n8 n25 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n25 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n25 n9 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n25 n10 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n25 n11 n24 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n24 n11 n23 (1)
+incd_avatar_collectresourceifheld incd_23_11 avatar n23 n11 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n23 n11 n24 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n24 n11 n25 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n25 n11 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n25 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n25 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n25 n8 n24 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n24 n8 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n23 n7 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n7 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n7 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n7 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n7 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n7 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n7 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n7 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n7 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n7 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n7 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n4 n7 n6 (1)
+ince_avatar_collectresourceifheld ince_4_6 avatar n4 n6 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n6 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n7 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n7 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n7 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n7 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n7 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n7 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n7 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n7 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n7 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n7 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n22 n7 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n23 n7 n24 (1)
+incf_avatar_collectresourceifheld incf_24_7 avatar n24 n7 n0 n1 (1)
+[t=4.75712s, 18452 KB] Plan length: 646 step(s).
+[t=4.75743s, 18452 KB] Plan cost: 646
+[t=4.7577s, 18452 KB] Expanded 6612 state(s).
+[t=4.758s, 18452 KB] Reopened 0 state(s).
+[t=4.75829s, 18452 KB] Evaluated 6613 state(s).
+[t=4.75857s, 18452 KB] Evaluations: 13226
+[t=4.75886s, 18452 KB] Generated 14177 state(s).
+[t=4.75915s, 18452 KB] Dead ends: 0 state(s).
+[t=4.75948s, 18452 KB] Number of registered states: 6613
+[t=4.75977s, 18452 KB] Int hash set load factor: 6613/8192 = 0.807251
+[t=4.76007s, 18452 KB] Int hash set resizes: 13
+[t=4.7604s, 18452 KB] Best solution cost so far: 646
+[t=4.76069s, 18452 KB] Solution found - keep searching
+[t=4.76099s, 18452 KB] Building successor generator...done!
+[t=4.76191s, 18452 KB] peak memory difference for successor generator creation: 0 KB
+[t=4.76228s, 18452 KB] time for successor generation creation: 0s
+[t=4.76263s, 18452 KB] Variables: 719
+[t=4.76303s, 18452 KB] FactPairs: 1600
+[t=4.76338s, 18452 KB] Bytes per state: 96
+[t=4.76373s, 18452 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 5)
+[t=4.76408s, 18452 KB] Conducting lazy best first search, (real) bound = 646
+[t=4.7644s, 18452 KB] 7 initial landmarks, 1 goal landmarks
+[t=4.76472s, 18452 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=4.76569s, 18452 KB] New best heuristic value for ff: 77
+[t=4.76601s, 18452 KB] g=0, 1 evaluated, 0 expanded
+[t=4.76633s, 18452 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=4.76671s, 18452 KB] Initial heuristic value for ff: 77
+[t=4.77636s, 18452 KB] New best heuristic value for ff: 75
+[t=4.78054s, 18452 KB] g=6, 21 evaluated, 20 expanded
+[t=4.79471s, 18452 KB] New best heuristic value for ff: 71
+[t=4.79783s, 18452 KB] g=7, 48 evaluated, 47 expanded
+[t=4.80284s, 18452 KB] New best heuristic value for ff: 66
+[t=4.8044s, 18452 KB] g=12, 57 evaluated, 56 expanded
+[t=4.92136s, 18452 KB] New best heuristic value for ff: 65
+[t=4.929s, 18452 KB] g=24, 269 evaluated, 268 expanded, 14 reopened
+[t=4.92984s, 18452 KB] New best heuristic value for ff: 63
+[t=4.93112s, 18452 KB] g=25, 271 evaluated, 270 expanded, 14 reopened
+[t=4.93141s, 18452 KB] New best heuristic value for ff: 62
+[t=4.93235s, 18452 KB] g=26, 272 evaluated, 271 expanded, 14 reopened
+[t=4.93266s, 18452 KB] New best heuristic value for ff: 61
+[t=4.93369s, 18452 KB] g=27, 273 evaluated, 272 expanded, 14 reopened
+[t=5.02556s, 18452 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=5.0287s, 18452 KB] g=37, 448 evaluated, 447 expanded, 34 reopened
+[t=5.02902s, 18452 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=5.03269s, 18452 KB] g=40, 454 evaluated, 453 expanded, 34 reopened
+[t=6.46239s, 18452 KB] New best heuristic value for ff: 60
+[t=6.47097s, 18452 KB] g=115, 3093 evaluated, 3092 expanded, 334 reopened
+[t=6.4713s, 18452 KB] New best heuristic value for ff: 59
+[t=6.473s, 18452 KB] g=116, 3095 evaluated, 3094 expanded, 334 reopened
+[t=6.4733s, 18452 KB] New best heuristic value for ff: 58
+[t=6.47473s, 18452 KB] g=117, 3097 evaluated, 3096 expanded, 334 reopened
+[t=6.47505s, 18452 KB] New best heuristic value for ff: 57
+[t=6.47648s, 18452 KB] g=118, 3099 evaluated, 3098 expanded, 334 reopened
+[t=8.22664s, 18452 KB] New best heuristic value for ff: 56
+[t=8.23534s, 18452 KB] g=195, 6407 evaluated, 6406 expanded, 794 reopened
+[t=8.23566s, 18452 KB] New best heuristic value for ff: 55
+[t=8.23666s, 18452 KB] g=196, 6408 evaluated, 6407 expanded, 794 reopened
+[t=8.23696s, 18452 KB] New best heuristic value for ff: 53
+[t=8.23797s, 18452 KB] g=197, 6409 evaluated, 6408 expanded, 794 reopened
+[t=8.26227s, 18452 KB] New best heuristic value for ff: 52
+[t=8.2657s, 18452 KB] g=196, 6457 evaluated, 6456 expanded, 798 reopened
+[t=8.26611s, 18452 KB] New best heuristic value for ff: 51
+[t=8.26724s, 18452 KB] g=197, 6458 evaluated, 6457 expanded, 798 reopened
+[t=8.29882s, 18452 KB] New best heuristic value for ff: 49
+[t=8.30207s, 18452 KB] g=201, 6516 evaluated, 6515 expanded, 805 reopened
+[t=8.30241s, 18452 KB] New best heuristic value for ff: 48
+[t=8.30401s, 18452 KB] g=201, 6518 evaluated, 6517 expanded, 805 reopened
+[t=8.30496s, 18452 KB] New best heuristic value for ff: 47
+[t=8.30547s, 18452 KB] g=202, 6519 evaluated, 6518 expanded, 805 reopened
+[t=8.3058s, 18452 KB] New best heuristic value for ff: 46
+[t=8.30686s, 18452 KB] g=203, 6520 evaluated, 6519 expanded, 805 reopened
+[t=9.76175s, 18452 KB] New best heuristic value for ff: 44
+[t=9.76465s, 18452 KB] g=307, 9328 evaluated, 9327 expanded, 1197 reopened
+[t=9.76501s, 18452 KB] New best heuristic value for ff: 43
+[t=9.76602s, 18452 KB] g=308, 9329 evaluated, 9328 expanded, 1197 reopened
+[t=9.76634s, 18452 KB] New best heuristic value for ff: 42
+[t=9.76838s, 18452 KB] g=311, 9333 evaluated, 9332 expanded, 1198 reopened
+[t=9.76867s, 18452 KB] New best heuristic value for ff: 41
+[t=9.76969s, 18452 KB] g=312, 9334 evaluated, 9333 expanded, 1198 reopened
+[t=9.77581s, 18452 KB] New best heuristic value for ff: 40
+[t=9.78258s, 18452 KB] g=315, 9361 evaluated, 9360 expanded, 1205 reopened
+[t=9.87403s, 18452 KB] New best heuristic value for ff: 39
+[t=9.88024s, 18452 KB] g=354, 9540 evaluated, 9539 expanded, 1212 reopened
+[t=9.89245s, 18452 KB] New best heuristic value for ff: 36
+[t=9.89351s, 18452 KB] g=364, 9562 evaluated, 9561 expanded, 1213 reopened
+[t=9.89382s, 18452 KB] New best heuristic value for ff: 35
+[t=9.89487s, 18452 KB] g=365, 9563 evaluated, 9562 expanded, 1213 reopened
+[t=9.8952s, 18452 KB] New best heuristic value for ff: 34
+[t=9.89614s, 18452 KB] g=366, 9564 evaluated, 9563 expanded, 1213 reopened
+[t=10.378s, 18572 KB] New best heuristic value for ff: 33
+[t=10.3784s, 18572 KB] g=399, 10485 evaluated, 10484 expanded, 1300 reopened
+[t=10.8066s, 18572 KB] New best heuristic value for ff: 32
+[t=10.8095s, 18572 KB] g=409, 11269 evaluated, 11268 expanded, 1370 reopened
+[t=10.8099s, 18572 KB] New best heuristic value for ff: 31
+[t=10.8137s, 18572 KB] g=412, 11275 evaluated, 11274 expanded, 1370 reopened
+[t=10.814s, 18572 KB] New best heuristic value for ff: 30
+[t=10.8174s, 18572 KB] g=415, 11280 evaluated, 11279 expanded, 1370 reopened
+[t=10.8177s, 18572 KB] New best heuristic value for ff: 29
+[t=10.8197s, 18572 KB] g=417, 11283 evaluated, 11282 expanded, 1370 reopened
+[t=10.8204s, 18572 KB] New best heuristic value for ff: 28
+[t=10.8228s, 18572 KB] g=420, 11287 evaluated, 11286 expanded, 1370 reopened
+[t=10.8231s, 18572 KB] New best heuristic value for ff: 27
+[t=10.8268s, 18572 KB] g=423, 11293 evaluated, 11292 expanded, 1370 reopened
+[t=10.8276s, 18572 KB] New best heuristic value for ff: 26
+[t=10.8315s, 18572 KB] g=427, 11300 evaluated, 11299 expanded, 1370 reopened
+[t=11.4961s, 18836 KB] New best heuristic value for ff: 25
+[t=11.4979s, 18836 KB] g=486, 12507 evaluated, 12506 expanded, 1461 reopened
+[t=11.5347s, 18836 KB] New best heuristic value for ff: 24
+[t=11.5419s, 18836 KB] g=491, 12590 evaluated, 12589 expanded, 1471 reopened
+[t=11.5434s, 18836 KB] New best heuristic value for ff: 23
+[t=11.5467s, 18836 KB] g=494, 12598 evaluated, 12597 expanded, 1471 reopened
+[t=11.5469s, 18836 KB] New best heuristic value for ff: 22
+[t=11.5486s, 18836 KB] g=497, 12601 evaluated, 12600 expanded, 1471 reopened
+[t=11.5505s, 18836 KB] New best heuristic value for ff: 21
+[t=11.552s, 18836 KB] g=500, 12606 evaluated, 12605 expanded, 1471 reopened
+[t=11.559s, 18836 KB] New best heuristic value for ff: 20
+[t=11.5593s, 18836 KB] g=508, 12619 evaluated, 12618 expanded, 1471 reopened
+[t=11.5596s, 18836 KB] New best heuristic value for ff: 19
+[t=11.5613s, 18836 KB] g=511, 12622 evaluated, 12621 expanded, 1471 reopened
+[t=11.5614s, 18836 KB] New best heuristic value for ff: 18
+[t=11.5638s, 18836 KB] g=514, 12626 evaluated, 12625 expanded, 1471 reopened
+[t=11.5649s, 18836 KB] New best heuristic value for ff: 17
+[t=11.5662s, 18836 KB] g=517, 12630 evaluated, 12629 expanded, 1471 reopened
+[t=11.5665s, 18836 KB] New best heuristic value for ff: 16
+[t=11.5688s, 18836 KB] g=520, 12634 evaluated, 12633 expanded, 1471 reopened
+[t=11.5691s, 18836 KB] New best heuristic value for ff: 15
+[t=11.5713s, 18836 KB] g=523, 12638 evaluated, 12637 expanded, 1471 reopened
+[t=11.5716s, 18836 KB] New best heuristic value for ff: 14
+[t=11.5739s, 18836 KB] g=526, 12642 evaluated, 12641 expanded, 1471 reopened
+[t=11.5741s, 18836 KB] New best heuristic value for ff: 13
+[t=11.5764s, 18836 KB] g=529, 12646 evaluated, 12645 expanded, 1471 reopened
+[t=11.5779s, 18836 KB] New best heuristic value for ff: 12
+[t=11.5789s, 18836 KB] g=532, 12650 evaluated, 12649 expanded, 1471 reopened
+[t=11.5792s, 18836 KB] New best heuristic value for ff: 11
+[t=11.5815s, 18836 KB] g=535, 12654 evaluated, 12653 expanded, 1471 reopened
+[t=11.5818s, 18836 KB] New best heuristic value for ff: 10
+[t=11.584s, 18836 KB] g=538, 12659 evaluated, 12658 expanded, 1472 reopened
+[t=11.5841s, 18836 KB] New best heuristic value for ff: 9
+[t=11.5862s, 18836 KB] g=541, 12665 evaluated, 12664 expanded, 1474 reopened
+[t=11.5865s, 18836 KB] New best heuristic value for ff: 8
+[t=11.5887s, 18836 KB] g=544, 12669 evaluated, 12668 expanded, 1474 reopened
+[t=11.5899s, 18836 KB] New best heuristic value for ff: 7
+[t=11.5912s, 18836 KB] g=547, 12673 evaluated, 12672 expanded, 1474 reopened
+[t=11.5915s, 18836 KB] New best heuristic value for ff: 6
+[t=11.5937s, 18836 KB] g=550, 12677 evaluated, 12676 expanded, 1474 reopened
+[t=11.594s, 18968 KB] New best heuristic value for ff: 5
+[t=11.5961s, 18968 KB] g=553, 12681 evaluated, 12680 expanded, 1474 reopened
+[t=11.5964s, 18968 KB] New best heuristic value for ff: 4
+[t=11.6009s, 18968 KB] g=556, 12689 evaluated, 12688 expanded, 1474 reopened
+[t=11.6032s, 18968 KB] New best heuristic value for ff: 3
+[t=11.6055s, 18968 KB] g=559, 12697 evaluated, 12696 expanded, 1474 reopened
+[t=11.6058s, 18968 KB] New best heuristic value for ff: 1
+[t=11.6081s, 18968 KB] g=561, 12701 evaluated, 12700 expanded, 1474 reopened
+[t=11.6084s, 18968 KB] Solution found!
+[t=11.6095s, 18968 KB] Actual search time: 6.84475s
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n9 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n10 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n10 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n10 n5 (1)
+inca_avatar_collectresource inca_5_10 avatar n5 n10 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n8 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n8 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n9 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n7 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n7 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n7 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n7 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n16 n4 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n3 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n3 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n3 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n3 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n3 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n3 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n22 n3 n2 (1)
+incb_avatar_collectresourceifheld incb_22_2 avatar n22 n2 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n22 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n1 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n1 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n1 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n1 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n1 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n1 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n1 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n1 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n1 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n1 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n12 n2 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n3 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n3 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n3 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n3 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n3 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n3 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n3 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n3 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n3 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n1 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n1 n4 (1)
+incc_avatar_collectresourceifheld incc_4_1 avatar n4 n1 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n1 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n1 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n2 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n3 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n3 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n3 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n3 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n3 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n9 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n10 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n11 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n12 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n12 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n12 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n12 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n12 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n12 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n12 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n12 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n12 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n12 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n12 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n12 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n12 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n12 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n22 n12 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n12 n11 (1)
+incd_avatar_collectresourceifheld incd_23_11 avatar n23 n11 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n23 n11 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n23 n12 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n12 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n12 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n12 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n12 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n12 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n12 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n12 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n12 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n12 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n12 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n12 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n12 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n12 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n12 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n12 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n12 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n11 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n7 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n7 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n4 n7 n6 (1)
+ince_avatar_collectresourceifheld ince_4_6 avatar n4 n6 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n6 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n6 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n7 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n7 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n7 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n7 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n7 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n7 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n7 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n7 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n7 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n7 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n22 n7 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n23 n7 n24 (1)
+incf_avatar_collectresourceifheld incf_24_7 avatar n24 n7 n0 n1 (1)
+[t=11.8905s, 18968 KB] Plan length: 544 step(s).
+[t=11.891s, 18968 KB] Plan cost: 544
+[t=11.8913s, 18968 KB] Expanded 12702 state(s).
+[t=11.8915s, 18968 KB] Reopened 1474 state(s).
+[t=11.8918s, 18968 KB] Evaluated 12703 state(s).
+[t=11.8922s, 18968 KB] Evaluations: 23932
+[t=11.8925s, 18968 KB] Generated 27655 state(s).
+[t=11.8928s, 18968 KB] Dead ends: 0 state(s).
+[t=11.8931s, 18968 KB] Number of registered states: 11229
+[t=11.8935s, 18968 KB] Int hash set load factor: 11229/16384 = 0.685364
+[t=11.8938s, 18968 KB] Int hash set resizes: 14
+[t=11.8941s, 18968 KB] Best solution cost so far: 544
+[t=11.8945s, 18968 KB] Solution found - keep searching
+[t=11.8948s, 18968 KB] Building successor generator...done!
+[t=11.8961s, 18968 KB] peak memory difference for successor generator creation: 0 KB
+[t=11.8965s, 18968 KB] time for successor generation creation: 0s
+[t=11.8967s, 18968 KB] Variables: 719
+[t=11.8972s, 18968 KB] FactPairs: 1600
+[t=11.8975s, 18968 KB] Bytes per state: 96
+[t=11.8978s, 18968 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 3)
+[t=11.8982s, 18968 KB] Conducting lazy best first search, (real) bound = 544
+[t=11.8986s, 18968 KB] 7 initial landmarks, 1 goal landmarks
+[t=11.8988s, 18968 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=11.8999s, 18968 KB] New best heuristic value for ff: 77
+[t=11.9003s, 18968 KB] g=0, 1 evaluated, 0 expanded
+[t=11.9007s, 18968 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=11.901s, 18968 KB] Initial heuristic value for ff: 77
+[t=11.9084s, 18968 KB] New best heuristic value for ff: 75
+[t=11.9154s, 18968 KB] g=6, 21 evaluated, 20 expanded
+[t=11.9368s, 18968 KB] New best heuristic value for ff: 71
+[t=11.9374s, 18968 KB] g=7, 55 evaluated, 54 expanded, 2 reopened
+[t=11.9453s, 18968 KB] New best heuristic value for ff: 66
+[t=11.9477s, 18968 KB] g=12, 70 evaluated, 69 expanded, 2 reopened
+[t=12.084s, 18968 KB] New best heuristic value for ff: 65
+[t=12.0882s, 18968 KB] g=24, 309 evaluated, 308 expanded, 17 reopened
+[t=12.0885s, 18968 KB] New best heuristic value for ff: 63
+[t=12.0901s, 18968 KB] g=25, 311 evaluated, 310 expanded, 17 reopened
+[t=12.0904s, 18968 KB] New best heuristic value for ff: 62
+[t=12.0913s, 18968 KB] g=26, 312 evaluated, 311 expanded, 17 reopened
+[t=12.0916s, 18968 KB] New best heuristic value for ff: 61
+[t=12.0927s, 18968 KB] g=27, 313 evaluated, 312 expanded, 17 reopened
+[t=12.2873s, 18968 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=12.2929s, 18968 KB] g=37, 673 evaluated, 672 expanded, 54 reopened
+[t=12.2932s, 18968 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=12.295s, 18968 KB] g=40, 676 evaluated, 675 expanded, 54 reopened
+[t=13.9041s, 18968 KB] New best heuristic value for ff: 60
+[t=13.9092s, 18968 KB] g=109, 3578 evaluated, 3577 expanded, 333 reopened
+[t=13.9095s, 18968 KB] New best heuristic value for ff: 59
+[t=13.9112s, 18968 KB] g=110, 3580 evaluated, 3579 expanded, 333 reopened
+[t=13.9115s, 18968 KB] New best heuristic value for ff: 58
+[t=13.9124s, 18968 KB] g=111, 3581 evaluated, 3580 expanded, 333 reopened
+[t=13.9128s, 18968 KB] New best heuristic value for ff: 57
+[t=13.9138s, 18968 KB] g=112, 3582 evaluated, 3581 expanded, 333 reopened
+[t=15.408s, 18968 KB] New best heuristic value for ff: 55
+[t=15.4133s, 18968 KB] g=184, 6481 evaluated, 6480 expanded, 790 reopened
+[t=15.4136s, 18968 KB] New best heuristic value for ff: 53
+[t=15.4158s, 18968 KB] g=186, 6484 evaluated, 6483 expanded, 790 reopened
+[t=15.416s, 18968 KB] New best heuristic value for ff: 52
+[t=15.4176s, 18968 KB] g=187, 6486 evaluated, 6485 expanded, 790 reopened
+[t=15.4179s, 18968 KB] New best heuristic value for ff: 51
+[t=15.4194s, 18968 KB] g=188, 6488 evaluated, 6487 expanded, 790 reopened
+[t=15.442s, 18968 KB] New best heuristic value for ff: 49
+[t=15.4456s, 18968 KB] g=192, 6536 evaluated, 6535 expanded, 794 reopened
+[t=15.4459s, 18968 KB] New best heuristic value for ff: 48
+[t=15.448s, 18968 KB] g=192, 6539 evaluated, 6538 expanded, 794 reopened
+[t=15.4491s, 18968 KB] New best heuristic value for ff: 47
+[t=15.4493s, 18968 KB] g=193, 6540 evaluated, 6539 expanded, 794 reopened
+[t=15.4496s, 18968 KB] New best heuristic value for ff: 46
+[t=15.4505s, 18968 KB] g=194, 6541 evaluated, 6540 expanded, 794 reopened
+[t=17.006s, 18968 KB] New best heuristic value for ff: 44
+[t=17.0145s, 18968 KB] g=292, 9227 evaluated, 9226 expanded, 1033 reopened
+[t=17.0148s, 18968 KB] New best heuristic value for ff: 43
+[t=17.0158s, 18968 KB] g=293, 9228 evaluated, 9227 expanded, 1033 reopened
+[t=17.0161s, 18968 KB] New best heuristic value for ff: 42
+[t=17.0177s, 18968 KB] g=293, 9230 evaluated, 9229 expanded, 1033 reopened
+[t=17.018s, 18968 KB] New best heuristic value for ff: 41
+[t=17.0196s, 18968 KB] g=294, 9232 evaluated, 9231 expanded, 1033 reopened
+[t=17.0199s, 18968 KB] New best heuristic value for ff: 40
+[t=17.0295s, 18968 KB] g=297, 9245 evaluated, 9244 expanded, 1033 reopened
+[t=17.1273s, 18968 KB] New best heuristic value for ff: 39
+[t=17.1315s, 18968 KB] g=309, 9399 evaluated, 9398 expanded, 1041 reopened
+[t=17.195s, 18968 KB] New best heuristic value for ff: 38
+[t=17.1981s, 18968 KB] g=318, 9519 evaluated, 9518 expanded, 1050 reopened
+[t=17.3834s, 18968 KB] New best heuristic value for ff: 36
+[t=17.3904s, 18968 KB] g=346, 9854 evaluated, 9853 expanded, 1092 reopened
+[t=17.3916s, 18968 KB] New best heuristic value for ff: 35
+[t=17.3918s, 18968 KB] g=347, 9855 evaluated, 9854 expanded, 1092 reopened
+[t=17.3921s, 18968 KB] New best heuristic value for ff: 34
+[t=17.3939s, 18968 KB] g=348, 9856 evaluated, 9855 expanded, 1092 reopened
+[t=17.9288s, 18968 KB] New best heuristic value for ff: 33
+[t=17.9315s, 18968 KB] g=369, 10811 evaluated, 10810 expanded, 1177 reopened
+[t=18.1466s, 18968 KB] New best heuristic value for ff: 32
+[t=18.1477s, 18968 KB] g=394, 11159 evaluated, 11158 expanded, 1186 reopened
+[t=18.1481s, 18968 KB] New best heuristic value for ff: 31
+[t=18.1522s, 18968 KB] g=397, 11166 evaluated, 11165 expanded, 1186 reopened
+[t=18.1536s, 18968 KB] New best heuristic value for ff: 30
+[t=18.1575s, 18968 KB] g=400, 11174 evaluated, 11173 expanded, 1187 reopened
+[t=18.1578s, 18968 KB] New best heuristic value for ff: 29
+[t=18.1598s, 18968 KB] g=402, 11177 evaluated, 11176 expanded, 1187 reopened
+[t=18.1601s, 18968 KB] New best heuristic value for ff: 28
+[t=18.1625s, 18968 KB] g=405, 11181 evaluated, 11180 expanded, 1187 reopened
+[t=18.1628s, 18968 KB] New best heuristic value for ff: 27
+[t=18.166s, 18968 KB] g=408, 11186 evaluated, 11185 expanded, 1187 reopened
+[t=18.1665s, 18968 KB] New best heuristic value for ff: 26
+[t=18.1698s, 18968 KB] g=412, 11192 evaluated, 11191 expanded, 1187 reopened
+[t=18.855s, 18968 KB] New best heuristic value for ff: 25
+[t=18.8595s, 18968 KB] g=471, 12359 evaluated, 12358 expanded, 1206 reopened
+[t=18.8935s, 18968 KB] New best heuristic value for ff: 24
+[t=18.8963s, 18968 KB] g=476, 12426 evaluated, 12425 expanded, 1216 reopened
+[t=18.8966s, 18968 KB] New best heuristic value for ff: 23
+[t=18.9007s, 18968 KB] g=479, 12433 evaluated, 12432 expanded, 1216 reopened
+[t=18.901s, 18968 KB] New best heuristic value for ff: 22
+[t=18.9056s, 18968 KB] g=482, 12441 evaluated, 12440 expanded, 1216 reopened
+[t=18.9083s, 18968 KB] New best heuristic value for ff: 21
+[t=18.9095s, 18968 KB] g=485, 12447 evaluated, 12446 expanded, 1216 reopened
+[t=18.9098s, 18968 KB] New best heuristic value for ff: 20
+[t=18.9167s, 18968 KB] g=490, 12459 evaluated, 12458 expanded, 1216 reopened
+[t=18.9169s, 18968 KB] New best heuristic value for ff: 19
+[t=18.9193s, 18968 KB] g=493, 12463 evaluated, 12462 expanded, 1216 reopened
+[t=18.9197s, 18968 KB] New best heuristic value for ff: 18
+[t=18.9225s, 18968 KB] g=496, 12468 evaluated, 12467 expanded, 1216 reopened
+[t=18.9227s, 18968 KB] New best heuristic value for ff: 17
+[t=18.9253s, 18968 KB] g=499, 12472 evaluated, 12471 expanded, 1216 reopened
+[t=18.9257s, 18968 KB] New best heuristic value for ff: 16
+[t=18.9281s, 18968 KB] g=502, 12476 evaluated, 12475 expanded, 1216 reopened
+[t=18.9287s, 18968 KB] New best heuristic value for ff: 15
+[t=18.9313s, 18968 KB] g=505, 12481 evaluated, 12480 expanded, 1216 reopened
+[t=18.9316s, 18968 KB] New best heuristic value for ff: 14
+[t=18.934s, 18968 KB] g=508, 12485 evaluated, 12484 expanded, 1216 reopened
+[t=18.9356s, 18968 KB] New best heuristic value for ff: 13
+[t=18.9365s, 18968 KB] g=511, 12489 evaluated, 12488 expanded, 1216 reopened
+[t=18.9368s, 18968 KB] New best heuristic value for ff: 12
+[t=18.9392s, 18968 KB] g=514, 12493 evaluated, 12492 expanded, 1216 reopened
+[t=18.9395s, 18968 KB] New best heuristic value for ff: 11
+[t=18.9417s, 18968 KB] g=517, 12497 evaluated, 12496 expanded, 1216 reopened
+[t=18.9418s, 18968 KB] New best heuristic value for ff: 10
+[t=18.9452s, 18968 KB] g=520, 12503 evaluated, 12502 expanded, 1216 reopened
+[t=18.949s, 18968 KB] New best heuristic value for ff: 9
+[t=18.9513s, 18968 KB] g=523, 12515 evaluated, 12514 expanded, 1218 reopened
+[t=18.9516s, 18968 KB] New best heuristic value for ff: 8
+[t=18.9539s, 18968 KB] g=526, 12519 evaluated, 12518 expanded, 1218 reopened
+[t=18.956s, 18968 KB] New best heuristic value for ff: 7
+[t=18.9582s, 18968 KB] g=529, 12527 evaluated, 12526 expanded, 1219 reopened
+[t=18.9585s, 18968 KB] New best heuristic value for ff: 6
+[t=18.9613s, 18968 KB] g=532, 12532 evaluated, 12531 expanded, 1219 reopened
+[t=18.9629s, 18968 KB] New best heuristic value for ff: 5
+[t=18.9639s, 18968 KB] g=535, 12536 evaluated, 12535 expanded, 1219 reopened
+[t=18.9642s, 18968 KB] New best heuristic value for ff: 4
+[t=18.9668s, 18968 KB] g=538, 12541 evaluated, 12540 expanded, 1219 reopened
+[t=18.9671s, 18968 KB] New best heuristic value for ff: 3
+[t=18.9698s, 18968 KB] g=541, 12546 evaluated, 12545 expanded, 1219 reopened
+[t=18.9701s, 18968 KB] New best heuristic value for ff: 1
+[t=18.9713s, 18968 KB] g=543, 12548 evaluated, 12547 expanded, 1219 reopened
+[t=23.106s, 19540 KB] Solution found!
+[t=23.1161s, 19540 KB] Actual search time: 11.2173s
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n13 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n5 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n5 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n5 n9 n10 (1)
+inca_avatar_collectresource inca_5_10 avatar n5 n10 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n5 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n7 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n7 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n7 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n15 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n15 n6 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n15 n5 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n15 n4 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n3 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n3 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n3 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n3 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n3 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n3 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n3 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n22 n3 n2 (1)
+incb_avatar_collectresourceifheld incb_22_2 avatar n22 n2 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n22 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n1 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n1 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n1 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n1 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n1 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n1 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n1 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n1 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n1 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n1 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n1 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n1 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n10 n2 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n3 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n3 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n3 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n3 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n3 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n3 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n3 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n1 n2 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n1 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n1 n4 (1)
+incc_avatar_collectresourceifheld incc_4_1 avatar n4 n1 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n4 n1 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n3 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n2 n1 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n1 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n1 n2 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n1 n3 n2 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n2 n3 n3 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n3 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n3 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n3 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n3 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n3 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n3 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n4 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n5 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n8 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n9 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n10 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n8 n11 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n12 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n12 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n12 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n12 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n12 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n12 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n12 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n12 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n12 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n12 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n12 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n12 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n12 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n12 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n22 n12 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n23 n12 n11 (1)
+incd_avatar_collectresourceifheld incd_23_11 avatar n23 n11 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n23 n11 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n23 n12 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n22 n12 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n21 n12 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n20 n12 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n19 n12 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n18 n12 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n17 n12 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n17 n11 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n17 n10 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n17 n9 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n17 n8 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_left avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n17 n7 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n16 n7 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n15 n7 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n14 n7 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n13 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n12 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n11 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n10 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n9 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n8 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n7 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n6 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_left avatar n5 n7 n4 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_up avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_up avatar n4 n7 n6 (1)
+ince_avatar_collectresourceifheld ince_4_6 avatar n4 n6 n0 n1 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_down avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_down avatar n4 n6 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_turn_right avatar (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n4 n7 n5 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n5 n7 n6 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n6 n7 n7 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n7 n7 n8 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n8 n7 n9 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n9 n7 n10 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n10 n7 n11 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n11 n7 n12 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n12 n7 n13 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n13 n7 n14 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n14 n7 n15 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n15 n7 n16 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n16 n7 n17 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n17 n7 n18 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n18 n7 n19 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n19 n7 n20 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n20 n7 n21 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n21 n7 n22 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n22 n7 n23 (1)
+end-turn-interactions  (1)
+end-turn-sprites  (1)
+avatar_action_move_right avatar n23 n7 n24 (1)
+incf_avatar_collectresourceifheld incf_24_7 avatar n24 n7 n0 n1 (1)
+[t=23.3655s, 19540 KB] Plan length: 532 step(s).
+[t=23.3659s, 19540 KB] Plan cost: 532
+[t=23.3663s, 19540 KB] Expanded 27035 state(s).
+[t=23.3667s, 19540 KB] Reopened 11867 state(s).
+[t=23.3672s, 19540 KB] Evaluated 27036 state(s).
+[t=23.3676s, 19540 KB] Evaluations: 42205
+[t=23.368s, 19540 KB] Generated 59188 state(s).
+[t=23.3686s, 19540 KB] Dead ends: 0 state(s).
+[t=23.369s, 19540 KB] Number of registered states: 15169
+[t=23.3694s, 19540 KB] Int hash set load factor: 15169/32768 = 0.462921
+[t=23.3698s, 19540 KB] Int hash set resizes: 15
+[t=23.3704s, 19540 KB] Best solution cost so far: 532
+[t=23.3708s, 19540 KB] Solution found - keep searching
+[t=23.3712s, 19540 KB] Building successor generator...done!
+[t=23.3726s, 19540 KB] peak memory difference for successor generator creation: 0 KB
+[t=23.3732s, 19540 KB] time for successor generation creation: 0s
+[t=23.3736s, 19540 KB] Variables: 719
+[t=23.3741s, 19540 KB] FactPairs: 1600
+[t=23.3745s, 19540 KB] Bytes per state: 96
+[t=23.375s, 19540 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 2)
+[t=23.3755s, 19540 KB] Conducting lazy best first search, (real) bound = 532
+[t=23.3759s, 19540 KB] 7 initial landmarks, 1 goal landmarks
+[t=23.3764s, 19540 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=23.3778s, 19540 KB] New best heuristic value for ff: 77
+[t=23.3782s, 19540 KB] g=0, 1 evaluated, 0 expanded
+[t=23.3787s, 19540 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=23.3792s, 19540 KB] Initial heuristic value for ff: 77
+[t=23.3894s, 19540 KB] New best heuristic value for ff: 75
+[t=23.3946s, 19540 KB] g=6, 21 evaluated, 20 expanded
+[t=23.4074s, 19540 KB] New best heuristic value for ff: 71
+[t=23.4139s, 19540 KB] g=7, 48 evaluated, 47 expanded
+[t=23.4157s, 19540 KB] New best heuristic value for ff: 66
+[t=23.4199s, 19540 KB] g=12, 55 evaluated, 54 expanded
+[t=23.5844s, 19540 KB] New best heuristic value for ff: 65
+[t=23.5866s, 19540 KB] g=24, 311 evaluated, 310 expanded, 14 reopened
+[t=23.5869s, 19540 KB] New best heuristic value for ff: 63
+[t=23.5888s, 19540 KB] g=25, 313 evaluated, 312 expanded, 14 reopened
+[t=23.5892s, 19540 KB] New best heuristic value for ff: 62
+[t=23.5906s, 19540 KB] g=26, 314 evaluated, 313 expanded, 14 reopened
+[t=23.5908s, 19540 KB] New best heuristic value for ff: 61
+[t=23.593s, 19540 KB] g=27, 316 evaluated, 315 expanded, 14 reopened
+[t=23.8778s, 19540 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=23.8821s, 19540 KB] g=37, 827 evaluated, 826 expanded, 60 reopened
+[t=23.8824s, 19540 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=23.8843s, 19540 KB] g=40, 830 evaluated, 829 expanded, 60 reopened
+[t=25.4348s, 19540 KB] New best heuristic value for ff: 60
+[t=25.4409s, 19540 KB] g=100, 3538 evaluated, 3537 expanded, 300 reopened
+[t=25.4412s, 19540 KB] New best heuristic value for ff: 59
+[t=25.4429s, 19540 KB] g=101, 3540 evaluated, 3539 expanded, 300 reopened
+[t=25.4432s, 19540 KB] New best heuristic value for ff: 58
+[t=25.4444s, 19540 KB] g=102, 3541 evaluated, 3540 expanded, 300 reopened
+[t=25.4447s, 19540 KB] New best heuristic value for ff: 57
+[t=25.4459s, 19540 KB] g=103, 3542 evaluated, 3541 expanded, 300 reopened
+[t=27.6279s, 19540 KB] New best heuristic value for ff: 55
+[t=27.6307s, 19540 KB] g=175, 6389 evaluated, 6388 expanded, 651 reopened
+[t=27.6311s, 19540 KB] New best heuristic value for ff: 53
+[t=27.6345s, 19540 KB] g=177, 6394 evaluated, 6393 expanded, 651 reopened
+[t=27.6354s, 19540 KB] New best heuristic value for ff: 52
+[t=27.6359s, 19540 KB] g=178, 6395 evaluated, 6394 expanded, 651 reopened
+[t=27.6362s, 19540 KB] New best heuristic value for ff: 51
+[t=27.6373s, 19540 KB] g=179, 6396 evaluated, 6395 expanded, 651 reopened
+[t=27.6629s, 19540 KB] New best heuristic value for ff: 49
+[t=27.6663s, 19540 KB] g=183, 6444 evaluated, 6443 expanded, 654 reopened
+[t=27.6667s, 19540 KB] New best heuristic value for ff: 48
+[t=27.6684s, 19540 KB] g=183, 6446 evaluated, 6445 expanded, 654 reopened
+[t=27.6694s, 19540 KB] New best heuristic value for ff: 47
+[t=27.6697s, 19540 KB] g=184, 6447 evaluated, 6446 expanded, 654 reopened
+[t=27.67s, 19540 KB] New best heuristic value for ff: 46
+[t=27.6709s, 19540 KB] g=185, 6448 evaluated, 6447 expanded, 654 reopened
+[t=29.4364s, 19540 KB] New best heuristic value for ff: 44
+[t=29.4396s, 19540 KB] g=283, 9009 evaluated, 9008 expanded, 831 reopened
+[t=29.44s, 19540 KB] New best heuristic value for ff: 43
+[t=29.4409s, 19540 KB] g=284, 9010 evaluated, 9009 expanded, 831 reopened
+[t=29.4412s, 19540 KB] New best heuristic value for ff: 42
+[t=29.4429s, 19540 KB] g=284, 9012 evaluated, 9011 expanded, 831 reopened
+[t=29.4433s, 19540 KB] New best heuristic value for ff: 41
+[t=29.4452s, 19540 KB] g=285, 9014 evaluated, 9013 expanded, 831 reopened
+[t=29.4602s, 19540 KB] New best heuristic value for ff: 40
+[t=29.4605s, 19540 KB] g=288, 9033 evaluated, 9032 expanded, 831 reopened
+[t=29.5487s, 19540 KB] New best heuristic value for ff: 39
+[t=29.5545s, 19540 KB] g=300, 9172 evaluated, 9171 expanded, 835 reopened
+[t=29.6069s, 19540 KB] New best heuristic value for ff: 38
+[t=29.6106s, 19540 KB] g=309, 9263 evaluated, 9262 expanded, 839 reopened
+[t=30.1153s, 19540 KB] New best heuristic value for ff: 36
+[t=30.1164s, 19540 KB] g=340, 10131 evaluated, 10130 expanded, 911 reopened
+[t=30.1167s, 19540 KB] New best heuristic value for ff: 35
+[t=30.1184s, 19540 KB] g=341, 10133 evaluated, 10132 expanded, 911 reopened
+[t=30.1187s, 19540 KB] New best heuristic value for ff: 34
+[t=30.1203s, 19540 KB] g=342, 10135 evaluated, 10134 expanded, 911 reopened
+[t=30.3902s, 19540 KB] New best heuristic value for ff: 33
+[t=30.3974s, 19540 KB] g=360, 10616 evaluated, 10615 expanded, 937 reopened
+[t=30.5886s, 19540 KB] New best heuristic value for ff: 32
+[t=30.5948s, 19540 KB] g=385, 10926 evaluated, 10925 expanded, 949 reopened
+[t=30.5971s, 19540 KB] New best heuristic value for ff: 31
+[t=30.6003s, 19540 KB] g=388, 10935 evaluated, 10934 expanded, 951 reopened
+[t=30.6056s, 19540 KB] New best heuristic value for ff: 30
+[t=30.6115s, 19540 KB] g=384, 10953 evaluated, 10952 expanded, 951 reopened
+[t=30.6136s, 19540 KB] New best heuristic value for ff: 29
+[t=30.6149s, 19540 KB] g=387, 10957 evaluated, 10956 expanded, 951 reopened
+[t=30.6152s, 19540 KB] New best heuristic value for ff: 28
+[t=30.6194s, 19540 KB] g=390, 10963 evaluated, 10962 expanded, 951 reopened
+[t=30.6207s, 19540 KB] New best heuristic value for ff: 27
+[t=30.6245s, 19540 KB] g=393, 10970 evaluated, 10969 expanded, 951 reopened
+[t=30.6289s, 19540 KB] New best heuristic value for ff: 26
+[t=30.6363s, 19540 KB] g=397, 10988 evaluated, 10987 expanded, 953 reopened
+[t=31.6775s, 19540 KB] New best heuristic value for ff: 25
+[t=31.6825s, 19540 KB] g=462, 12146 evaluated, 12145 expanded, 963 reopened
+[t=31.7158s, 19540 KB] New best heuristic value for ff: 24
+[t=31.7222s, 19540 KB] g=467, 12192 evaluated, 12191 expanded, 967 reopened
+[t=31.7244s, 19540 KB] New best heuristic value for ff: 23
+[t=31.7252s, 19540 KB] g=470, 12196 evaluated, 12195 expanded, 967 reopened
+[t=31.7332s, 19540 KB] New best heuristic value for ff: 22
+[t=31.7347s, 19540 KB] g=473, 12208 evaluated, 12207 expanded, 967 reopened
+[t=31.735s, 19540 KB] New best heuristic value for ff: 21
+[t=31.74s, 19540 KB] g=476, 12213 evaluated, 12212 expanded, 967 reopened
+[t=31.7492s, 19540 KB] New best heuristic value for ff: 20
+[t=31.7546s, 19540 KB] g=481, 12233 evaluated, 12232 expanded, 967 reopened
+[t=31.7576s, 19540 KB] New best heuristic value for ff: 19
+[t=31.7626s, 19540 KB] g=484, 12242 evaluated, 12241 expanded, 967 reopened
+[t=31.7662s, 19540 KB] New best heuristic value for ff: 18
+[t=31.7709s, 19540 KB] g=487, 12250 evaluated, 12249 expanded, 967 reopened
+[t=31.7747s, 19540 KB] New best heuristic value for ff: 17
+[t=31.7779s, 19540 KB] g=490, 12257 evaluated, 12256 expanded, 967 reopened
+[t=31.7834s, 19540 KB] New best heuristic value for ff: 16
+[t=31.7841s, 19540 KB] g=493, 12264 evaluated, 12263 expanded, 967 reopened
+[t=31.7845s, 19540 KB] New best heuristic value for ff: 15
+[t=31.7901s, 19540 KB] g=496, 12271 evaluated, 12270 expanded, 967 reopened
+[t=31.7904s, 19540 KB] New best heuristic value for ff: 14
+[t=31.7974s, 19540 KB] g=499, 12280 evaluated, 12279 expanded, 967 reopened
+[t=31.7981s, 19540 KB] New best heuristic value for ff: 13
+[t=31.8027s, 19540 KB] g=502, 12286 evaluated, 12285 expanded, 967 reopened
+[t=31.8061s, 19540 KB] New best heuristic value for ff: 12
+[t=31.8097s, 19540 KB] g=505, 12295 evaluated, 12294 expanded, 967 reopened
+[t=31.8144s, 19540 KB] New best heuristic value for ff: 11
+[t=31.816s, 19540 KB] g=508, 12303 evaluated, 12302 expanded, 967 reopened
+[t=31.823s, 19540 KB] New best heuristic value for ff: 10
+[t=31.8252s, 19540 KB] g=511, 12312 evaluated, 12311 expanded, 967 reopened
+[t=31.8316s, 19540 KB] New best heuristic value for ff: 9
+[t=31.8353s, 19540 KB] g=514, 12321 evaluated, 12320 expanded, 967 reopened
+[t=31.8403s, 19540 KB] New best heuristic value for ff: 8
+[t=31.8415s, 19540 KB] g=517, 12330 evaluated, 12329 expanded, 967 reopened
+[t=31.8417s, 19540 KB] New best heuristic value for ff: 7
+[t=31.8485s, 19540 KB] g=520, 12339 evaluated, 12338 expanded, 967 reopened
+[t=31.8487s, 19540 KB] New best heuristic value for ff: 6
+[t=31.8545s, 19540 KB] g=523, 12348 evaluated, 12347 expanded, 967 reopened
+[t=31.8558s, 19540 KB] New best heuristic value for ff: 5
+[t=31.8606s, 19540 KB] g=526, 12357 evaluated, 12356 expanded, 967 reopened
+[t=31.864s, 19540 KB] New best heuristic value for ff: 4
+[t=31.8678s, 19540 KB] g=529, 12366 evaluated, 12365 expanded, 967 reopened
+[t=41.1612s, 19540 KB] New best heuristic value for ff: 3
+[t=41.1628s, 19540 KB] g=529, 23836 evaluated, 23835 expanded, 7434 reopened
+[t=41.1632s, 19540 KB] New best heuristic value for ff: 1
+[t=41.1643s, 19540 KB] g=531, 23838 evaluated, 23837 expanded, 7434 reopened
+[t=41.8979s, 19540 KB] Completely explored state space -- no solution!
+[t=41.9041s, 19540 KB] Actual search time: 18.5277s
+[t=41.9046s, 19540 KB] Expanded 25278 state(s).
+[t=41.9048s, 19540 KB] Reopened 7986 state(s).
+[t=41.9051s, 19540 KB] Evaluated 25278 state(s).
+[t=41.9054s, 19540 KB] Evaluations: 42570
+[t=41.9057s, 19540 KB] Generated 56151 state(s).
+[t=41.9061s, 19540 KB] Dead ends: 0 state(s).
+[t=41.9064s, 19540 KB] Number of registered states: 17292
+[t=41.9067s, 19540 KB] Int hash set load factor: 17292/32768 = 0.52771
+[t=41.907s, 19540 KB] Int hash set resizes: 15
+[t=41.9072s, 19540 KB] Best solution cost so far: 532
+[t=41.9076s, 19540 KB] No solution found - keep searching
+[t=41.908s, 19540 KB] Building successor generator...done!
+[t=41.9091s, 19540 KB] peak memory difference for successor generator creation: 0 KB
+[t=41.9095s, 19540 KB] time for successor generation creation: 0s
+[t=41.9098s, 19540 KB] Variables: 719
+[t=41.9103s, 19540 KB] FactPairs: 1600
+[t=41.9106s, 19540 KB] Bytes per state: 96
+[t=41.9109s, 19540 KB] Starting search: lazy_wastar(list(hff, hlm), preferred = list(hff, hlm), w = 1)
+[t=41.9112s, 19540 KB] Conducting lazy best first search, (real) bound = 532
+[t=41.9115s, 19540 KB] 7 initial landmarks, 1 goal landmarks
+[t=41.9118s, 19540 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=41.9128s, 19540 KB] New best heuristic value for ff: 77
+[t=41.9131s, 19540 KB] g=0, 1 evaluated, 0 expanded
+[t=41.9134s, 19540 KB] Initial heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 4
+[t=41.9137s, 19540 KB] Initial heuristic value for ff: 77
+[t=41.9269s, 19540 KB] New best heuristic value for ff: 75
+[t=41.9287s, 19540 KB] g=6, 23 evaluated, 22 expanded
+[t=41.945s, 19540 KB] New best heuristic value for ff: 71
+[t=41.9456s, 19540 KB] g=7, 49 evaluated, 48 expanded
+[t=41.9534s, 19540 KB] New best heuristic value for ff: 66
+[t=41.9547s, 19540 KB] g=12, 62 evaluated, 61 expanded
+[t=42.222s, 19540 KB] New best heuristic value for ff: 65
+[t=42.2231s, 19540 KB] g=24, 429 evaluated, 428 expanded, 15 reopened
+[t=42.2235s, 19540 KB] New best heuristic value for ff: 63
+[t=42.2265s, 19540 KB] g=25, 431 evaluated, 430 expanded, 15 reopened
+[t=42.2268s, 19540 KB] New best heuristic value for ff: 62
+[t=42.2282s, 19540 KB] g=26, 432 evaluated, 431 expanded, 15 reopened
+[t=42.2285s, 19540 KB] New best heuristic value for ff: 61
+[t=42.2298s, 19540 KB] g=27, 433 evaluated, 432 expanded, 15 reopened
+[t=42.6959s, 19540 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 3
+[t=42.706s, 19540 KB] g=37, 1134 evaluated, 1133 expanded, 48 reopened
+[t=42.7063s, 19540 KB] New best heuristic value for lmcount(lm_rhw(reasonable_orders = true), pref = true): 1
+[t=42.7084s, 19540 KB] g=40, 1137 evaluated, 1136 expanded, 48 reopened
+[t=44.5428s, 19540 KB] New best heuristic value for ff: 60
+[t=44.5522s, 19540 KB] g=103, 4081 evaluated, 4080 expanded, 388 reopened
+[t=44.5525s, 19540 KB] New best heuristic value for ff: 59
+[t=44.5542s, 19540 KB] g=104, 4083 evaluated, 4082 expanded, 388 reopened
+[t=44.5545s, 19540 KB] New best heuristic value for ff: 58
+[t=44.5569s, 19540 KB] g=105, 4087 evaluated, 4086 expanded, 389 reopened
+[t=44.5572s, 19540 KB] New best heuristic value for ff: 57
+[t=44.5582s, 19540 KB] g=106, 4089 evaluated, 4088 expanded, 390 reopened
+[t=46.0068s, 19540 KB] New best heuristic value for ff: 56
+[t=46.0089s, 19540 KB] g=170, 6477 evaluated, 6476 expanded, 678 reopened
+[t=46.0092s, 19540 KB] New best heuristic value for ff: 55
+[t=46.0133s, 19540 KB] g=173, 6483 evaluated, 6482 expanded, 678 reopened
+[t=46.0136s, 19540 KB] New best heuristic value for ff: 54
+[t=46.0187s, 19540 KB] g=176, 6491 evaluated, 6490 expanded, 678 reopened
+[t=46.0518s, 19540 KB] New best heuristic value for ff: 53
+[t=46.0612s, 19540 KB] g=173, 6553 evaluated, 6552 expanded, 678 reopened
+[t=46.0615s, 19540 KB] New best heuristic value for ff: 50
+[t=46.0644s, 19540 KB] g=174, 6557 evaluated, 6556 expanded, 678 reopened
+[t=46.0647s, 19540 KB] New best heuristic value for ff: 49
+[t=46.0656s, 19540 KB] g=175, 6558 evaluated, 6557 expanded, 678 reopened
+[t=46.0671s, 19540 KB] New best heuristic value for ff: 48
+[t=46.0674s, 19540 KB] g=176, 6559 evaluated, 6558 expanded, 678 reopened
+[t=46.0677s, 19540 KB] New best heuristic value for ff: 47
+[t=46.0733s, 19540 KB] g=179, 6569 evaluated, 6568 expanded, 680 reopened
+[t=46.074s, 19540 KB] New best heuristic value for ff: 46
+[t=46.0788s, 19540 KB] g=182, 6576 evaluated, 6575 expanded, 680 reopened
+[t=47.6724s, 19540 KB] New best heuristic value for ff: 44
+[t=47.6791s, 19540 KB] g=280, 8960 evaluated, 8959 expanded, 794 reopened
+[t=47.6794s, 19540 KB] New best heuristic value for ff: 43
+[t=47.6804s, 19540 KB] g=281, 8961 evaluated, 8960 expanded, 794 reopened
+[t=47.6807s, 19540 KB] New best heuristic value for ff: 42
+[t=47.6824s, 19540 KB] g=281, 8963 evaluated, 8962 expanded, 794 reopened
+[t=47.6826s, 19540 KB] New best heuristic value for ff: 41
+[t=47.6842s, 19540 KB] g=282, 8965 evaluated, 8964 expanded, 794 reopened
+[t=47.696s, 19540 KB] New best heuristic value for ff: 40
+[t=47.7002s, 19540 KB] g=285, 8989 evaluated, 8988 expanded, 794 reopened
+[t=47.7746s, 19540 KB] New best heuristic value for ff: 39
+[t=47.7761s, 19540 KB] g=297, 9106 evaluated, 9105 expanded, 795 reopened
+[t=47.8331s, 19540 KB] New best heuristic value for ff: 38
+[t=47.8389s, 19540 KB] g=306, 9210 evaluated, 9209 expanded, 801 reopened
+[t=48.3517s, 19540 KB] New best heuristic value for ff: 36
+[t=48.3582s, 19540 KB] g=331, 10022 evaluated, 10021 expanded, 844 reopened
+[t=48.3586s, 19540 KB] New best heuristic value for ff: 35
+[t=48.3596s, 19540 KB] g=332, 10023 evaluated, 10022 expanded, 844 reopened
+[t=48.3599s, 19540 KB] New best heuristic value for ff: 34
+[t=48.3609s, 19540 KB] g=333, 10024 evaluated, 10023 expanded, 844 reopened
+[t=48.6971s, 19540 KB] New best heuristic value for ff: 33
+[t=48.7042s, 19540 KB] g=357, 10542 evaluated, 10541 expanded, 849 reopened
+[t=48.9055s, 19540 KB] New best heuristic value for ff: 32
+[t=48.908s, 19540 KB] g=379, 10846 evaluated, 10845 expanded, 851 reopened
+[t=48.9084s, 19540 KB] New best heuristic value for ff: 31
+[t=48.9117s, 19540 KB] g=380, 10850 evaluated, 10849 expanded, 851 reopened
+[t=48.9123s, 19540 KB] New best heuristic value for ff: 30
+[t=48.9189s, 19540 KB] g=381, 10860 evaluated, 10859 expanded, 851 reopened
+[t=48.9308s, 19540 KB] New best heuristic value for ff: 29
+[t=48.9355s, 19540 KB] g=384, 10885 evaluated, 10884 expanded, 851 reopened
+[t=48.9591s, 19540 KB] New best heuristic value for ff: 28
+[t=48.9609s, 19540 KB] g=387, 10920 evaluated, 10919 expanded, 851 reopened
+[t=48.9774s, 19540 KB] New best heuristic value for ff: 27
+[t=48.9824s, 19540 KB] g=390, 10949 evaluated, 10948 expanded, 851 reopened
+[t=49.0158s, 19540 KB] New best heuristic value for ff: 26
+[t=49.0232s, 19540 KB] g=394, 10993 evaluated, 10992 expanded, 851 reopened
+[t=49.9139s, 19540 KB] New best heuristic value for ff: 25
+[t=49.9194s, 19540 KB] g=459, 12053 evaluated, 12052 expanded, 851 reopened
+[t=49.9325s, 19540 KB] New best heuristic value for ff: 24
+[t=49.9384s, 19540 KB] g=464, 12080 evaluated, 12079 expanded, 851 reopened
+[t=49.9399s, 19540 KB] New best heuristic value for ff: 23
+[t=49.9426s, 19540 KB] g=467, 12086 evaluated, 12085 expanded, 851 reopened
+[t=49.9485s, 19540 KB] New best heuristic value for ff: 22
+[t=49.9493s, 19540 KB] g=470, 12094 evaluated, 12093 expanded, 851 reopened
+[t=49.9496s, 19540 KB] New best heuristic value for ff: 21
+[t=49.9557s, 19540 KB] g=473, 12103 evaluated, 12102 expanded, 851 reopened
+[t=49.9658s, 19540 KB] New best heuristic value for ff: 20
+[t=49.9685s, 19540 KB] g=478, 12123 evaluated, 12122 expanded, 851 reopened
+[t=49.9742s, 19540 KB] New best heuristic value for ff: 19
+[t=49.9753s, 19540 KB] g=481, 12131 evaluated, 12130 expanded, 851 reopened
+[t=49.9756s, 19540 KB] New best heuristic value for ff: 18
+[t=49.981s, 19540 KB] g=484, 12139 evaluated, 12138 expanded, 851 reopened
+[t=49.9813s, 19540 KB] New best heuristic value for ff: 17
+[t=49.9857s, 19540 KB] g=487, 12145 evaluated, 12144 expanded, 851 reopened
+[t=49.9893s, 19540 KB] New best heuristic value for ff: 16
+[t=49.9911s, 19540 KB] g=490, 12153 evaluated, 12152 expanded, 851 reopened
+[t=49.9915s, 19540 KB] New best heuristic value for ff: 15
+[t=49.997s, 19540 KB] g=493, 12162 evaluated, 12161 expanded, 851 reopened
+[t=49.9975s, 19540 KB] New best heuristic value for ff: 14
+[t=50.0038s, 19540 KB] g=496, 12171 evaluated, 12170 expanded, 851 reopened
+[t=50.0041s, 19540 KB] New best heuristic value for ff: 13
+[t=50.0098s, 19540 KB] g=499, 12180 evaluated, 12179 expanded, 851 reopened
+[t=50.0118s, 19540 KB] New best heuristic value for ff: 12
+[t=50.0167s, 19540 KB] g=502, 12189 evaluated, 12188 expanded, 851 reopened
+[t=50.0201s, 19540 KB] New best heuristic value for ff: 11
+[t=50.0227s, 19540 KB] g=505, 12198 evaluated, 12197 expanded, 851 reopened
+[t=50.0285s, 19540 KB] New best heuristic value for ff: 10
+[t=50.0297s, 19540 KB] g=508, 12207 evaluated, 12206 expanded, 851 reopened
+[t=50.03s, 19540 KB] New best heuristic value for ff: 9
+[t=50.0353s, 19540 KB] g=511, 12216 evaluated, 12215 expanded, 851 reopened
+[t=50.0356s, 19540 KB] New best heuristic value for ff: 8
+[t=50.0432s, 19540 KB] g=514, 12225 evaluated, 12224 expanded, 851 reopened
+[t=50.0438s, 19540 KB] New best heuristic value for ff: 7
+[t=50.05s, 19540 KB] g=517, 12234 evaluated, 12233 expanded, 851 reopened
+[t=50.0517s, 19540 KB] New best heuristic value for ff: 6
+[t=50.0564s, 19540 KB] g=520, 12243 evaluated, 12242 expanded, 851 reopened
+[t=50.0602s, 19540 KB] New best heuristic value for ff: 5
+[t=50.0622s, 19540 KB] g=523, 12252 evaluated, 12251 expanded, 851 reopened
+[t=50.0686s, 19540 KB] New best heuristic value for ff: 4
+[t=50.0696s, 19540 KB] g=526, 12261 evaluated, 12260 expanded, 851 reopened
+[t=50.0769s, 19540 KB] New best heuristic value for ff: 3
+[t=50.0779s, 19540 KB] g=529, 12270 evaluated, 12269 expanded, 851 reopened
+[t=50.0783s, 19540 KB] New best heuristic value for ff: 1
+[t=50.081s, 19540 KB] g=531, 12274 evaluated, 12273 expanded, 851 reopened
+[t=55.2135s, 19540 KB] Completely explored state space -- no solution!
+[t=55.2156s, 19540 KB] Actual search time: 13.3037s
+[t=55.2159s, 19540 KB] Expanded 20644 state(s).
+[t=55.2163s, 19540 KB] Reopened 3352 state(s).
+[t=55.2166s, 19540 KB] Evaluated 20644 state(s).
+[t=55.217s, 19540 KB] Evaluations: 37936
+[t=55.2174s, 19540 KB] Generated 45821 state(s).
+[t=55.2177s, 19540 KB] Dead ends: 0 state(s).
+[t=55.218s, 19540 KB] Number of registered states: 17292
+[t=55.2183s, 19540 KB] Int hash set load factor: 17292/32768 = 0.52771
+[t=55.2186s, 19540 KB] Int hash set resizes: 15
+[t=55.2191s, 19540 KB] Best solution cost so far: 532
+[t=55.2194s, 19540 KB] No solution found - keep searching
+[t=55.2196s, 19540 KB] Actual search time: 54.8372s
+[t=55.22s, 19540 KB] Cumulative statistics:
+[t=55.22s, 19540 KB] Expanded 92271 state(s).
+[t=55.22s, 19540 KB] Reopened 24679 state(s).
+[t=55.22s, 19540 KB] Evaluated 92274 state(s).
+[t=55.22s, 19540 KB] Evaluations: 159869
+[t=55.22s, 19540 KB] Generated 202992 state(s).
+[t=55.22s, 19540 KB] Dead ends: 0 state(s).
+[t=55.22s, 19540 KB] Search time: 54.8376s
+[t=55.22s, 19540 KB] Total time: 55.22s
+Solution found.
+Peak memory: 19540 KB
+Remove intermediate file output.sas
+search exit code: 0
+
