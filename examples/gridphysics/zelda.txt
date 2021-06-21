@@ -1,15 +1,15 @@
 BasicGame
   SpriteSet    
     floor > Immovable randomtiling=0.9 img=oryx/floor3 hidden=True
-    goal  > Door
-    key   > Resource limit=1
-    sword > OrientedFlicker limit=5
-    avatar  > ShootAvatar  stype=sword
+    goal  > Door color=GREEN img=oryx/doorclosed1
+    key   > Resource limit=1 color=ORANGE img=oryx/key2
+    sword > OrientedFlicker limit=5 singleton=True img=oryx/slash1
+    avatar  > ShootAvatar  stype=sword img=oryx/swordman1
     enemy >  
-      monsterQuick > RandomNPC
-      monsterNormal > RandomNPC
-      monsterSlow > RandomNPC
-    wall > Immovable
+      monsterQuick > RandomNPC cooldown=2 cons=6 img=oryx/bat1
+      monsterNormal > RandomNPC cooldown=4 cons=8 img=oryx/spider2
+      monsterSlow > RandomNPC cooldown=8 cons=12 img=oryx/scorpion1
+    wall > Immovable autotiling=true img=oryx/wall3
       	
 
   LevelMapping

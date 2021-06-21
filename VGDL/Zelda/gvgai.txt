@@ -4,7 +4,7 @@ BasicGame
     goal  > Door color=GREEN img=oryx/doorclosed1
     key   > Resource limit=1 color=ORANGE img=oryx/key2
     sword > OrientedFlicker limit=5 singleton=True img=oryx/slash1
-    avatar  > ShootAvatar  stype=sword framerate=8
+    avatar  > ShootAvatar  stype=sword framerate=8 img=oryx/swordman1
     enemy >  
       monsterQuick > RandomNPC cooldown=2 cons=6 img=oryx/bat1
       monsterNormal > RandomNPC cooldown=4 cons=8 img=oryx/spider2
