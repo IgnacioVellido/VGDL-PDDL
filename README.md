@@ -4,7 +4,9 @@
 
 A combination of [a planning based agent](https://github.com/Vol0kin/gvgai-pddl) with a [VGDL to PDDL parser](https://github.com/IgnacioVellido/VGDL-to-HTN-Parser) for the GVGAI framework. 
 
-In two simple steps you can have a perfectly (but unfortunately, slowly) running agent for a huge bunch of games (and following the VGDL convention, even your own!)
+In two simple steps you can have a perfect (but unfortunately, slow) running agent for a huge bunch of games (and following the VGDL convention, even your own!)
+
+>This project is being developed and partially funded by the Spanish MINECO R&D Project RTI2018-098460-B-I00 and the Junta de Andalucía Youth Guarantee programme.
 
 ## :wrench: Installation and usage
 
